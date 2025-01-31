@@ -1,0 +1,86 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Archives de Liens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://via.placeholder.com/1500x1000'); /* Remplace avec ton image de fond */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-top: 30px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        img {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .archive-container {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .links a {
+            text-decoration: none;font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-image: linear-gradient(to right, green, blue, red, white);
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: transform 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .links a:hover {
+            transform: scale(1.1);
+            color: yellow;
+        }
+
+        .links a:active {
+            transform: scale(0.9);
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GYKHAMINE</h1>
+
+    <img src="GCI.PNG" alt="Image de démonstration">
+
+    <div class="archive-container">
+        <div class="links">
+            <a href="https://www.example1.com" target="_blank">Lien Archive 1</a>
+            <a href="https://www.example2.com" target="_blank">Lien Archive 2</a>
+        </div>
+    </div>
+
+</body>
+</html>
+```
