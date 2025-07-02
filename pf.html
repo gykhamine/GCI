@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital PME Congo – Nos Réalisations</title>
+  <style>
+    /* Incluez ici le CSS de votre page d'accueil pour la cohérence */
+    /* RESET & BASE */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f0a;
+      color: #c8e6c9;
+      line-height: 1.6;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* HEADER - Ajusté pour les pages internes */
+    header {
+      background-color: #0a1b0a; /* Couleur de fond pour les en-têtes de pages internes */
+      padding: 40px 20px;
+      text-align: center;
+      color: #a5d6a7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 0 0 5px #2e7d32aa;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px #2e7d3288;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5088;
+    }
+
+    /* PORTFOLIO GRID */
+    .portfolio-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .project-card {
+      background-color: #122612;
+      border: 2px solid #4caf50;
+      border-radius: 14px;
+      width: 320px;
+      box-shadow: 0 0 12px #4caf5088;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden; /* Pour que l'image ne dépasse pas les bords arrondis */
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 14px 30px #4caf50cc;
+    }
+    .project-card img {
+      width: 100%;
+      height: 200px; /* Hauteur fixe pour les images */
+      object-fit: cover; /* Recadre l'image pour couvrir l'espace */
+      display: block;
+    }
+    .project-card-content {
+      padding: 15px 20px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-card h3 {
+      color: #a5d6a7;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .project-card p {
+      font-size: 1rem;
+      color: #d0e8d0;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+    .project-card .details-link {
+        display: block;
+        text-align: right;
+        margin-top: auto; /* Pousse le lien vers le bas */
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0a1b0a;
+      color: #568d56;
+      text-align: center;
+      padding: 18px 12px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .project-card {
+        width: 100%;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Nos Réalisations</h1>
+    <p>Découvrez nos projets réussis et la valeur que nous apportons.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="portfolio">
+    <h2>Nos Projets Clés</h2>
+    <div class="portfolio-grid">
+
+      <a href="project-detail-site-e-commerce.html" class="project-card">
+        <img src="https://via.placeholder.com/320x200?text=Projet+E-commerce" alt="Image du projet E-commerce">
+        <div class="project-card-content">
+          <h3>Boutique en Ligne "Tendances Africaines"</h3>
+          <p>Création d'une plateforme e-commerce sécurisée pour la vente de produits artisanaux locaux.</p>
+          <span class="details-link">En savoir plus &rarr;</span>
+        </div>
+      </a>
+
+      <a href="project-detail-app-mobile.html" class="project-card">
+        <img src="https://via.placeholder.com/320x200?text=Projet+App+Mobile" alt="Image du projet Application Mobile">
+        <div class="project-card-content">
+          <h3>Application de Suivi Logistique pour PME</h3>
+          <p>Développement d'une application mobile Android pour optimiser la gestion des livraisons.</p>
+          <span class="details-link">En savoir plus &rarr;</span>
+        </div>
+      </a>
+
+      <a href="project-detail-solution-ia.html" class="project-card">
+        <img src="https://via.placeholder.com/320x200?text=Projet+IA" alt="Image du projet Solution IA">
+        <div class="project-card-content">
+          <h3>Chatbot Intelligent pour Service Client</h3>
+          <p>Intégration d'un agent conversationnel IA pour automatiser les réponses aux FAQ.</p>
+          <span class="details-link">En savoir plus &rarr;</span>
+        </div>
+      </a>
+
+      <a href="project-detail-militaire.html" class="project-card">
+        <img src="https://via.placeholder.com/320x200?text=Projet+Militaire" alt="Image du projet Solution Militaire">
+        <div class="project-card-content">
+          <h3>Système de Gestion du Personnel Militaire</h3>
+          <p>Conception d'une solution sécurisée pour le suivi des effectifs et des accréditations.</p>
+          <span class="details-link">En savoir plus &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
