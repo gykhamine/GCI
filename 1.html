@@ -3,176 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Accueil - Services Numériques pour PME au Congo</title>
+  <title>Digital PME Congo – Solutions numériques pour PME</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background-color: #f4f6f8;
       color: #333;
     }
-
     header {
-      background-color: #005a87;
+      position: relative;
+      height: 60vh;
+      background: url('PHOTO_ENTREPRISE.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      padding: 60px 20px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    }
+    header .overlay {
+      position: absolute;
+      top:0; left:0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.4);
+    }
+    header .content {
+      position: relative;
       text-align: center;
+      z-index:1;
     }
+    header h1 { font-size: 3em; margin: 0; }
+    header p { font-size: 1.2em; margin-top: 10px; }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-
-    .section {
+    .container {
       max-width: 1100px;
       margin: auto;
       padding: 40px 20px;
     }
-
     .section h2 {
       color: #005a87;
       margin-bottom: 20px;
+      text-align: center;
     }
-
-    .services, .reasons {
+    .about, .services, .reasons {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
-
-    .card {
+    .about .text, .services .card, .reasons .card {
       background-color: white;
       flex: 1 1 300px;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
-
-    .card h3 {
+    .about .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .services .card h3, .reasons .card h3 {
       margin-top: 0;
     }
-
     .price {
-      color: green;
+      color: #008000;
       font-weight: bold;
+      margin-top: 10px;
+      font-size: 1.1em;
     }
-
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #005a87;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+    }
     form {
       background-color: white;
-      padding: 20px;
+      padding: 30px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
     }
-
     input, textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 20px;
+      padding: 12px;
+      margin: 10px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
+      font-size: 1em;
     }
-
     button {
       background-color: #005a87;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1em;
     }
-
     footer {
       background-color: #333;
       color: white;
       text-align: center;
       padding: 20px;
     }
-
-    @media screen and (max-width: 768px) {
-      .services, .reasons {
-        flex-direction: column;
-      }
+    @media (max-width: 768px) {
+      .about, .services, .reasons { flex-direction: column; }
+      header h1 { font-size: 2em; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Digital PME Congo</h1>
-  <p>Des solutions numériques abordables pour les petites entreprises congolaises</p>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>Digital PME Congo</h1>
+    <p>Boostez votre activité avec des solutions numériques sur mesure</p>
+    <a href="#contact" class="cta-btn">Contactez-nous</a>
+  </div>
 </header>
 
-<section class="section">
-  <h2>Qui sommes-nous ?</h2>
-  <p>
-    <strong>Digital PME Congo</strong> est une jeune entreprise tech spécialisée dans la création de sites web, d'applications mobiles,
-    et de solutions digitales simples et efficaces pour les petites et moyennes entreprises (PME) au Congo.
-    Notre mission : vous aider à développer votre visibilité, automatiser vos tâches, et moderniser votre gestion à prix accessible.
-  </p>
+<section class="container about">
+  <div class="text">
+    <h2>À propos de nous</h2>
+    <p><strong>Digital PME Congo</strong> est une agence tech passionnée par la transformation digitale des petites entreprises au Congo. Nous allions expertise, proximité et adaptation aux réalités locales pour vous offrir des solutions efficaces et abordables.</p>
+    <p>Nos valeurs : <strong>fiabilité</strong>, <strong>réactivité</strong>, <strong>proximité</strong> et <strong>innovation locale</strong>.</p>
+    <a href="#services" class="cta-btn">Voir nos services</a>
+  </div>
 </section>
 
-<section class="section">
+<section id="services" class="container">
   <h2>Nos services</h2>
   <div class="services">
     <div class="card">
       <h3>🌐 Site Vitrine</h3>
-      <p>Présentez votre entreprise en ligne avec un site professionnel simple.</p>
-      <p class="price">À partir de 60 000 FCFA</p>
+      <p>Présence en ligne avec design pro, mobile-friendly, formulaire et intégration WhatsApp.</p>
+      <p class="price">À partir de 60 000 FCFA</p>
     </div>
     <div class="card">
       <h3>🛍️ Site E-commerce</h3>
-      <p>Vendez vos produits en ligne avec intégration mobile money.</p>
-      <p class="price">150 000 – 300 000 FCFA</p>
+      <p>Vente en ligne avec paiement mobile-money et interface facile à gérer.</p>
+      <p class="price">150 000 – 300 000 FCFA</p>
     </div>
     <div class="card">
       <h3>📱 Application Mobile</h3>
-      <p>App Android personnalisée pour vos clients ou votre gestion.</p>
-      <p class="price">200 000 – 600 000 FCFA</p>
+      <p>App Android pour gérer commandes, réservations ou clientèle mobile.</p>
+      <p class="price">200 000 – 600 000 FCFA</p>
     </div>
     <div class="card">
-      <h3>📊 Logiciel de Gestion</h3>
-      <p>Gérez vos ventes, stock, factures ou employés avec efficacité.</p>
-      <p class="price">100 000 – 400 000 FCFA</p>
+      <h3>📊 Logiciel de gestion</h3>
+      <p>Système sur mesure pour factures, stock et clients, simple et efficace.</p>
+      <p class="price">100 000 – 400 000 FCFA</p>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Pourquoi nous choisir ?</h2>
+<section class="container">
+  <h2>Pourquoi choisir Digital PME Congo ?</h2>
   <div class="reasons">
-    <div class="card">
-      <h3>💼 Solutions adaptées</h3>
-      <p>Des services pensés pour les réalités locales et les budgets des PME.</p>
-    </div>
-    <div class="card">
-      <h3>💬 Support personnalisé</h3>
-      <p>Accompagnement, formation et assistance locale en français.</p>
-    </div>
-    <div class="card">
-      <h3>🚀 Réactivité</h3>
-      <p>Livraison rapide, service après-vente, et évolutions selon vos besoins.</p>
-    </div>
+    <div class="card"><h3>Expertise Locale</h3><p>Solutions adaptées au contexte congolais, y compris paiement mobile et réseaux sociaux locaux.</p></div>
+    <div class="card"><h3>Support Personnalisé</h3><p>Formation, assistance et maintenance en français, rapide et efficace.</p></div>
+    <div class="card"><h3>Tarifs Compétitifs</h3><p>Des prix accessibles pour les PME, avec paiements échelonnés possibles.</p></div>
+    <div class="card"><h3>Livraison Express</h3><p>Projet livré en quelques jours, avec possibilité de suivi et évolutions à venir.</p></div>
   </div>
 </section>
 
-<section class="section">
+<section id="contact" class="container">
   <h2>Contactez-nous</h2>
   <form>
     <label for="nom">Nom :</label>
     <input type="text" id="nom" name="nom" required>
-
+    
+    <label for="tel">Téléphone WhatsApp :</label>
+    <input type="tel" id="tel" name="tel" placeholder="+242 90 X XX XX XX" required>
+    
     <label for="email">Email :</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="message">Message :</label>
+    <label for="message">Votre message :</label>
     <textarea id="message" name="message" rows="5" required></textarea>
 
     <button type="submit">Envoyer</button>
@@ -180,7 +195,7 @@
 </section>
 
 <footer>
-  <p>&copy; 2025 Digital PME Congo | WhatsApp : +242 XXX XXX XXX | Email : contact@digitalpme.cg</p>
+  <p>&copy; 2025 Digital PME Congo | WhatsApp : +242 90 X XX XX XX | Email : contact@digitalpme.cg</p>
 </footer>
 
 </body>
