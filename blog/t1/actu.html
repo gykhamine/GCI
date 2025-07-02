@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital PME Congo – Catégorie : Cybersécurité</title>
+  <style>
+    /* Incluez ici le CSS de votre page d'accueil pour la cohérence */
+    /* N'oubliez pas les styles de base, header, footer, container, etc. */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f0a;
+      color: #c8e6c9;
+      line-height: 1.6;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    header {
+      background-color: #0a1b0a;
+      padding: 40px 20px;
+      text-align: center;
+      color: #a5d6a7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 0 0 5px #2e7d32aa;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px #2e7d3288;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5088;
+    }
+    
+    .blog-layout {
+        display: grid;
+        grid-template-columns: 1fr; /* Une colonne par défaut */
+        gap: 40px;
+    }
+    @media (min-width: 768px) {
+        .blog-layout {
+            grid-template-columns: 2fr 1fr; /* Contenu principal + sidebar */
+        }
+    }
+
+    .blog-posts-main {
+        /* Styles pour la colonne principale des articles */
+    }
+
+    .blog-sidebar {
+        background-color: #122612;
+        border-radius: 14px;
+        padding: 25px;
+        box-shadow: 0 0 12px #4caf5088;
+    }
+    .blog-sidebar h3 {
+        color: #a5d6a7;
+        font-size: 1.6rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .blog-sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    .blog-sidebar ul li {
+        margin-bottom: 10px;
+    }
+    .blog-sidebar ul li a {
+        display: block;
+        padding: 8px 10px;
+        background-color: #0a1b0a;
+        border-radius: 5px;
+        color: #d0e8d0;
+        transition: background-color 0.3s ease;
+    }
+    .blog-sidebar ul li a:hover {
+        background-color: #2e7d32;
+        text-decoration: none;
+    }
+
+    .article-card {
+        background-color: #122612;
+        border: 2px solid #4caf50;
+        border-radius: 14px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 0 12px #4caf5088;
+        display: flex;
+        flex-direction: column;
+    }
+    .article-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .article-card h3 {
+        color: #a5d6a7;
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+    .article-meta {
+        font-size: 0.95rem;
+        color: #81c784;
+        margin-bottom: 15px;
+    }
+    .article-meta span {
+        margin-right: 15px;
+    }
+    .article-card p {
+        font-size: 1.05rem;
+        color: #d0e8d0;
+        flex-grow: 1; /* Permet au paragraphe de prendre l'espace disponible */
+        margin-bottom: 20px;
+    }
+    .article-card .read-more {
+        display: inline-block;
+        color: #76ff03;
+        font-weight: bold;
+        margin-top: auto; /* Pousse le lien vers le bas */
+    }
+    .article-card .read-more:hover {
+        text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0a1b0a;
+      color: #568d56;
+      text-align: center;
+      padding: 18px 12px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Catégorie : Cybersécurité pour PME</h1>
+    <p>Protégez votre entreprise avec nos conseils et solutions en cybersécurité.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="category-posts">
+    <h2>Articles sur la Cybersécurité</h2>
+    <div class="blog-layout">
+      <div class="blog-posts-main">
+        <div class="article-card">
+          <img src="https://via.placeholder.com/800x250?text=5+Astuces+Cybersécurité" alt="Image pour 5 Astuces Cybersécurité">
+          <h3>5 Astuces Essentielles pour Renforcer la Cybersécurité de Votre PME</h3>
+          <p class="article-meta">
+            <span>📅 20 Juin 2025</span>
+            <span>🏷️ Cybersécurité, Protection des données, Sécurité réseau</span>
+          </p>
+          <p>La cybersécurité est un enjeu majeur pour toutes les entreprises, y compris les PME. Découvrez 5 mesures simples mais efficaces pour protéger vos actifs numériques...</p>
+          <a href="blog-post-cybersecurity.html" class="read-more">Lire la suite &rarr;</a>
+        </div>
+
+        <div class="article-card">
+          <img src="https://via.placeholder.com/800x250?text=Audit+Cyber+Digital+PME" alt="Image pour Audit Cybersécurité">
+          <h3>L'Importance d'un Audit de Cybersécurité Régulier pour les PME</h3>
+          <p class="article-meta">
+            <span>📅 5 Mai 2025</span>
+            <span>🏷️ Cybersécurité, Audit, Vulnérabilités</span>
+          </p>
+          <p>Un audit de cybersécurité permet d'identifier les faiblesses de votre système d'information avant qu'elles ne soient exploitées. Apprenez pourquoi c'est crucial...</p>
+          <a href="#" class="read-more">Lire la suite &rarr;</a>
+        </div>
+
+        <div class="article-card">
+            <img src="https://via.placeholder.com/800x250?text=Sensibilisation+Employes" alt="Image pour Sensibilisation Employés">
+            <h3>Sensibilisation des Employés : Votre Première Ligne de Défense Cyber</h3>
+            <p class="article-meta">
+              <span>📅 18 Mars 2025</span>
+              <span>🏷️ Cybersécurité, Formation, Risque humain</span>
+            </p>
+            <p>Les erreurs humaines sont souvent à l'origine des brèches de sécurité. Former vos employés aux bonnes pratiques est un investissement essentiel...</p>
+            <a href="#" class="read-more">Lire la suite &rarr;</a>
+          </div>
+
+        </div>
+
+      <aside class="blog-sidebar">
+        <h3>Catégories d'Articles</h3>
+        <ul>
+          <li><a href="category-ia.html">Intelligence Artificielle (5)</a></li>
+          <li><a href="category-developpement-web-mobile.html">Développement Web & Mobile (8)</a></li>
+          <li><a href="category-cybersecurite.html">Cybersécurité (3)</a></li>
+          <li><a href="category-conseils-pme.html">Conseils PME (12)</a></li>
+          <li><a href="category-actualites-digital-pme-congo.html">Actualités Digital PME Congo (2)</a></li>
+        </ul>
+
+        <h3>Articles Récents</h3>
+        <ul>
+            <li><a href="blog-post-ia-pme.html">Comment l'IA peut transformer votre PME...</a></li>
+            <li><a href="blog-post-cybersecurity.html">5 Astuces pour Renforcer la Cybersécurité...</a></li>
+            <li><a href="blog-post-site-vitrine-ecommerce.html">Choisir entre Site Vitrine et E-commerce...</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
