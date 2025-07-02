@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital PME Congo – Service : Recherche & Développement</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f0a;
+      color: #c8e6c9;
+      line-height: 1.6;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* HEADER - Ajusté pour les pages internes */
+    header {
+      background-color: #0a1b0a;
+      padding: 40px 20px;
+      text-align: center;
+      color: #a5d6a7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 0 0 5px #2e7d32aa;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px #2e7d3288;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5088;
+    }
+
+    /* SERVICE DETAIL CONTENT */
+    .service-content p, .service-content ul li {
+        font-size: 1.1rem;
+        color: #d0e8d0;
+        margin-bottom: 15px;
+    }
+    .service-content h3 {
+        color: #81c784;
+        font-size: 1.8rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 5px;
+    }
+    .service-content ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 30px;
+    }
+    .service-content ul li {
+        background-color: #122612;
+        border-left: 5px solid #4caf50;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+    .service-content ul li strong {
+        color: #a5d6a7;
+    }
+
+    .service-benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .benefit-card {
+        background-color: #122612;
+        border: 1px solid #4caf50;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+    }
+    .benefit-card h4 {
+        color: #a5d6a7;
+        font-size: 1.3rem;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .benefit-card p {
+        font-size: 1rem;
+        color: #c8e6c9;
+    }
+
+    .price-section {
+        background-color: #122612;
+        border: 2px dashed #76ff03;
+        border-radius: 14px;
+        padding: 25px;
+        text-align: center;
+        margin-top: 50px;
+        box-shadow: 0 0 15px rgba(118, 255, 3, 0.5);
+    }
+    .price-section p {
+        font-size: 1.3rem;
+        color: #d0e8d0;
+        margin-bottom: 15px;
+    }
+    .price-section strong {
+        color: #76ff03;
+        font-size: 1.8rem;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .call-to-action-section {
+        background-color: #122612;
+        border-radius: 14px;
+        padding: 32px 24px;
+        text-align: center;
+        box-shadow: 0 0 22px #4caf50aa;
+        margin-top: 60px;
+    }
+    .call-to-action-section p {
+        font-size: 1.25rem;
+        margin-bottom: 25px;
+        color: #c8e6c9;
+        font-weight: 500;
+    }
+    .call-to-action-section .btn {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 14px 30px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .call-to-action-section .btn:hover {
+        background-color: #388E3C;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0a1b0a;
+      color: #568d56;
+      text-align: center;
+      padding: 18px 12px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Recherche & Développement</h1>
+    <p>Concevez les solutions de demain : innovez et restez à la pointe de la technologie.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="service-recherche-developpement">
+    <div class="service-content">
+      <p>Pour les entreprises qui visent l'avenir et souhaitent se distinguer par l'innovation, la **Recherche & Développement (R&D)** est la clé. **Digital PME Congo** vous accompagne dans la conception et le développement de solutions numériques inédites, sur mesure, pour résoudre vos défis les plus complexes ou explorer de nouvelles opportunités de marché.</p>
+      <p>Notre équipe d'experts est dédiée à l'exploration des technologies émergentes et à la création de prototypes fonctionnels qui peuvent devenir vos prochains avantages concurrentiels majeurs.</p>
+
+      <h3>Pourquoi investir dans la R&D avec Digital PME Congo ?</h3>
+      <div class="service-benefits-grid">
+        <div class="benefit-card">
+          <h4>Avantage Concurrentiel</h4>
+          <p>Développez des produits ou services uniques qui vous placent en position de leader sur votre marché.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Optimisation Future</h4>
+          <p>Créez des solutions qui anticipent les besoins de demain et optimisent vos opérations sur le long terme.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Expertise Technologique</h4>
+          <p>Bénéficiez de notre connaissance des dernières innovations et des meilleures pratiques en développement.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Réduction des Risques d'Innovation</h4>
+          <p>Nous gérons le processus de R&D, de l'idée au prototype, en minimisant les incertitudes.</p>
+        </div>
+      </div>
+
+      <h3>Nos domaines d'expertise en R&D</h3>
+      <ul>
+        <li><strong>Étude de Faisabilité Technologique :</strong> Analyse de la viabilité technique et économique de vos idées innovantes.</li>
+        <li><strong>Conception de Prototypes :</strong> Développement de maquettes fonctionnelles et de preuves de concept pour valider vos innovations.</li>
+        <li><strong>Développement de Solutions sur Mesure :</strong> Création de logiciels, applications ou systèmes uniques pour des besoins très spécifiques.</li>
+        <li><strong>Exploration de Technologies Émergentes :</strong> Application de l'IA, de la blockchain, de l'IoT (Internet des Objets) ou de la réalité virtuelle/augmentée à vos cas d'usage.</li>
+        <li><strong>Optimisation de Processus Avancée :</strong> Recherche de méthodes innovantes pour automatiser ou améliorer des flux de travail complexes.</li>
+        <li><strong>Veille Technologique Stratégique :</strong> Surveillance constante des avancées technologiques pour vous conseiller sur les opportunités futures.</li>
+        <li><strong>Accompagnement à l'Innovation :</strong> Coaching et support pour structurer vos projets d'innovation interne.</li>
+      </ul>
+      
+      <div class="price-section">
+        <p>Prix :</p>
+        <strong>Sur étude & contrat</strong>
+        <p>Les projets de Recherche & Développement sont hautement personnalisés. Le coût est défini après une étude approfondie de la portée du projet, des ressources nécessaires et de la durée estimée de la recherche et du développement.</p>
+      </div>
+
+      <div class="call-to-action-section">
+        <p>Innovez pour construire l'avenir de votre entreprise !</p>
+        <a href="contact.html" class="btn">Lançons votre projet de R&D</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
