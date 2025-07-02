@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digital PME Congo – Solutions numériques pour PME</title>
+  <title>Digital PME Congo – Développement & IA</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f6f8;
-      color: #333;
+      background-color: #0e0e0e;
+      color: #f2f2f2;
     }
+
     header {
       position: relative;
       height: 60vh;
@@ -19,183 +19,172 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+      color: #a8f58f;
+      text-align: center;
     }
-    header .overlay {
+
+    header::before {
+      content: "";
       position: absolute;
-      top:0; left:0;
       width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.4);
+      top: 0; left: 0;
+      background: rgba(0,0,0,0.7);
     }
+
     header .content {
       position: relative;
-      text-align: center;
-      z-index:1;
+      z-index: 1;
     }
-    header h1 { font-size: 3em; margin: 0; }
-    header p { font-size: 1.2em; margin-top: 10px; }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
 
     .container {
       max-width: 1100px;
       margin: auto;
       padding: 40px 20px;
     }
-    .section h2 {
-      color: #005a87;
-      margin-bottom: 20px;
+
+    h2 {
+      color: #a8f58f;
       text-align: center;
+      margin-bottom: 30px;
     }
-    .about, .services, .reasons {
+
+    .card-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-    }
-    .about .text, .services .card, .reasons .card {
-      background-color: white;
-      flex: 1 1 300px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-    }
-    .about .text {
-      display: flex;
-      flex-direction: column;
       justify-content: center;
     }
-    .services .card h3, .reasons .card h3 {
-      margin-top: 0;
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2d2d2d;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      text-align: center;
     }
+
+    .card h3 {
+      color: #a8f58f;
+    }
+
     .price {
-      color: #008000;
+      color: #3df53d;
       font-weight: bold;
       margin-top: 10px;
-      font-size: 1.1em;
     }
-    .cta-btn {
-      display: inline-block;
-      margin-top: 20px;
-      background-color: #005a87;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 1em;
-    }
-    form {
-      background-color: white;
+
+    .contact-info {
+      background: #161616;
       padding: 30px;
+      text-align: center;
       border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: auto;
     }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1em;
+
+    .contact-info p {
+      font-size: 1.1em;
+      margin: 8px 0;
     }
-    button {
-      background-color: #005a87;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-    }
+
     footer {
-      background-color: #333;
-      color: white;
+      background: #000;
+      color: #999;
       text-align: center;
       padding: 20px;
+      font-size: 0.9em;
     }
+
     @media (max-width: 768px) {
-      .about, .services, .reasons { flex-direction: column; }
-      header h1 { font-size: 2em; }
+      .card { width: 100%; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="overlay"></div>
   <div class="content">
     <h1>Digital PME Congo</h1>
-    <p>Boostez votre activité avec des solutions numériques sur mesure</p>
-    <a href="#contact" class="cta-btn">Contactez-nous</a>
+    <p>Solutions numériques & IA – Secteur civil et militaire</p>
   </div>
 </header>
 
-<section class="container about">
-  <div class="text">
-    <h2>À propos de nous</h2>
-    <p><strong>Digital PME Congo</strong> est une agence tech passionnée par la transformation digitale des petites entreprises au Congo. Nous allions expertise, proximité et adaptation aux réalités locales pour vous offrir des solutions efficaces et abordables.</p>
-    <p>Nos valeurs : <strong>fiabilité</strong>, <strong>réactivité</strong>, <strong>proximité</strong> et <strong>innovation locale</strong>.</p>
-    <a href="#services" class="cta-btn">Voir nos services</a>
-  </div>
-</section>
-
-<section id="services" class="container">
-  <h2>Nos services</h2>
-  <div class="services">
-    <div class="card">
-      <h3>🌐 Site Vitrine</h3>
-      <p>Présence en ligne avec design pro, mobile-friendly, formulaire et intégration WhatsApp.</p>
-      <p class="price">À partir de 60 000 FCFA</p>
-    </div>
-    <div class="card">
-      <h3>🛍️ Site E-commerce</h3>
-      <p>Vente en ligne avec paiement mobile-money et interface facile à gérer.</p>
-      <p class="price">150 000 – 300 000 FCFA</p>
-    </div>
-    <div class="card">
-      <h3>📱 Application Mobile</h3>
-      <p>App Android pour gérer commandes, réservations ou clientèle mobile.</p>
-      <p class="price">200 000 – 600 000 FCFA</p>
-    </div>
-    <div class="card">
-      <h3>📊 Logiciel de gestion</h3>
-      <p>Système sur mesure pour factures, stock et clients, simple et efficace.</p>
-      <p class="price">100 000 – 400 000 FCFA</p>
-    </div>
-  </div>
+<section class="container">
+  <h2>À propos</h2>
+  <p style="text-align:center;">
+    <strong>Digital PME Congo</strong> est une filiale de <strong>GCI – Gykhamine Concept Investigation</strong>, spécialisée dans le développement web, mobile, IA, et logiciels métiers pour les secteurs <strong>civil, commercial et militaire</strong>. Nous fournissons des solutions sur mesure, abordables, et adaptées aux réalités du Congo.
+  </p>
 </section>
 
 <section class="container">
-  <h2>Pourquoi choisir Digital PME Congo ?</h2>
-  <div class="reasons">
-    <div class="card"><h3>Expertise Locale</h3><p>Solutions adaptées au contexte congolais, y compris paiement mobile et réseaux sociaux locaux.</p></div>
-    <div class="card"><h3>Support Personnalisé</h3><p>Formation, assistance et maintenance en français, rapide et efficace.</p></div>
-    <div class="card"><h3>Tarifs Compétitifs</h3><p>Des prix accessibles pour les PME, avec paiements échelonnés possibles.</p></div>
-    <div class="card"><h3>Livraison Express</h3><p>Projet livré en quelques jours, avec possibilité de suivi et évolutions à venir.</p></div>
+  <h2>Nos services</h2>
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>🌐 Site Vitrine</h3>
+      <p>Simple, rapide, pro. WhatsApp et Google inclus.</p>
+      <p class="price">15 000 FCFA</p>
+    </div>
+
+    <div class="card">
+      <h3>🛒 Site E-commerce</h3>
+      <p>Boutique en ligne avec mobile money intégré.</p>
+      <p class="price">70 000 – 150 000 FCFA</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 App Mobile</h3>
+      <p>Commande, livraison, services... Android sur mesure.</p>
+      <p class="price">100 000 – 300 000 FCFA</p>
+    </div>
+
+    <div class="card">
+      <h3>📊 Logiciels de gestion</h3>
+      <p>Stock, factures, employés, RH, accès sécurisés.</p>
+      <p class="price">60 000 – 150 000 FCFA</p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Intelligence Artificielle</h3>
+      <p>Chatbot, automatisation, IA métier locale.</p>
+      <p class="price">Sur devis</p>
+    </div>
+
+    <div class="card">
+      <h3>📈 Analyse de Données</h3>
+      <p>Rapports, Excel pro, dashboards intelligents.</p>
+      <p class="price">Sur devis</p>
+    </div>
+
+    <div class="card">
+      <h3>🔒 Logiciels Sécurité / Défense</h3>
+      <p>Gestion personnel, base armement, accès, intranet, badges QR.</p>
+      <p class="price">À partir de 80 000 FCFA</p>
+    </div>
+
+    <div class="card">
+      <h3>🔌 API & automatisation</h3>
+      <p>Connexion outils, automatisation bureautique (Excel, PDF, email...)</p>
+      <p class="price">Sur devis</p>
+    </div>
+
   </div>
 </section>
 
-<section id="contact" class="container">
-  <h2>Contactez-nous</h2>
-  <form>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required>
-    
-    <label for="tel">Téléphone WhatsApp :</label>
-    <input type="tel" id="tel" name="tel" placeholder="+242 90 X XX XX XX" required>
-    
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Votre message :</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <button type="submit">Envoyer</button>
-  </form>
+<section class="container contact-info">
+  <h2>Contact</h2>
+  <p><strong>Email :</strong> contact@digitalpme.cg</p>
+  <p><strong>WhatsApp / Téléphone :</strong> +242 06 000 0000</p>
+  <p><strong>Facebook :</strong> facebook.com/digitalpmecongo</p>
+  <p><strong>Adresse :</strong> Brazzaville, République du Congo</p>
 </section>
 
 <footer>
-  <p>&copy; 2025 Digital PME Congo | WhatsApp : +242 90 X XX XX XX | Email : contact@digitalpme.cg</p>
+  <p>&copy; 2025 Digital PME Congo – Filiale de GCI Gykhamine Concept Investigation</p>
 </footer>
 
 </body>
