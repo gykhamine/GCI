@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital PME Congo – Service : Formation</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f0a;
+      color: #c8e6c9;
+      line-height: 1.6;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* HEADER - Ajusté pour les pages internes */
+    header {
+      background-color: #0a1b0a;
+      padding: 40px 20px;
+      text-align: center;
+      color: #a5d6a7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 0 0 5px #2e7d32aa;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px #2e7d3288;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5088;
+    }
+
+    /* SERVICE DETAIL CONTENT */
+    .service-content p, .service-content ul li {
+        font-size: 1.1rem;
+        color: #d0e8d0;
+        margin-bottom: 15px;
+    }
+    .service-content h3 {
+        color: #81c784;
+        font-size: 1.8rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 5px;
+    }
+    .service-content ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 30px;
+    }
+    .service-content ul li {
+        background-color: #122612;
+        border-left: 5px solid #4caf50;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+    .service-content ul li strong {
+        color: #a5d6a7;
+    }
+
+    .service-benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .benefit-card {
+        background-color: #122612;
+        border: 1px solid #4caf50;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+    }
+    .benefit-card h4 {
+        color: #a5d6a7;
+        font-size: 1.3rem;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .benefit-card p {
+        font-size: 1rem;
+        color: #c8e6c9;
+    }
+
+    .price-section {
+        background-color: #122612;
+        border: 2px dashed #76ff03;
+        border-radius: 14px;
+        padding: 25px;
+        text-align: center;
+        margin-top: 50px;
+        box-shadow: 0 0 15px rgba(118, 255, 3, 0.5);
+    }
+    .price-section p {
+        font-size: 1.3rem;
+        color: #d0e8d0;
+        margin-bottom: 15px;
+    }
+    .price-section strong {
+        color: #76ff03;
+        font-size: 1.8rem;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .call-to-action-section {
+        background-color: #122612;
+        border-radius: 14px;
+        padding: 32px 24px;
+        text-align: center;
+        box-shadow: 0 0 22px #4caf50aa;
+        margin-top: 60px;
+    }
+    .call-to-action-section p {
+        font-size: 1.25rem;
+        margin-bottom: 25px;
+        color: #c8e6c9;
+        font-weight: 500;
+    }
+    .call-to-action-section .btn {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 14px 30px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .call-to-action-section .btn:hover {
+        background-color: #388E3C;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0a1b0a;
+      color: #568d56;
+      text-align: center;
+      padding: 18px 12px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Formation</h1>
+    <p>Développez les compétences numériques de vos équipes pour un avenir prospère.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="service-formation">
+    <div class="service-content">
+      <p>L'évolution technologique est constante, et pour rester compétitif, vos équipes doivent maîtriser les outils numériques d'aujourd'hui et de demain. **Digital PME Congo** propose des **formations professionnelles** adaptées aux besoins des entreprises congolaises, couvrant un large éventail de compétences, de l'informatique fondamentale à l'intelligence artificielle avancée.</p>
+      <p>Nos formations sont dispensées par des experts, avec une approche pratique et des contenus conçus pour un impact direct sur la productivité et l'innovation au sein de votre organisation.</p>
+
+      <h3>Pourquoi investir dans la formation numérique de vos équipes ?</h3>
+      <div class="service-benefits-grid">
+        <div class="benefit-card">
+          <h4>Amélioration de la Productivité</h4>
+          <p>Des équipes mieux formées utilisent les outils plus efficacement, réduisant les erreurs et augmentant la rapidité d'exécution.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Augmentation de la Compétitivité</h4>
+          <p>Vos employés acquièrent de nouvelles compétences, permettant à votre entreprise d'adopter des technologies innovantes et de se différencier.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Réduction des Risques</h4>
+          <p>Une bonne formation en cybersécurité, par exemple, minimise les menaces et protège les données de votre entreprise.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Fidélisation des Talents</h4>
+          <p>Offrir des opportunités de développement montre que vous investissez dans vos employés, augmentant leur satisfaction et leur rétention.</p>
+        </div>
+      </div>
+
+      <h3>Nos domaines de formation</h3>
+      <ul>
+        <li><strong>Bureautique & Informatique Générale :</strong> Maîtrise des outils Microsoft Office (Word, Excel, PowerPoint), bases de l'utilisation d'un ordinateur et d'internet.</li>
+        <li><strong>Développement Web & Mobile :</strong> Introduction au HTML, CSS, JavaScript, ou développement d'applications Android.</li>
+        <li><strong>Cybersécurité pour Entreprises :</strong> Sensibilisation aux menaces, bonnes pratiques de protection des données, gestion des incidents.</li>
+        <li><strong>Intelligence Artificielle & Data Science :</strong> Introduction aux concepts de l'IA, utilisation d'outils d'analyse de données, machine learning.</li>
+        <li><strong>Gestion de Projets Numériques :</strong> Méthodologies agiles (Scrum, Kanban) pour la gestion de projets technologiques.</li>
+        <li><strong>Maintenance Informatique de Base :</strong> Dépannage de premier niveau, gestion des périphériques.</li>
+        <li><strong>Solutions Logiciels Spécifiques :</strong> Formation à l'utilisation de logiciels de gestion que nous développons ou intégrons pour vous.</li>
+      </ul>
+      
+      <div class="price-section">
+        <p>Prix par session / par personne :</p>
+        <strong>10 000 – 100 000 FCFA</strong>
+        <p>Le coût dépend de la durée de la formation, du nombre de participants, du niveau de spécialisation et de la modalité (en ligne, en présentiel, intra-entreprise).</p>
+      </div>
+
+      <div class="call-to-action-section">
+        <p>Investissez dans le capital humain de votre entreprise !</p>
+        <a href="contact.html" class="btn">Demandez un programme de formation personnalisé</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
