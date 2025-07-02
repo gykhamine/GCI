@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital PME Congo – Blog : Cybersécurité PME</title>
+  <style>
+    /* Incluez ici le CSS de votre page d'accueil et blog pour la cohérence */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f0a;
+      color: #c8e6c9;
+      line-height: 1.6;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    header {
+      background-color: #0a1b0a;
+      padding: 40px 20px;
+      text-align: center;
+      color: #a5d6a7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 0 0 5px #2e7d32aa;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px #2e7d3288;
+    }
+
+    .container {
+      max-width: 900px; /* Plus étroit pour la lecture d'article */
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5088;
+    }
+    
+    .blog-post-content {
+        background-color: #122612;
+        border: 2px solid #4caf50;
+        border-radius: 14px;
+        padding: 30px;
+        box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+    }
+    .blog-post-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    }
+    .blog-post-content h1 {
+        font-size: 2.8rem;
+        color: #a5d6a7;
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .blog-post-content .article-meta {
+        font-size: 1rem;
+        color: #81c784;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .blog-post-content .article-meta span {
+        margin: 0 10px;
+    }
+    .blog-post-content p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #d0e8d0;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+    .blog-post-content h3 {
+        font-size: 2.2rem;
+        color: #81c784;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 5px;
+    }
+    .blog-post-content ul {
+        list-style: disc;
+        padding-left: 30px;
+        margin-bottom: 20px;
+    }
+    .blog-post-content ul li {
+        font-size: 1.1rem;
+        color: #c8e6c9;
+        margin-bottom: 10px;
+    }
+
+    .call-to-action-section {
+        background-color: #0a1b0a;
+        border-radius: 14px;
+        padding: 32px 24px;
+        text-align: center;
+        box-shadow: 0 0 22px #4caf50aa;
+        margin-top: 60px;
+    }
+    .call-to-action-section p {
+        font-size: 1.25rem;
+        margin-bottom: 25px;
+        color: #c8e6c9;
+        font-weight: 500;
+    }
+    .call-to-action-section .btn {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 14px 30px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .call-to-action-section .btn:hover {
+        background-color: #388E3C;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0a1b0a;
+      color: #568d56;
+      text-align: center;
+      padding: 18px 12px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      user-select: none;
+      margin-top: 60px; /* Espace avant le footer */
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .blog-post-content h1 {
+          font-size: 2rem;
+      }
+      .blog-post-content h3 {
+          font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Blog & Actualités</h1>
+    <p>Le savoir est une force. Restez à la pointe de l'innovation avec Digital PME Congo.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="single-blog-post">
+    <div class="blog-post-content">
+      <img src="https://via.placeholder.com/900x400?text=Cybersécurité+pour+PME" alt="Mesures de cybersécurité pour votre PME">
+      <h1>5 Astuces pour Renforcer la Cybersécurité de Votre Entreprise</h1>
+      <p class="article-meta">
+        <span>📅 20 Juin 2025</span>
+        <span>✍️ Équipe Digital PME Congo</span>
+        <span>🏷️ Cybersécurité, Sécurité Informatique, PME</span>
+      </p>
+
+      <p>À l'ère numérique, aucune entreprise, quelle que soit sa taille, n'est à l'abri des cyberattaques. Les PME sont souvent des cibles privilégiées car elles sont perçues comme moins bien protégées que les grandes entreprises. Protéger vos données, celles de vos clients et votre réputation est crucial. Voici 5 astuces essentielles pour renforcer la cybersécurité de votre PME.</p>
+
+      <h3>1. Formez Vos Employés</h3>
+      <p>L'erreur humaine est l'une des principales causes de violation de données. Sensibilisez régulièrement vos équipes aux bonnes pratiques de cybersécurité : comment reconnaître un email de phishing, l'importance des mots de passe robustes, et les dangers du téléchargement de fichiers suspects. Une équipe bien formée est votre première ligne de défense.</p>
+
+      <h3>2. Mettez en Place des Mots de Passe Forts et la Double Authentification (MFA)</h3>
+      <p>Encouragez l'utilisation de mots de passe complexes (mélange de majuscules, minuscules, chiffres et symboles) et uniques pour chaque service. Activez la Multi-Factor Authentification (MFA) partout où c'est possible. Cela ajoute une couche de sécurité supplémentaire, rendant l'accès non autorisé beaucoup plus difficile, même si un mot de passe est compromis.</p>
+
+      <h3>3. Effectuez des Sauvegardes Régulières et Externalisées</h3>
+      <p>En cas de cyberattaque (comme un rançongiciel), avoir des sauvegardes récentes et hors ligne de vos données critiques est votre bouée de sauvetage. Testez régulièrement vos processus de sauvegarde et de restauration pour vous assurer qu'ils fonctionnent correctement.</p>
+
+      <h3>4. Maintenez Vos Logiciels et Systèmes à Jour</h3>
+      <p>Les mises à jour logicielles contiennent souvent des correctifs de sécurité essentiels. Ne les ignorez pas ! Appliquez régulièrement les mises à jour pour votre système d'exploitation, vos applications et vos antivirus. Un système non patché est une porte ouverte aux cybercriminels.</p>
+
+      <h3>5. Utilisez une Solution Antivirus et un Pare-feu Efficaces</h3>
+      <p>Installez un logiciel antivirus réputé sur tous les postes de travail et serveurs. Assurez-vous qu'il est actif et mis à jour. Un pare-feu bien configuré est également crucial pour surveiller et contrôler le trafic réseau entrant et sortant, bloquant les accès non autorisés.</p>
+
+      <p>La cybersécurité est un processus continu, pas un projet ponctuel. En adoptant ces pratiques et en restant vigilant, vous pouvez considérablement réduire la vulnérabilité de votre PME aux menaces numériques. Pour un audit complet ou la mise en place de solutions de sécurité avancées, n'hésitez pas à nous contacter.</p>
+
+      <div class="call-to-action-section">
+        <p>Protégez votre entreprise avec des solutions de cybersécurité robustes.</p>
+        <a href="contact.html" class="btn">Demandez un diagnostic de sécurité gratuit</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
