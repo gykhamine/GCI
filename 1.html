@@ -2,189 +2,274 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digital PME Congo – Développement & IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital PME Congo – Solutions numériques & IA</title>
   <style>
+    /* RESET & BASE */
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0e0e0e;
-      color: #f2f2f2;
+      color: #d4dcdc;
+      line-height: 1.6;
+    }
+    a {
+      color: #a8f58f;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
 
+    /* HEADER */
     header {
       position: relative;
       height: 60vh;
       background: url('PHOTO_ENTREPRISE.jpg') center/cover no-repeat;
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: #a8f58f;
+      align-items: center;
       text-align: center;
+      color: #a8f58f;
     }
-
     header::before {
       content: "";
       position: absolute;
-      width: 100%; height: 100%;
-      top: 0; left: 0;
-      background: rgba(0,0,0,0.7);
-    }
-
-    header .content {
-      position: relative;
+      inset: 0;
+      background-color: rgba(0,0,0,0.75);
       z-index: 1;
     }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.3rem;
+      font-weight: 500;
     }
 
+    /* MAIN CONTAINER */
     .container {
       max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+    }
     h2 {
-      color: #a8f58f;
       text-align: center;
+      color: #a8f58f;
       margin-bottom: 30px;
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
 
-    .card-grid {
+    /* ABOUT */
+    #about p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #cdd9c7;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
+      gap: 22px;
     }
-
-    .card {
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+    .service-card {
+      background-color: #1a1a1a;
+      border: 2px solid #2d5f2d;
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 10px;
-      width: 280px;
-      text-align: center;
+      width: 300px;
+      box-shadow: 0 0 10px #2d5f2d55;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px #2d5f2daa;
+    }
+    .service-card h3 {
+      color: #a8f58f;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #d4dcdc;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-weight: 700;
+      color: #3df53d;
+      font-size: 1.1rem;
     }
 
-    .card h3 {
+    /* CONTACT */
+    #contact {
+      background-color: #161616;
+      border-radius: 10px;
+      padding: 30px 20px;
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+      text-align: center;
+      box-shadow: 0 0 15px #2d5f2d88;
+    }
+    #contact p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+      color: #cdd9c7;
+    }
+    #contact strong {
       color: #a8f58f;
     }
 
-    .price {
-      color: #3df53d;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .contact-info {
-      background: #161616;
-      padding: 30px;
-      text-align: center;
-      border-radius: 8px;
-    }
-
-    .contact-info p {
-      font-size: 1.1em;
-      margin: 8px 0;
-    }
-
+    /* FOOTER */
     footer {
-      background: #000;
-      color: #999;
+      background-color: #000;
+      color: #666;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .card { width: 100%; }
+      .service-card {
+        width: 100%;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="content">
+  <div class="header-content">
     <h1>Digital PME Congo</h1>
-    <p>Solutions numériques & IA – Secteur civil et militaire</p>
+    <p>Solutions numériques, IA & services pour entreprises civiles et militaires</p>
   </div>
 </header>
 
-<section class="container">
-  <h2>À propos</h2>
-  <p style="text-align:center;">
-    <strong>Digital PME Congo</strong> est une filiale de <strong>GCI – Gykhamine Concept Investigation</strong>, spécialisée dans le développement web, mobile, IA, et logiciels métiers pour les secteurs <strong>civil, commercial et militaire</strong>. Nous fournissons des solutions sur mesure, abordables, et adaptées aux réalités du Congo.
-  </p>
-</section>
+<main class="container">
 
-<section class="container">
-  <h2>Nos services</h2>
-  <div class="card-grid">
+  <section id="about">
+    <h2>À propos de nous</h2>
+    <p>
+      Digital PME Congo est une filiale de <strong>GCI – Gykhamine Concept Investigation</strong>, spécialisée dans la transformation digitale des petites et moyennes entreprises, startups, et institutions au Congo.  
+      Nous fournissons des solutions numériques complètes : développement web, applications mobiles, intelligence artificielle, analyse de données, et services spécifiques pour le secteur militaire et de la sécurité privée.
+    </p>
+  </section>
 
-    <div class="card">
-      <h3>🌐 Site Vitrine</h3>
-      <p>Simple, rapide, pro. WhatsApp et Google inclus.</p>
-      <p class="price">15 000 FCFA</p>
+  <section id="services">
+    <h2>Nos services</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>🌐 Site vitrine</h3>
+        <p>Site professionnel, responsive, avec intégration WhatsApp et Google Business.</p>
+        <p class="price">À partir de 15 000 FCFA</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🛒 Site e-commerce</h3>
+        <p>Boutique en ligne sécurisée avec paiement mobile money.</p>
+        <p class="price">70 000 – 150 000 FCFA</p>
+      </div>
+
+      <div class="service-card">
+        <h3>📱 Application mobile</h3>
+        <p>Applications Android pour gestion clients, commandes, livraison.</p>
+        <p class="price">100 000 – 300 000 FCFA</p>
+      </div>
+
+      <div class="service-card">
+        <h3>📊 Logiciels de gestion</h3>
+        <p>Outils personnalisés pour la gestion commerciale, stock, RH et sécurité.</p>
+        <p class="price">60 000 – 150 000 FCFA</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🧠 Intelligence Artificielle</h3>
+        <p>Automatisation, chatbots, assistants virtuels, IA métier sur mesure.</p>
+        <p class="price">Sur devis</p>
+      </div>
+
+      <div class="service-card">
+        <h3>📈 Analyse de données</h3>
+        <p>Rapports, tableaux de bord dynamiques, interprétation métier avancée.</p>
+        <p class="price">Sur devis</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🔐 Solutions secteur militaire & sécurité</h3>
+        <p>Gestion du personnel, bases d’armement, badges QR, intranet sécurisé.</p>
+        <p class="price">À partir de 80 000 FCFA</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🔌 Intégration & API</h3>
+        <p>Connexion entre systèmes, automatisation bureautique, gestion des flux.</p>
+        <p class="price">Sur devis</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🎓 Formation</h3>
+        <p>Formations en informatique, développement, cybersécurité, outils métiers.</p>
+        <p class="price">10 000 – 100 000 FCFA</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🛠️ Assistance technique</h3>
+        <p>Support informatique, maintenance, dépannage et mises à jour régulières.</p>
+        <p class="price">10 000 FCFA/mois ou intervention ponctuelle</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🔬 Recherche & Développement</h3>
+        <p>Conception et réalisation de solutions innovantes adaptées à vos besoins.</p>
+        <p class="price">Sur étude et contrat</p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <h3>🛒 Site E-commerce</h3>
-      <p>Boutique en ligne avec mobile money intégré.</p>
-      <p class="price">70 000 – 150 000 FCFA</p>
-    </div>
+  <section id="contact">
+    <h2>Contactez-nous</h2>
+    <p><strong>Email :</strong> contact@digitalpme.cg</p>
+    <p><strong>WhatsApp / Téléphone :</strong> +242 06 000 0000</p>
+    <p><strong>Facebook :</strong> <a href="https://facebook.com/digitalpmecongo" target="_blank" rel="noopener">facebook.com/digitalpmecongo</a></p>
+    <p><strong>Adresse :</strong> Brazzaville, République du Congo</p>
+  </section>
 
-    <div class="card">
-      <h3>📱 App Mobile</h3>
-      <p>Commande, livraison, services... Android sur mesure.</p>
-      <p class="price">100 000 – 300 000 FCFA</p>
-    </div>
-
-    <div class="card">
-      <h3>📊 Logiciels de gestion</h3>
-      <p>Stock, factures, employés, RH, accès sécurisés.</p>
-      <p class="price">60 000 – 150 000 FCFA</p>
-    </div>
-
-    <div class="card">
-      <h3>🧠 Intelligence Artificielle</h3>
-      <p>Chatbot, automatisation, IA métier locale.</p>
-      <p class="price">Sur devis</p>
-    </div>
-
-    <div class="card">
-      <h3>📈 Analyse de Données</h3>
-      <p>Rapports, Excel pro, dashboards intelligents.</p>
-      <p class="price">Sur devis</p>
-    </div>
-
-    <div class="card">
-      <h3>🔒 Logiciels Sécurité / Défense</h3>
-      <p>Gestion personnel, base armement, accès, intranet, badges QR.</p>
-      <p class="price">À partir de 80 000 FCFA</p>
-    </div>
-
-    <div class="card">
-      <h3>🔌 API & automatisation</h3>
-      <p>Connexion outils, automatisation bureautique (Excel, PDF, email...)</p>
-      <p class="price">Sur devis</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="container contact-info">
-  <h2>Contact</h2>
-  <p><strong>Email :</strong> contact@digitalpme.cg</p>
-  <p><strong>WhatsApp / Téléphone :</strong> +242 06 000 0000</p>
-  <p><strong>Facebook :</strong> facebook.com/digitalpmecongo</p>
-  <p><strong>Adresse :</strong> Brazzaville, République du Congo</p>
-</section>
+</main>
 
 <footer>
-  <p>&copy; 2025 Digital PME Congo – Filiale de GCI Gykhamine Concept Investigation</p>
+  <p>&copy; 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
 </footer>
 
 </body>
