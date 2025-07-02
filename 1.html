@@ -12,15 +12,17 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0e0e0e;
-      color: #d4dcdc;
+      background-color: #0b0f0a;
+      color: #c8e6c9;
       line-height: 1.6;
     }
     a {
-      color: #a8f58f;
+      color: #81c784;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     a:hover {
+      color: #4caf50;
       text-decoration: underline;
     }
 
@@ -33,13 +35,13 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #a8f58f;
+      color: #a5d6a7;
     }
     header::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-color: rgba(0,0,0,0.75);
+      background-color: rgba(0, 50, 0, 0.75);
       z-index: 1;
     }
     header .header-content {
@@ -52,17 +54,20 @@
       font-size: 3rem;
       margin-bottom: 0.3em;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 0 5px #2e7d32aa;
     }
     header p {
-      font-size: 1.3rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px #2e7d3288;
     }
 
     /* MAIN CONTAINER */
     .container {
       max-width: 1100px;
-      margin: 40px auto;
+      margin: 40px auto 80px;
       padding: 0 20px;
     }
 
@@ -72,19 +77,26 @@
     }
     h2 {
       text-align: center;
-      color: #a8f58f;
-      margin-bottom: 30px;
-      font-size: 2rem;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.3rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5088;
     }
 
     /* ABOUT */
     #about p {
       max-width: 900px;
       margin: 0 auto;
-      font-size: 1.1rem;
-      color: #cdd9c7;
+      font-size: 1.15rem;
+      color: #c8e6c9dd;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+    #about strong {
+      color: #a5d6a7;
     }
 
     /* SERVICES GRID */
@@ -92,64 +104,107 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 22px;
+      gap: 24px;
     }
     .service-card {
-      background-color: #1a1a1a;
-      border: 2px solid #2d5f2d;
-      border-radius: 12px;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 0 0 10px #2d5f2d55;
+      background-color: #122612;
+      border: 2px solid #4caf50;
+      border-radius: 14px;
+      padding: 24px 20px;
+      width: 320px;
+      box-shadow: 0 0 12px #4caf5088;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px #2d5f2daa;
+      transform: translateY(-7px);
+      box-shadow: 0 14px 30px #4caf50cc;
     }
     .service-card h3 {
-      color: #a8f58f;
-      margin-bottom: 12px;
-      font-size: 1.4rem;
+      color: #a5d6a7;
+      margin-bottom: 14px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1.1px;
     }
     .service-card p {
-      font-size: 1rem;
-      color: #d4dcdc;
-      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: #d0e8d0;
+      margin-bottom: 18px;
+      flex-grow: 1;
     }
     .price {
       font-weight: 700;
-      color: #3df53d;
-      font-size: 1.1rem;
+      color: #76ff03;
+      font-size: 1.2rem;
+      text-align: right;
+      font-family: 'Segoe UI Black', sans-serif;
+      letter-spacing: 0.7px;
+      user-select: none;
     }
 
     /* CONTACT */
     #contact {
-      background-color: #161616;
-      border-radius: 10px;
-      padding: 30px 20px;
-      max-width: 600px;
-      margin: 0 auto 60px auto;
+      background-color: #122612;
+      border-radius: 14px;
+      padding: 32px 24px;
+      max-width: 650px;
+      margin: 0 auto 80px;
       text-align: center;
-      box-shadow: 0 0 15px #2d5f2d88;
+      box-shadow: 0 0 22px #4caf50aa;
+    }
+    #contact h2 {
+      margin-bottom: 28px;
     }
     #contact p {
-      font-size: 1.1rem;
-      margin: 10px 0;
-      color: #cdd9c7;
+      font-size: 1.15rem;
+      margin: 12px 0;
+      color: #c8e6c9dd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      user-select: text;
     }
-    #contact strong {
-      color: #a8f58f;
+    #contact p strong {
+      color: #81c784;
+      min-width: 110px;
+      text-align: right;
     }
+    #contact p a {
+      word-break: break-all;
+    }
+
+    /* Icons for contact */
+    #contact p strong::before {
+      content: "📧";
+      margin-right: 8px;
+      font-size: 1.2rem;
+      user-select: none;
+    }
+    #contact p:nth-child(2) strong::before { content: "📧"; }      /* Gmail */
+    #contact p:nth-child(3) strong::before { content: "📱"; }      /* WhatsApp */
+    #contact p:nth-child(4) strong::before { content: "🐙"; }      /* GitHub */
+    #contact p:nth-child(5) strong::before { content: "💬"; }      /* Discord */
+    #contact p:nth-child(6) strong::before { content: "🔊"; }      /* Jami */
+    #contact p:nth-child(7) strong::before { content: "▶️"; }      /* YouTube */
+    #contact p:nth-child(8) strong::before { content: "🐦"; }      /* X */
+    #contact p:nth-child(9) strong::before { content: "📘"; }      /* Facebook */
+    #contact p:nth-child(10) strong::before { content: "🎵"; }     /* TikTok */
+    #contact p:nth-child(11) strong::before { content: "📨"; }     /* Telegram */
 
     /* FOOTER */
     footer {
-      background-color: #000;
-      color: #666;
+      background-color: #0a1b0a;
+      color: #568d56;
       text-align: center;
-      padding: 20px 10px;
+      padding: 18px 12px;
       font-size: 0.9rem;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      user-select: none;
     }
 
     /* RESPONSIVE */
@@ -158,10 +213,10 @@
         width: 100%;
       }
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
       }
       header p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -178,10 +233,15 @@
 <main class="container">
 
   <section id="about">
-    <h2>À propos de nous</h2>
+    <h2>À propos de Digital PME Congo</h2>
     <p>
-      Digital PME Congo est une filiale de <strong>GCI – Gykhamine Concept Investigation</strong>, spécialisée dans la transformation digitale des petites et moyennes entreprises, startups, et institutions au Congo.  
-      Nous fournissons des solutions numériques complètes : développement web, applications mobiles, intelligence artificielle, analyse de données, et services spécifiques pour le secteur militaire et de la sécurité privée.
+      Filiale de <strong>GCI – Gykhamine Concept Investigation</strong>, Digital PME Congo est votre allié stratégique pour réussir votre transformation digitale.
+      <br /><br />
+      Nous accompagnons les petites et moyennes entreprises ainsi que les acteurs du secteur militaire avec des solutions innovantes, fiables et adaptées au contexte congolais.
+      <br /><br />
+      Nos services couvrent un large spectre : du développement web & mobile, à l’intelligence artificielle, en passant par la formation, l’assistance technique et la recherche & développement.
+      <br /><br />
+      Choisissez l’excellence locale avec une équipe passionnée qui allie expertise technologique, proximité et engagement pour votre succès durable.
     </p>
   </section>
 
@@ -191,68 +251,68 @@
 
       <div class="service-card">
         <h3>🌐 Site vitrine</h3>
-        <p>Site professionnel, responsive, avec intégration WhatsApp et Google Business.</p>
+        <p>Présentez votre activité en ligne avec un site moderne, responsive et optimisé SEO pour attirer et convaincre vos clients facilement.</p>
         <p class="price">À partir de 15 000 FCFA</p>
       </div>
 
       <div class="service-card">
         <h3>🛒 Site e-commerce</h3>
-        <p>Boutique en ligne sécurisée avec paiement mobile money.</p>
+        <p>Vendez vos produits en ligne avec une boutique sécurisée, intégrée aux solutions de paiement mobile populaires en Afrique.</p>
         <p class="price">70 000 – 150 000 FCFA</p>
       </div>
 
       <div class="service-card">
         <h3>📱 Application mobile</h3>
-        <p>Applications Android pour gestion clients, commandes, livraison.</p>
+        <p>Développez des applications Android sur mesure pour gérer vos activités, améliorer l’engagement client et faciliter la mobilité.</p>
         <p class="price">100 000 – 300 000 FCFA</p>
       </div>
 
       <div class="service-card">
         <h3>📊 Logiciels de gestion</h3>
-        <p>Outils personnalisés pour la gestion commerciale, stock, RH et sécurité.</p>
+        <p>Automatisez la gestion de vos stocks, ventes, personnel et sécurité avec des solutions adaptées à vos besoins spécifiques.</p>
         <p class="price">60 000 – 150 000 FCFA</p>
       </div>
 
       <div class="service-card">
         <h3>🧠 Intelligence Artificielle</h3>
-        <p>Automatisation, chatbots, assistants virtuels, IA métier sur mesure.</p>
-        <p class="price">Sur devis</p>
+        <p>Améliorez vos décisions et gagnez en efficacité grâce à des outils d’IA : chatbots, analyse prédictive, automatisation intelligente.</p>
+        <p class="price">Sur devis personnalisé</p>
       </div>
 
       <div class="service-card">
         <h3>📈 Analyse de données</h3>
-        <p>Rapports, tableaux de bord dynamiques, interprétation métier avancée.</p>
-        <p class="price">Sur devis</p>
+        <p>Exploitez vos données avec des tableaux de bord interactifs pour piloter votre croissance et anticiper les tendances du marché.</p>
+        <p class="price">Sur devis personnalisé</p>
       </div>
 
       <div class="service-card">
         <h3>🔐 Solutions secteur militaire & sécurité</h3>
-        <p>Gestion du personnel, bases d’armement, badges QR, intranet sécurisé.</p>
+        <p>Déployez des outils robustes pour la gestion sécurisée du personnel, armement, badges QR, et communication interne sécurisée.</p>
         <p class="price">À partir de 80 000 FCFA</p>
       </div>
 
       <div class="service-card">
         <h3>🔌 Intégration & API</h3>
-        <p>Connexion entre systèmes, automatisation bureautique, gestion des flux.</p>
-        <p class="price">Sur devis</p>
+        <p>Connectez vos systèmes pour automatiser les flux et améliorer l’efficacité opérationnelle avec des intégrations sur mesure.</p>
+        <p class="price">Sur devis personnalisé</p>
       </div>
 
       <div class="service-card">
         <h3>🎓 Formation</h3>
-        <p>Formations en informatique, développement, cybersécurité, outils métiers.</p>
+        <p>Formez vos équipes aux compétences clés : informatique, développement, cybersécurité et intelligence artificielle.</p>
         <p class="price">10 000 – 100 000 FCFA</p>
       </div>
 
       <div class="service-card">
         <h3>🛠️ Assistance technique</h3>
-        <p>Support informatique, maintenance, dépannage et mises à jour régulières.</p>
-        <p class="price">10 000 FCFA/mois ou intervention ponctuelle</p>
+        <p>Maintenance, support et dépannage réactif pour garantir la continuité et la sécurité de vos systèmes numériques.</p>
+        <p class="price">À partir de 10 000 FCFA/mois</p>
       </div>
 
       <div class="service-card">
         <h3>🔬 Recherche & Développement</h3>
-        <p>Conception et réalisation de solutions innovantes adaptées à vos besoins.</p>
-        <p class="price">Sur étude et contrat</p>
+        <p>Conception et développement de solutions innovantes adaptées à vos défis spécifiques, pour garder une longueur d’avance.</p>
+        <p class="price">Sur étude & contrat</p>
       </div>
 
     </div>
@@ -260,10 +320,16 @@
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <p><strong>Email :</strong> contact@digitalpme.cg</p>
-    <p><strong>WhatsApp / Téléphone :</strong> +242 06 000 0000</p>
+    <p><strong>Gmail :</strong> <a href="mailto:contact@digitalpme.cg">contact@digitalpme.cg</a></p>
+    <p><strong>WhatsApp :</strong> <a href="https://wa.me/2420600000000" target="_blank" rel="noopener">+242 06 000 0000</a></p>
+    <p><strong>GitHub :</strong> <a href="https://github.com/digitalpme" target="_blank" rel="noopener">github.com/digitalpme</a></p>
+    <p><strong>Discord :</strong> <a href="https://discord.gg/tonserveur" target="_blank" rel="noopener">Rejoignez notre serveur</a></p>
+    <p><strong>Jami :</strong> jami://digitalpme</p>
+    <p><strong>YouTube :</strong> <a href="https://youtube.com/digitalpme" target="_blank" rel="noopener">youtube.com/digitalpme</a></p>
+    <p><strong>X (ex-Twitter) :</strong> <a href="https://x.com/digitalpme" target="_blank" rel="noopener">x.com/digitalpme</a></p>
     <p><strong>Facebook :</strong> <a href="https://facebook.com/digitalpmecongo" target="_blank" rel="noopener">facebook.com/digitalpmecongo</a></p>
-    <p><strong>Adresse :</strong> Brazzaville, République du Congo</p>
+    <p><strong>TikTok :</strong> <a href="https://tiktok.com/@digitalpme" target="_blank" rel="noopener">tiktok.com/@digitalpme</a></p>
+    <p><strong>Telegram :</strong> <a href="https://t.me/digitalpme" target="_blank" rel="noopener">t.me/digitalpme</a></p>
   </section>
 
 </main>
