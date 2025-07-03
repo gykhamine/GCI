@@ -1,153 +1,193 @@
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Digital PME Congo – Nos Réalisations</title>
+  <title>Gykhamine OS – Digital PME Congo</title>
   <style>
-    /* Incluez ici le CSS de votre page d'accueil pour la cohérence */
     /* RESET & BASE */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0b0f0a;
-      color: #c8e6c9;
-      line-height: 1.6;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
     }
     a {
-      color: #81c784;
+      color: #81c784; /* vert lumineux */
       text-decoration: none;
       transition: color 0.3s ease;
     }
     a:hover {
-      color: #4caf50;
+      color: #4caf50; /* vert plus foncé au survol */
       text-decoration: underline;
     }
 
-    /* HEADER - Ajusté pour les pages internes */
+    /* HEADER */
     header {
-      background-color: #0a1b0a; /* Couleur de fond pour les en-têtes de pages internes */
-      padding: 40px 20px;
+      position: relative;
+      height: 70vh;
+      background: url('statics/3.png') center/cover no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       color: #a5d6a7;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* ombre sombre */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 4rem;
       margin-bottom: 0.3em;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       font-weight: 900;
-      text-shadow: 0 0 5px #2e7d32aa;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      text-shadow: 0 0 4px #2e7d3288;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     }
 
     /* MAIN CONTAINER */
     .container {
       max-width: 1100px;
-      margin: 40px auto 80px;
+      margin: 40px auto;
       padding: 0 20px;
+      background-color: #000000;
     }
 
     /* SECTIONS */
     section {
       margin-bottom: 60px;
-    }
-    h2 {
-      text-align: center;
-      color: #81c784;
-      margin-bottom: 32px;
-      font-size: 2.3rem;
-      text-transform: uppercase;
-      letter-spacing: 1.7px;
-      font-weight: 700;
-      text-shadow: 0 0 8px #4caf5088;
+      background-color: #000000; /* Fond gris foncé pour séparer les sections */
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
 
-    /* PORTFOLIO GRID */
-    .portfolio-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-    }
-    .project-card {
-      background-color: #122612;
-      border: 2px solid #4caf50;
-      border-radius: 14px;
-      width: 320px;
-      box-shadow: 0 0 12px #4caf5088;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden; /* Pour que l'image ne dépasse pas les bords arrondis */
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 14px 30px #4caf50cc;
-    }
-    .project-card img {
-      width: 100%;
-      height: 200px; /* Hauteur fixe pour les images */
-      object-fit: cover; /* Recadre l'image pour couvrir l'espace */
-      display: block;
-    }
-    .project-card-content {
-      padding: 15px 20px 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .project-card h3 {
-      color: #a5d6a7;
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.4rem;
+    h2 {
+      text-align: center;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 32px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
       font-weight: 700;
-      letter-spacing: 1px;
     }
-    .project-card p {
-      font-size: 1rem;
-      color: #d0e8d0;
-      margin-bottom: 15px;
-      flex-grow: 1;
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 1.5em;
     }
-    .project-card .details-link {
-        display: block;
-        text-align: right;
-        margin-top: auto; /* Pousse le lien vers le bas */
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50; /* vert plus foncé */
     }
 
     /* FOOTER */
     footer {
-      background-color: #0a1b0a;
-      color: #568d56;
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
       text-align: center;
-      padding: 18px 12px;
+      padding: 20px;
       font-size: 0.9rem;
       letter-spacing: 1.2px;
       font-weight: 600;
-      user-select: none;
+    }
+
+    footer a {
+      color: #81c784; /* vert lumineux */
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* 3D Hover Effect for Buttons */
+    .cta-btn {
+      background-color: #4caf50; /* vert lumineux */
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .project-card {
-        width: 100%;
-      }
       header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       header p {
-        font-size: 1rem;
+        font-size: 1.2rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .cta-btn {
+        width: 100%;
+        padding: 12px 20px;
       }
     }
   </style>
@@ -156,60 +196,57 @@
 
 <header>
   <div class="header-content">
-    <h1>Nos Réalisations</h1>
-    <p>Découvrez nos projets réussis et la valeur que nous apportons.</p>
+    <h1>Gykhamine OS</h1>
+    <p>La solution locale pour une performance maximale</p>
   </div>
 </header>
 
 <main class="container">
 
-  <section id="portfolio">
-    <h2>Nos Projets Clés</h2>
-    <div class="portfolio-grid">
+  <section id="content">
+    <h2>Pourquoi choisir Gykhamine OS ?</h2>
 
-      <a href="project-detail-site-e-commerce.html" class="project-card">
-        <img src="https://via.placeholder.com/320x200?text=Projet+E-commerce" alt="Image du projet E-commerce">
-        <div class="project-card-content">
-          <h3>Boutique en Ligne "Tendances Africaines"</h3>
-          <p>Création d'une plateforme e-commerce sécurisée pour la vente de produits artisanaux locaux.</p>
-          <span class="details-link">En savoir plus &rarr;</span>
-        </div>
-      </a>
+    <p><strong>Gykhamine OS</strong> n’est pas juste un autre système d’exploitation. C’est une solution <strong>localement adaptée</strong> et conçue pour répondre spécifiquement aux besoins des entreprises, des administrations et des institutions congolaises. Basé sur la robustesse de Fedora, Gykhamine OS offre une expérience fluide et un ensemble d’outils qui permettent de faire face aux défis du marché local, tout en respectant les réalités économiques et culturelles du Congo.</p>
 
-      <a href="project-detail-app-mobile.html" class="project-card">
-        <img src="https://via.placeholder.com/320x200?text=Projet+App+Mobile" alt="Image du projet Application Mobile">
-        <div class="project-card-content">
-          <h3>Application de Suivi Logistique pour PME</h3>
-          <p>Développement d'une application mobile Android pour optimiser la gestion des livraisons.</p>
-          <span class="details-link">En savoir plus &rarr;</span>
-        </div>
-      </a>
+    <h3>1. Une solution abordable, pensée pour les entreprises locales</h3>
+    <p>Gykhamine OS a été conçu avec l’objectif de rendre la technologie accessible à toutes les entreprises, grandes ou petites. Que vous soyez une PME ou une grande institution, ce système d’exploitation vous permet de réduire vos coûts informatiques sans faire de compromis sur la performance. Profitez d’une alternative économique aux systèmes d’exploitation coûteux et accédez à un environnement numérique de qualité.</p>
 
-      <a href="project-detail-solution-ia.html" class="project-card">
-        <img src="https://via.placeholder.com/320x200?text=Projet+IA" alt="Image du projet Solution IA">
-        <div class="project-card-content">
-          <h3>Chatbot Intelligent pour Service Client</h3>
-          <p>Intégration d'un agent conversationnel IA pour automatiser les réponses aux FAQ.</p>
-          <span class="details-link">En savoir plus &rarr;</span>
-        </div>
-      </a>
+    <h3>2. Facilité d’utilisation pour tous</h3>
+    <p>Nous savons que la technologie peut parfois sembler intimidante. C’est pourquoi Gykhamine OS est conçu pour être simple à utiliser, même pour ceux qui n’ont pas de formation technique. Son interface intuitive et son système facile à prendre en main permettent à vos équipes de gagner en productivité dès le premier jour.</p>
+    <ul>
+      <li><strong>Interface claire et ergonomique</strong> : Conçu pour une utilisation quotidienne, sans complexité.</li>
+      <li><strong>Langues locales disponibles</strong> : Gykhamine OS est disponible en français, lingala et autres langues locales pour répondre aux besoins de tous les utilisateurs.</li>
+      <li><strong>Accessibilité pour tous les types d’utilisateurs</strong> : Que vous soyez un professionnel, un étudiant ou un technicien, Gykhamine OS est adapté à vos besoins.</li>
+    </ul>
 
-      <a href="project-detail-militaire.html" class="project-card">
-        <img src="https://via.placeholder.com/320x200?text=Projet+Militaire" alt="Image du projet Solution Militaire">
-        <div class="project-card-content">
-          <h3>Système de Gestion du Personnel Militaire</h3>
-          <p>Conception d'une solution sécurisée pour le suivi des effectifs et des accréditations.</p>
-          <span class="details-link">En savoir plus &rarr;</span>
-        </div>
-      </a>
+    <h3>3. Sécurité renforcée pour vos données</h3>
+    <p>La sécurité est au cœur de nos préoccupations. Gykhamine OS intègre une suite d’outils de sécurité adaptés aux réalités locales. Vos informations et vos systèmes seront protégés contre les menaces grâce à des mises à jour régulières et à un système antivirus intégré.</p>
+    <ul>
+      <li><strong>Protection renforcée des données sensibles</strong> : Sécurisation de vos informations critiques contre les cyberattaques.</li>
+      <li><strong>Antivirus intégré</strong> : Prévenez les menaces avant qu’elles n’atteignent votre système avec un antivirus performant.</li>
+      <li><strong>Cryptage des données</strong> : Assurez-vous que vos données sensibles restent sécurisées grâce à un cryptage de niveau professionnel.</li>
+    </ul>
 
-    </div>
+    <h3>4. Une solution flexible et scalable</h3>
+    <p>Peu importe la taille de votre entreprise ou organisation, Gykhamine OS s’adapte à vos besoins. Il peut évoluer avec vous et vous offrir de nouvelles fonctionnalités à mesure que votre activité grandit. De plus, vous pouvez personnaliser l’interface et ajouter des outils pour mieux répondre aux besoins de votre organisation.</p>
+
+    <h3>5. Tarification accessible</h3>
+    <p>Nous croyons que l’innovation ne doit pas être un luxe. Gykhamine OS est proposé à des prix compétitifs, permettant ainsi à toutes les entreprises locales d’y accéder. Bénéficiez d’une solution de qualité sans vous ruiner.</p>
+    <ul>
+      <li><strong>Licences économiques</strong> : Une solution abordable adaptée aux budgets des PME.</li>
+      <li><strong>Support technique inclus</strong> : Un support local disponible pour résoudre rapidement vos problèmes.</li>
+      <li><strong>Mises à jour régulières</strong> : Profitez de la dernière version sans coût supplémentaire.</li>
+    </ul>
   </section>
+
+  <div style="text-align:center; margin-top: 40px;">
+    <button class="cta-btn">Essayez Gykhamine OS Maintenant</button>
+  </div>
 
 </main>
 
 <footer>
-  <p>© 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+  <p>&copy; 2025 Digital PME Congo – Tous droits réservés. | <a href="https://www.dgtpmucongo.com">Visitez notre site web</a></p>
 </footer>
 
 </body>
