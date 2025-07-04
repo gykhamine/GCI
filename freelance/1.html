@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Freelance Congo – La plateforme de travail numérique</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 70vh;
+      background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?fit=crop&w=1920&q=80') center/cover no-repeat; /* Updated background image for freelance theme */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* ombre sombre */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000; /* Fond gris foncé pour séparer les sections */
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 32px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50; /* vert plus foncé */
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784; /* vert lumineux */
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* 3D Hover Effect for Buttons */
+    .cta-btn {
+      background-color: #4caf50; /* vert lumineux */
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .cta-btn {
+        width: 100%;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Digital Freelance Congo</h1>
+    <p>Connectez-vous aux talents numériques locaux pour vos projets</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="content">
+    <h2>Pourquoi choisir Digital Freelance Congo ?</h2>
+
+    <p><strong>Digital Freelance Congo</strong> est la plateforme de référence qui met en relation les entreprises et les particuliers avec des freelances talentueux au Congo. Que vous cherchiez un développeur web, un designer graphique, un rédacteur de contenu, ou un expert en marketing digital, notre plateforme vous offre un accès direct à une communauté qualifiée et locale. Nous nous engageons à faciliter la collaboration et à stimuler l'économie numérique congolaise.</p>
+
+    <h3>1. Accès à un vivier de talents locaux vérifiés</h3>
+    <p>Découvrez des professionnels qualifiés et expérimentés, prêts à prendre en charge vos projets. Chaque freelance sur notre plateforme est soumis à un processus de vérification pour vous garantir un service de qualité et fiable. Soutenez l'économie locale en travaillant avec des experts de votre région.</p>
+    <ul>
+      <li><strong>Profils vérifiés</strong> : Assurez-vous de travailler avec des professionnels compétents.</li>
+      <li><strong>Compétences variées</strong> : Trouvez le freelance adapté à chaque besoin (développement, design, rédaction, etc.).</li>
+      <li><strong>Communication facilitée</strong> : Interagissez directement avec les freelances en français et en langues locales.</li>
+    </ul>
+
+    <h3>2. Processus de recrutement simple et rapide</h3>
+    <p>Ne perdez plus de temps à chercher le bon candidat. Notre plateforme intuitive vous permet de publier vos projets, de recevoir des propositions et de choisir le freelance idéal en quelques clics. Gagnez en efficacité et lancez vos projets plus rapidement.</p>
+    <ul>
+      <li><strong>Publication de projet simplifiée</strong> : Décrivez vos besoins et recevez des offres ciblées.</li>
+      <li><strong>Système de notation et commentaires</strong> : Évaluez les performances des freelances pour des collaborations futures.</li>
+      <li><strong>Messagerie intégrée</strong> : Communiquez facilement avec les freelances tout au long du projet.</li>
+    </ul>
+
+    <h3>3. Transactions sécurisées et transparentes</h3>
+    <p>La sécurité de vos paiements est notre priorité. Digital Freelance Congo utilise un système de paiement fiable qui protège à la fois les clients et les freelances. Vos fonds sont sécurisés jusqu'à la finalisation du projet et votre satisfaction.</p>
+    <ul>
+      <li><strong>Paiements sécurisés</strong> : Des transactions protégées pour votre tranquillité d'esprit.</li>
+      <li><strong>Contrats clairs</strong> : Des accords de service transparents pour chaque projet.</li>
+      <li><strong>Litiges gérés</strong> : Un support dédié en cas de désaccord pour résoudre les problèmes équitablement.</li>
+    </ul>
+
+    <h3>4. Support local et personnalisé</h3>
+    <p>Notre équipe est basée au Congo et est disponible pour vous accompagner à chaque étape. Bénéficiez d'un support réactif et adapté aux spécificités du marché local, que vous soyez client ou freelance. Nous sommes là pour vous aider à réussir.</p>
+    <ul>
+      <li><strong>Assistance dédiée</strong> : Obtenez de l'aide rapidement pour toutes vos questions.</li>
+      <li><strong>Conseils personnalisés</strong> : Bénéficiez de notre expertise pour optimiser vos projets.</li>
+      <li><strong>Formation et ressources</strong> : Accédez à des outils pour développer vos compétences numériques.</li>
+    </ul>
+
+    <h3>5. Tarification avantageuse pour tous</h3>
+    <p>Notre modèle de tarification est conçu pour être juste et accessible. Profitez de tarifs compétitifs pour vos projets et d'une structure de commissions équitable pour les freelances. Digital Freelance Congo est la solution rentable pour développer votre activité.</p>
+    <ul>
+      <li><strong>Frais de plateforme compétitifs</strong> : Bénéficiez d'un excellent rapport qualité-prix.</li>
+      <li><strong>Transparence des coûts</strong> : Pas de frais cachés, tout est clair dès le départ.</li>
+      <li><strong>Flexibilité des paiements</strong> : Choisissez les modalités de paiement qui vous conviennent le mieux.</li>
+    </ul>
+  </section>
+
+  <div style="text-align:center; margin-top: 40px;">
+    <a href="signup.html"><h2 class="cta-btn">Rejoignez la communauté Digital Freelance Congo dès aujourd'hui !</h2></a>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital Freelance Congo — Une initiative de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
