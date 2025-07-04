@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digtale Card – Votre carte de visite numérique professionnelle</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #c8e6c9;
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+    header {
+      background: url('statics/qr-vitrine.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .header-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      max-width: 800px;
+    }
+    header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.3rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #81c784;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+      font-size: 1.1rem;
+    }
+    ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      list-style-type: disc;
+      color: #c8e6c9;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .cta {
+      text-align: center;
+      margin: 60px 0;
+    }
+    .cta a {
+      display: inline-block;
+      background: #4caf50;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+    .cta a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    footer {
+      background: #000;
+      color: #81c784;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+    .product-info {
+      background-color: #121212;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      margin-bottom: 60px;
+    }
+    .pricing table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .pricing th, .pricing td {
+      border: 1px solid #4caf50;
+      padding: 12px 15px;
+      text-align: center;
+      font-weight: 600;
+      color: #c8e6c9;
+    }
+    .pricing th {
+      background-color: #4caf50;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Digtale Card</h1>
+    <p>Votre carte de visite numérique connectée à un site vitrine professionnel</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="product-info">
+    <h2>Présentation du produit</h2>
+    <p><strong>Digtale Card</strong> est la solution innovante conçue pour offrir aux professionnels congolais une carte de visite numérique performante et moderne. Grâce à un QR code unique, elle redirige instantanément vers un site vitrine personnalisé de son propriétaire, mettant en avant ses services, coordonnées, et tout ce qui valorise son activité.</p>
+    <p>Conçu par <strong>Filiale de GCI – Gykhamine Concept Investigation</strong>, <strong>Digital PME Congo</strong> est votre allié stratégique pour réussir votre transformation digitale. Nous accompagnons les petites et moyennes entreprises ainsi que les acteurs du secteur militaire avec des solutions fiables, adaptées au contexte congolais.</p>
+    <p>Nos services couvrent un large spectre : du développement web & mobile, à l’intelligence artificielle, en passant par la formation, l’assistance technique et la recherche & développement. Choisissez l’excellence locale avec une équipe passionnée, proche de vous, engagée pour votre succès durable.</p>
+  </section>
+
+  <section class="pricing">
+    <h2>Tarification claire et accessible</h2>
+    <p>Nous savons que chaque entreprise a un budget différent. C’est pourquoi nous avons établi une grille tarifaire simple et avantageuse :</p>
+    <ul>
+      <li><strong>Première commande</strong> : 6 000 FCFA, comprenant la livraison de 20 cartes et la création complète du site vitrine personnalisé.</li>
+      <li><strong>Commandes suivantes</strong> : les prix baissent selon le volume :</li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Quantité</th>
+          <th>Prix unitaire (FCFA)</th>
+          <th>Prix total (FCFA)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>20 cartes</td>
+          <td>2 500</td>
+          <td>50 000</td>
+        </tr>
+        <tr>
+          <td>50 cartes</td>
+          <td>3 500</td>
+          <td>175 000</td>
+        </tr>
+        <tr>
+          <td>100 cartes</td>
+          <td>5 000</td>
+          <td>500 000</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Profitez ainsi d’un produit haut de gamme, à prix raisonnable, qui vous accompagne dans votre développement professionnel.</p>
+  </section>
+
+  <section>
+    <h2>1. Une image moderne et professionnelle</h2>
+    <p>Dans un monde où tout va vite, la première impression est souvent décisive. Lorsqu’un client potentiel ou un partenaire vous rencontre, il évalue en quelques secondes votre professionnalisme. Avoir une carte de visite numérique comme la Digtale Card renforce immédiatement votre image. Elle montre que vous êtes connecté à l’air du temps, que vous utilisez les technologies modernes, et que vous soignez votre communication.</p>
+    <p>La Digtale Card n’est pas qu’un simple support : elle est l’expression de votre marque personnelle. Grâce à son design élégant et à son QR code unique, elle permet à vos contacts d'accéder instantanément à votre site vitrine personnalisé. Fini les cartes papier perdues ou jetées ! En scannant votre carte, on découvre qui vous êtes, ce que vous proposez, vos réalisations, et comment vous contacter. C’est une carte qui laisse une trace professionnelle durable, bien au-delà du premier échange.</p>
+  </section>
+
+  <section>
+    <h2>2. Accessibilité permanente à vos informations</h2>
+    <p>La Digtale Card agit comme un pont entre vous et le monde numérique. Que vous soyez en déplacement, dans un salon professionnel ou en rendez-vous informel, vos contacts peuvent scanner votre carte et accéder à votre site, où qu’ils soient, à tout moment. Cela permet à vos prospects ou clients de revenir facilement vers vous, sans devoir rechercher un papier ou se souvenir d’un numéro de téléphone.</p>
+    <p>Ce niveau de disponibilité améliore votre réactivité commerciale. Vous ne ratez plus d’opportunité à cause d’une carte oubliée ou d’un numéro mal noté. En un scan, votre contact peut enregistrer vos infos, visiter votre vitrine, et même vous envoyer un message. Vous êtes toujours à portée de main, sans même être présent physiquement.</p>
+  </section>
+
+  <section>
+    <h2>3. Toutes vos infos centralisées au même endroit</h2>
+    <p>Combien de fois avez-vous distribué une carte de visite avec seulement un nom et un numéro ? Avec la Digtale Card, tout change. Vous ne partagez pas juste un contact : vous offrez une porte d’entrée complète vers votre univers professionnel. Votre site vitrine regroupe vos services, vos projets, vos réseaux sociaux, vos horaires, votre géolocalisation et plus encore.</p>
+    <p>C’est une carte intelligente qui fait bien plus qu’un simple papier imprimé. Elle est dynamique, mise à jour en temps réel, évolutive. Si vous changez de numéro ou lancez un nouveau service, vous n’avez pas besoin de réimprimer vos cartes. Il suffit d’actualiser votre site, et chaque carte reste valide. C’est la digitalisation intelligente au service de votre image.</p>
+  </section>
+
+  <section>
+    <h2>4. Adaptée à tous les métiers et secteurs</h2>
+    <p>La Digtale Card n’est pas réservée à une élite technologique. Elle a été pensée pour tous les professionnels congolais, quels que soient leur métier ou leur niveau en informatique. Que vous soyez artisan, commerçant, consultant, médecin, formateur, chauffeur privé, entrepreneur ou acteur militaire, cette carte s’adapte à votre réalité terrain.</p>
+    <p>Vous avez un petit budget ? Pas de souci. La première commande est abordable (6 000 FCFA avec site vitrine et 20 cartes livrées). Ensuite, vous ne payez que pour les impressions à prix réduit. En plus, votre site est disponible en français, lingala, ou toute autre langue locale selon vos préférences. Vous communiquez avec vos clients dans leur langue et dans leur format préféré.</p>
+  </section>
+
+  <section>
+    <h2>5. Un investissement durable et rentable</h2>
+    <p>Avec la Digtale Card, vous n’investissez pas dans une simple carte – vous investissez dans un écosystème digital complet. Vous bénéficiez d’un site vitrine créé pour vous, sans frais cachés, hébergé localement, avec assistance technique. Ensuite, vous continuez à profiter de cartes à très bas prix (2 500 FCFA pour 20, 3 500 FCFA pour 50, 5 000 FCFA pour 100).</p>
+    <p>Cette approche rend votre stratégie de communication durable, rentable et évolutive. Vous pouvez même ajouter des modules au site plus tard (prise de rendez-vous, chat WhatsApp, paiement en ligne, etc.). Vous construisez une présence numérique solide, sans avoir besoin de payer une agence ou un développeur freelance.</p>
+  </section>
+
+  <div class="cta">
+    <a href="contact.html">Je commande ma Digtale Card</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital PME Congo – Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
