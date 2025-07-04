@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Missions Disponibles – Digital Freelance Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 70vh;
+      background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?fit=crop&w=1920&q=80') center/cover no-repeat; /* Image for missions/projects */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* ombre sombre */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000;
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784;
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50;
+    }
+
+    /* Mission Cards Styling */
+    .mission-card {
+      background-color: #1a1a1a; /* Lighter dark for card background */
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      border: 1px solid #333; /* subtle border */
+    }
+
+    .mission-card h3 {
+      color: #a5d6a7; /* Slightly brighter green for mission title */
+      font-size: 2rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .mission-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .detail-item {
+      background-color: #2a2a2a; /* Even lighter dark for detail boxes */
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+
+    .detail-item strong {
+      color: #81c784; /* Green for labels */
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .mission-description {
+      font-size: 1.1rem;
+      color: #c8e6c9;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .mission-actions {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000;
+      color: #81c784;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784;
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* 3D Hover Effect for Buttons */
+    .cta-btn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-block; /* To allow text-align center on parent */
+    }
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .cta-btn {
+        width: 100%;
+        padding: 12px 20px;
+      }
+      .mission-details {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Missions Disponibles</h1>
+    <p>Découvrez les opportunités de projets qui vous attendent</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="missions-list">
+    <h2>Explorez nos missions actuelles</h2>
+
+    <p class="mission-description" style="text-align: center; margin-bottom: 40px;">
+      Parcourez la liste des missions de développement disponibles. Chaque mission inclut les informations essentielles sur le projet, la rémunération et le délai. Si une mission vous intéresse et que vos compétences correspondent, contactez-nous pour l'accepter !
+    </p>
+
+    <div class="mission-card">
+      <h3>Développement d'un Site Web E-commerce pour PME Locale</h3>
+      <div class="mission-details">
+        <div class="detail-item"><strong>Catégorie:</strong> Développement Web</div>
+        <div class="detail-item"><strong>Compétences Requises:</strong> HTML, CSS, JavaScript, PHP (Laravel/CodeIgniter), MySQL, Responsive Design</div>
+        <div class="detail-item"><strong>Budget Alloué:</strong> 850 000 FCFA</div>
+        <div class="detail-item"><strong>Délai:</strong> 30 jours (à partir de l'acceptation)</div>
+      </div>
+      <p class="mission-description">
+        Création d'un site e-commerce complet pour une petite entreprise de vente de produits artisanaux. Le site doit inclure un catalogue de produits, un panier d'achat, un système de paiement sécurisé (intégration de solutions locales si possible), et un tableau de bord d'administration simple pour la gestion des produits et des commandes.
+      </p>
+      <div class="mission-actions">
+        <a href="contact.html?mission=ecommerce_pme" class="cta-btn">Accepter cette Mission</a>
+      </div>
+    </div>
+
+    <div class="mission-card">
+      <h3>Refonte UX/UI d'une Application Mobile Existante</h3>
+      <div class="mission-details">
+        <div class="detail-item"><strong>Catégorie:</strong> Design & Expérience Utilisateur</div>
+        <div class="detail-item"><strong>Compétences Requises:</strong> Figma/Adobe XD, UI/UX Principles, Mobile Design, Prototypage</div>
+        <div class="detail-item"><strong>Budget Alloué:</strong> 400 000 FCFA</div>
+        <div class="detail-item"><strong>Délai:</strong> 15 jours (à partir de l'acceptation)</div>
+      </div>
+      <p class="mission-description">
+        Amélioration de l'interface utilisateur et de l'expérience utilisateur d'une application mobile de gestion de tâches. L'objectif est de moderniser le design, simplifier les parcours utilisateurs et rendre l'application plus intuitive et agréable à utiliser. Des maquettes claires et un prototype interactif sont attendus.
+      </p>
+      <div class="mission-actions">
+        <a href="contact.html?mission=refonte_app_mobile" class="cta-btn">Accepter cette Mission</a>
+      </div>
+    </div>
+
+    <div class="mission-card">
+      <h3>Développement d'un Module de Reporting pour une Application Interne</h3>
+      <div class="mission-details">
+        <div class="detail-item"><strong>Catégorie:</strong> Développement Backend</div>
+        <div class="detail-item"><strong>Compétences Requises:</strong> Python (Django/Flask), SQL, API RESTful, Génération de rapports (PDF/CSV)</div>
+        <div class="detail-item"><strong>Budget Alloué:</strong> 600 000 FCFA</div>
+        <div class="detail-item"><strong>Délai:</strong> 20 jours (à partir de l'acceptation)</div>
+      </div>
+      <p class="mission-description">
+        Création d'un module de reporting avancé pour une application web interne. Ce module devra permettre aux utilisateurs de générer des rapports personnalisés basés sur diverses données, avec des options de filtrage et d'exportation en différents formats (PDF, CSV). L'intégration avec l'API existante est cruciale.
+      </p>
+      <div class="mission-actions">
+        <a href="contact.html?mission=module_reporting" class="cta-btn">Accepter cette Mission</a>
+      </div>
+    </div>
+
+    </section>
+
+  <div style="text-align:center; margin-top: 40px;">
+    <a href="contact.html"><h2 class="cta-btn">Vous ne trouvez pas la mission qui vous convient ? Contactez-nous !</h2></a>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital Freelance Congo — Une initiative de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
