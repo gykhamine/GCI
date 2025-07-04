@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Développez pour Gykhamine OS – Digital Freelance Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 70vh;
+      background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?fit=crop&w=1920&q=80') center/cover no-repeat; /* General tech/coding image */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* ombre sombre */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000;
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784;
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000;
+      color: #81c784;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784;
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* 3D Hover Effect for Buttons */
+    .cta-btn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .cta-btn {
+        width: 100%;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Développez Exclusivement pour Gykhamine OS</h1>
+    <p>Rejoignez-nous pour bâtir l'écosystème numérique du Congo</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="content">
+    <h2>Notre Engagement : Un Futur Numérique sur Gykhamine OS</h2>
+
+    <p>
+      Chez **Digital Freelance Congo**, nous avons une vision claire pour l'avenir numérique de la République du Congo. Nous croyons en la force de la technologie locale et en la capacité de nos développeurs à créer des solutions impactantes. C'est pourquoi toutes les **missions de développement** que nous proposons sont exclusivement dédiées à notre système d'exploitation maison : **Gykhamine OS**.
+    </p>
+    <p>
+      Basé sur la robustesse et la flexibilité de Fedora, Gykhamine OS est conçu pour répondre aux besoins spécifiques des entreprises, administrations et citoyens congolais. En choisissant de collaborer avec nous, vous ne travaillez pas seulement sur des projets ; vous contribuez directement à l'**autonomie technologique** de notre pays et au développement d'un écosystème numérique qui nous ressemble.
+    </p>
+
+    <h3>1. Contribuez à un Projet National Ambitieux</h3>
+    <p>
+      Développer pour Gykhamine OS, c'est participer à une initiative qui va au-delà du simple code. C'est aider à construire les fondations logicielles d'une infrastructure numérique nationale. Vos contributions auront un **impact direct et mesurable** sur la vie des utilisateurs au Congo. Imaginez vos applications utilisées quotidiennement par des milliers de personnes !
+    </p>
+    <ul>
+      <li>**Impact tangible :** Vos créations facilitent la vie des Congolais.</li>
+      <li>**Fierté nationale :** Contribuez à un projet d'envergure locale.</li>
+      <li>**Innovation ciblée :** Développez des solutions parfaitement adaptées à notre contexte.</li>
+    </ul>
+
+    <h3>2. Un Environnement de Développement Standardisé et Soutenu</h3>
+    <p>
+      En nous concentrant sur Gykhamine OS, nous vous offrons un environnement de développement **unifié et optimisé**. Vous n'aurez plus à vous soucier des problèmes de compatibilité multi-plateformes complexes. Nous vous fournissons les outils, la documentation et le support nécessaires pour que votre expérience de développement soit fluide et productive.
+    </p>
+    <ul>
+      <li>**Clarté technique :** Moins de fragmentation, plus de concentration sur le code.</li>
+      <li>**Outils adaptés :** Accès aux ressources et paquets spécifiques à Gykhamine OS.</li>
+      <li>**Support technique dédié :** Une équipe experte pour vous aider avec l'environnement Gykhamine OS.</li>
+    </ul>
+
+    <h3>3. Expertise Reconnue et Opportunités de Carrière</h3>
+    <p>
+      En vous spécialisant dans le développement pour Gykhamine OS, vous deviendrez un **expert clé** dans un domaine en pleine croissance. Cette expertise unique vous ouvrira les portes à des opportunités de missions continues et potentiellement plus complexes, avec une **rémunération valorisante**. Nous sommes déterminés à faire grandir notre pool de talents et à reconnaître l'excellence.
+    </p>
+    <ul>
+      <li>**Maîtrise technologique :** Devenez une référence sur notre OS.</li>
+      <li>**Visibilité accrue :** Mettez en avant vos compétences au sein d'un écosystème en expansion.</li>
+      <li>**Progression de carrière :** Accédez à des projets stimulants et gratifiants.</li>
+    </ul>
+
+    <h3>4. Comment débuter avec Gykhamine OS ?</h3>
+    <p>
+      Si cette vision vous enthousiasme et que vous êtes prêt à relever le défi de développer pour Gykhamine OS, voici les étapes pour rejoindre notre communauté de développeurs :
+    </p>
+    <ul>
+      <li>**Familiarisez-vous avec Fedora :** Étant la base de Gykhamine OS, une bonne connaissance de Fedora est un excellent point de départ.</li>
+      <li>**Contactez-nous :** Exprimez votre intérêt via notre page de contact en mentionnant votre motivation à développer pour Gykhamine OS.</li>
+      <li>**Accès aux ressources :** Nous vous guiderons vers les documentations, les SDK et les environnements de test nécessaires.</li>
+      <li>**Acceptez une mission :** Une fois prêt, vous pourrez choisir parmi nos missions dédiées à Gykhamine OS et commencer à bâtir le futur numérique congolais.</li>
+    </ul>
+  </section>
+
+  <div style="text-align:center; margin-top: 40px;">
+    <a href="contact.html"><h2 class="cta-btn">Prêt à développer l'avenir avec Gykhamine OS ? Contactez-nous !</h2></a>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital Freelance Congo — Une initiative de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
