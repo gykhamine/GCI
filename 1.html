@@ -15,16 +15,21 @@
       background-color: #0b0f0a;
       color: #c8e6c9;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column; /* Stack header, content, footer */
+      min-height: 100vh;
+      overflow-x: hidden; /* Prevent horizontal scrollbar during sidebar animation */
     }
     a {
       text-align: center;
       color: #81c784;
-      margin-bottom: 32px;
+      margin-bottom: 32px; /* General link margin, overridden for sidebar */
       font-size: 2.3rem;
       text-transform: uppercase;
       letter-spacing: 1.7px;
       font-weight: 700;
       text-shadow: 0 0 8px #4caf5088;
+      text-decoration: none; /* Remove underline by default */
     }
     a:hover {
       color: #4caf50;
@@ -41,6 +46,7 @@
       align-items: center;
       text-align: center;
       color: #a5d6a7;
+      width: 100%;
     }
     header::before {
       content: "";
@@ -69,11 +75,86 @@
       text-shadow: 0 0 4px #2e7d3288;
     }
 
+    /* MAIN CONTENT WRAPPER */
+    .content-wrapper {
+        display: flex; /* Always display sidebar and main content side-by-side */
+        flex-grow: 1;
+        position: relative;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background-color: #122612;
+      border-right: 2px solid #4caf50;
+      padding: 20px;
+      width: 250px;
+      flex-shrink: 0; /* Prevent sidebar from shrinking */
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      box-shadow: 2px 0 12px #4caf5088;
+      align-items: center;
+      padding-top: 40px;
+      transition: transform 0.3s ease-in-out; /* Smooth transition for sidebar movement */
+      z-index: 10;
+      /* For initial hidden state on small screens if desired */
+      /* transform: translateX(-100%); */
+    }
+
+    .sidebar.hidden {
+      transform: translateX(-100%); /* Hide sidebar by moving it completely off-screen */
+    }
+
+    .sidebar a {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+      padding: 8px 15px;
+      border-radius: 8px;
+      display: block;
+      width: 100%;
+      text-align: left;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-shadow: none;
+      letter-spacing: 1px;
+    }
+    .sidebar a:hover {
+      background-color: rgba(76, 175, 80, 0.2);
+      color: #76ff03;
+      text-decoration: none;
+    }
+
     /* MAIN CONTAINER */
     .container {
       max-width: 1100px;
-      margin: 40px auto 80px;
+      margin: 40px auto 80px; /* Adjust margin to account for sidebar */
       padding: 0 20px;
+      flex-grow: 1;
+      transition: margin-left 0.3s ease-in-out; /* Smooth transition for main content shift */
+    }
+
+    /* Adjust main content when sidebar is hidden */
+    .content-wrapper.sidebar-hidden .container {
+      margin-left: 0; /* No left margin when sidebar is hidden */
+    }
+
+    /* SIDEBAR TOGGLE BUTTON */
+    .sidebar-toggle {
+        position: absolute;
+        top: 20px; /* Adjust vertical position */
+        left: 20px; /* Adjust horizontal position */
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 1rem;
+        z-index: 11;
+        transition: background-color 0.3s ease;
+    }
+
+    .sidebar-toggle:hover {
+        background-color: #388e3c;
     }
 
     /* SECTIONS */
@@ -210,18 +291,51 @@
       letter-spacing: 1.2px;
       font-weight: 600;
       user-select: none;
+      width: 100%;
     }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .service-card {
-        width: 100%;
+      .sidebar {
+        position: fixed; /* Sidebar fixed position for overlay/slide effect */
+        height: 100%; /* Take full viewport height */
+        top: 0;
+        left: 0;
+        transform: translateX(-100%); /* Start hidden */
+        border-right: 2px solid #4caf50; /* Keep border on the right */
+        border-bottom: none; /* Remove bottom border */
+        padding-top: 80px; /* Make space for toggle button */
       }
-      header h1 {
-        font-size: 2.3rem;
+      .sidebar.hidden {
+        transform: translateX(-100%); /* Ensure it stays hidden */
       }
-      header p {
-        font-size: 1.2rem;
+      .sidebar.visible {
+        transform: translateX(0%); /* Show sidebar */
+      }
+      .sidebar a {
+        width: 100%; /* Links take full sidebar width */
+        text-align: left;
+        margin: 0; /* Remove horizontal margins */
+      }
+
+      .sidebar-toggle {
+          display: block; /* Always show the toggle button on small screens */
+          position: fixed; /* Fixed position so it stays visible */
+          top: 15px; /* Adjust as needed */
+          left: 15px; /* Adjust as needed */
+          z-index: 100; /* Ensure it's on top of everything */
+      }
+
+      .container {
+          /* When sidebar is hidden, content fills full width.
+             When sidebar is visible, content shifts.
+             This creates a "push" effect */
+          margin-left: 0; /* Reset default margin for small screens */
+          transition: margin-left 0.3s ease-in-out;
+      }
+      /* If you want the main content to shift when the sidebar is open on small screens */
+      .content-wrapper.sidebar-open .container {
+          margin-left: 250px; /* Shift content by sidebar width */
       }
     }
   </style>
@@ -235,120 +349,165 @@
   </div>
 </header>
 
-<main class="container">
+<div class="content-wrapper" id="contentWrapper">
+  <aside class="sidebar" id="sidebar">
+    <a href="blog.html">BLOG</a>
+    <a href="pf.html">GYKHAMINE-OS</a>
+    <a href="produits/p.html">Produits</a>
+    <a href="https://gykhamine.github.io/self-into/cv.html">Auteur</a>
+    <a href="ct.html">Contact</a>
+    <a href="freelance/1.html">Développement</a>
+    <a href="market/1.html">Freelance</a>
+  </aside>
 
-  <section id="about">
-    <h2>À propos de Digital PME Congo</h2>
-    <p>
-      Filiale de <strong>GCI – Gykhamine Concept Investigation</strong>, Digital PME Congo est votre allié stratégique pour réussir votre transformation digitale.
-      <br /><br />
-      Nous accompagnons les petites et moyennes entreprises ainsi que les acteurs du secteur militaire avec des solutions innovantes, fiables et adaptées au contexte congolais.
-      <br /><br />
-      Nos services couvrent un large spectre : du développement web & mobile, à l’intelligence artificielle, en passant par la formation, l’assistance technique et la recherche & développement.
-      <br /><br />
-      Choisissez l’excellence locale avec une équipe passionnée qui allie expertise technologique, proximité et engagement pour votre succès durable.
-    </p>
+  <button class="sidebar-toggle" id="sidebarToggle">
+    ☰ Menu
+  </button>
 
-  </section>
-  <section class="service-card" >
-    <a href="blog.html" style="padding: 5px;">BLOG</a> 
-    <a href="pf.html" style="padding: 5px;"> GYKHAMINE-OS</a>
-    <a href="produits/p.html" style="padding: 5px;">Produits</a>
-    <a href="https://gykhamine.github.io/self-into/cv.html"  style="padding: 5px;"> Auteur</a>
-    <a href="ct.html" style="padding: 5px;">contact</a>
-    <a href="freelance/1.html" style="padding: 5px;">Devel</a>
-    <a href="market/1.html" style="padding: 5px;">freelance</a>
-  </section>
+  <main class="container">
 
-  <section id="services">
-    <h2>Nos services</h2>
-    <div class="services-grid">
+    <section id="about">
+      <h2>À propos de Digital PME Congo</h2>
+      <p>
+        Filiale de <strong>GCI – Gykhamine Concept Investigation</strong>, Digital PME Congo est votre allié stratégique pour réussir votre transformation digitale.
+        <br /><br />
+        Nous accompagnons les petites et moyennes entreprises ainsi que les acteurs du secteur militaire avec des solutions innovantes, fiables et adaptées au contexte congolais.
+        <br /><br />
+        Nos services couvrent un large spectre : du développement web & mobile, à l’intelligence artificielle, en passant par la formation, l’assistance technique et la recherche & développement.
+        <br /><br />
+        Choisissez l’excellence locale avec une équipe passionnée qui allie expertise technologique, proximité et engagement pour votre succès durable.
+      </p>
+    </section>
 
-      <div class="service-card">
-        <h3>🌐 Site vitrine</h3>
-        <p>Présentez votre activité en ligne avec un site moderne, responsive et optimisé SEO pour attirer et convaincre vos clients facilement.</p>
-        <p class="price">À partir de 15 000 FCFA</p>
-        <a href="sd/srv.html">plus</a>
+    <section id="services">
+      <h2>Nos services</h2>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>🌐 Site vitrine</h3>
+          <p>Présentez votre activité en ligne avec un site moderne, responsive et optimisé SEO pour attirer et convaincre vos clients facilement.</p>
+          <p class="price">À partir de 15 000 FCFA</p>
+          <a href="sd/srv.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>🛒 Site e-commerce</h3>
+          <p>Vendez vos produits en ligne avec une boutique sécurisée, intégrée aux solutions de paiement mobile populaires en Afrique.</p>
+          <p class="price">70 000 – 150 000 FCFA</p>
+          <a href="sd/ec.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>📱 Application mobile</h3>
+          <p>Développez des applications Android sur mesure pour gérer vos activités, améliorer l’engagement client et faciliter la mobilité.</p>
+          <p class="price">100 000 – 300 000 FCFA</p>
+          <a href="sd/ap.html">plus</a>
+        </div>
+
+
+        <div class="service-card">
+          <h3>📊 Logiciels de gestion</h3>
+          <p>Automatisez la gestion de vos stocks, ventes, personnel et sécurité avec des solutions adaptées à vos besoins spécifiques.</p>
+          <p class="price">60 000 – 150 000 FCFA</p>
+          <a href="sd/lg.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>🧠 Intelligence Artificielle</h3>
+          <p>Améliorez vos décisions et gagnez en efficacité grâce à des outils d’IA : chatbots, analyse prédictive, automatisation intelligente.</p>
+          <p class="price">Sur devis personnalisé</p>
+          <a href="sd/ia.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>📈 Analyse de données</h3>
+          <p>Exploitez vos données avec des tableaux de bord interactifs pour piloter votre croissance et anticiper les tendances du marché.</p>
+          <p class="price">Sur devis personnalisé</p>
+          <a href="sd/ad.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>🔐 Solutions secteur militaire & sécurité</h3>
+          <p>Déployez des outils robustes pour la gestion sécurisée du personnel, armement, badges QR, et communication interne sécurisée.</p>
+          <p class="price">À partir de 80 000 FCFA</p>
+          <a href="sd/sm.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>🔌 Intégration & API</h3>
+          <p>Connectez vos systèmes pour automatiser les flux et améliorer l’efficacité opérationnelle avec des intégrations sur mesure.</p>
+          <p class="price">Sur devis personnalisé</p>
+          <a href="sd/api.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>🎓 Formation</h3>
+          <p>Formez vos équipes aux compétences clés : informatique, développement, cybersécurité et intelligence artificielle.</p>
+          <p class="price">10 000 – 100 000 FCFA</p>
+          <a href="sd/fr.html"></a>
+        </div>
+
+        <div class="service-card">
+          <h3>🛠️ Assistance technique</h3>
+          <p>Maintenance, support et dépannage réactif pour garantir la continuité et la sécurité de vos systèmes numériques.</p>
+          <p class="price">À partir de 10 000 FCFA/mois</p>
+          <a href="sd/as.html">plus</a>
+        </div>
+
+        <div class="service-card">
+          <h3>🔬 Recherche & Développement</h3>
+          <p>Conception et développement de solutions innovantes adaptées à vos défis spécifiques, pour garder une longueur d’avance.</p>
+          <p class="price">Sur étude & contrat</p>
+          <a href="sd/rd.html">plus</a>
+        </div>
+
       </div>
+    </section>
 
-      <div class="service-card">
-        <h3>🛒 Site e-commerce</h3>
-        <p>Vendez vos produits en ligne avec une boutique sécurisée, intégrée aux solutions de paiement mobile populaires en Afrique.</p>
-        <p class="price">70 000 – 150 000 FCFA</p>
-        <a href="sd/ec.html">plus</a>
-      </div>
-
-      <div class="service-card">
-        <h3>📱 Application mobile</h3>
-        <p>Développez des applications Android sur mesure pour gérer vos activités, améliorer l’engagement client et faciliter la mobilité.</p>
-        <p class="price">100 000 – 300 000 FCFA</p>
-        <a href="sd/ap.html">plus</a>
-      </div>
-    
-
-      <div class="service-card">
-        <h3>📊 Logiciels de gestion</h3>
-        <p>Automatisez la gestion de vos stocks, ventes, personnel et sécurité avec des solutions adaptées à vos besoins spécifiques.</p>
-        <p class="price">60 000 – 150 000 FCFA</p>
-        <a href="sd/lg.html">plus</a>
-      </div>
-
-      <div class="service-card">
-        <h3>🧠 Intelligence Artificielle</h3>
-        <p>Améliorez vos décisions et gagnez en efficacité grâce à des outils d’IA : chatbots, analyse prédictive, automatisation intelligente.</p>
-        <p class="price">Sur devis personnalisé</p>
-        <a href="sd/ia.html">plus</a>
-      </div>
-
-      <div class="service-card">
-        <h3>📈 Analyse de données</h3>
-        <p>Exploitez vos données avec des tableaux de bord interactifs pour piloter votre croissance et anticiper les tendances du marché.</p>
-        <p class="price">Sur devis personnalisé</p>
-        <a href="sd/ad.html">plus</a>
-      </div>
-
-      <div class="service-card">
-        <h3>🔐 Solutions secteur militaire & sécurité</h3>
-        <p>Déployez des outils robustes pour la gestion sécurisée du personnel, armement, badges QR, et communication interne sécurisée.</p>
-        <p class="price">À partir de 80 000 FCFA</p>
-        <a href="sd/sm.html">plus</a>
-      </div>
-
-      <div class="service-card">
-        <h3>🔌 Intégration & API</h3>
-        <p>Connectez vos systèmes pour automatiser les flux et améliorer l’efficacité opérationnelle avec des intégrations sur mesure.</p>
-        <p class="price">Sur devis personnalisé</p>
-        <a href="sd/api.html">plus</a>
-      </div>
-
-      <div class="service-card">
-        <h3>🎓 Formation</h3>
-        <p>Formez vos équipes aux compétences clés : informatique, développement, cybersécurité et intelligence artificielle.</p>
-        <p class="price">10 000 – 100 000 FCFA</p>
-        <a href="sd/fr.html"></a>
-      </div>
-
-      <div class="service-card">
-        <h3>🛠️ Assistance technique</h3>
-        <p>Maintenance, support et dépannage réactif pour garantir la continuité et la sécurité de vos systèmes numériques.</p>
-        <p class="price">À partir de 10 000 FCFA/mois</p>
-        <a href="sd/as.html">plus</a>
-      </div>
-
-      <div class="service-card">
-        <h3>🔬 Recherche & Développement</h3>
-        <p>Conception et développement de solutions innovantes adaptées à vos défis spécifiques, pour garder une longueur d’avance.</p>
-        <p class="price">Sur étude & contrat</p>
-        <a href="sd/rd.html">plus</a>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-<footer>
+  </main>
+</div> <footer>
   <p>&copy; 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('sidebarToggle');
+    const contentWrapper = document.getElementById('contentWrapper'); // Get content wrapper
+
+    function toggleSidebar() {
+      if (sidebar.classList.contains('visible')) {
+        sidebar.classList.remove('visible');
+        sidebar.classList.add('hidden');
+        contentWrapper.classList.remove('sidebar-open'); // Remove class for content shift
+      } else {
+        sidebar.classList.remove('hidden');
+        sidebar.classList.add('visible');
+        contentWrapper.classList.add('sidebar-open'); // Add class for content shift
+      }
+    }
+
+    // Toggle sidebar on button click
+    toggleButton.addEventListener('click', toggleSidebar);
+
+    // Initial check and on window resize
+    function checkScreenWidth() {
+      if (window.innerWidth > 768) {
+        sidebar.classList.remove('hidden', 'visible'); // Remove both classes for large screens
+        contentWrapper.classList.remove('sidebar-open'); // No shift needed on large screens
+        toggleButton.style.display = 'none'; // Hide button on large screens
+      } else {
+        sidebar.classList.add('hidden'); // Start hidden on small screens
+        sidebar.classList.remove('visible');
+        contentWrapper.classList.remove('sidebar-open'); // Ensure no shift initially
+        toggleButton.style.display = 'block'; // Show button on small screens
+      }
+    }
+
+    checkScreenWidth();
+    window.addEventListener('resize', checkScreenWidth);
+  });
+</script>
 
 </body>
 </html>
