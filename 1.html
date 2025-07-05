@@ -41,6 +41,7 @@
       position: relative;
       height: 60vh;
       background: url('statics/3.png') center/cover no-repeat;
+      display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -96,8 +97,8 @@
       padding-top: 40px;
       transition: transform 0.3s ease-in-out; /* Smooth transition for sidebar movement */
       z-index: 10;
-      /* For initial hidden state on small screens if desired */
-      /* transform: translateX(-100%); */
+      /* Default state for larger screens: visible */
+      transform: translateX(0);
     }
 
     .sidebar.hidden {
@@ -131,16 +132,16 @@
       transition: margin-left 0.3s ease-in-out; /* Smooth transition for main content shift */
     }
 
-    /* Adjust main content when sidebar is hidden */
+    /* Adjust main content when sidebar is hidden on small screens */
     .content-wrapper.sidebar-hidden .container {
       margin-left: 0; /* No left margin when sidebar is hidden */
     }
 
     /* SIDEBAR TOGGLE BUTTON */
     .sidebar-toggle {
-        position: absolute;
-        top: 20px; /* Adjust vertical position */
-        left: 20px; /* Adjust horizontal position */
+        position: fixed; /* Keep button fixed */
+        top: 15px; /* Adjust as needed */
+        left: 15px; /* Adjust as needed */
         background-color: #4caf50;
         color: white;
         border: none;
@@ -148,8 +149,9 @@
         padding: 10px 15px;
         cursor: pointer;
         font-size: 1rem;
-        z-index: 11;
+        z-index: 100; /* Ensure it's on top of everything */
         transition: background-color 0.3s ease;
+        display: none; /* Hidden by default, shown only on small screens */
     }
 
     .sidebar-toggle:hover {
@@ -300,16 +302,13 @@
         height: 100%; /* Take full viewport height */
         top: 0;
         left: 0;
-        transform: translateX(-100%); /* Start hidden */
+        transform: translateX(-100%); /* **Starts hidden on small screens** */
         border-right: 2px solid #4caf50; /* Keep border on the right */
         border-bottom: none; /* Remove bottom border */
         padding-top: 80px; /* Make space for toggle button */
       }
-      .sidebar.hidden {
-        transform: translateX(-100%); /* Ensure it stays hidden */
-      }
       .sidebar.visible {
-        transform: translateX(0%); /* Show sidebar */
+        transform: translateX(0%); /* Show sidebar when toggled */
       }
       .sidebar a {
         width: 100%; /* Links take full sidebar width */
@@ -318,18 +317,12 @@
       }
 
       .sidebar-toggle {
-          display: block; /* Always show the toggle button on small screens */
-          position: fixed; /* Fixed position so it stays visible */
-          top: 15px; /* Adjust as needed */
-          left: 15px; /* Adjust as needed */
-          z-index: 100; /* Ensure it's on top of everything */
+          display: block; /* **Always show the toggle button on small screens** */
       }
 
       .container {
-          /* When sidebar is hidden, content fills full width.
-             When sidebar is visible, content shifts.
-             This creates a "push" effect */
-          margin-left: 0; /* Reset default margin for small screens */
+          /* No initial margin-left on small screens as sidebar is hidden */
+          margin-left: 0;
           transition: margin-left 0.3s ease-in-out;
       }
       /* If you want the main content to shift when the sidebar is open on small screens */
@@ -398,7 +391,7 @@
 
         <div class="service-card">
           <h3>📱 Application mobile</h3>
-          <p>Développez des applications Android sur mesure pour gérer vos activités, améliorer l’engagement client et faciliter la mobilité.</p>
+          <p>Développez des applications Android sur mesure pour gérer vos activités, améliorer l’engagement client et faciliter la mobility.</p>
           <p class="price">100 000 – 300 000 FCFA</p>
           <a href="sd/ap.html">plus</a>
         </div>
@@ -472,39 +465,42 @@
   document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const toggleButton = document.getElementById('sidebarToggle');
-    const contentWrapper = document.getElementById('contentWrapper'); // Get content wrapper
+    const contentWrapper = document.getElementById('contentWrapper');
+    const breakpoint = 768; // Define the breakpoint for small screens
 
     function toggleSidebar() {
-      if (sidebar.classList.contains('visible')) {
-        sidebar.classList.remove('visible');
-        sidebar.classList.add('hidden');
-        contentWrapper.classList.remove('sidebar-open'); // Remove class for content shift
-      } else {
-        sidebar.classList.remove('hidden');
-        sidebar.classList.add('visible');
-        contentWrapper.classList.add('sidebar-open'); // Add class for content shift
-      }
+      // Toggle visibility classes on the sidebar
+      sidebar.classList.toggle('hidden');
+      sidebar.classList.toggle('visible');
+
+      // Toggle content shift class on the wrapper
+      contentWrapper.classList.toggle('sidebar-open');
     }
 
-    // Toggle sidebar on button click
+    // Attach event listener to the toggle button
     toggleButton.addEventListener('click', toggleSidebar);
 
-    // Initial check and on window resize
-    function checkScreenWidth() {
-      if (window.innerWidth > 768) {
-        sidebar.classList.remove('hidden', 'visible'); // Remove both classes for large screens
-        contentWrapper.classList.remove('sidebar-open'); // No shift needed on large screens
-        toggleButton.style.display = 'none'; // Hide button on large screens
+    // Function to set sidebar state based on screen width
+    function setInitialSidebarState() {
+      if (window.innerWidth > breakpoint) {
+        // Large screens: Sidebar is always visible, button hidden
+        sidebar.classList.remove('hidden', 'visible');
+        contentWrapper.classList.remove('sidebar-open');
+        toggleButton.style.display = 'none';
       } else {
-        sidebar.classList.add('hidden'); // Start hidden on small screens
+        // Small screens: Sidebar starts hidden, button shown
+        sidebar.classList.add('hidden');
         sidebar.classList.remove('visible');
         contentWrapper.classList.remove('sidebar-open'); // Ensure no shift initially
-        toggleButton.style.display = 'block'; // Show button on small screens
+        toggleButton.style.display = 'block';
       }
     }
 
-    checkScreenWidth();
-    window.addEventListener('resize', checkScreenWidth);
+    // Set initial state when the page loads
+    setInitialSidebarState();
+
+    // Update state on window resize
+    window.addEventListener('resize', setInitialSidebarState);
   });
 </script>
 
