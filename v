@@ -1,2 +1,0 @@
-une autre pour convraincre sur  l importance de la souverainté numerique et de la prorite d un os 
-ok une autre pour explique a ces freelance que ici les produit sont deteminé pa gci et que c est un marketingue que pour les serice numerique toute les service possible mais a condition que ce soit lié a gykhamine os nutre systeme d exploitation distribution linux basé sur fedora 
