@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L'Investissement dans la Technologie – Digital PME Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 40vh; /* Moins haut que la page principale */
+      background: url('statics/server_room.png') center/cover no-repeat; /* Nouvelle image pour le thème */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6); /* ombre sombre plus prononcée */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem; /* Plus petit que la page principale */
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.2rem; /* Plus petit que la page principale */
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000; /* Fond noir pour les sections */
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 32px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50; /* vert plus foncé */
+    }
+
+    /* Notice for Cost */
+    .cost-notice {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #0d0d0d; /* Un fond plus sombre */
+        border-left: 5px solid #ffcc00; /* Une barre jaune pour l'attention */
+        color: #fffacd; /* Texte jaune très clair */
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+    }
+    .cost-notice strong {
+        color: #ffea00; /* Jaune plus vif pour le gras */
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784; /* vert lumineux */
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .cost-notice {
+          font-size: 1rem;
+          padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>L'Investissement dans la Technologie</h1>
+    <p>Comprendre le Coût de l'Excellence et de la Sécurité Numérique</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="content">
+    <h2>La Technologie : Un Coût, Une Valeur, Un Avenir</h2>
+
+    <p>Dans le paysage économique actuel, la technologie n'est plus une simple dépense, mais un **investissement stratégique** fondamental pour la compétitivité et la croissance de toute entreprise. Chez Digital PME Congo, nous concevons des solutions numériques avancées qui garantissent la performance, la sécurité et la pérennité de vos opérations. Il est essentiel de comprendre que la qualité, la fiabilité et l'innovation ont un coût, un coût qui se traduit par des bénéfices tangibles et durables pour votre activité.</p>
+
+    <h3>1. Pourquoi la Technologie de Pointe Implique un Coût</h3>
+    <p>Le développement, le déploiement et la maintenance de solutions numériques de haute qualité nécessitent des ressources considérables. Ce coût se justifie par plusieurs facteurs clés :</p>
+    <ul>
+      <li>**Expertise Spécialisée :** Nos équipes sont composées d'ingénieurs et d'experts certifiés, dont les compétences pointues sont constamment mises à jour pour maîtriser les technologies les plus récentes et complexes.</li>
+      <li>**Recherche et Développement (R&D) :** Pour rester à la pointe de l'innovation, nous investissons continuellement dans la R&D. Cela nous permet de proposer des solutions avant-gardistes, adaptées aux défis de demain.</li>
+      <li>**Matériels et Logiciels de Qualité :** L'utilisation de serveurs robustes, de licences logicielles légitimes et de systèmes de sécurité de premier ordre est impérative pour garantir la stabilité et la protection de vos données.</li>
+      <li>**Maintenance et Support Continu :** Nos services ne s'arrêtent pas au déploiement. Une maintenance proactive, des mises à jour régulières et un support technique réactif sont essentiels pour assurer le bon fonctionnement de vos systèmes 24h/24, 7j/7.</li>
+      <li>**Sécurité Cybersécurité :** La protection contre les menaces numériques est une priorité absolue. Cela implique des audits réguliers, des outils de défense sophistiqués et une veille constante contre les nouvelles vulnérabilités, des actions coûteuses mais indispensables.</li>
+    </ul>
+
+    <h3>2. Un Investissement pour des Retours Significatifs</h3>
+    <p>Bien que la technologie représente un coût initial et continu, il est crucial de la percevoir comme un **investissement générateur de valeur**. Les bénéfices d'une infrastructure numérique solide et sécurisée dépassent largement les dépenses :</p>
+    <ul>
+      <li>**Augmentation de la Productivité :** Des systèmes performants et fiables réduisent les temps d'arrêt et optimisent les processus, permettant à vos équipes d'être plus efficaces.</li>
+      <li>**Sécurité Renforcée :** Protégez vos données sensibles, vos opérations et la réputation de votre entreprise contre les cyberattaques, les pannes et les pertes d'informations.</li>
+      <li>**Avantage Concurrentiel :** Adoptez des technologies innovantes pour vous démarquer sur le marché, proposer de nouveaux services et améliorer l'expérience de vos clients.</li>
+      <li>**Évolutivité et Durabilité :** Une infrastructure bien conçue est évolutive, capable de s'adapter à la croissance de votre entreprise et aux futures innovations technologiques.</li>
+      <li>**Réduction des Risques à Long Terme :** Investir dans la prévention coûte toujours moins cher que de réparer les dégâts causés par une faille de sécurité ou une panne majeure.</li>
+    </ul>
+
+    <p>Nous comprenons que chaque budget est unique. C'est pourquoi nous travaillons en étroite collaboration avec nos clients pour concevoir des solutions qui offrent le meilleur rapport qualité-prix, en alignant les objectifs technologiques avec les capacités financières. Notre but est de vous aider à faire les choix les plus judicieux pour que votre investissement technologique se traduise par une **croissance durable et un succès garanti**.</p>
+
+    <div class="cost-notice">
+        Il est primordial de comprendre que l'accès à une **technologie de pointe**, à une **sécurité infaillible** et à un **support expert** représente un coût. Cet investissement est la condition sine qua non pour garantir l'excellence et la pérennité de votre infrastructure numérique.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
