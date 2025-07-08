@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notre Engagement : Partenariats Sereins et Durables – Digital PME Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 40vh; /* Moins haut que la page principale */
+      background: url('statics/no_compromise.png') center/cover no-repeat; /* Nouvelle image pour le thème */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7); /* ombre sombre plus prononcée */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem; /* Plus petit que la page principale */
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.2rem; /* Plus petit que la page principale */
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000; /* Fond noir pour les sections */
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 32px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50; /* vert plus foncé */
+    }
+
+    /* Refusal Notice */
+    .refusal-notice {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #1a0000; /* Un fond rouge très foncé */
+        border-left: 5px solid #ff0000; /* Une barre rouge pour l'attention */
+        color: #ffcccc; /* Texte rouge clair */
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+    .refusal-notice strong {
+        color: #ff3333; /* Rouge plus vif pour le gras */
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784; /* vert lumineux */
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .refusal-notice {
+          font-size: 1rem;
+          padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Notre Engagement : Partenariats Sereins et Durables</h1>
+    <p>Pourquoi Nous Disons NON aux Compromis sur la Qualité et la Sécurité</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="content">
+    <h2>Construire l'Excellence : Une Approche Sélective</h2>
+
+    <p>Chez Digital PME Congo, notre réputation repose sur la **qualité inébranlable** de nos solutions et la **sécurité optimale** des infrastructures que nous déployons. Notre mission est de transformer et de protéger les entreprises dans l'ère numérique. Pour maintenir ce niveau d'excellence et garantir des résultats concrets et durables pour nos clients, nous avons fait le choix stratégique de ne collaborer qu'avec des partenaires qui partagent notre vision et notre engagement. C'est pourquoi nous sommes contraints de refuser les collaborations avec les entreprises qui ne respectent pas deux principes fondamentaux : la **veille technologique** et la **capacité d'investissement adéquate**.</p>
+
+    <h3>1. L'Absence de Veille Technologique : Un Risque Inacceptable</h3>
+    <p>Dans un monde technologique en mutation constante, l'inaction est une régression. Une entreprise qui ne mène pas de veille technologique active s'expose et expose ses systèmes à des dangers et des inefficiences majeurs :</p>
+    <ul>
+      <li>**Vulnérabilités Accrues :** Sans connaissance des dernières menaces et correctifs de sécurité, les systèmes deviennent des cibles faciles pour les cyberattaques. Travailler sur des systèmes vulnérables compromettrait notre intégrité et la vôtre.</li>
+      <li>**Obsolescence Rapide :** Les technologies évoluent. Sans veille, une entreprise utilise rapidement des outils dépassés, ce qui entraîne une perte de performance, des incompatibilités et des coûts de maintenance imprévus à terme.</li>
+      <li>**Perte de Compétitivité :** Ne pas innover ou ne pas adapter ses outils, c'est laisser un avantage stratégique à la concurrence qui, elle, investit dans l'avenir. Nous ne pouvons pas garantir votre succès si vous n'êtes pas prêts à évoluer.</li>
+      <li>**Solutions Inadaptées :** Sans une compréhension des dernières avancées, les besoins réels de l'entreprise peuvent être mal définis, menant à des solutions qui ne répondent pas aux exigences futures.</li>
+    </ul>
+
+    <h3>2. L'Incapacité à Financer Proprement : Compromettre l'Efficacité</h3>
+    <p>La mise en œuvre de solutions numériques performantes et sécurisées est un investissement. Tenter de le sous-financer est une fausse économie qui mène inévitablement à des problèmes coûteux et à des résultats médiocres :</p>
+    <ul>
+      <li>**Qualité Compromise :** Un financement insuffisant nous obligerait à faire des compromis sur la qualité des équipements, des logiciels ou des méthodologies, ce qui est contraire à nos standards.</li>
+      <li>**Sécurité Fragilisée :** La cybersécurité de pointe coûte cher. Une incapacité à financer correctement ce poste expose l'entreprise à des risques de brèches, de pertes de données et de dommages à la réputation, que nous ne pouvons pas cautionner.</li>
+      <li>**Limitation des Capacités :** Sans les ressources adéquates, il est impossible de déployer des infrastructures robustes, évolutives et résilientes, limitant ainsi le potentiel de croissance de l'entreprise.</li>
+      <li>**Maintenance Défaillante :** Un budget insuffisant pour la maintenance préventive et le support réactif garantit des pannes fréquentes, des temps d'arrêt prolongés et une dégradation des performances.</li>
+      <li>**Manque de Pérennité :** Les solutions sous-financées sont souvent des solutions à court terme, incapables de grandir avec l'entreprise ou de résister aux défis futurs. Notre objectif est le succès à long terme.</li>
+    </ul>
+
+    <p>Notre décision de ne pas travailler avec des entreprises ne remplissant pas ces critères n'est pas un jugement, mais une **démarche de protection mutuelle**. Elle garantit que nous pouvons livrer des résultats à la hauteur de nos promesses et que nos partenaires bénéficient pleinement d'une infrastructure numérique qui les propulse vers l'avenir, plutôt que de les freiner.</p>
+
+    <div class="refusal-notice">
+        Chez Digital PME Congo, **notre intégrité et la qualité de nos livrables sont non négociables.** C'est pourquoi nous ne pouvons pas engager de collaboration avec une entreprise qui n'intègre pas la **veille technologique** et n'est pas en mesure de **financer adéquatement** ses projets numériques. Ce positionnement est essentiel pour votre succès et le nôtre.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
