@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notre Partenariat Idéal – Digital PME Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 40vh; /* Moins haut que la page principale */
+      background: url('statics/linux_vs_others.png') center/cover no-repeat; /* Placeholder for a relevant image */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* ombre sombre */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem; /* Plus petit que la page principale */
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.2rem; /* Plus petit que la page principale */
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000; /* Fond gris foncé pour séparer les sections */
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 32px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50; /* vert plus foncé */
+    }
+
+    /* Important Notice */
+    .important-notice {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #1a1a1a; /* Un gris très foncé */
+        border-left: 5px solid #ff0000; /* Une barre rouge pour l'attention */
+        color: #ffcccc; /* Texte rouge clair */
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784; /* vert lumineux */
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .important-notice {
+          font-size: 1rem;
+          padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Notre Partenariat Idéal</h1>
+    <p>Vision et Investissement pour une Croissance Partagée</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="content">
+    <h2>Collaborons pour un Succès Mutuel</h2>
+
+    <p>Chez Digital PME Congo, nous nous engageons à offrir des solutions de pointe qui transforment la performance et la sécurité de votre infrastructure numérique. Pour assurer le succès de nos projets et maximiser la valeur que nous apportons, nous cherchons à collaborer avec des partenaires qui partagent notre vision de l'excellence et notre engagement envers l'avenir technologique.</p>
+
+    <h3>1. L'Importance Cruciale de la Veille Technologique</h3>
+    <p>Nous valorisons les partenariats avec des entreprises qui intègrent la **veille technologique** au cœur de leur stratégie. Dans un monde numérique en constante évolution, être informé des dernières avancées et des meilleures pratiques n'est plus une option, mais une nécessité. Les clients qui investissent dans cette veille sont ceux qui comprennent les défis émergents et les opportunités offertes par l'innovation.</p>
+    <ul>
+      <li>**Anticipation des Défis :** Une veille technologique proactive permet d'identifier les risques et les opportunités avant qu'ils ne deviennent critiques.</li>
+      <li>**Optimisation des Solutions :** Être à jour sur les technologies existantes garantit la mise en œuvre de solutions toujours plus performantes et adaptées.</li>
+      <li>**Partenariat Éclairé :** Une compréhension mutuelle des enjeux technologiques favorise une collaboration plus fluide et des décisions plus pertinentes.</li>
+    </ul>
+
+    <h3>2. La Capacité d'Investir pour l'Excellence</h3>
+    <p>La mise en place et la maintenance de solutions numériques robustes et sécurisées représentent un **investissement stratégique**. Nous nous associons avec des entreprises qui reconnaissent la valeur de cet investissement et qui sont prêtes à allouer les ressources nécessaires pour atteindre des objectifs de performance et de sécurité durables.</p>
+    <ul>
+      <li>**Garantie de Qualité :** Un budget adéquat nous permet de déployer des solutions de la plus haute qualité, sans compromis.</li>
+      <li>**Pérennité des Solutions :** L'investissement assure la longévité et l'évolutivité de votre infrastructure numérique.</li>
+      <li>**Retour sur Investissement :** Des ressources appropriées se traduisent par une meilleure performance, une sécurité renforcée et, à terme, un retour sur investissement significatif.</li>
+    </ul>
+
+    <p>En travaillant avec des clients qui partagent cette vision de la veille technologique et de l'investissement dans l'excellence, nous pouvons bâtir des relations solides, déployer des solutions optimales et garantir un succès mutuel. Nous croyons qu'un partenariat fructueux repose sur une vision partagée de la croissance et de l'innovation continue.</p>
+
+    <div class="important-notice">
+        **Sans l'adhésion à ces principes de veille technologique et d'investissement, une collaboration efficace ne nous serait pas possible.**
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
