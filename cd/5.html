@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solutions Non Conventionnelles pour le Contexte Congolais – Digital PME Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 40vh; /* Moins haut que la page principale */
+      background: url('statics/african_tech_innovation.png') center/cover no-repeat; /* Nouvelle image pertinente */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7); /* ombre sombre plus prononcée */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem; /* Plus petit que la page principale */
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.2rem; /* Plus petit que la page principale */
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000; /* Fond noir pour les sections */
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 32px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50; /* vert plus foncé */
+    }
+
+    /* Unique Approach Notice */
+    .unconventional-notice {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #0a0a1a; /* Un fond bleu nuit foncé */
+        border-left: 5px solid #6a5acd; /* Une barre violette pour l'attention */
+        color: #e6e6fa; /* Texte lavande clair */
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(106, 90, 205, 0.3);
+    }
+    .unconventional-notice strong {
+        color: #9370db; /* Violet plus vif pour le gras */
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784; /* vert lumineux */
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .unconventional-notice {
+          font-size: 1rem;
+          padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Solutions Non Conventionnelles pour le Contexte Congolais</h1>
+    <p>Innover au-delà des Normes pour une Réalité Unique</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="content">
+    <h2>L'Innovation au Cœur de nos Solutions pour le Congo</h2>
+
+    <p>Le paysage numérique de la République Démocratique du Congo présente des défis et des opportunités uniques, souvent très différents de ceux rencontrés dans des marchés plus établis. Chez Digital PME Congo, nous comprenons que les solutions "prêtes à l'emploi" ou les approches conventionnelles ne sont pas toujours les plus efficaces, ni les plus adaptées. C'est pourquoi nous privilégions une approche basée sur les **solutions non conventionnelles**, conçues spécifiquement pour répondre aux réalités locales et maximiser l'impact de nos déploiements.</p>
+
+    <h3>1. Les Défis Uniques du Contexte Numérique Congolais</h3>
+    <p>Plusieurs facteurs font que le modèle standard ne suffit pas :</p>
+    <ul>
+      <li>**Infrastructures Variées :** L'accès à l'électricité stable et à l'internet fiable peut varier considérablement d'une région à l'autre, nécessitant des solutions robustes et résilientes face aux coupures ou aux faibles débits.</li>
+      <li>**Coût et Accessibilité :** Les solutions logicielles et matérielles standards peuvent être prohibitifs ou difficiles à acquérir, exigeant des alternatives plus abordables et localement disponibles.</li>
+      <li>**Compétences Techniques Locales :** La disponibilité de personnel qualifié pour la maintenance et le support de technologies complexes peut être limitée, d'où la nécessité de systèmes plus autonomes ou faciles à maintenir.</li>
+      <li>**Sécurité et Risques Spécifiques :** Le contexte peut présenter des défis de sécurité physique ou cybernétique particuliers, demandant des stratégies de protection adaptées.</li>
+      <li>**Cadre Réglementaire :** Les spécificités des réglementations locales peuvent influencer le choix des technologies et des méthodes de déploiement.</li>
+      <li>**Besoin d'Adaptabilité :** Les besoins des entreprises congolaises évoluent rapidement, exigeant des solutions agiles et capables de s'adapter à de nouveaux cas d'usage imprévus.</li>
+    </ul>
+
+    <h3>2. Pourquoi les Solutions Non Conventionnelles sont Essentielles</h3>
+    <p>Notre engagement envers les solutions non conventionnelles est notre force. Elles nous permettent de bâtir des infrastructures numériques réellement efficaces et durables sur le terrain :</p>
+    <ul>
+      <li>**Optimisation des Ressources :** Nous exploitons au maximum les ressources locales disponibles et les technologies open source, réduisant ainsi les coûts et augmentant l'autonomie.</li>
+      <li>**Robustesse et Résilience :** Nous concevons des systèmes capables de fonctionner dans des environnements complexes, avec des solutions de sauvegarde énergétique, des architectures décentralisées ou des modes hors ligne.</li>
+      <li>**Innovation sur Mesure :** Plutôt que d'adapter l'entreprise à la technologie, nous adaptons la technologie aux besoins précis de l'entreprise congolaise, en développant des outils sur mesure si nécessaire.</li>
+      <li>**Transfert de Compétences :** Nos solutions visent souvent à simplifier la gestion, permettant un transfert de compétences plus facile aux équipes locales, favorisant ainsi l'autonomie à long terme.</li>
+      <li>**Impact Local Fort :** En utilisant des technologies plus accessibles et en les adaptant, nous contribuons à démocratiser l'accès au numérique et à renforcer l'écosystème technologique local.</li>
+      <li>**Agilité Stratégique :** Face à un environnement changeant, nos approches non conventionnelles nous permettent de pivoter rapidement et d'intégrer de nouvelles idées sans être contraints par des cadres rigides.</li>
+    </ul>
+
+    <p>Chez Digital PME Congo, nous ne nous contentons pas d'importer des modèles. Nous les réinventons et les adaptons, en collaboration avec nos clients, pour créer des solutions numériques qui ont un sens, qui fonctionnent réellement et qui génèrent une valeur exceptionnelle dans le contexte spécifique du numérique congolais. C'est notre promesse d'une innovation pertinente et d'un succès partagé.</p>
+
+    <div class="unconventional-notice">
+        **Dans le contexte numérique congolais, l'approche "taille unique" ne fonctionne pas. Notre capacité à concevoir et à déployer des solutions non conventionnelles est la clé pour surmonter les défis uniques et maximiser les opportunités, garantissant ainsi un succès pertinent et durable pour nos partenaires.**
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
