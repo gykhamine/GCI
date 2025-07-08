@@ -5,93 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCI (Gykhamine Concept Investigation) - Au Cœur de la Révolution Numérique Congolaise</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        /* RESET & BASE */
+        * {
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000; /* fond noir */
+            color: #c8e6c9; /* texte clair */
+            line-height: 1.8;
+        }
+        a {
+            color: #81c784; /* vert lumineux */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #4caf50; /* vert plus foncé au survol */
+            text-decoration: underline;
+        }
+
+        /* HEADER */
         header {
-            background: #0056b3;
-            color: #fff;
-            padding: 1rem 0;
+            position: relative;
+            height: 40vh; /* Moins haut que la page principale */
+            background: url('statics/placeholder_tech_background.png') center/cover no-repeat; /* Placeholder for a relevant image */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            color: #a5d6a7;
         }
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* ombre sombre */
+        }
+        header .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        header h1 {
+            font-size: 3rem; /* Plus petit que la page principale */
+            margin-bottom: 0.3em;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 900;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+        }
+        header p {
+            font-size: 1.2rem; /* Plus petit que la page principale */
+            font-weight: 600;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        /* MAIN CONTAINER */
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #000000;
         }
-        h1, h2 {
-            color: #0056b3;
-        }
-        .section {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 60px;
+            background-color: #000000; /* Fond gris foncé pour séparer les sections */
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 40px 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
+
+        h2 {
+            text-align: center;
+            color: #81c784; /* vert lumineux */
+            margin-bottom: 32px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #81c784; /* vert lumineux */
+            margin-bottom: 1.5em;
+        }
+
+        section p { /* Adjusted selector for content paragraphs */
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #c8e6c9;
+            font-weight: 500;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
         ul {
-            list-style: none;
-            padding: 0;
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 25px;
         }
         ul li {
-            background: #eee;
-            margin-bottom: 5px;
-            padding: 10px;
-            border-left: 5px solid #0056b3;
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #c8e6c9;
         }
-        footer {
+        ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #4caf50; /* vert plus foncé */
+        }
+
+        /* Important Notice (Not directly used but kept for consistency if needed) */
+        .important-notice {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1a1a1a; /* Un gris très foncé */
+            border-left: 5px solid #ff0000; /* Une barre rouge pour l'attention */
+            color: #ffcccc; /* Texte rouge clair */
+            font-size: 1.1rem;
+            font-weight: 600;
             text-align: center;
-            padding: 20px 0;
-            background: #333;
-            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #000000; /* fond gris foncé */
+            color: #81c784; /* texte vert */
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            letter-spacing: 1.2px;
+            font-weight: 600;
+        }
+
+        footer a {
+            color: #81c784; /* vert lumineux */
+        }
+
+        footer a:hover {
+            color: #4caf50;
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            section {
+                padding: 20px;
+            }
+            .important-notice {
+                font-size: 1rem;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>GCI (Gykhamine Concept Investigation) : La Passion Numérique au Service du Congo</h1>
-    </header>
 
-    <div class="container">
-        <div class="section">
-            <h2>Notre Engagement : Une Histoire d'Amour avec l'Informatique</h2>
-            <p>Chez **GCI (Gykhamine Concept Investigation)**, nous ne sommes pas juste une entreprise de freelancing ; nous sommes un mouvement, une vocation née d'un amour inconditionnel pour l'informatique. Nous avons sacrifié notre existence pour le potentiel illimité du numérique, convaincus que c'est par cette voie que se construira l'avenir radieux de la République du Congo.</p>
-            <p>Notre mission est claire : **mettre la technologie au service de notre nation**, en construisant une infrastructure numérique robuste et en cultivant les talents locaux.</p>
-        </div>
+<header>
+  <div class="header-content">
+    <h1>GCI (Gykhamine Concept Investigation)</h1>
+    <p>La Passion Numérique au Service du Congo</p>
+  </div>
+</header>
 
-        <div class="section">
-            <h2>La Souveraineté Numérique, Notre Priorité Absolue</h2>
-            <p>La **souveraineté numérique** n'est pas un vain mot pour nous, c'est le pilier de notre action. Nous œuvrons sans relâche pour que la République du Congo puisse maîtriser ses propres données, ses propres technologies et son propre destin numérique. Notre but ultime est de voir le **Congo produire souverainement sa propre technologie**, en utilisant des **solutions conventionnelles ou non conventionnelles** pour y parvenir.</p>
-            <p>Nous développons des solutions adaptées aux réalités congolaises, favorisant l'autonomie et réduisant la dépendance vis-à-vis des solutions étrangères. Nous croyons en un Congo maître de son avenir technologique.</p>
-        </div>
+<main class="container">
 
-        <div class="section">
-            <h2>Bâtir l'Avenir Technologique du Congo</h2>
-            <p>Nous nous donnons corps et âme pour l'**avenir technologique du pays**. Cela se traduit par :</p>
-            <ul>
-                <li>Le développement de projets innovants qui répondent aux défis locaux.</li>
-                <li>La formation et le mentorat des jeunes talents congolais.</li>
-                <li>La promotion d'une culture de l'innovation et de l'entrepreneuriat numérique.</li>
-                <li>La contribution à l'établissement de normes et de politiques favorisant un environnement numérique sain et équitable.</li>
-            </ul>
-        </div>
+  <section>
+    <h2>Notre Engagement : Une Histoire d'Amour avec l'Informatique</h2>
+    <p>Chez **GCI (Gykhamine Concept Investigation)**, nous ne sommes pas juste une entreprise de freelancing ; nous sommes un mouvement, une vocation née d'un amour inconditionnel pour l'informatique. Nous avons sacrifié notre existence pour le potentiel illimité du numérique, convaincus que c'est par cette voie que se construira l'avenir radieux de la République du Congo.</p>
+    <p>Notre mission est claire : **mettre la technologie au service de notre nation**, en construisant une infrastructure numérique robuste et en cultivant les talents locaux.</p>
+  </section>
 
-        <div class="section">
-            <h2>Rejoignez le Mouvement GCI : De Zéro à Héros !</h2>
-            <p>GCI (Gykhamine Concept Investigation) est aussi un mouvement ouvert à **tous les développeurs**, peu importe leur parcours académique. Nous croyons au potentiel de chacun, surtout ceux qui sont partis de rien et qui, par leur passion et leur persévérance, ont acquis des compétences exceptionnelles.</p>
-            <p>Si vous êtes un développeur motivé, désireux de contribuer activement à l'essor numérique du Congo, et que vous partagez nos valeurs de dévouement et d'excellence, nous vous accueillons à bras ouverts. Chez GCI, votre talent est votre meilleure qualification.</p>
-            <p>Ensemble, construisons le Congo numérique de demain !</p>
-        </div>
-    </div>
+  <section>
+    <h2>La Souveraineté Numérique, Notre Priorité Absolue</h2>
+    <p>La **souveraineté numérique** n'est pas un vain mot pour nous, c'est le pilier de notre action. Nous œuvrons sans relâche pour que la République du Congo puisse maîtriser ses propres données, ses propres technologies et son propre destin numérique. Notre but ultime est de voir le **Congo produire souverainement sa propre technologie**, en utilisant des **solutions conventionnelles ou non conventionnelles** pour y parvenir.</p>
+    <p>Nous développons des solutions adaptées aux réalités congolaises, favorisant l'autonomie et réduisant la dépendance vis-à-vis des solutions étrangères. Nous croyons en un Congo maître de son avenir technologique.</p>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 GCI (Gykhamine Concept Investigation). Tous droits réservés.</p>
-    </footer>
+  <section>
+    <h2>Bâtir l'Avenir Technologique du Congo</h2>
+    <p>Nous nous donnons corps et âme pour l'**avenir technologique du pays**. Cela se traduit par :</p>
+    <ul>
+        <li>Le développement de projets innovants qui répondent aux défis locaux.</li>
+        <li>La formation et le mentorat des jeunes talents congolais.</li>
+        <li>La promotion d'une culture de l'innovation et de l'entrepreneuriat numérique.</li>
+        <li>La contribution à l'établissement de normes et de politiques favorisant un environnement numérique sain et équitable.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Rejoignez le Mouvement GCI : De Zéro à Héros !</h2>
+    <p>GCI (Gykhamine Concept Investigation) est aussi un mouvement ouvert à **tous les développeurs**, peu importe leur parcours académique. Nous croyons au potentiel de chacun, surtout ceux qui sont partis de rien et qui, par leur passion et leur persévérance, ont acquis des compétences exceptionnelles.</p>
+    <p>Si vous êtes un développeur motivé, désireux de contribuer activement à l'essor numérique du Congo, et que vous partagez nos valeurs de dévouement et d'excellence, nous vous accueillons à bras ouverts. Chez GCI, votre talent est votre meilleure qualification.</p>
+    <p>Ensemble, construisons le Congo numérique de demain !</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 GCI (Gykhamine Concept Investigation). Tous droits réservés.</p>
+</footer>
+
 </body>
 </html>
