@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L'Hébergement de Vos Serveurs en Local – Digital PME Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000; /* fond noir */
+      color: #c8e6c9; /* texte clair */
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784; /* vert lumineux */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50; /* vert plus foncé au survol */
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 40vh; /* Moins haut que la page principale */
+      background: url('statics/on_premise_servers.png') center/cover no-repeat; /* Nouvelle image pertinente */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7); /* ombre sombre plus prononcée */
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem; /* Plus petit que la page principale */
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.2rem; /* Plus petit que la page principale */
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #000000;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #000000; /* Fond noir pour les sections */
+      border-radius: 8px;
+      padding: 40px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 32px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784; /* vert lumineux */
+      margin-bottom: 1.5em;
+    }
+
+    #content p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+    }
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50; /* vert plus foncé */
+    }
+
+    /* On-Premise Focus */
+    .on-premise-focus {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #1a0a1a; /* Un fond violet très foncé */
+        border-left: 5px solid #a020f0; /* Une barre violette vive pour l'attention */
+        color: #e0b0ff; /* Texte lavande clair */
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(160, 32, 240, 0.3);
+    }
+    .on-premise-focus strong {
+        color: #c792ea; /* Violet plus vif pour le gras */
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #81c784; /* vert lumineux */
+    }
+
+    footer a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .on-premise-focus {
+          font-size: 1rem;
+          padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>L'Hébergement de Vos Serveurs en Local</h1>
+    <p>Maîtrise Totale et Souveraineté de Vos Données et Systèmes</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="content">
+    <h2>La Puissance de l'Hébergement Sur Vos Propres Serveurs</h2>
+
+    <p>Dans un environnement numérique où la sécurité et le contrôle des données sont primordiaux, Digital PME Congo met un point d'honneur à offrir des solutions qui garantissent une **maîtrise totale** à nos clients. C'est pourquoi nous préconisons et mettons en œuvre des stratégies d'**hébergement local de vos serveurs et de vos données sur vos propres infrastructures**. Cette approche "on-premise" (sur site) n'est pas une simple alternative, mais une philosophie qui renforce votre autonomie, votre sécurité et l'efficacité opérationnelle dans le contexte congolais.</p>
+
+    <h3>1. Les Avantages Incontestables de Vos Propres Serveurs</h3>
+    <p>Posséder et gérer vos propres serveurs locaux, avec notre accompagnement expert, vous confère des bénéfices stratégiques majeurs :</p>
+    <ul>
+      <li>**Contrôle Absolu des Données :** Vos données ne quittent jamais votre environnement physique. Vous gardez la mainmise complète sur leur stockage, leur traitement et leur accès, sans dépendre de tiers ou de juridictions étrangères.</li>
+      <li>**Sécurité Physique Renforcée :** Vous définissez et appliquez vos propres protocoles de sécurité physique (accès, surveillance) pour vos serveurs. Cela offre une couche de protection supplémentaire, adaptée à vos exigences spécifiques.</li>
+      <li>**Performance et Latence Minimale :** Les serveurs étant physiquement proches de vos utilisateurs et de vos opérations, la latence est quasiment nulle. Vos applications sont ultra-réactives, ce qui se traduit par une meilleure productivité et une expérience utilisateur optimale.</li>
+      <li>**Personnalisation et Flexibilité Maximale :** Vos serveurs sont configurés précisément selon vos besoins. Vous avez la liberté d'installer les logiciels, les systèmes d'exploitation et les configurations matérielles qui correspondent parfaitement à vos opérations, sans les contraintes d'un environnement mutualisé.</li>
+      <li>**Conformité Réglementaire et Audit :** La localisation physique de vos données sur votre propre site facilite grandement la conformité avec les réglementations locales et les exigences d'audit interne ou externe.</li>
+      <li>**Indépendance Vis-à-Vis des Fournisseurs Tiers :** Vous réduisez votre dépendance aux fournisseurs de cloud public. Votre infrastructure critique reste sous votre contrôle, ce qui minimise les risques liés à leurs politiques de service ou à leurs défaillances.</li>
+      <li>**Potentiel d'Innovation Localisée :** Avoir le contrôle direct sur votre infrastructure vous permet d'expérimenter et d'implémenter des solutions innovantes plus rapidement, en tirant parti de vos ressources internes.</li>
+    </ul>
+
+    <h3>2. Notre Expertise pour un Déploiement Local Réussi</h3>
+    <p>Digital PME Congo est votre partenaire privilégié pour la mise en place et la gestion de vos serveurs sur site :</p>
+    <ul>
+      <li>**Analyse et Conception :** Nous évaluons vos besoins pour concevoir l'architecture serveur la plus adaptée à votre environnement et à vos objectifs.</li>
+      <li>**Installation et Configuration :** Nos experts installent, configurent et optimisent vos serveurs et les systèmes d'exploitation (privilégiant les solutions **Linux** pour leur robustesse et leur flexibilité).</li>
+      <li>**Sécurité et Sauvegarde :** Nous mettons en place des protocoles de sécurité avancés et des stratégies de sauvegarde fiables pour protéger vos données localement.</li>
+      <li>**Maintenance et Support :** Nous assurons la maintenance préventive et corrective de vos infrastructures, avec un support réactif pour garantir leur bon fonctionnement continu.</li>
+      <li>**Transfert de Compétences :** Nous formons vos équipes pour qu'elles puissent, si vous le souhaitez, prendre en charge une partie de la gestion quotidienne de vos systèmes.</li>
+    </ul>
+
+    <p>Choisir l'hébergement de vos serveurs en local, c'est investir dans une infrastructure solide, sécurisée et parfaitement alignée avec votre stratégie d'entreprise. C'est affirmer votre **souveraineté numérique** et garantir la **pérennité** de vos opérations au cœur du Congo.</p>
+
+    <div class="on-premise-focus">
+        **Digital PME Congo s'engage à vous accompagner dans l'hébergement de vos serveurs et données directement sur vos propres infrastructures. Ce choix stratégique vous assure une maîtrise et une sécurité inégalées, positionnant votre entreprise pour un succès numérique autonome et durable au Congo.**
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital PME Congo — Filiale de GCI – Gykhamine Concept Investigation</p>
+</footer>
+
+</body>
+</html>
