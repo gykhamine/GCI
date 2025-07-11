@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Politique de Collaboration – Digital PME Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000;
+      color: #c8e6c9;
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 40vh;
+      background: url('statics/congo_business.jpg') center/cover no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+      background-color: #0a0a0a;
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: 0 0 15px rgba(0, 150, 255, 0.1);
+      border: 1px solid #2a4a3a;
+    }
+
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784;
+      margin-bottom: 1.5em;
+      border-bottom: 2px solid #2a4a3a;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #c8e6c9;
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    strong {
+      color: #81c784;
+      font-weight: 600;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.1rem;
+    }
+    ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #81c784;
+      font-weight: bold;
+    }
+
+    .policy-box {
+      background-color: #1a2a1a;
+      border-left: 5px solid #81c784;
+      padding: 30px;
+      margin: 40px 0;
+      border-radius: 5px;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .criteria-item {
+      background-color: #0a1a0a;
+      padding: 25px;
+      border-radius: 5px;
+      text-align: center;
+      border: 1px solid #2a4a3a;
+    }
+    .criteria-item h4 {
+      color: #81c784;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000;
+      color: #81c784;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      border-top: 1px solid #2a4a3a;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Politique de Collaboration</h1>
+    <p>Exclusivement dédié aux PME congolaises</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <h2>Engagement envers les PME locales</h2>
+    
+    <div class="policy-box">
+      <p><strong>Digital PME Congo travaille exclusivement avec les Petites et Moyennes Entreprises congolaises.</strong> Nous déclinons toute sollicitation émanant de particuliers ou d'entités ne disposant pas d'un statut officiel de PME enregistrée en République Démocratique du Congo.</p>
+    </div>
+
+    <h3>Notre position</h3>
+    <ul>
+      <li><strong>Spécialisation sectorielle</strong> - Notre expertise et nos solutions sont conçues spécifiquement pour répondre aux besoins des PME congolaises</li>
+      <li><strong>Impact économique local</strong> - Nous contribuons activement au développement du tissu entrepreneurial congolais</li>
+      <li><strong>Expertise ciblée</strong> - Notre modèle d'accompagnement est optimisé pour les défis spécifiques des PME locales</li>
+      <li><strong>Responsabilité professionnelle</strong> - Nous nous engageons uniquement sur des collaborations professionnelles formalisées</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Critères d'éligibilité</h2>
+    
+    <h3>Nous collaborons avec les entreprises qui remplissent ces conditions :</h3>
+    <div class="criteria-grid">
+      <div class="criteria-item">
+        <h4>Statut légal</h4>
+        <p>PME enregistrée auprès des autorités congolaises</p>
+      </div>
+      <div class="criteria-item">
+        <h4>Localisation</h4>
+        <p>Siège social et activités principales en RDC</p>
+      </div>
+      <div class="criteria-item">
+        <h4>Effectif</h4>
+        <p>Entre 5 et 250 employés</p>
+      </div>
+      <div class="criteria-item">
+        <h4>Chiffre d'affaires</h4>
+        <p>Entre 50.000$ et 15.000.000$ annuels</p>
+      </div>
+    </div>
+
+    <h3>Documents requis</h3>
+    <ul>
+      <li>Certificat d'enregistrement d'entreprise</li>
+      <li>Numéro d'identification fiscale</li>
+      <li>Statuts juridiques à jour</li>
+      <li>Preuve de localisation en RDC</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pourquoi cette politique ?</h2>
+    
+    <h3>Notre engagement sectoriel</h3>
+    <p>Cette sélectivité nous permet de :</p>
+    <ul>
+      <li><strong>Maintenir une expertise pointue</strong> sur les besoins spécifiques des PME congolaises</li>
+      <li><strong>Optimiser nos ressources</strong> pour offrir un service de qualité à notre cœur de cible</li>
+      <li><strong>Rester alignés</strong> avec notre mission de développement économique local</li>
+      <li><strong>Garantir des collaborations professionnelles</strong> avec des engagements clairs des deux côtés</li>
+      <li><strong>Éviter la dispersion</strong> et rester focalisés sur notre domaine d'excellence</li>
+    </ul>
+
+    <div class="policy-box">
+      <p><strong>Cette politique stricte est gage de qualité et de pertinence.</strong> Elle nous permet de dédier 100% de nos ressources à l'accompagnement des PME congolaises, sans compromis sur la qualité de nos services.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Digital PME Congo — Services exclusivement réservés aux PME congolaises</p>
+</footer>
+
+</body>
+</html>
