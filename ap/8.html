@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>L'Avenir Numérique Congolais – Digital PME Congo</title>
+  <title>Politique de Collaboration – Digital PME Congo</title>
   <style>
     /* RESET & BASE */
     * {
@@ -14,29 +14,35 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #000000;
-      color: #e0f7fa;
+      color: #c8e6c9;
       line-height: 1.8;
     }
     a {
-      color: #00bcd4;
+      color: #81c784;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     a:hover {
-      color: #00838f;
+      color: #4caf50;
       text-decoration: underline;
     }
 
     /* HEADER */
     header {
       position: relative;
-      height: 60vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)),
-                  url('statics/congo_future.jpg') center/cover no-repeat;
+      background: url('statics/congo_business.jpg') center/cover no-repeat;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      color: #a5d6a7;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
     }
     header .header-content {
       position: relative;
@@ -45,130 +51,135 @@
       padding: 0 20px;
     }
     header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.5em;
-      font-weight: 800;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.9);
-      line-height: 1.2;
+      font-size: 3rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
     }
     header p {
-      font-size: 1.4rem;
-      font-weight: 300;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     }
 
     /* MAIN CONTAINER */
     .container {
       max-width: 1100px;
-      margin: 60px auto;
+      margin: 40px auto;
       padding: 0 20px;
     }
 
     /* SECTIONS */
     section {
-      margin-bottom: 80px;
+      margin-bottom: 60px;
+      background-color: #0a0a0a;
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: 0 0 15px rgba(0, 150, 255, 0.1);
+      border: 1px solid #2a4a3a;
     }
 
     h2 {
       text-align: center;
-      color: #00bcd4;
-      margin-bottom: 50px;
-      font-size: 2.2rem;
-      font-weight: 300;
-      position: relative;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
     }
-    h2::after {
-      content: "";
-      display: block;
-      width: 100px;
-      height: 3px;
-      background: linear-gradient(90deg, #00bcd4, transparent);
-      margin: 20px auto;
+
+    h3 {
+      font-size: 1.6rem;
+      color: #81c784;
+      margin-bottom: 1.5em;
+      border-bottom: 2px solid #2a4a3a;
+      padding-bottom: 10px;
     }
 
     p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      text-align: justify;
+      font-size: 1.1rem;
+      color: #c8e6c9;
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 25px;
     }
 
-    .vision-block {
-      background: linear-gradient(135deg, rgba(0,188,212,0.1) 0%, rgba(0,0,0,0) 100%);
-      border-left: 4px solid #00bcd4;
-      padding: 40px;
-      margin: 50px 0;
-      position: relative;
-    }
-    .vision-block::before {
-      content: """;
-      font-family: Georgia, serif;
-      font-size: 5rem;
-      color: rgba(0,188,212,0.2);
-      position: absolute;
-      top: 10px;
-      left: 10px;
-    }
-
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin: 60px 0;
-    }
-    .pillar {
-      background-color: rgba(0,188,212,0.05);
-      padding: 30px;
-      border-radius: 5px;
-      border-top: 3px solid #00bcd4;
-    }
-    .pillar h3 {
-      color: #00bcd4;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-
-    .cta-section {
-      text-align: center;
-      margin: 80px 0;
-    }
-    .cta-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #00bcd4, #00838f);
-      color: white;
-      padding: 15px 40px;
-      border-radius: 30px;
-      font-size: 1.2rem;
+    strong {
+      color: #81c784;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,188,212,0.3);
-      text-decoration: none;
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    ul li {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.1rem;
+    }
+    ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #81c784;
+      font-weight: bold;
+    }
+
+    .policy-box {
+      background-color: #1a2a1a;
+      border-left: 5px solid #81c784;
+      padding: 30px;
+      margin: 40px 0;
+      border-radius: 5px;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .criteria-item {
+      background-color: #0a1a0a;
+      padding: 25px;
+      border-radius: 5px;
+      text-align: center;
+      border: 1px solid #2a4a3a;
+    }
+    .criteria-item h4 {
+      color: #81c784;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
     }
 
     /* FOOTER */
     footer {
       background-color: #000000;
-      color: #00bcd4;
+      color: #81c784;
       text-align: center;
-      padding: 40px 20px;
-      font-size: 1rem;
-      border-top: 1px solid rgba(0,188,212,0.2);
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      border-top: 1px solid #2a4a3a;
     }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
       header p {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
-      .pillars {
-        grid-template-columns: 1fr;
+      section {
+        padding: 20px;
       }
     }
   </style>
@@ -246,17 +257,10 @@
     <p>Nous croyons fermement que c'est par Sa grâce que nous sommes capables de développer des solutions numériques presque prophétiques pour les PME congolaises. Il nous a donné l'intelligence et la sagesse pour discerner les besoins de notre nation et pour bâtir des outils qui non seulement répondent à ces besoins, mais ouvrent aussi des chemins inexplorés dans le monde numérique.</p>
     <p>Dans un monde qui court après l'innovation à tout prix, nous avons choisi de placer notre confiance en Lui. C'est Lui qui nous donne la vision de voir au-delà de l'ordinaire, la persévérance pour surmonter les défis techniques, et l'audace de rêver grand pour le Congo. Nos succès ne sont pas le fruit de notre seule capacité, mais la manifestation de Sa puissance agissant à travers nous. Nous ne faisons que servir d'instruments pour Sa gloire, en œuvrant à l'élévation numérique de notre peuple. Avec Dieu, l'impossible devient notre point de départ, et les frontières du monde numérique sont repoussées.</p>
   </section>
-
-  <div class="cta-section">
-    <a href="#" class="cta-button">Devenez un pionnier numérique dès aujourd'hui !</a>
-  </div>
-
 </main>
 
 <footer>
-  <p>"L'Afrique écrira son propre chapitre technologique, et il sera plus épique qu'aucun de nous ne peut l'imaginer" - Digital PME Congo</p>
-  <p>&copy; 2025 | Tous droits réservés | Filiale de GCI</p>
+  <p>&copy; 2025 Digital PME Congo — Services exclusivement réservés aux PME congolaises</p>
 </footer>
-
 </body>
 </html>
