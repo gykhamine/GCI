@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Développez pour Gykhamine OS – Digital Freelance Congo</title>
+  <title>Digital Freelance Congo – La plateforme de travail numérique</title>
   <style>
     /* RESET & BASE */
     * {
@@ -29,23 +29,31 @@
 
     /* HEADER */
     header {
-
-     
+      position: relative;
+      height: 70vh;
+      background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?fit=crop&w=1920&q=80') center/cover no-repeat; /* Updated background image for freelance theme */
       background-size: cover;
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: #a5d6a7;
     }
     header::before {
       content: "";
+      position: absolute;
       inset: 0;
       background-color: rgba(0, 0, 0, 0.5); /* ombre sombre */
     }
     header .header-content {
+      position: relative;
       z-index: 2;
       max-width: 900px;
+      padding: 0 20px;
     }
     header h1 {
       font-size: 2rem;
+      margin-bottom: 0.3em;
       text-transform: uppercase;
       letter-spacing: 2.5px;
       font-weight: 900;
@@ -68,7 +76,7 @@
     /* SECTIONS */
     section {
       margin-bottom: 60px;
-      background-color: #000000;
+      background-color: #000000; /* Fond gris foncé pour séparer les sections */
       border-radius: 8px;
       padding: 40px 20px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -76,7 +84,7 @@
 
     h2 {
       text-align: center;
-      color: #81c784;
+      color: #81c784; /* vert lumineux */
       margin-bottom: 32px;
       font-size: 1rem;
       text-transform: uppercase;
@@ -86,7 +94,7 @@
 
     h3 {
       font-size: 1.6rem;
-      color: #81c784;
+      color: #81c784; /* vert lumineux */
       margin-bottom: 1.5em;
     }
 
@@ -117,13 +125,13 @@
       content: "✔";
       position: absolute;
       left: 0;
-      color: #4caf50;
+      color: #4caf50; /* vert plus foncé */
     }
 
     /* FOOTER */
     footer {
-      background-color: #000000;
-      color: #81c784;
+      background-color: #000000; /* fond gris foncé */
+      color: #81c784; /* texte vert */
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
@@ -132,7 +140,7 @@
     }
 
     footer a {
-      color: #81c784;
+      color: #81c784; /* vert lumineux */
     }
 
     footer a:hover {
@@ -142,7 +150,7 @@
 
     /* 3D Hover Effect for Buttons */
     .cta-btn {
-      background-color: #4caf50;
+      background-color: #4caf50; /* vert lumineux */
       color: #fff;
       padding: 15px 30px;
       border-radius: 50px;
@@ -152,7 +160,6 @@
       cursor: pointer;
       border: none;
       transition: all 0.3s ease;
-      display: inline-block;
     }
     .cta-btn:hover {
       transform: translateY(-5px);
@@ -178,13 +185,13 @@
   </style>
 </head>
 <body>
-
 <header>
   <div class="header-content">
     <h1>Développez Exclusivement pour Gykhamine OS</h1>
     <p>Rejoignez-nous pour bâtir l'écosystème numérique du Congo</p>
   </div>
 </header>
+
 
 <main class="container">
 
