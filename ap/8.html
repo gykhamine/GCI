@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L'Avenir Numérique Congolais – Digital PME Congo</title>
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000;
+      color: #e0f7fa;
+      line-height: 1.8;
+    }
+    a {
+      color: #00bcd4;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #00838f;
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 60vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)),
+                  url('statics/congo_future.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5em;
+      font-weight: 800;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+      line-height: 1.2;
+    }
+    header p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 80px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00bcd4;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+      font-weight: 300;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #00bcd4, transparent);
+      margin: 20px auto;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+
+    .vision-block {
+      background: linear-gradient(135deg, rgba(0,188,212,0.1) 0%, rgba(0,0,0,0) 100%);
+      border-left: 4px solid #00bcd4;
+      padding: 40px;
+      margin: 50px 0;
+      position: relative;
+    }
+    .vision-block::before {
+      content: """;
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: rgba(0,188,212,0.2);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+    .pillar {
+      background-color: rgba(0,188,212,0.05);
+      padding: 30px;
+      border-radius: 5px;
+      border-top: 3px solid #00bcd4;
+    }
+    .pillar h3 {
+      color: #00bcd4;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin: 80px 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00bcd4, #00838f);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,188,212,0.3);
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000000;
+      color: #00bcd4;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1rem;
+      border-top: 1px solid rgba(0,188,212,0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1.1rem;
+      }
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>La Renaissance Numérique du Congo : Votre Avantage Concurrentiel</h1>
+    <p>**Propulsez votre PME à l'avant-garde** de la révolution technologique africaine avec Digital PME Congo.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <h2>Notre Prophétie Technologique : L'Avenir de Votre PME</h2>
+
+    <div class="vision-block">
+      <p>Dans les veines numériques de ce pays coule un potentiel inexploité. Le Congo se tient au seuil d'une **métamorphose silencieuse** où chaque PME deviendra le dépositaire de sa propre révolution technologique. Ce n'est pas un rêve lointain, mais un **futur concret que nous construisons ensemble**, pierre par pierre, ligne de code par ligne de code.</p>
+    </div>
+
+    <p>**Imaginez un Congo où votre PME prospère grâce au numérique :**</p>
+    <ul>
+      <li>Vos systèmes parlent le langage universel de l'**efficacité inégalée**, éliminant le gaspillage de temps et de ressources.</li>
+      <li>Chaque processus métier devient une **symphonie de productivité**, libérant vos équipes pour des tâches à plus forte valeur ajoutée.</li>
+      <li>Vos données se transforment en **or numérique**, révélant des insights précieux pour des décisions stratégiques éclairées.</li>
+      <li>Vos employés évoluent en **architectes de solutions locales**, renforçant l'expertise interne et réduisant votre dépendance extérieure.</li>
+      <li>Votre croissance n'a d'autre limite que l'horizon de votre ambition, avec des **opportunités de marché décuplées** par le digital.</li>
+    </ul>
+    <p>**Cessez de simplement "faire" des affaires, commencez à les "révolutionner".**</p>
+  </section>
+
+  <section>
+    <h2>Les Piliers de Notre Vision : Pourquoi Choisir Digital PME Congo ?</h2>
+
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Souveraineté Technologique : L'Indépendance au Bout des Doigts</h3>
+        <p>Nous cultivons l'art de **solutions sur mesure, conçues par des Congolais pour les réalités congolaises**. Fini les dépendances coûteuses aux logiciels étrangers ! Votre entreprise deviendra un **bastion d'indépendance numérique**, maîtrisant ses propres outils et son propre destin.</p>
+      </div>
+      <div class="pillar">
+        <h3>Émancipation par la Connaissance : Investissez dans Votre Capital Humain</h3>
+        <p>Notre mission va bien au-delà des logiciels : nous semons les graines du savoir qui feront de vos équipes les **pionniers de l'économie numérique locale**. Nous vous offrons les **compétences et la confiance** nécessaires pour innover et exceller, transformant vos employés en atouts inestimables.</p>
+      </div>
+      <div class="pillar">
+        <h3>Résilience Organisationnelle : Antifragilité Face aux Défis</h3>
+        <p>Nous armons votre entreprise contre les tempêtes économiques par des systèmes **antifragiles** qui transforment les défis en opportunités. Plutôt que de simplement résister, votre PME apprendra à **prospérer dans l'incertitude**, devenant plus forte à chaque perturbation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>La Promesse Digital PME Congo : Votre Passeport pour l'Avenir</h2>
+
+    <p>Nous ne vendons pas de simples solutions techniques. Nous offrons un **passeport pour l'ère numérique**, une transformation qui changera radicalement votre façon de faire des affaires. Avec Digital PME Congo :</p>
+
+    <div class="vision-block">
+      <p>Votre PME cessera d'être spectatrice pour devenir **actrice majeure de la transformation digitale congolaise**. Dans cinq ans, lorsque l'histoire retracera l'émergence technologique de notre pays, votre entreprise figurera au chapitre des **visionnaires et des leaders du marché**.</p>
+    </div>
+
+    <p>Les chiffres ne mentent pas. D'ici 2030, les prédictions sont claires :</p>
+    <ul>
+      <li>**70% des PME africaines** auront intégré des solutions numériques avancées, laissant derrière elles celles qui n'ont pas agi.</li>
+      <li>L'automatisation libérera **40% du temps opérationnel** pour l'innovation, vous permettant de vous concentrer sur la croissance et la stratégie.</li>
+      <li>Les données deviendront la **matière première la plus précieuse**, et maîtriser leur exploitation sera votre avantage concurrentiel ultime.</li>
+    </ul>
+
+    <p>**La question n'est plus si vous pouvez vous permettre d'embrasser cette révolution, mais si vous pouvez VRAIMENT vous permettre de l'ignorer.** Chaque jour sans action est une opportunité perdue face à vos concurrents.</p>
+  </section>
+
+  <section>
+    <h2>Notre Source d'Inspiration Divine : Au-delà de la Technologie</h2>
+    <p>Nous ne prétendons pas être des génies, ni des créateurs de miracles. Humblement, nous reconnaissons que chaque ligne de code, chaque idée qui bouleverse les normes et chaque solution qui transforme l'impossible en réalité, nous viennent d'une source bien plus grande que nous. **C'est la main de Dieu que nous voyons à l'œuvre**, nous guidant et nous inspirant.</p>
+    <p>Nous croyons fermement que c'est par Sa grâce que nous sommes capables de développer des solutions numériques presque prophétiques pour les PME congolaises. Il nous a donné l'intelligence et la sagesse pour discerner les besoins de notre nation et pour bâtir des outils qui non seulement répondent à ces besoins, mais ouvrent aussi des chemins inexplorés dans le monde numérique.</p>
+    <p>Dans un monde qui court après l'innovation à tout prix, nous avons choisi de placer notre confiance en Lui. C'est Lui qui nous donne la vision de voir au-delà de l'ordinaire, la persévérance pour surmonter les défis techniques, et l'audace de rêver grand pour le Congo. Nos succès ne sont pas le fruit de notre seule capacité, mais la manifestation de Sa puissance agissant à travers nous. Nous ne faisons que servir d'instruments pour Sa gloire, en œuvrant à l'élévation numérique de notre peuple. Avec Dieu, l'impossible devient notre point de départ, et les frontières du monde numérique sont repoussées.</p>
+  </section>
+
+  <div class="cta-section">
+    <a href="#" class="cta-button">Devenez un pionnier numérique dès aujourd'hui !</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>"L'Afrique écrira son propre chapitre technologique, et il sera plus épique qu'aucun de nous ne peut l'imaginer" - Digital PME Congo</p>
+  <p>&copy; 2025 | Tous droits réservés | Filiale de GCI</p>
+</footer>
+
+</body>
+</html>
