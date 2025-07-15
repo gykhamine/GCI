@@ -6,203 +6,99 @@
     <title>Investissez dans l'Avenir Numérique de Brazzaville</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght=400;600&display=swap" rel="stylesheet">
     <style>
-        /* Styles Généraux */
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5; /* Gris très clair */
-            color: #333;
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-        }
-
-        /* En-tête (Hero Section) */
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Dégradé de bleu */
-            color: white;
-            border-radius: 10px 10px 0 0;
-            margin: -30px -30px 30px -30px; /* Déborde pour un effet visuel */
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before { /* Effet visuel subtil */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23ffffff" fill-opacity="0.05"/></svg>') repeat;
-            opacity: 0.3;
-        }
-
-        header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        header p {
-            font-size: 1.4em;
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-
-        /* Sections de Contenu */
-        .section {
-            margin-bottom: 50px;
-        }
-
-        .section h2 {
-            font-family: 'Montserrat', sans-serif;
-            color: #0056b3; /* Bleu foncé */
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section h2::after { /* Soulignement animé */
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: #28a745; /* Vert vif */
-            border-radius: 2px;
-        }
-
-        .text-block {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        /* Cartes d'Impact */
-        .impact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .impact-card {
-            background-color: #f8f9fa; /* Blanc cassé */
-            border-left: 5px solid #28a745; /* Bordure verte */
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .impact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .impact-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: #007bff;
-            font-size: 1.7em;
-            margin-bottom: 15px;
-        }
-
-        .impact-card p {
-            font-size: 1.05em;
-            color: #555;
-        }
-
-        /* Appel à l'action (CTA) */
-        .cta-section {
-            text-align: center;
-            margin-top: 60px;
-            padding: 40px;
-            background-color: #e6f7ff; /* Bleu très clair */
-            border-radius: 10px;
-            border: 1px dashed #99d6ff;
-        }
-
-        .cta-section p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            color: #0056b3;
-            font-weight: 600;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 18px 40px;
-            background-color: #28a745; /* Vert vibrant */
-            color: white;
-            text-decoration: none;
-            font-size: 1.6em;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
-        }
-
-        .cta-button:hover {
-            background-color: #218838;
-            transform: translateY(-3px);
-        }
-
-        /* Pied de page */
-        footer {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
-            margin-top: 50px;
-            color: #777;
-            font-size: 0.9em;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
-
-            header h1 {
-                font-size: 2.5em;
-            }
-
-            header p {
-                font-size: 1.1em;
-            }
-
-            .section h2 {
-                font-size: 2em;
-            }
-
-            .impact-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-button {
-                font-size: 1.3em;
-                padding: 15px 30px;
-            }
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #c8e6c9;
+      line-height: 1.8;
+    }
+    a {
+      color: #81c784;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+    header {
+      position: relative;
+      background: url('bg-avenir-congo.jpg') center/cover no-repeat;
+      color: #a5d6a7;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 60px;
+      background-color: #0a0a0a;
+      padding: 40px;
+      border-radius: 8px;
+      border: 1px solid #2a4a3a;
+      box-shadow: 0 0 10px rgba(0,255,0,0.05);
+    }
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+    }
+    h3 {
+      font-size: 1.5rem;
+      color: #81c784;
+      margin-bottom: 1em;
+      border-bottom: 2px solid #2a4a3a;
+      padding-bottom: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin: 15px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+    ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #81c784;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      color: #81c784;
+      font-size: 0.9rem;
+      border-top: 1px solid #2a4a3a;
+    }
     </style>
 </head>
 <body>
@@ -215,7 +111,7 @@
         <div class="section">
             <h2>Le Potentiel Attend Son Outil</h2>
             <p class="text-block">
-                À Brazzaville, une génération de développeurs passionnés et talentueux est prête à transformer les défis en solutions numériques. Leurs idées sont foisonnantes, leurs compétences aiguisées, mais un obstacle majeur les freine : le **manque d'accès à l'équipement informatique de base**. Sans un ordinateur, même le plus brillant des esprits ne peut exprimer son plein potentiel.
+                Au congo, une génération de développeurs passionnés et talentueux est prête à transformer les défis en solutions numériques. Leurs idées sont foisonnantes, leurs compétences aiguisées, mais un obstacle majeur les freine : le **manque d'accès à l'équipement informatique de base**. Sans un ordinateur, même le plus brillant des esprits ne peut exprimer son plein potentiel.
             </p>
             <p class="text-block">
                 C'est une perte immense, non seulement pour ces individus, mais pour l'ensemble de notre écosystème numérique et économique. Imaginez l'impact si chaque développeur congolais avait les outils pour créer, innover et construire l'avenir.
@@ -254,24 +150,11 @@
             </p>
         </div>
 
-        <div class="cta-section">
-            <p>Prêt(e) à investir dans le capital humain et l'avenir numérique de Brazzaville ?</p>
-            <a href="#contact" class="cta-button">Devenez Partenaire !</a>
-        </div>
 
-        <div class="section" id="contact">
-            <h2>Contactez-nous</h2>
-            <p class="text-block" style="text-align: center;">
-                Discutons de la manière dont votre soutien peut créer un impact durable.<br>
-                <strong>Email :</strong> votre.email@example.com<br>
-                <strong>Téléphone :</strong> +XXX XXX XXX XXX (WhatsApp disponible)<br>
-                <strong>Localisation :</strong> Brazzaville, République du Congo
-            </p>
-        </div>
+
     </div>
 
-    <footer>
-        <p>&copy; 2025 [Nom de votre Entité/Projet]. Tous droits réservés.</p>
-    </footer>
+  <p>&copy; 2025 Digital PME Congo — Services exclusivement réservés aux PME congolaises</p>
+</footer>
 </body>
 </html>
