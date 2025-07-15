@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>gykhamine</title>
+    <title>Gykhamine - Mon Profil</title>
     <style>
+        /* General Animations */
         @keyframes img {
             from { top: 20% }
             to { top: 15% }
@@ -37,6 +38,7 @@
         .ng {
             animation: ngt 2.0s ease infinite alternate;
         }
+        /* Background Animation */
         @keyframes bdt {
             0% { visibility: hidden ; background-image: url(static/3.png); background-size: 100%; background-position: center center; }
             40% { visibility: hidden ; background-image: url(static/g.jpg); background-size: 30%; background-position: center center; background-color: black; } 
@@ -55,6 +57,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            color: white; /* Ensure text is visible on dark backgrounds */
         }
         h1, h3 {
             color: rgb(255, 255, 255);
@@ -79,6 +82,15 @@
             text-align: center;
             font-size: 2rem;
         }
+        .content-block { /* New class for content containers */
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px auto; /* More margin for separation */
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Subtle glow */
+            border: 1px solid rgba(93, 204, 29, 0.5); /* Matching border */
+        }
         .sd {
             position: fixed;
             top: 10%;
@@ -91,14 +103,54 @@
             left: 0;
             max-width: 50%;
         }
-        .fc {
-            position: absolute;
-            top: 45%;
-            left: 25%;
-            right: 25%;
+        .fc { /* Keeping existing animation, but making it a generic content block */
+            position: relative; /* Changed to relative for better flow with other content */
+            top: auto; /* Remove fixed top for better flow */
+            left: auto; /* Remove fixed left for better flow */
+            right: auto; /* Remove fixed right for better flow */
             padding: 15px;
             max-width: 50%;
+            animation: none; /* Removed animation from this block to make it static for content */
+            margin: 40px auto; /* Add margin for spacing */
         }
+
+        /* CV Specific Styling */
+        .cv-section h2, .cv-section h3 {
+            border: none; /* Remove extra borders for sub-headings in CV */
+            box-shadow: none;
+            text-align: left; /* Align CV text to left for readability */
+            max-width: 100%; /* Occupy full width within its container */
+            padding: 5px 0;
+            margin: 15px 0 5px 0;
+        }
+        .cv-section h2 {
+            font-size: 1.8rem; /* Slightly smaller for sub-sections */
+            color: rgba(93, 204, 29, 0.9); /* Highlight CV section titles */
+        }
+        .cv-section h3 {
+            font-size: 1.2rem;
+            font-weight: normal; /* Normal weight for content */
+            color: rgb(200, 200, 200); /* Slightly lighter text */
+            margin-bottom: 10px;
+        }
+        .cv-section ul {
+            list-style: disc; /* Use discs for lists */
+            margin-left: 20px;
+            padding: 0;
+        }
+        .cv-section ul li {
+            margin-bottom: 8px;
+            color: rgb(200, 200, 200);
+            font-size: 1.1rem;
+        }
+        .cv-section a {
+            color: rgba(93, 204, 29, 0.9); /* Link color */
+            text-decoration: underline;
+        }
+        .cv-section a:hover {
+            color: white;
+        }
+
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
             h1, h2, h3 {
@@ -108,17 +160,29 @@
                 box-shadow: 10px 10px 30px rgba(45, 100, 100, 0.5);
                 border-radius: 50px;
             }
-            .sd, .pt, .fc {
-                position: static;
+            .sd, .pt { /* Keep fixed for visual interest on smaller screens, but adjust positioning */
+                position: static; /* Changed to static to stack elements properly */
                 max-width: 90%;
                 margin: 10px auto;
-                animation: none;
+                animation: none; /* Disable animations on smaller screens for performance/simplicity */
                 box-shadow: 10px 10px 30px rgba(45, 100, 100, 0.5);
             }
             .fc {
                 top: auto;
                 left: auto;
                 right: auto;
+                animation: none;
+            }
+            .content-block {
+                padding: 15px;
+                margin: 20px auto;
+                max-width: 95%;
+            }
+            .cv-section h2 {
+                font-size: 1.5rem;
+            }
+            .cv-section h3, .cv-section ul li {
+                font-size: 1rem;
             }
         }
         @media (max-width: 480px) {
@@ -126,6 +190,10 @@
                 font-size: 0.9em;
                 padding: 6px;
                 max-width: 100%;
+            }
+            .content-block {
+                padding: 10px;
+                margin: 15px auto;
             }
         }
     </style>
@@ -136,46 +204,91 @@
             NOUNGOU GAWOUROU ISAC PRINCE 
         </h1>
     </div>
-    <div class="sd">
+
+    <div class="sd content-block">
         <h1>
             Seule Dieu pour me juger
         </h1>
     </div>
-    <div class="pt">
+
+    <div class="pt content-block">
         <h1>
             Partir de rien pour tout gagner
         </h1>
     </div>
-    <div class="fc">
-        <h1>Presentation:</h1>
-        <h2>Date et lieu de naissance :</h2>
-         <h3>3 décembre 2003 à oyo</h3>
-        <h2>parcours scolaire :</h2>
-        <h3>C.E.P.E: 2013-2014 (la fontaine des elites)</h3>
-        <h3>B.E.P.C: 2017-2018 ( C.E.G, SASSE IPA)</h3>
-        <h3>Bac: 2020-2021 (Le cogito pére Bouka)</h3>
-        <h3>Licence : 2024-2025 <br> (l1 économie numérique (ISPSLO ( Institut superieur polytechnique sainte lucie d'oyo)))</h3>
+
+    <div class="fc content-block">
+        <h1>Présentation:</h1>
         <h2>Passions :</h2>
         <h3>La Bible</h3>
         <h3>La musique</h3>
-        <h3>L'infomatique</h3>
-        <h3>la science</h3>
-        <h2>competences:</h2>
-        <h3>C++; python; php; js; ass; cobol</h3>
-        <h2>Reseaux :</h2>
-        <h3>facebook: Gykhamine Gy</h3>
-        <h3>Gmail: gykhamine@gmail.com</h3>
-        <h3>Github: gykhamine</h3>
-        <h3>instagram: Gykhamine</h3>
-        <h3>youtube: gykhamine@gmail.com</h3>
-        <h3>Tiktok: gykhamine7</h3>
-        <h3>twiter ( X ): Gykhamine</h3>
-        <h3>telegrame: gykhamine</h3>
-        <h3>redit: gykhamine</h3>
-        <h3>Quora: Gykhamine Gy</h3>
-        <h3>Fiver: Gykhamine</h3>
-        <h3>Whatsapp: gykhamine(00242 06 577 49 88)</h3>
-        <h2>Projet : Gykhamine os</h2>
+        <h3>L'informatique</h3>
+        <h3>La science</h3>
+        <h2>Projet : Gykhamine OS</h2>
+        <h3>Un système d'exploitation basé sur Fedora Linux, pensé pour la souveraineté numérique nationale.</h3>
+    </div>
+
+    <div class="cv-section content-block">
+        <h1>CURRICULUM VITAE</h1>
+        <h3>**Isac Prince NOUNGOU GAWOUROU**</h3>
+        <h3>Étudiant en Économie Numérique</h3>
+        <h3>Adresse : ...rue, quartier OBANGUI (Oyo)</h3>
+        <h3>Adresse mail : gykhamine@gmail.com</h3>
+        <h3>Tel : (+242) 06-577-49-88</h3>
+        <h3>Nationalité : Congolaise</h3>
+
+        <h2>Objectif personnel :</h2>
+        <h3>Trouver les solutions numériques développées localement et nativement pour les PME congolaises selon le contexte congolais.</h3>
+
+        <h2>Formations et diplômes :</h2>
+        <ul>
+            <li>**Baccalauréat série A** : 2020-2021 : Le Cogito père Bouka</li>
+            <li>**1ère année de Licence en Économie Numérique** : Institut Supérieur Polytechnique Sainte Lucie d’Oyo (ISPSLO) 2025</li>
+        </ul>
+
+        <h2>Expériences professionnelles :</h2>
+        <ul>
+            <li>**Dérivation de Fedora Linux** en une autre distribution **Gykhamine OS** (conçue pour une vision de souveraineté numérique nationale)</li>
+            <li>Lancement d’une startup (<a href="https://gykhamine.github.io/GCI/1.html" target="_blank">https://gykhamine.github.io/GCI/1.html</a>)</li>
+        </ul>
+
+        <h2>Compétences :</h2>
+        <ul>
+            <li>**Maîtrise des langages de programmation** : Python, JavaScript, C++, PHP, HTML, CSS, SVG, Assembleur, Cobol</li>
+            <li>Maîtrise de la **programmation web**</li>
+            <li>Maîtrise de la **programmation desktop**</li>
+            <li>Maîtrise de **système Linux** (Fedora Workstation)</li>
+        </ul>
+
+        <h2>Connaissance linguistique :</h2>
+        <ul>
+            <li>Français (natif)</li>
+            <li>Anglais (élémentaire)</li>
+        </ul>
+
+        <h2>Centre d’intérêts :</h2>
+        <ul>
+            <li>Explorer le code informatique</li>
+            <li>La Bible</li>
+            <li>La musique</li>
+            <li>La science</li>
+        </ul>
+
+        <h2>Réseaux :</h2>
+        <ul>
+            <li>Facebook: Gykhamine Gy</li>
+            <li>Gmail: gykhamine@gmail.com</li>
+            <li>Github: <a href="https://github.com/gykhamine" target="_blank">gykhamine</a></li>
+            <li>Instagram: Gykhamine</li>
+            <li>YouTube: gykhamine@gmail.com</li>
+            <li>TikTok: gykhamine7</li>
+            <li>Twitter (X): Gykhamine</li>
+            <li>Telegram: gykhamine</li>
+            <li>Reddit: gykhamine</li>
+            <li>Quora: Gykhamine Gy</li>
+            <li>Fiverr: Gykhamine</li>
+            <li>Whatsapp: gykhamine (00242 06 577 49 88)</li>
+        </ul>
     </div>
 </body>
 </html>
