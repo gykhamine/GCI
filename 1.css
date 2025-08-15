@@ -8,10 +8,11 @@
       background-color : black;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      color: #388e3c;
+      color: #ffffff;
       width: 100%;
      /* Stack header, content, footer */
-      overflow-x: hidden; /* Prevent horizontal scrollbar during sidebar animation */
+      overflow-x: hidden;
+      font-size: 50px /* Prevent horizontal scrollbar during sidebar animation */
     }
     a {
       text-align: center;
@@ -38,7 +39,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #a5d6a7;
+      color: #ffffff;
       width: 100%;
     }
     header::before {
@@ -180,12 +181,13 @@
       max-width: 900px;
       margin: 0 auto;
       font-size: 1.15rem;
-      color: #c8e6c9dd;
+      color: #fdfdfddd;
       font-weight: 500;
       line-height: 1.8;
+      background-color: #388e3c69;
     }
     #about strong {
-      color: #a5d6a7;
+      color: #ffffff;
     }
 
     /* SERVICES GRID */
