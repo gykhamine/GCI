@@ -1,0 +1,305 @@
+/* RESET & BASE */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('statics/3.png') center no-repeat fixed;
+    
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #388e3c;
+      width: 100%;
+     /* Stack header, content, footer */
+      overflow-x: hidden; /* Prevent horizontal scrollbar during sidebar animation */
+    }
+    a {
+      text-align: center;
+      color: #388e3c;
+      margin-bottom: 32px; /* General link margin, overridden for sidebar */
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5022;
+      text-decoration: none; /* Remove underline by default */
+    }
+    a:hover {
+      color: #4caf50;
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 50vh;
+      background: url('statics/p.png') center/cover ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+      width: 100%;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 50, 0, 0.28);
+      z-index: 1;
+    }
+    header .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3em;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 900;
+      text-shadow: 0 0 5px #2e7d32aa;
+    }
+    header p {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px #2e7d3288;
+    }
+
+    /* MAIN CONTENT WRAPPER */
+    .content-wrapper {
+        display: flex; /* Always display sidebar and main content side-by-side */
+        flex-grow: 1;
+        position: relative;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: rgba(255,255,255,0.18);
+      border-right: 2px solid #4caf50;
+      padding: 20px;
+      width: 250px;
+      flex-shrink: 0; /* Prevent sidebar from shrinking */
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      box-shadow: 0 8px 32px #4caf5022;
+      backdrop-filter: blur(12px) saturate(180%);
+      border-radius: 22px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      align-items: center;
+      padding-top: 40px;
+      transition: transform 0.3s ease-in-out; /* Smooth transition for sidebar movement */
+      z-index: 10;
+      /* Default state for larger screens: visible */
+      transform: translateX(0);
+    }
+
+    .sidebar.hidden {
+      transform: translateX(-100%); /* Hide sidebar by moving it completely off-screen */
+    }
+
+    .sidebar a {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+      padding: 8px 15px;
+      border-radius: 8px;
+      display: block;
+      width: 100%;
+      text-align: left;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-shadow: none;
+      letter-spacing: 1px;
+    }
+    .sidebar a:hover {
+      background-color: rgba(76, 175, 80, 0.2);
+      color: #76ff03;
+      text-decoration: none;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto 80px; /* Adjust margin to account for sidebar */
+      padding: 0 20px;
+      flex-grow: 1;
+      transition: margin-left 0.3s ease-in-out; /* Smooth transition for main content shift */
+      background: rgba(255,255,255,0.18);
+      padding: 30px 20px;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px #4caf5022;
+      backdrop-filter: blur(12px) saturate(180%);
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+
+    /* Adjust main content when sidebar is hidden on small screens */
+    .content-wrapper.sidebar-hidden .container {
+      margin-left: 0; /* No left margin when sidebar is hidden */
+    }
+
+    /* SIDEBAR TOGGLE BUTTON */
+    .sidebar-toggle {
+        position: fixed; /* Keep button fixed */
+        top: 15px; /* Adjust as needed */
+        left: 15px; /* Adjust as needed */
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 1rem;
+        z-index: 100; /* Ensure it's on top of everything */
+        transition: background-color 0.3s ease;
+        display: none; /* Hidden by default, shown only on small screens */
+    }
+
+    .sidebar-toggle:hover {
+        background-color: #388e3c;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 32px;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #4caf5088;
+    }
+
+    /* ABOUT */
+    #about p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c8e6c9dd;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+    #about strong {
+      color: #a5d6a7;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .service-card {
+      border: 2px solid #4caf50;
+      padding: 24px 20px;
+      width: 320px;
+      margin-bottom: 24px;
+      background: rgba(255,255,255,0.18);
+      box-shadow: 0 8px 32px #4caf5022;
+      backdrop-filter: blur(12px) saturate(180%);
+      border-radius: 22px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      display: flex;
+      flex-direction: column;
+     
+    }
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 14px 30px #4caf50cc;
+    }
+    .service-card h3 {
+      color: #388e3c;
+      margin-bottom: 14px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+    }
+    .service-card p {
+      color: #388e3c;
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .price {
+      font-weight: 700;
+      color: #76ff03;
+      font-size: 1.2rem;
+      text-align: right;
+      font-family: 'Segoe UI Black', sans-serif;
+      letter-spacing: 0.7px;
+      user-select: none;
+    }
+    .service-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px #4caf5022;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #388e3c;
+      color: #fff;
+      border-top: 2px solid #4caf50;
+      box-shadow: 0 8px 32px #4caf5022;
+      backdrop-filter: blur(12px) saturate(180%);
+      border-radius: 22px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 18px 12px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      user-select: none;
+      width: 100%;
+    }
+
+    /* Tous les blocs alpha 0.0 et texte blanc pour la page principale */
+.trans-bloc, .service-card, .container, .sidebar, footer {
+  background: rgba(255,255,255,0.0) !important;
+  color: #fff !important;
+  box-shadow: none;
+  border: none;
+}
+
+body, h1, h2, h3, h4, .service-card h3, .service-card p, a, .sidebar a, footer {
+  color: #fff !important;
+}
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed; /* Sidebar fixed position for overlay/slide effect */
+        height: 100%; /* Take full viewport height */
+        top: 0;
+        left: 0;
+        transform: translateX(-100%); /* **Starts hidden on small screens** */
+        border-right: 2px solid #4caf50; /* Keep border on the right */
+        border-bottom: none; /* Remove bottom border */
+        padding-top: 80px; /* Make space for toggle button */
+      }
+      .sidebar.visible {
+        transform: translateX(0%); /* Show sidebar when toggled */
+      }
+      .sidebar a {
+        width: 100%; /* Links take full sidebar width */
+        text-align: left;
+        margin: 0; /* Remove horizontal margins */
+      }
+
+      .sidebar-toggle {
+          display: block; /* **Always show the toggle button on small screens** */
+      }
+
+      .container, .service-card, .sidebar {
+        border-radius: 10px;
+        padding: 12px 8px;
+      }
+    }
