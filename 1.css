@@ -227,6 +227,7 @@
       font-size: 1.05rem;
       margin-bottom: 18px;
       flex-grow: 1;
+      display: none;
     }
     .price {
       font-weight: 700;
