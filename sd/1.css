@@ -4,29 +4,35 @@
    ═══════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap');
-
 :root {
-  --bg:      #07080E;
-  --bg1:     #0C1220;
-  --bg2:     #111A2E;
-  --gold:    #C8A84B;
-  --gold2:   #7A6020;
-  --gold3:   #F0D080;
-  --blue:    #0082DC;
-  --blue2:   #004690;
-  --blue3:   #64BEFF;
-  --white:   #FFFFFF;
-  --lt:      #D2E4FF;
-  --dt:      #8299C8;
-  --dim:     #4A5878;
-  --sep:     #1E2E4A;
-  --card:    #0C1828;
-  --card2:   #0A1632;
-  --radius:  10px;
-  --glow-g:  0 0 24px rgba(200,168,75,.18);
-  --glow-b:  0 0 24px rgba(0,130,220,.18);
+  --bg:       #FFFFFF;
+  --bg1:      #F1F4F8;
+  --bg2:      #E8ECF2;
+  --bg-navy:  #0D1B2A;
+  --bg-dark:  #132230;
+  --gold:     #B8912A;
+  --gold2:    #8A6C1E;
+  --gold3:    #D4AA52;
+  --gold-lt:  #F6EBD0;
+  --teal:     #1A8FA0;
+  --teal2:    #0D5F6E;
+  --teal3:    #1579A0;
+  --red:      #A93226;
+  --text:     #1C2B3A;
+  --text2:    #3D5268;
+  --text3:    #6B7A8D;
+  --text-inv: #F0F4F8;
+  --text-dim: #A0B4C8;
+  --sep:      #DDE3EC;
+  --sep-navy: #1A2E45;
+  --card:     #FFFFFF;
+  --card-alt: #F7F9FC;
+  --radius:   10px;
+  --shadow:   0 2px 12px rgba(13,27,42,.08);
+  --shadow-h: 0 6px 24px rgba(13,27,42,.14);
+  --glow-g:   0 0 20px rgba(184,145,42,.18);
+  --glow-t:   0 0 20px rgba(26,143,160,.18);
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Barlow',sans-serif;background-color:var(--bg);color:var(--lt);overflow-x:hidden;font-size:16px;line-height:1.65;}
