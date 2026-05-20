@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprendre les Capsules — Gykhamine OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">
+            <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
+            <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="installer.html">Installation</a></li>
+            <li><a href="capsules.html" class="active">Capsules</a></li>
+            <li><a href="business.html">Business</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="manifeste.html">Manifeste</a></li>
+            <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
+            <li><a href="https://github.com" target="_blank" class="nav-cta">GitHub</a></li>
+        </ul>
+        <button class="nav-burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <header class="hero">
+        <h1>COMPRENDRE LES CAPSULES APPLICATIVES</h1>
+        <div class="hero-subtitle">Le guide d'architecture pour les créateurs de solutions souveraines</div>
+    </header>
+
+    <section id="concept">
+        <h2 class="section-title">Qu'est-ce qu'une Capsule ?</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <h3>La métaphore de la console de jeu</h3>
+                <p>
+                    Pour comprendre une capsule sans jargon technique, imaginez une console de jeux de salon rétro. 
+                    La console possède ses composants internes, sa carte mère et ses boutons : c'est <strong>Gykhamine OS</strong> (le noyau immuable). 
+                    Seule, la console démarre mais n'affiche rien. Pour qu'elle fonctionne, vous devez y insérer une cartouche de jeu. 
+                </p>
+                <p style="margin-top:10px;">
+                    Une <strong>Capsule Applicative</strong> est exactement cette cartouche de jeu. C'est un simple dossier nommé <code>Gykhamine/</code> que l'on glisse à la racine de la clé USB. Il contient vos scripts d'automatisation et votre application Django complète. Vous changez le dossier, vous changez instantanément l'intégralité du métier de l'ordinateur.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="anatomie" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">Anatomie d'une Capsule</h2>
+        <p>
+            Le système Gykhamine OS est programmé pour chercher un dossier spécifique au boot. Pour être valide, votre dossier capsule doit obligatoirement respecter l'arborescence et le nommage suivants :
+        </p>
+
+        <div class="folder-tree">
+📁 Racine_de_la_clé_USB (Partition EFI / Gykhamine Live)<br>
+└── <span class="highlight">📁 Gykhamine/</span> <span class="comment">(Le répertoire racine de votre Capsule)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="sub-highlight">📁 1/</span> <span class="comment">(Scripts d'initialisation système — Exécutés en mode administrateur SUDO)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 📄 gy.py <span class="comment">(Exemple : configuration de périphériques locaux)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="sub-highlight">📁 2/</span> <span class="comment">(Scripts d'initialisation utilisateur — Exécutés SANS privilège SUDO)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 📄 gy.py <span class="comment">(Exemple : variables d'environnement locales)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="sub-highlight">📁 my_project/</span> <span class="comment">(L'arborescence de votre code métier de production)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 📄 manage.py <span class="comment">(Le point d'entrée de votre application web Django)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 📁 my_project/ <span class="comment">(Configuration globale du projet, settings.py, urls.py)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 📁 apps_metiers/ <span class="comment">(Vos modules Django : POS, stocks, factures, élèves...)</span>
+        </div>
+    </section>
+
+    <section id="execution" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">Le Cycle d'Exécution (Comment ça tourne ?)</h2>
+        <p>Voici le cheminement logique précis effectué par l'infrastructure immuable lors du démarrage de la machine cible :</p>
+
+        <div class="workflow-container">
+            <div class="wf-card">
+                <div class="wf-icon">I</div>
+                <div class="wf-body">
+                    <h4>Amorçage immuable (Kernel & Dracut)</h4>
+                    <p>L'ordinateur boot sur les fichiers du répertoire <code>live/</code>. Le système charge un environnement minimaliste et sécurisé  en lecture seule (SquashFS), garantissant l'absence totale de virus ou d'altération du système.</p>
+                </div>
+            </div>
+
+            <div class="wf-card">
+                <div class="wf-icon">II</div>
+                <div class="wf-body">
+                    <h4>Détection et Routage Bas Niveau (Le dossier 1)</h4>
+                    <p>Le système monte la partition EFI et détecte le dossier <code>Gykhamine/</code>. Il bascule immédiatement dans le répertoire <code>1/</code> et exécute  le script <code>1/gy.py</code> avec les droits d'administration (Root via <code>sudo</code>). C'est le moment idéal pour charger des modules de noyau spécifiques, configurer le réseau local ou monter des disques durs persistants.</p>
+                </div>
+            </div>
+
+            <div class="wf-card">
+                <div class="wf-icon">III</div>
+                <div class="wf-body">
+                    <h4>Initialisation de l'Espace Utilisateur (Le dossier 2)</h4>
+                    <p>le système entre dans le répertoire <code>2/</code>. Il y lance le script <code>2/gy.py</code>sous l'identité de l'utilisateur standard (sans privilèges). Ce routine prépare l'environnement applicatif local, vérifient l'intégrité des bases de données locales (comme SQLite) et préparent le terrain pour le service web.</p>
+                </div>
+            </div>
+
+            <div class="wf-card">
+                <div class="wf-icon">IV</div>
+                <div class="wf-body">
+                    <h4>Instanciation et Lancement (my_project)</h4>
+                    <p>Enfin, le script d'autostart natif <code>1/gy.py</code> cible le dossier <code>my_project/</code>. Il lance le serveur web (Django), configure l'écoute sur l'adresse locale et ouvre instantanément l'interface applicative en plein écran pour les opérateurs. La plateforme locale est opérationnelle et résiliente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 35px;">
+            🛡️ <strong>Rappel d'Architecture :</strong> Puisque Gykhamine OS est immuable, si un utilisateur fait une mauvaise manipulation ou éteint brutalement l'ordinateur, aucun fichier système n'est corrompu. Au prochain redémarrage, le cycle reprend à zéro à partir de l'image ISO gravée et de votre capsule saine.
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo-row">
+            <div class="footer-brand">GYKHAMINE CONCEPT INVESTIGATION</div>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="installer.html">Installation</a>
+            <a href="capsules.html">Capsules</a>
+            <a href="business.html">Business</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="support.html">Support</a>
+            <a href="manifeste.html">Manifeste</a>
+        </div>
+        <span class="footer-gold-line"></span>
+        <p class="footer-copy">Gykhamine OS — Spécifications Techniques des Capsules.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
