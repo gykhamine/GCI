@@ -22,8 +22,8 @@
             <li><a href="metier_capsule.html">Métier</a></li>
             <li><a href="entreprise_capsule.html">Entreprise</a></li>
             <li><a href="vendre_capsules.html">Vendre</a></li>
-            <li><a href="support_concepteur.html" class="active">Support_concepteur</a></li>
-            <li><a href="support.html" >Support</a></li>
+            <li><a href="support_concepteur.html">Support_concepteur</a></li>
+            <li><a href="support.html">Support</a></li>
             <li><a href="manifeste.html">Manifeste</a></li>
             <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
         </ul>
@@ -47,7 +47,7 @@
                     Seule, la console démarre mais n'affiche rien. Pour qu'elle fonctionne, vous devez y insérer une cartouche de jeu. 
                 </p>
                 <p style="margin-top:10px;">
-                    Une <strong>Capsule Applicative</strong> est exactement cette cartouche de jeu. C'est un simple dossier nommé <code>Gykhamine/</code> que l'on glisse à la racine de la clé USB. Il contient vos scripts d'automatisation et votre application Django complète. Vous changez le dossier, vous changez instantanément l'intégralité du métier de l'ordinateur.
+                    Une <strong>Capsule Applicative</strong> est exactement cette cartouche de jeu. C'est un simple dossier nommé <code>Gykhamine/</code> que l'on glisse à la racine de la clé USB. [...]
                 </p>
             </div>
         </div>
@@ -56,7 +56,7 @@
     <section id="anatomie" style="border-top: 1px solid var(--sep);">
         <h2 class="section-title">Anatomie d'une Capsule</h2>
         <p>
-            Le système Gykhamine OS est programmé pour chercher un dossier spécifique au boot. Pour être valide, votre dossier capsule doit obligatoirement respecter l'arborescence et le nommage suivants :
+            Le système Gykhamine OS est programmé pour chercher un dossier spécifique au boot. Pour être valide, votre dossier capsule doit obligatoirement respecter l'arborescence et le nommage s[...]
         </p>
 
         <div class="folder-tree">
@@ -82,7 +82,7 @@
                 <div class="wf-icon">I</div>
                 <div class="wf-body">
                     <h4>Amorçage immuable (Kernel & Dracut)</h4>
-                    <p>L'ordinateur boot sur les fichiers du répertoire <code>live/</code>. Le système charge un environnement minimaliste et sécurisé  en lecture seule (SquashFS), garantissant l'absence totale de virus ou d'altération du système.</p>
+                    <p>L'ordinateur boot sur les fichiers du répertoire <code>live/</code>. Le système charge un environnement minimaliste et sécurisé  en lecture seule (SquashFS), garantissant l'[...]
                 </div>
             </div>
 
@@ -90,7 +90,7 @@
                 <div class="wf-icon">II</div>
                 <div class="wf-body">
                     <h4>Détection et Routage Bas Niveau (Le dossier 1)</h4>
-                    <p>Le système monte la partition EFI et détecte le dossier <code>Gykhamine/</code>. Il bascule immédiatement dans le répertoire <code>1/</code> et exécute  le script <code>1/gy.py</code> avec les droits d'administration (Root via <code>sudo</code>). C'est le moment idéal pour charger des modules de noyau spécifiques, configurer le réseau local ou monter des disques durs persistants.</p>
+                    <p>Le système monte la partition EFI et détecte le dossier <code>Gykhamine/</code>. Il bascule immédiatement dans le répertoire <code>1/</code> et exécute  le script <code>1/g[...]
                 </div>
             </div>
 
@@ -98,7 +98,7 @@
                 <div class="wf-icon">III</div>
                 <div class="wf-body">
                     <h4>Initialisation de l'Espace Utilisateur (Le dossier 2)</h4>
-                    <p>le système entre dans le répertoire <code>2/</code>. Il y lance le script <code>2/gy.py</code>sous l'identité de l'utilisateur standard (sans privilèges). Ce routine prépare l'environnement applicatif local, vérifient l'intégrité des bases de données locales (comme SQLite) et préparent le terrain pour le service web.</p>
+                    <p>le système entre dans le répertoire <code>2/</code>. Il y lance le script <code>2/gy.py</code>sous l'identité de l'utilisateur standard (sans privilèges). Ce routine prépar[...]
                 </div>
             </div>
 
@@ -106,13 +106,13 @@
                 <div class="wf-icon">IV</div>
                 <div class="wf-body">
                     <h4>Instanciation et Lancement (my_project)</h4>
-                    <p>Enfin, le script d'autostart natif <code>1/gy.py</code> cible le dossier <code>my_project/</code>. Il lance le serveur web (Django), configure l'écoute sur l'adresse locale et ouvre instantanément l'interface applicative en plein écran pour les opérateurs. La plateforme locale est opérationnelle et résiliente.</p>
+                    <p>Enfin, le script d'autostart natif <code>1/gy.py</code> cible le dossier <code>my_project/</code>. Il lance le serveur web (Django), configure l'écoute sur l'adresse locale et [...]
                 </div>
             </div>
         </div>
 
         <div class="info-box" style="margin-top: 35px;">
-            🛡️ <strong>Rappel d'Architecture :</strong> Puisque Gykhamine OS est immuable, si un utilisateur fait une mauvaise manipulation ou éteint brutalement l'ordinateur, aucun fichier système n'est corrompu. Au prochain redémarrage, le cycle reprend à zéro à partir de l'image ISO gravée et de votre capsule saine.
+            🛡️ <strong>Rappel d'Architecture :</strong> Puisque Gykhamine OS est immuable, si un utilisateur fait une mauvaise manipulation ou éteint brutalement l'ordinateur, aucun fichier syst[...]
         </div>
     </section>
 
