@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Pionnier & Formations — Gykhamine OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+            <nav>
+        <div class="nav-brand">
+            <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
+            <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Système <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="installer.html">Installation</a></li>
+                    <li><a href="architecture.html">Architecture</a></li>
+                    <li><a href="avantage_architectural.html">Avantages Archi</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Capsules <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="capsules.html">Présentation</a></li>
+                    <li><a href="metier_capsule.html">Métier</a></li>
+                    <li><a href="entreprise_capsule.html">Entreprise</a></li>
+                    <li><a href="vendre_capsules.html">Vendre</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Ressources <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="ia_et_concepteur.html">IA &amp; Code</a></li>
+                    <li><a href="manifeste.html">Manifeste</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Support <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="support_concepteur.html">Support Concepteur</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </li>
+            <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
+        </ul>
+        <button class="nav-burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-tag">Souveraineté & Expertise</div>
+        <h1>Maîtrisez l'Écosystème Immuable</h1>
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ARCHITECTURE & SUPPORT PIONNIER -->
+    <section class="section-container" id="pionnier">
+        <div class="intro-block">
+            <h2>Pourquoi s'appuyer sur le Support Concepteur ?</h2>
+            <p>
+                Gykhamine OS est une rupture technologique majeure : un système d'exploitation immuable, orchestré par des capsules applicatives indépendantes. Face à ce paradigme, seul l'architecte d'origine possède les clés de résolution en profondeur.
+            </p>
+        </div>
+
+        <div class="grid-two">
+            <!-- CARDE 1: SUPPORT TECHNIQUE -->
+            <div class="architecture-card" id="support">
+                <div class="card-icon">🛡️</div>
+                <h3>L'Importance de Notre Support</h3>
+                <p>
+                    Le mode autonome vous confère une liberté totale, mais vous expose à des défis complexes en cas d'imprévus de production ou d'évolutions matérielles critiques.
+                </p>
+                <ul>
+                    <li><strong>Diagnostic au cœur du Noyau :</strong> Analyse immédiate des comportements de <code>dracut</code>, du montage de l'overlay et des arbres de boot UEFI spécifiques.</li>
+                    <li><strong>Garantie de Continuité :</strong> Résolution rapide des conflits de pilotes bas niveau (AMDGPU, pilotes réseaux) pour préserver le fonctionnement continu de vos parcs clients.</li>
+                    <li><strong>Ligne Directe Architecte :</strong> Zéro intermédiaire. Vous dialoguez directement avec l'équipe qui a pensé, codé et structuré les fondations du système.</li>
+                </ul>
+            </div>
+
+            <!-- CARDE 2: FORMATION PROFESSIONNELLE -->
+            <div class="architecture-card gold-card" id="formations">
+                <div class="card-icon">🎓</div>
+                <h3>L'Utilité de notre Formation</h3>
+                <p>
+                    La formation officielle n'est pas une simple récitation technique : c'est un accélérateur opérationnel conçu pour transformer votre modèle économique.
+                </p>
+                <ul>
+                    <li><strong>Conception Avancée de Cartouches :</strong> Apprenez à packager vos applications (Django, bases de données locales, microservices) selon les normes strictes d'immuabilité de l'OS.</li>
+                    <li><strong>Maîtrise des Séquences de Boot :</strong> Devenez autonome dans la configuration des dossiers d'automatisation système (<code>1/</code>) et utilisateur (<code>2/</code>).</li>
+                    <li><strong>Monétisation de Vos Compétences :</strong> Clés en main pour structurer vos offres de maintenance auprès des PME et démultiplier vos marges d'intégration.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- LES PROGRAMMES DE FORMATION (FLOW CHART EN CSS) -->
+    <section class="training-section">
+        <div class="training-container">
+            <h2 class="section-title">Le Parcours de Certification Opérationnelle</h2>
+            
+            <div class="program-flow">
+                <!-- ETAPE 1 -->
+                <div class="program-step">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h4>Fondations & Cycles d'Immuabilité</h4>
+                        <p>Compréhension approfondie du cycle de boot, gestion de l'infrastructure en lecture seule, et mécanismes de persistance sécurisée.</p>
+                        <span class="step-badge">Durée : 2 Jours · Profil Technicien</span>
+                    </div>
+                </div>
+
+                <!-- ETAPE 2 -->
+                <div class="program-step">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h4>Ingénierie des Cartouches & Automatisation</h4>
+                        <p>Développement de capsules métiers dans le répertoire <code>my_project/</code>, écriture de routines d'initialisation 1/ et 2/, et intégration SQL/NoSQL en environnement isolé.</p>
+                        <span class="step-badge">Durée : 3 Jours · Profil Développeur</span>
+                    </div>
+                </div>
+
+                <!-- ETAPE 3 -->
+                <div class="program-step">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h4>Déploiement de Masse & Souveraineté Économique</h4>
+                        <p>Industrialisation de la duplication des clés USB UEFI, techniques avancées de maintenance à chaud (2 minutes) et architecture d'offres commerciales pour intégrateurs.</p>
+                        <span class="step-badge">Durée : 1 Jour · Profil Consultant / Décideur</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE CALLOUT & ACTION -->
+    <section class="section-container" id="valeur">
+        <div class="value-callout">
+            <h3>Passez du Statut d'Utilisateur à celui d'Expert Certifié</h3>
+            <p>
+                Sécurisez vos clients, supprimez les risques de corruption de fichiers, et maximisez la valeur ajoutée de vos interventions techniques en rejoignant notre programme de support pionnier et de formation continue.
+            </p>
+            <a href="https://gykhamine.github.io/GCI/ct.html" target="_blank" class="btn-primary">Nous Contacter</a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo-row">
+            <div class="footer-brand">GYKHAMINE CONCEPT INVESTIGATION</div>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="installer.html">Installation</a>
+            <a href="capsules.html">Capsules</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="business.html">Business</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="support.html">Support</a>
+            <a href="manifeste.html">Manifeste</a>
+        </div>
+        <span class="footer-gold-line"></span>
+        <p class="footer-copy">Gykhamine OS — Vendre ses capsules : une activité conçue pour durer.</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
