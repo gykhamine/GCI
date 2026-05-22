@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Support Concepteur — Gykhamine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+             <nav>
+        <div class="nav-brand">
+            <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
+            <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Système <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="installer.html">Installation</a></li>
+                    <li><a href="architecture.html">Architecture</a></li>
+                    <li><a href="avantage_architectural.html">Avantages Archi</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Capsules <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="capsules.html">Présentation</a></li>
+                    <li><a href="metier_capsule.html">Métier</a></li>
+                    <li><a href="entreprise_capsule.html">Entreprise</a></li>
+                    <li><a href="vendre_capsules.html">Vendre</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Ressources <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="ia_et_concepteur.html">IA &amp; Code</a></li>
+                    <li><a href="manifeste.html">Manifeste</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Support <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="support_concepteur.html">Support Concepteur</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </li>
+            <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
+        </ul>
+        <button class="nav-burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <header class="hero">
+        <h1>LE SUPPORT CONCEPTEUR</h1>
+    </header>
+
+    <section id="introduction">
+        <h2 class="section-title">📘 Ce que personne ne dit sur les formations</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Il existe des dizaines de façons d'apprendre à coder, à configurer un serveur Linux, à déployer une application Django. Des cours sur YouTube, des tutoriels sur Medium, des formations payantes sur Udemy, des certifications en ligne. Chacun de ces supports vous transmet des informations. Aucun d'eux ne vous accompagne dans votre réalité.</p>
+                <p>La différence est fondamentale. Une information vous dit quoi faire dans un contexte idéal, sur une machine propre, avec des données fictives, dans un environnement sans contraintes. Votre réalité, elle, ressemble à ceci : une machine avec un système d'exploitation légèrement différent de celui du tutoriel, un client qui change d'avis en cours de route, une dépendance Python incompatible, un besoin métier que vous n'aviez pas anticipé, et une décision à prendre seul, maintenant, avec un client qui attend.</p>
+                <p>C'est dans cet écart — entre ce qu'on apprend et ce qu'on vit — que la plupart des concepteurs débutants se perdent. Non pas parce qu'ils manquent d'intelligence ou de travail, mais parce qu'ils manquent d'un repère fiable à qui soumettre leur situation spécifique et obtenir une réponse adaptée. C'est exactement ce que le support concepteur Gykhamine propose : être ce repère.</p>
+                <p>Ce document explique pourquoi ce support vaut structurellement bien plus que son coût, comment il fonctionne, et ce qu'il protège concrètement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ce-quun-cours-ne-peut-pas-faire" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Ce qu'un cours ne peut pas faire</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Un cours — même excellent — est un objet statique. Il a été conçu à un moment précis, pour un public générique, dans un contexte standardisé. Il ne peut pas vous répondre. Il ne peut pas voir votre code. Il ne peut pas comprendre que votre client est une école coranique qui n'a ni clavier ni souris mais une tablette Android et une connexion 3G. Il ne peut pas vous dire si votre approche est la bonne avant que vous la mettiez en production devant un client réel.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">1. Le cours ne connaît pas votre contexte</h3>
+                <p>Chaque déploiement est unique. La machine du client a peut-être Ubuntu 20 au lieu de 22. La version de Python disponible n'est pas celle du tutoriel. Le réseau local du client est configuré différemment. La personne qui va utiliser la capsule tous les jours est une comptable de 55 ans qui n'a jamais utilisé de navigateur web. Aucun cours ne couvre votre cas spécifique parce qu'aucun cours ne vous connaît.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">2. Le cours ne détecte pas vos angles morts</h3>
+                <p>Les erreurs les plus coûteuses ne sont pas celles qu'on voit venir. Ce sont les décisions qui semblent raisonnables sur le moment mais qui créent des problèmes six mois plus tard : une structure de base de données mal pensée qui rend impossible l'ajout d'un module ultérieur, une dépendance technique choisie par habitude qui ne fonctionne pas sans Internet, un modèle de facturation client qui ne scale pas au-delà de cinq clients. Un cours vous donne des outils. Il ne regarde pas comment vous les utilisez.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">3. Le cours ne vous protège pas d'une mauvaise décision architecturale</h3>
+                <p>En conception de capsules, certaines décisions se prennent tôt et coûtent très cher à corriger si elles sont mauvaises. Comment structurer les données d'un client multi-sites ? Quelle stratégie de sauvegarde pour une clinique qui ne peut pas se permettre de perdre des dossiers patients ? Comment gérer les droits d'accès dans une administration où tout le monde demande à voir tout ? Ces questions n'ont pas de réponse dans un cours générique. Elles ont une bonne réponse dans votre contexte précis, et cette réponse demande de l'expérience et du jugement — pas de la documentation.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">4. Le cours ne vous rappelle pas quand vous dérivez</h3>
+                <p>Un concepteur qui travaille seul peut progressivement s'éloigner de la doctrine sans s'en rendre compte. Il commence à coder des fonctionnalités directement dans les vues Django au lieu de les structurer dans des services. Il commence à ignorer la séparation des couches parce que "pour l'instant ça marche". Il commence à promettre à un client des choses que l'architecture actuelle ne peut pas supporter. Personne ne le voit. Personne ne le corrige. Jusqu'au jour où tout s'effondre.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ce-quest-le-support" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Ce qu'est réellement le support concepteur</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Le support concepteur Gykhamine n'est pas une hotline technique. Ce n'est pas un service où l'on répond à des questions génériques sur Python ou Linux. C'est un accompagnement structuré autour de votre activité réelle de concepteur : vos projets en cours, vos clients actuels, vos décisions architecturales, vos blocages opérationnels et vos opportunités commerciales.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">1. La revue de capsule — avant que le client la voie</h3>
+                <p>Avant tout déploiement chez un client, le concepteur soumet sa capsule à une revue. On examine ensemble la structure des modèles Django, la logique des scripts gy.py, la robustesse de la stratégie de sauvegarde, la cohérence entre ce que la capsule fait et ce que le client attend. Cette revue prend entre 30 minutes et 2 heures selon la complexité. Elle identifie les problèmes avant qu'ils se produisent en production. Un seul problème évité — une perte de données, un blocage d'accès, une incompatibilité de version — vaut plusieurs fois le coût mensuel du support.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">2. Le déblocage en situation réelle</h3>
+                <p>Quand un concepteur est bloqué — une migration Django qui échoue, un service Nginx qui refuse de démarrer, une requête PostgreSQL qui prend 45 secondes pour des raisons inexpliquées — chaque heure perdue à chercher seul est une heure non facturée, une heure d'énergie épuisée, et parfois une heure de plus où le client attend. Le support répond dans les heures qui suivent avec une analyse du problème spécifique, pas un lien vers une documentation générique.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">3. L'orientation commerciale et stratégique</h3>
+                <p>Un client propose un projet inhabituel. Une administration veut une capsule pour gérer des appels d'offres. Un hôpital veut connecter sa capsule à une imprimante de badges patients. Un directeur d'école veut que les parents puissent consulter les notes de leurs enfants en ligne. Ces demandes sortent du périmètre habituel. Doit-on accepter ? Comment structurer la réponse technique ? Quel est le bon prix ? Le support aide à évaluer ces situations et à prendre les décisions qui font avancer l'activité sans la mettre en danger.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">4. La veille doctrinale — rester aligné sur Gykhamine</h3>
+                <p>La doctrine Gykhamine évolue. De nouvelles conventions apparaissent, des patterns s'améliorent, des approches qui semblaient bonnes se révèlent problématiques à l'usage. Le concepteur abonné au support reçoit ces mises à jour de doctrine avant tout le monde, comprend pourquoi elles changent, et peut adapter ses capsules existantes en conséquence. Sans ce lien, un concepteur qui travaille seul peut passer des mois à optimiser une approche que la doctrine a déjà abandonnée.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">5. La relecture des contrats et devis clients</h3>
+                <p>Un devis mal formulé crée des attentes impossibles à tenir. Un contrat de maintenance sans périmètre défini devient une source de conflits. Le support aide à formuler des propositions commerciales qui correspondent exactement à ce que la capsule peut livrer, ni plus ni moins. Cette aide évite les engagements excessifs et les discussions difficiles avec des clients qui avaient "compris autre chose".</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">6. La communauté des concepteurs actifs</h3>
+                <p>Le support donne accès à un espace d'échange entre concepteurs actifs. Pas un forum public ouvert à tout le monde — un espace de travail réservé aux professionnels qui opèrent réellement sur le terrain. On y partage des problèmes rencontrés, des solutions trouvées, des opportunités commerciales, des retours d'expérience de déploiement. Cette communauté est l'une des ressources les plus précieuses du support : ce que quelqu'un a déjà résolu hier n'a pas besoin d'être résolu de zéro demain.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calcul-valeur" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Le calcul de la valeur réelle — 15 000 F par mois</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>15 000 francs CFA par mois. C'est le prix d'un repas dans un restaurant correct. C'est moins que la recharge téléphonique mensuelle de beaucoup de professionnels. C'est entre 10 et 30 fois moins cher qu'une formation certifiante en ligne sur une technologie générique. Et c'est un chiffre que n'importe quel concepteur actif récupère sur une seule décision bien orientée dans le mois. Voici comment le calculer objectivement.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">Scénario 1 — L'erreur architecturale évitée</h3>
+                <p>Un concepteur déploie une capsule de gestion pour une école de 400 élèves. Sans revue, il structure la base de données d'une manière qui rend impossible la gestion multi-établissements. Six mois plus tard, le client ouvre un deuxième site et veut les mêmes outils. Le concepteur doit tout refaire. Temps perdu : 3 à 5 semaines. Revenu non généré pendant ce temps : entre 60 000 et 150 000 F selon son tarif journalier. Une revue de capsule de 2 heures avant le premier déploiement aurait évité tout ça.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">Scénario 2 — Le client perdu par un bug évitable</h3>
+                <p>Un concepteur livre une capsule de facturation à un cabinet comptable. Une erreur dans la logique de calcul des taxes produit des factures incorrectes pendant trois semaines sans que personne ne s'en aperçoive. Le client découvre le problème lors d'un contrôle fiscal. Il perd confiance, résilie le contrat de maintenance, et parle de son expérience à son réseau. La perte directe et indirecte dépasse facilement 200 000 F. Une revue du module de calcul avant la mise en production l'aurait évitée.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">Scénario 3 — La décision commerciale bien orientée</h3>
+                <p>Un client propose un projet de 800 000 F pour développer une capsule de gestion hospitalière complète. Le concepteur hésite : c'est ambitieux, il n'a jamais fait de module médical, et le délai demandé semble court. Sans support, il accepte par peur de rater l'opportunité, sous-estime la charge, livre en retard et avec des lacunes, et termine la mission avec un client insatisfait et une réputation entamée. Avec le support, il évalue le projet en 48 heures, identifie ce qui est faisable dans le délai et ce qui ne l'est pas, reformule la proposition, négocie un périmètre réaliste — et livre bien, dans les délais, avec un client qui le recommande.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">Scénario 4 — Le déblocage technique en urgence</h3>
+                <p>Un concepteur est chez un client pour un déploiement prévu en 4 heures. Après 2 heures, un conflit de dépendances Python bloque l'installation. Il cherche seul pendant 3 heures, ne trouve pas, reporte le déploiement au lendemain. Le client est irrité. Le concepteur rentre épuisé et humilié. Avec le support, il soumet le message d'erreur dans les minutes qui suivent et reçoit la solution en moins d'une heure. Le déploiement se termine le jour prévu. Le client est satisfait. La réputation est intacte.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">Le calcul résumé</h3>
+                <p>Un seul de ces scénarios, sur une année, représente une perte ou un gain bien supérieur au coût annuel du support, qui est de 180 000 F. Ce n'est pas un abonnement à une information. C'est une assurance contre les risques les plus coûteux de l'activité de concepteur — les décisions prises sans repère, dans l'urgence, sans expérience suffisante du contexte.</p>
+
+                <p>Et contrairement à une assurance classique qui ne paie qu'en cas de sinistre, le support génère de la valeur en permanence : chaque revue améliore la capsule, chaque échange de communauté enrichit le catalogue, chaque orientation commerciale affine le positionnement. On ne paie pas pour ne rien avoir. On paie pour avoir un meilleur résultat à chaque fois.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="deraillement-vision" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Se protéger du déraillement de vision</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Le risque technique est visible et compréhensible. Le risque de déraillement de vision est bien plus subtil et bien plus dangereux. C'est le risque de continuer à travailler dur, à livrer des capsules, à satisfaire des clients — mais dans une direction qui s'éloigne progressivement de ce qui est juste, cohérent et durable.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">1. Qu'est-ce qu'un déraillement de vision</h3>
+                <p>Un déraillement de vision se produit quand le concepteur, sous la pression des demandes clients, commence à prendre des raccourcis qui contredisent la doctrine Gykhamine. Il commence à dépendre de services cloud pour simplifier une livraison. Il commence à promettre des fonctionnalités qui nécessitent une connexion permanente à un client dans une zone sans fibre. Il commence à livrer des capsules sans documentation parce que "le client ne lit pas de toute façon". Chacune de ces décisions semble raisonnable isolément. Ensemble, elles construisent une pratique qui n'est plus Gykhamine — et qui n'en a plus les avantages.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">2. Pourquoi le concepteur seul ne le voit pas</h3>
+                <p>Quand on est seul dans son activité, on devient progressivement son propre juge. On évalue ses propres décisions avec ses propres critères, qui ont été formés par ses propres expériences. Il n'y a personne pour dire "attends, là tu t'éloignes de quelque chose d'important." Les clients ne voient pas l'architecture de la capsule. Ils voient seulement si elle fonctionne ou non. Ils ne peuvent pas signaler un déraillement de vision. Seul quelqu'un qui connaît la doctrine et qui observe le travail du concepteur de l'extérieur peut le faire.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">3. Comment le support prévient le déraillement</h3>
+                <p>Le support ne juge pas. Il recalibre. Quand un concepteur soumet une décision architecturale qui s'écarte de la doctrine, la réponse n'est pas une critique — c'est une explication de ce qui change quand on fait ce choix, de ce qu'on perd, et de comment atteindre le même objectif en restant dans la doctrine. Cette réponse éduque autant qu'elle corrige. Au fil des échanges, le concepteur intègre les raisons derrière les règles, et devient capable de les appliquer lui-même dans de nouveaux contextes sans avoir besoin d'aide.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">4. Le déraillement commercial — promettre ce qu'on ne peut pas livrer</h3>
+                <p>Le déraillement de vision ne concerne pas que l'architecture technique. Il concerne aussi la façon dont le concepteur se présente à ses clients, ce qu'il promet, les attentes qu'il crée. Un concepteur qui, pour conclure une vente difficile, promet une fonctionnalité qu'il n'est pas sûr de pouvoir livrer, un délai qu'il ne peut pas tenir, une disponibilité qu'il ne peut pas garantir — ce concepteur crée un problème futur. Le support aide à construire une offre commerciale honnête, précise et réaliste. Pas par idéalisme, mais parce qu'une offre honnête tenue vaut infiniment plus, sur le long terme, qu'une offre ambitieuse non tenue.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">5. Le déraillement d'échelle — grandir trop vite sans base solide</h3>
+                <p>Un concepteur qui a du succès peut être tenté d'accepter trop de missions simultanément, de recruter trop vite, de s'engager sur des projets dont la complexité dépasse son niveau actuel. Sans un regard extérieur pour calibrer ce rythme, la croissance rapide devient un facteur de risque. Le support aide à évaluer la capacité réelle, à refuser intelligemment les projets qui ne correspondent pas au stade de développement actuel, et à construire une croissance solide plutôt qu'une expansion fragile.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="mauvaises-surprises" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Les mauvaises surprises que le support absorbe</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Dans toute activité professionnelle, les mauvaises surprises existent. Ce qui distingue un concepteur accompagné d'un concepteur seul, ce n'est pas l'absence de mauvaises surprises — c'est la capacité à les absorber sans que l'activité ne s'en remette difficilement.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">La mise à jour qui casse tout</h3>
+                <p>Une mise à jour de dépendance Python, de Django, ou d'une bibliothèque tierce peut rendre une capsule inopérante du jour au lendemain. Sans savoir exactement quoi chercher, résoudre ce type de problème peut prendre des jours. Le support identifie la cause en quelques échanges et fournit la procédure de correction. Le client ne voit qu'une interruption brève. La capsule repart. La réputation est préservée.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">La corruption de base de données</h3>
+                <p>Une coupure électrique pendant une écriture, un espace disque saturé, une migration Django mal gérée — autant d'événements qui peuvent corrompre partiellement une base de données PostgreSQL. Sans stratégie de récupération préparée à l'avance, la perte de données est réelle et les conséquences pour le client peuvent être graves. Le support aide à mettre en place des procédures de sauvegarde et de récupération avant que le problème ne se produise, et accompagne le diagnostic si jamais il se produit quand même.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">Le client qui change les règles en cours de route</h3>
+                <p>Un client qui avait validé un périmètre fonctionnel décide en cours de déploiement d'ajouter des fonctionnalités non prévues, sans ajuster le budget ni le délai. Cette situation, si elle n'est pas gérée fermement et habilement, transforme un projet rentable en une source de frustration et de perte. Le support aide à préparer et formuler la réponse au client, à renegocier le périmètre ou le budget de manière professionnelle, et à documenter les changements pour éviter les conflits futurs.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">La machine du client qui tombe en panne</h3>
+                <p>La capsule est en production depuis trois mois. Le disque dur de la machine serveur du client lâche. Est-ce que la capsule peut être reconstituée ? En combien de temps ? Avec quelles données ? Si la stratégie de sauvegarde n'a pas été pensée et testée à l'avance, cette situation est une catastrophe. Si elle l'a été — grâce à une revue préalable dans le cadre du support — c'est une procédure connue qui prend quelques heures et qui rassure le client plutôt que de le terrifier.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">La question technique hors périmètre</h3>
+                <p>Un client pose une question à laquelle le concepteur ne sait pas répondre sur le moment : peut-on connecter la capsule à une imprimante thermique de caisse ? peut-on exporter les données dans un format compatible avec le logiciel comptable de son expert-comptable ? peut-on faire accéder les employés depuis leur domicile via Internet ? Sans support, le concepteur répond "je ne sais pas" ou, pire, invente une réponse approximative. Avec le support, il obtient une réponse technique précise dans les 24 heures et revient vers son client avec une réponse professionnelle et complète.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ce-quon-achete-vraiment" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Ce qu'on achète vraiment à 15 000 F par mois</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Quand on paie 15 000 F par mois pour le support concepteur Gykhamine, on n'achète pas des heures de formation. On n'achète pas un accès à une documentation. On achète quelque chose de beaucoup plus précis et beaucoup plus précieux.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">On achète la certitude de ne jamais être seul face à une décision critique</h3>
+                <p>Toute activité professionnelle comporte des moments où une décision doit être prise rapidement, avec des informations incomplètes, et où l'enjeu est significatif. Ces moments sont exactement ceux où le manque d'expérience coûte le plus cher. Le support garantit que vous n'êtes jamais dans cette position seul. Quelqu'un qui connaît la doctrine, connaît le contexte, et peut évaluer les risques est disponible pour vous aider à trancher.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">On achète un calibrage permanent de son niveau réel</h3>
+                <p>L'une des illusions les plus dangereuses du travail solitaire est de surestimer ce qu'on sait faire et de sous-estimer ce qu'on ne sait pas encore. Le support agit comme un miroir précis : il révèle les lacunes sans les amplifier, reconnaît les progrès réels, et permet de se situer honnêtement dans son parcours. Cette clarté sur son propre niveau est une protection contre les engagements excessifs et une base pour une progression structurée.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">On achète la cohérence de son offre commerciale avec la réalité technique</h3>
+                <p>Le problème le plus fréquent des concepteurs débutants n'est pas technique — c'est l'écart entre ce qu'ils promettent et ce qu'ils peuvent livrer. Le support aide à construire une offre qui correspond exactement à la capacité réelle, ni en dessous (ce qui coûte du revenu) ni au-dessus (ce qui coûte de la réputation). Cet alignement est la base d'une activité saine et de clients satisfaits.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">On achète la durabilité de son activité</h3>
+                <p>Une activité dure parce qu'elle repose sur une réputation solide, une architecture technique maîtrisée, et des clients satisfaits qui reviennent et recommandent. Ces trois fondations se construisent plus vite et plus solidement avec un accompagnement qu'en autodidacte. Le support n'est pas un luxe pour celui qui réussit déjà — c'est l'investissement qui permet d'atteindre le point où l'on réussit sans trop de dégâts en chemin.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">On achète une appartenance à la doctrine</h3>
+                <p>Être abonné au support, c'est faire partie des concepteurs qui prennent Gykhamine au sérieux. C'est signaler à ses clients, à ses pairs, et à soi-même que l'on s'engage dans une pratique rigoureuse. Cette appartenance n'est pas symbolique — elle a des effets concrets sur la qualité du travail produit, la clarté des décisions prises, et la cohérence de l'image professionnelle projetée.</p>
+
+                <p style="margin-top:20px;"><strong>Pour conclure</strong></p>
+                <p>15 000 F par mois, c'est 500 F par jour. C'est le prix d'une décision bien orientée. C'est le prix d'un problème résolu en une heure plutôt qu'en une semaine. C'est le prix d'un client satisfait plutôt que d'un client perdu. Et c'est, surtout, le prix d'une activité qui grandit dans la bonne direction — pas vite, pas n'importe comment, mais solidement, de manière cohérente, avec une vision claire et un repère fiable à portée de main.</p>
+                <p>Tous les cours réunis vous donnent de l'information. Le support vous donne de la direction. Et dans le monde réel, la direction vaut infiniment plus que l'information.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo-row">
+            <div class="footer-brand">GYKHAMINE CONCEPT INVESTIGATION</div>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="installer.html">Installation</a>
+            <a href="capsules.html">Capsules</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="business.html">Business</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="support.html">Support</a>
+            <a href="manifeste.html">Manifeste</a>
+        </div>
+        <span class="footer-gold-line"></span>
+        <p class="footer-copy">Gykhamine OS — Le support concepteur : la direction que les cours ne donnent pas.</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>

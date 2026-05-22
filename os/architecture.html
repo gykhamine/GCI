@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Approfondie — Gykhamine OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+            <nav>
+        <div class="nav-brand">
+            <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
+            <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Système <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="installer.html">Installation</a></li>
+                    <li><a href="architecture.html">Architecture</a></li>
+                    <li><a href="avantage_architectural.html">Avantages Archi</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Capsules <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="capsules.html">Présentation</a></li>
+                    <li><a href="metier_capsule.html">Métier</a></li>
+                    <li><a href="entreprise_capsule.html">Entreprise</a></li>
+                    <li><a href="vendre_capsules.html">Vendre</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Ressources <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="ia_et_concepteur.html">IA &amp; Code</a></li>
+                    <li><a href="manifeste.html">Manifeste</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Support <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="support_concepteur.html">Support Concepteur</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </li>
+            <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
+        </ul>
+        <button class="nav-burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <header class="hero">
+        <h1>DOCTRINE & ARCHITECTURE</h1>
+    </header>
+
+    <section id="introduction">
+        <h2 class="section-title">📘 Introduction </h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Le système Gykhamine doit être compris comme une rupture avec la conception classique des systèmes d'exploitation généralistes. Là où les systèmes traditionnels (Linux, Wi[...]
+                <p>Dans ce modèle, le système d'exploitation ne joue plus le rôle central. Il devient une couche d'exécution stable, immuable et générique, dont la seule fonction est de gara[...]
+                <p>La capsule devient alors l'unité fondamentale du système. Elle n'est pas simplement un programme ou une application isolée, mais un ensemble cohérent contenant à la fois la[...]
+                <p>Cette approche repose sur une analogie centrale : celle de la console de jeu. Dans une console classique, le matériel est fixe et standardisé. Ce qui change le comportement du sys[...]
+                <p>Cette architecture permet une modularité extrême. Une même infrastructure physique peut successivement devenir un système de gestion commerciale, une plateforme éducative, un s[...]
+                <p>L'introduction du système repose également sur une contrainte forte : la robustesse. Gykhamine est conçu pour fonctionner dans des environnements instables, avec ou sans connex[...]
+                <p>Enfin, Gykhamine introduces une séparation nette entre infrastructure et logique métier. L'infrastructure (réseau, base de données, sécurité, services système) est initiali[...]
+                <p>Ainsi, l'introduction de Gykhamine ne décrit pas simplement un système technique, mais un changement de paradigme : passer d'un système d'exploitation centré sur les logic[...]
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophie" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Philosophie Fondamentale</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>La philosophie du système Gykhamine repose sur une idée centrale : un système informatique n'est pas seulement un outil d'exécution logicielle, mais une infrastructure vivan[...]
+                <p>Dans les systèmes traditionnels, le logiciel est au centre. On installe des applications sur un système d'exploitation généraliste, et chaque application est indépendante, so[...]
+                <p>Une capsule n'est pas une simple application. C'est une unité complète d'organisation fonctionnelle. Elle contient non seulement du code, mais aussi des règles de déploiem[...]
+                <p>Cette approche est directement liée à une contrainte fondamentale : la robustesse dans des environnements instables. Gykhamine est pensé pour fonctionner dans des contextes où l[...]
+                <p>La résilience signifie ici plusieurs choses. D'abord, le système doit pouvoir redémarrer sans perte d'état critique. Ensuite, il doit être capable de reconstruire automatiq[...]
+                <p>Un autre pilier de cette philosophie est la persistance. Dans Gykhamine, la persistance ne concerne pas uniquement les données, mais aussi les comportements. Cela signifie que mêm[...]
+                <p>Le système est également conçu pour être "auto-descriptif". Cela signifie qu'il doit être possible de comprendre son état uniquement à partir de la structure /Gykhamine[...]
+                <p>Enfin, la philosophie de Gykhamine introduit une idée importante : la séparation entre infrastructure et identité. L'infrastructure (OS, kernel, services système) est considé[...]
+                <p>Cette séparation permet de résoudre un problème classique des systèmes complexes : la dérive de configuration. Dans les systèmes traditionnels, plus on installe de logiciels, [...]
+                <p>En résumé, la philosophie fondamentale de Gykhamine repose sur trois axes principaux : la capsule comme unité centrale, la résilience comme exigence structurelle, et l'immuabi[...]
+            </div>
+        </div>
+    </section>
+
+    <section id="anatomie" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Anatomie Réelle d'une Capsule</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Une capsule Gykhamine n'est pas un simple dossier applicatif. C'est une unité structurée qui encapsule à la fois la logique métier, l'initialisation système, les dépenda[...]
+                <p>L'organisation /Gykhamine/ n'est donc pas décorative : elle représente une frontière fonctionnelle stricte entre le système immuable et la couche dynamique métier.</p>
+                <p>Dans ce modèle, chaque capsule est découpée en sous-niveaux hiérarchiques, chacun ayant un rôle précis dans le cycle de vie du système.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">1. Structure racine et logique de séparation</h3>
+                <p>La capsule commence toujours dans le répertoire :</p>
+                <p><code>/Gykhamine/</code></p>
+                <p>Ce répertoire agit comme point d'entrée logique. Il est détecté automatiquement au démarrage du système. Sa présence suffit à activer le mode capsule, ce qui signifie que [...]
+                <p>Le dossier /Gykhamine/ est ensuite divisé en modules numérotés :</p>
+                <p><code>/1/</code> → couche système (privilégiée)<br>
+                <code>/2/</code> → couche utilisateur (non privilégiée)<br>
+                <code>/my_project/</code> → couche métier (Django)</p>
+                <p>Cette séparation est essentielle car elle introduit une hiérarchie de privilèges claire :</p>
+                <p>/1 contrôle le système<br>
+                /2 contrôle l'utilisateur<br>
+                /my_project contrôle la logique métier</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">2. Couche système (/1) : le noyau opérationnel de la capsule</h3>
+                <p>Le dossier /1 représente le cœur technique de la capsule. Il contient le script principal gy.py, qui agit comme orchestrateur du système.</p>
+                <p>Ce script n'est pas une simple automatisation. Il est responsable de la configuration complète de l'environnement machine :</p>
+                <p>initialisation des bases de données (PostgreSQL)<br>
+                configuration du cache (Redis)<br>
+                mise en place du réseau<br>
+                gestion du firewall<br>
+                déploiement de NGINX<br>
+                configuration des services système<br>
+                gestion du stockage persistant<br>
+                supervision de l'état système</p>
+                <p>Le rôle de cette couche est de transformer un système Linux standard en plateforme applicative spécialisée.</p>
+                <p>On peut la considérer comme une "usine de préparation d'environnement".</p>
+                <p>Elle garantit que, quel que soit l'état initial de la machine, l'environnement final sera toujours conforme aux besoins de la capsule.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">3. Couche utilisateur (/2) : environnement non privilégié</h3>
+                <p>Le dossier /2 contient également un gy.py, mais avec une différence fondamentale : il n'a aucun accès root.</p>
+                <p>Cette couche est responsable de tout ce qui concerne l'utilisateur final et l'interaction locale :</p>
+                <p>configuration de l'interface utilisateur<br>
+                mapping clavier / manette<br>
+                automatisation des périphériques<br>
+                outils locaux<br>
+                scripts non critiques<br>
+                comportements applicatifs locaux</p>
+                <p>Cette séparation est essentielle pour la sécurité du système. Elle empêche toute action utilisateur de compromettre l'infrastructure.</p>
+                <p>On peut dire que /2 représente "l'expérience utilisateur contrôlée".</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">4. Couche métier (/my_project) : cœur applicatif Django</h3>
+                <p>Cette partie contient le projet Django principal. C'est ici que réside la logique métier réelle de la capsule.</p>
+                <p>On y trouve :</p>
+                <p>manage.py<br>
+                configuration Django (settings.py, urls.py, etc.)<br>
+                applications métiers</p>
+                <p>Les applications métiers sont organisées en modules indépendants :</p>
+                <p>POS (point de vente)<br>
+                stocks<br>
+                facturation<br>
+                gestion élèves<br>
+                monitoring</p>
+                <p>Cette architecture permet une séparation stricte des domaines fonctionnels. Chaque module peut évoluer indépendamment, tout en restant intégré dans la capsule globale.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">5. Principe de cohérence interne</h3>
+                <p>Une capsule Gykhamine doit respecter une règle fondamentale : elle doit être auto-suffisante.</p>
+                <p>Cela signifie qu'elle doit contenir tout ce qui est nécessaire à son exécution :</p>
+                <p>services système<br>
+                dépendances logicielles<br>
+                logique métier<br>
+                règles de déploiement<br>
+                scripts d'initialisation</p>
+                <p>Une capsule ne dépend pas d'un environnement externe instable. Elle construit son propre environnement sur une base minimale fournie par le système immuable.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">6. Principe de portabilité contrôlée</h3>
+                <p>Même si la capsule est autonome, elle reste portable.</p>
+                <p>Cela signifie qu'un simple déplacement du dossier /Gykhamine/ permet de reproduire exactement le même système sur une autre machine.</p>
+                <p>Cependant, cette portabilité n'est pas anarchique : elle est contrôlée par les scripts d'initialisation (gy.py), qui reconstruisent l'environnement de manière déterminist[...]
+
+                <h3 style="margin-top:20px; color:var(--text);">7. Vision architecturale globale</h3>
+                <p>L'anatomie d'une capsule n'est pas seulement une structure de fichiers. C'est un modèle de pensée :</p>
+                <p>le système est stable et immuable<br>
+                la capsule est dynamique et remplaçable<br>
+                chaque couche a un rôle strictement défini<br>
+                les privilèges sont séparés par conception<br>
+                l'environnement est reconstruit automatiquement</p>
+                <p>Cette architecture permet de transformer une machine classique en infrastructure spécialisée capable de changer totalement de fonction sans réinstallation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="execution" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">📘 Cycle d'Exécution Réel des Capsules Gykhamine</h2>
+        <div class="concept-box">
+            <div class="concept-text">
+                <p>Le cycle d'exécution d'une capsule Gykhamine décrit la manière dont une machine passe d'un simple état système (Linux immuable) à un état fonctionnel complet dirigé pa[...]
+                <p>Dans Gykhamine, le démarrage ne consiste pas à "lancer des logiciels", mais à construire un environnement cohérent autour d'une capsule détectée.</p>
+                <p>Ce cycle est découpé en quatre grandes étapes logiques.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">1. Étape I — Amorçage du système immuable</h3>
+                <p>Le système démarre depuis un environnement minimal situé dans :</p>
+                <p><code>/run/initramfs/live</code></p>
+                <p>À ce stade, la machine est dans un état neutre. Aucun service métier n'est encore actif. Le système fonctionne sur une base en lecture seule (souvent via SquashFS ou équivale[...]
+                <p>Cette immuabilité joue un rôle critique :</p>
+                <p>elle empêche la corruption du système<br>
+                elle garantit la reproductibilité du démarrage<br>
+                elle assure une base stable indépendante des erreurs humaines<br>
+                elle limite les effets des logiciels malveillants persistants</p>
+                <p>Dans cette phase, le système est comparable à une "plateforme vide sécurisée", prête à recevoir une définition fonctionnelle.</p>
+                <p>Aucune logique métier n'est encore active. Seuls les services essentiels du noyau et de l'environnement de base sont chargés.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">2. Étape II — Détection et activation de la capsule</h3>
+                <p>Une fois le système stabilisé, un processus de détection est lancé pour identifier la présence de la structure :</p>
+                <p><code>/Gykhamine/</code></p>
+                <p>Ce dossier est le déclencheur fondamental du mode capsule.</p>
+                <p>Dès sa détection, le système considère que la machine ne fonctionne plus en mode générique, mais en mode spécialisé.</p>
+                <p>Le système entre alors dans :</p>
+                <p><code>/Gykhamine/1/</code></p>
+                <p>et exécute automatiquement :</p>
+                <p><code>gy.py</code></p>
+                <p>avec privilèges administrateur.</p>
+                <p>Ce moment est critique : il marque le passage entre système passif et infrastructure active.</p>
+                <p>Le script /1/gy.py devient alors l'orchestrateur du système. Il ne se contente pas de lancer des services : il reconstruit l'environnement complet.</p>
+
+                <h3 style="margin-top:20px; color:var(--text);">3. Étape III — Initialisation de la couche utilisateur</h3>
+                <p>Une fois l'infrastructure système configurée, le cycle passe à une deuxième phase :</p>
+                <p><code>/Gykhamine/2/</code></p>
+                <p>Ici est exécuté :</p>
+                <p><code>gy.py (sans privilèges root)</code></p>
+                <p>Cette étape est volontairement séparée de la couche système pour garantir une isolation stricte.</p>
+                <p>Cette couche s'occupe de :</p>
+[...]
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo-row">
+            <div class="footer-brand">GYKHAMINE CONCEPT INVESTIGATION</div>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="installer.html">Installation</a>
+            <a href="capsules.html">Capsules</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="business.html">Business</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="support.html">Support</a>
+            <a href="manifeste.html">Manifeste</a>
+        </div>
+        <span class="footer-gold-line"></span>
+        <p class="footer-copy">Gykhamine OS — Vendre ses capsules : une activité conçue pour durer.</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>

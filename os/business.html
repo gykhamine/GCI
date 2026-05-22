@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gykhamine OS — Écosystème Business & Cartouches</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+            <nav>
+        <div class="nav-brand">
+            <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
+            <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Système <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="installer.html">Installation</a></li>
+                    <li><a href="architecture.html">Architecture</a></li>
+                    <li><a href="avantage_architectural.html">Avantages Archi</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Capsules <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="capsules.html">Présentation</a></li>
+                    <li><a href="metier_capsule.html">Métier</a></li>
+                    <li><a href="entreprise_capsule.html">Entreprise</a></li>
+                    <li><a href="vendre_capsules.html">Vendre</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Ressources <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="ia_et_concepteur.html">IA &amp; Code</a></li>
+                    <li><a href="manifeste.html">Manifeste</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-drop-toggle">Support <span class="nav-arrow">▾</span></a>
+                <ul class="nav-submenu">
+                    <li><a href="support_concepteur.html">Support Concepteur</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </li>
+            <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
+        </ul>
+        <button class="nav-burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <header class="hero">
+        <h1>L'ÉCOSYSTÈME BUSINESS GYKHAMINE OS</h1>
+    </header>
+
+    <section id="monetisation">
+        <h2 class="section-title">Mod��les de Monétisation</h2>
+        <p class="section-intro">
+            Gykhamine OS sépare le système d'exploitation immuable (gratuit et souverain) du code applicatif (vos Cartouches). En tant que développeur ou intégrateur, cette architecture unique vou[...]
+        </p>
+
+        <div class="business-grid">
+            <div class="biz-card">
+                <h3><span>01.</span> Vente de Cartouches Clés en Main</h3>
+                <p>Développez des solutions spécifiques sous forme de conteneurs ou d'applications Django encapsulées dans le dossier <code>Gykhamine/my_project/</code>.</p>
+                <ul>
+                    <li><strong>Cartouche Gestion de Boutique :</strong> Point de vente (POS), facturation locale et gestion des stocks hors-ligne.</li>
+                    <li><strong>Cartouche Établissement Scolaire :</strong> Suivi des notes, des présences et des inscriptions sans dépendance Internet.</li>
+                    <li><strong>Mode de gain :</strong> Vente directe de la clé USB prête à l'emploi ou licence par cartouche métier installée.</li>
+                </ul>
+            </div>
+
+            <div class="biz-card">
+                <h3><span>02.</span> Abonnements & Maintenance Pro</h3>
+                <p>Bien que le système soit autonome et immuable, les entreprises ont besoin d'assurance, de sauvegardes et de mises à jour régulières de leur logique métier.</p>
+                <ul>
+                    <li>Vendez des contrats de maintenance pour mettre à jour le code de leur application web.</li>
+                    <li>Proposez des scripts d'automatisation personnalisés dans les dossiers <code>1/</code> et <code>2/</code> pour connecter des périphériques locaux (imprimantes thermiques, sca[...]
+                    <li><strong>Mode de gain :</strong> Forfait mensuel ou annuel de support technique de proximité.</li>
+                </ul>
+            </div>
+
+            <div class="biz-card">
+                <h3><span>03.</span> Intégration Matérielle Locative</h3>
+                <p>Grâce à la légèreté de Gykhamine OS, vous pouvez redonner vie à des parcs informatiques vieillissants ou reconditionnés et les louer à bas coût.</p>
+                <ul>
+                    <li>Achetez des ordinateurs d'occasion, installez-y Gykhamine OS configuré pour un métier spécifique (ex: pharmacie, hôtellerie).</li>
+                    <li>Louez le matériel complet (Hardware + OS + Cartouche applicative pré-configurée).</li>
+                    <li><strong>Mode de gain :</strong> Revenus locatifs récurrents avec une barrière à l'entrée minime.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alert-gold">
+            💡 <strong>L'avantage Gykhamine :</strong> Contrairement aux solutions SaaS cloud classiques, Gykhamine fonctionne à 100% en local. Vous touchez une clientèle immense qui n'a pas une c[...]
+        </div>
+    </section>
+
+    <section id="formation" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">Pourquoi devez-vous vous former ?</h2>
+        <p class="section-intro">
+            Maîtriser le déploiement par cartouche requiert de comprendre la synergie entre le système sous-jacent et votre code web.
+        </p>
+
+        <div class="why-invest">
+            <h3>1. Comprendre l'architecture immuable</h3>
+            <p>Gykhamine OS ne fonctionne pas comme un Windows ou un Ubuntu classique. Son système de fichiers racine est figé (SquashFS). Vous devez vous former pour apprendre à séparer ce qui es[...]
+        </div>
+
+        <div class="why-invest" style="border-left-color: var(--gold);">
+            <h3>2. Optimiser la stack Django en local</h3>
+            <p>Faire tourner un site web en production sur un serveur distant est une chose, le faire tourner de manière invisible et automatique au démarrage d'une clé USB sans écran de configura[...]
+        </div>
+
+        <div class="why-invest" style="border-left-color: var(--bg-navy);">
+            <h3>3. Devenir un Expert en Souveraineté Numérique</h3>
+            <p>Le marché bascule vers la protection des données et l'indépendance technologique. Se former à Gykhamine, c'est acquérir une compétence rare d'ingénierie système capable de bâti[...]
+        </div>
+    </section>
+
+    <section id="interet" style="border-top: 1px solid var(--sep);">
+        <h2 class="section-title">Pourquoi s'y intéresser activement dès aujourd'hui ?</h2>
+        <p class="section-intro">
+            Ceux qui adoptent cette architecture en premier se positionnent sur un marché vierge et hautement lucratif.
+        </p>
+
+        <div style="display:flex; flex-direction:column; gap:20px; font-size:1rem; color:var(--text2);">
+            <p>
+                📈 <strong>Une demande locale gigantesque :</strong> Des milliers de PME, de commerces, d'écoles et de cliniques cherchent des outils de gestion modernes mais font face aux coupures[...]
+            </p>
+            <p>
+                🛡️ <strong>Zéro frais de licence système :</strong> En utilisant Gykhamine comme base, vous n'avez aucun droit de licence à payer à un éditeur tiers (comme Microsoft ou Oracl[...]
+            </p>
+            <p>
+                ⚡ <strong>Vitesse de déploiement inégalée :</strong> Un client souhaite une mise à jour ou change d'activité ? Plus besoin de réinstaller l'ordinateur pendant des heures. Vous [...]
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Rejoignez la Révolution des Cartouches</h3>
+            <p> commencez à coder vos premières applications métiers et commencez à monétiser vos compétences dès maintenant.</p>
+            <a href="https://gykhamine.github.io/GCI/ct.html" target="_blank" class="btn-primary">Nous Contacter</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo-row">
+            <div class="footer-brand">GYKHAMINE CONCEPT INVESTIGATION</div>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="installer.html">Installation</a>
+            <a href="capsules.html">Capsules</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="business.html">Business</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="support.html">Support</a>
+            <a href="manifeste.html">Manifeste</a>
+        </div>
+        <span class="footer-gold-line"></span>
+        <p class="footer-copy">Gykhamine OS — Vendre ses capsules : une activité conçue pour durer.</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
