@@ -7,32 +7,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-brand">
-            <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
-            <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="installer.html">Installation</a></li>
-            <li><a href="capsules.html">Capsules</a></li>
-            <li><a href="architecture.html">Architecture</a></li>
-            <li><a href="avantage_architectural.html">avantage_architectural</a></li>
-            <li><a href="business.html">Business</a></li>
-            <li><a href="metier_capsule.html">Métier</a></li>
-            <li><a href="entreprise_capsule.html">Entreprise</a></li>
-            <li><a href="vendre_capsules.html">Vendre</a></li>
-            <li><a href="support_concepteur.html">Support_concepteur</a></li>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="ia_et_concepteur.html">IA & Code</a></li>
-            <li><a href="manifeste.html">Manifeste</a></li>
-            <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
-        </ul>
-        <button class="nav-burger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
-
+<nav>
+    <div class="nav-brand">
+        <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
+        <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="nav-dropdown">
+            <a href="#" class="nav-drop-toggle">Système <span class="nav-arrow">▾</span></a>
+            <ul class="nav-submenu">
+                <li><a href="installer.html">Installation</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="avantage_architectural.html">Avantages Archi</a></li>
+            </ul>
+        </li>
+        <li class="nav-dropdown">
+            <a href="#" class="nav-drop-toggle">Capsules <span class="nav-arrow">▾</span></a>
+            <ul class="nav-submenu">
+                <li><a href="capsules.html">Présentation</a></li>
+                <li><a href="metier_capsule.html">Métier</a></li>
+                <li><a href="entreprise_capsule.html">Entreprise</a></li>
+                <li><a href="vendre_capsules.html">Vendre</a></li>
+            </ul>
+        </li>
+        <li class="nav-dropdown">
+            <a href="#" class="nav-drop-toggle">Ressources <span class="nav-arrow">▾</span></a>
+            <ul class="nav-submenu">
+                <li><a href="business.html">Business</a></li>
+                <li><a href="ia_et_concepteur.html">IA & Code</a></li>
+                <li><a href="manifeste.html">Manifeste</a></li>
+            </ul>
+        </li>
+        <li class="nav-dropdown">
+            <a href="#" class="nav-drop-toggle">Support <span class="nav-arrow">▾</span></a>
+            <ul class="nav-submenu">
+                <li><a href="support_concepteur.html">Support Concepteur</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </li>
+        <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
+    </ul>
+    <button class="nav-burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
     <header class="hero">
         <h1>DOCTRINE & ARCHITECTURE</h1>
     </header>
