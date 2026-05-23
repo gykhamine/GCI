@@ -141,13 +141,10 @@
 
                 <p>Cette archive est ensuite copiée sur la machine cible, extraite à la racine, et le script bootstrap.sh installe les dépendances et lance le premier démarrage via /1/gy.py.</p>
 
-                <h3 style="margin-top:20px; color:var(--text);">3. Le script de premier démarrage (bootstrap.sh)</h3>
-                <p>Ce script est la pièce maîtresse d'une livraison autonome. Il vérifie la présence des prérequis système (Python, pip, PostgreSQL, Redis), installe les dépendances manquantes, crée la base de données initiale, applique les migrations Django, crée le superutilisateur, et lance le premier démarrage de la capsule. Un client ou un technicien local peut l'exécuter sans connaissance approfondie du système.</p>
-
-                <h3 style="margin-top:20px; color:var(--text);">4. La séparation code / données</h3>
+                <h3 style="margin-top:20px; color:var(--text);">3. La séparation code / données</h3>
                 <p>Un principe fondamental de la livraison : le code et les données ne voyagent jamais ensemble lors d'une mise à jour. Le code est dans /Gykhamine/ et est mis à jour via Git. Les données sont dans PostgreSQL et dans /mnt/persist/, et ne sont jamais écrasées par une mise à jour. Cette séparation garantit qu'une mise à jour du code ne peut pas corrompre les données du client. C'est une promesse de sécurité que le concepteur peut faire explicitement.</p>
 
-                <h3 style="margin-top:20px; color:var(--text);">5. Les versions de capsules</h3>
+                <h3 style="margin-top:20px; color:var(--text);">4. Les versions de capsules</h3>
                 <p>Chaque capsule livrée porte un numéro de version sémantique : MAJEUR.MINEUR.CORRECTIF (exemple : 2.1.4). Une version majeure signifie un changement structurel incompatible avec la version précédente. Une version mineure ajoute des fonctionnalités sans casser l'existant. Un correctif résout des bugs sans rien changer à la structure. Cette convention permet au client de comprendre ce que change une mise à jour, et au concepteur de gérer plusieurs clients sur des versions différentes sans confusion.</p>
             </div>
         </div>
