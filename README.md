@@ -1,5 +1,8 @@
 # GCI
+
+<br>
 <img src="statics/3.png" width="150">
+<br>
 partir de rien pour tout gagner 
 <br>
 <a href="https://gykhamine.github.io/GCI/os/index">Gykhamine os</a>
