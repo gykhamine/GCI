@@ -38,15 +38,17 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.nav-submenu a, .nav-links > li > a:not(.nav-drop-toggle)').forEach(function (link) {
         link.addEventListener('click', function () {
             var menu = document.getElementById('navLinks');
-            if (menu) menu.classList.remove('open');
+            if (menu) menu.remove('open');
             document.querySelectorAll('.nav-dropdown.open').forEach(function (d) { d.classList.remove('open'); });
         });
     });
 
-    // --- Fermer dropdowns en cliquant hors de la nav ---
+    // --- CORRECTION : Fermer les dropdowns ET le menu mobile en cliquant hors de la nav ---
     document.addEventListener('click', function (e) {
         if (!e.target.closest('nav')) {
-            document.querySelectorAll('.nav-dropdown.open').forEach(function (d) { d.classList.remove('open'); });
+            var menu = document.getElementById('navLinks');
+            if (menu) menu.classList.remove('open'); // Ferme le volet mobile
+            document.querySelectorAll('.nav-dropdown.open').forEach(function (d) { d.classList.remove('open'); }); // Ferme les sous-menus
         }
     });
 
