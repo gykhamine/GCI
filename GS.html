@@ -3,287 +3,722 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avantage Architectural — Gykhamine</title>
-    <link rel="stylesheet" href="style.css">
-      <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "url": "https://gykhamine.github.io/GCI/os/index",
-        "logo": "https://gykhamine.github.io/GCI/statics/3.png"
-      }
-      </script>
-  <link rel="icon" type="image/png" href="https://gykhamine.github.io/GCI/statics/3.png">
+    <title>Gykhamine Studio v3.3.1 — Documentation Interactive</title>
+    <style>
+        :root {
+            --primary: #4aa3df;
+            --secondary: #6bcfff;
+            --accent: #007acc;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --card-bg: rgba(17, 17, 17, 0.85);
+            --text: #e0e0e0;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--darker);
+            color: var(--text);
+            overflow: hidden; /* Blocage total du scroll natif */
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* --- Background Spatial Fixe --- */
+        .space-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        .star {
+            position: absolute; background: white; border-radius: 50%;
+            animation: twinkle var(--dur) ease-in-out infinite alternate;
+            opacity: var(--op);
+        }
+        @keyframes twinkle { from { opacity: var(--op); transform: scale(1); } to { opacity: 0.2; transform: scale(0.8); } }
+
+        /* --- Conteneur Principal à Défilement Interne --- */
+        #game-container {
+            height: 100vh; width: 100%;
+            overflow-y: auto; overflow-x: hidden;
+            scrollbar-width: none; -ms-overflow-style: none;
+        }
+        #game-container::-webkit-scrollbar { display: none; }
+
+        /* --- Barre de Progression Visuelle --- */
+        .progress-bar-track {
+            position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
+            width: 4px; height: 50vh; background: rgba(74, 163, 223, 0.1);
+            border-radius: 2px; z-index: 100; overflow: hidden;
+        }
+        .progress-bar-fill {
+            width: 100%; background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            height: 0%; transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 2px;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        /* --- Navigation Flottante (Points) --- */
+        .nav-dots {
+            position: fixed; right: 40px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 12px; z-index: 100;
+        }
+        .dot {
+            width: 8px; height: 8px; border-radius: 50%; background: rgba(74,163,223,0.3);
+            cursor: pointer; transition: all 0.3s; border: 1px solid transparent;
+        }
+        .dot:hover, .dot.active { background: var(--primary); transform: scale(1.5); border-color: var(--secondary); box-shadow: 0 0 15px var(--primary); }
+
+        /* --- BOUTONS DE NAVIGATION HUD (NOUVEAU) --- */
+        .hud-controls {
+            position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 20px; z-index: 200; align-items: center;
+        }
+        .hud-btn {
+            width: 60px; height: 60px; border-radius: 50%;
+            background: rgba(17, 17, 17, 0.8); backdrop-filter: blur(10px);
+            border: 2px solid var(--primary); color: var(--primary);
+            font-size: 1.5rem; display: flex; justify-content: center; align-items: center;
+            cursor: pointer; transition: all 0.2s ease;
+            box-shadow: 0 0 20px rgba(74, 163, 223, 0.2);
+        }
+        .hud-btn:hover:not(:disabled) {
+            background: var(--primary); color: var(--dark);
+            transform: scale(1.1); box-shadow: 0 0 30px var(--primary);
+        }
+        .hud-btn:active:not(:disabled) { transform: scale(0.95); }
+        .hud-btn:disabled { opacity: 0.3; cursor: not-allowed; border-color: #333; color: #333; box-shadow: none; }
+        
+        .hud-indicator {
+            font-family: monospace; font-size: 0.9rem; color: var(--secondary);
+            background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 20px;
+            border: 1px solid rgba(74,163,223,0.3); min-width: 80px; text-align: center;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; width: 300%; height: 300%;
+            background: radial-gradient(circle, rgba(74,163,223,0.08) 0%, transparent 60%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate { to { transform: rotate(360deg); } }
+
+        .logo-glow {
+            width: 180px; height: 180px; margin-bottom: 30px; filter: drop-shadow(0 0 40px rgba(74,163,223,0.6));
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px; text-transform: uppercase;
+            animation: glowText 3s ease-in-out infinite alternate;
+        }
+        @keyframes glowText { from { filter: drop-shadow(0 0 20px rgba(74,163,223,0.4)); } to { filter: drop-shadow(0 0 50px rgba(107,207,255,0.8)); } }
+
+        .hero p { font-size: 1.3rem; max-width: 800px; color: var(--secondary); margin-bottom: 40px; opacity: 0.9; }
+
+        .cta-btn {
+            padding: 18px 50px; font-size: 1.1rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;
+            background: linear-gradient(135deg, var(--accent), var(--primary)); border: none; border-radius: 50px;
+            color: white; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 40px rgba(74,163,223,0.4);
+        }
+        .cta-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 60px rgba(74,163,223,0.7); }
+
+        .scroll-hint { position: absolute; bottom: 120px; font-size: 2rem; color: var(--primary); animation: bounce 2s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+
+        /* --- Sections --- */
+        section { 
+            min-height: 100vh; padding: 100px 5%; display: flex; align-items: center; justify-content: center; 
+            position: relative; border-bottom: 1px solid rgba(74,163,223,0.05);
+        }
+        
+        .content-grid {
+            max-width: 1400px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        section:nth-child(even) .content-grid { direction: rtl; }
+        section:nth-child(even) .content-grid > * { direction: ltr; }
+
+        .text-panel {
+            background: var(--card-bg); backdrop-filter: blur(12px); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(74,163,223,0.2); box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transform: translateX(-60px); opacity: 0; transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-panel {
+            transform: translateX(60px); opacity: 0; transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+            position: relative;
+        }
+        .image-panel::before {
+            content: ''; position: absolute; inset: -15px; border-radius: 25px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            opacity: 0.25; z-index: -1; filter: blur(25px);
+        }
+        section.visible .text-panel, section.visible .image-panel { transform: translateX(0); opacity: 1; }
+
+        .screenshot { width: 100%; border-radius: 15px; border: 2px solid rgba(74,163,223,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.6); transition: transform 0.4s; }
+        .screenshot:hover { transform: scale(1.03) rotate(1deg); }
+
+        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle { color: var(--secondary); font-size: 1.1rem; margin-bottom: 20px; font-weight: 500; }
+        
+        .feature-list { list-style: none; margin-top: 20px; }
+        .feature-list li {
+            padding: 12px 0 12px 35px; position: relative; border-bottom: 1px solid rgba(74,163,223,0.1);
+            transition: all 0.3s;
+        }
+        .feature-list li:hover { padding-left: 45px; background: rgba(74,163,223,0.05); }
+        .feature-list li::before {
+            content: '▹'; position: absolute; left: 0; color: var(--secondary); font-size: 1.4rem; transition: 0.3s;
+        }
+        .feature-list li:hover::before { color: var(--primary); transform: translateX(8px); }
+
+        .tag-container { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            padding: 4px 14px; background: rgba(74,163,223,0.15); border: 1px solid var(--primary);
+            border-radius: 20px; font-size: 0.85rem; color: var(--secondary); transition: 0.3s;
+        }
+        .tag:hover { background: var(--primary); color: var(--dark); transform: translateY(-2px); }
+
+        .terminal-block {
+            margin-top: 20px; background: rgba(0,0,0,0.6); padding: 15px 20px; border-radius: 10px;
+            border-left: 3px solid var(--success); font-family: 'Courier New', monospace; font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        /* --- Loader --- */
+        .loader {
+            position: fixed; inset: 0; background: var(--darker); display: flex; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.6s;
+        }
+        .loader.hidden { opacity: 0; pointer-events: none; }
+        .spinner {
+            width: 70px; height: 70px; border: 4px solid rgba(74,163,223,0.1); border-top-color: var(--primary);
+            border-radius: 50%; animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- Responsive --- */
+        @media (max-width: 968px) {
+            .content-grid { grid-template-columns: 1fr; gap: 40px; }
+            section:nth-child(even) .content-grid { direction: ltr; }
+            .nav-dots, .progress-bar-track { display: none; }
+            .hud-controls { bottom: 20px; }
+            .hud-btn { width: 50px; height: 50px; font-size: 1.2rem; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
 
-            <nav>
-        <div class="nav-brand">
-            <img src="logo.png" alt="GCI Logo" class="nav-logo" onerror="this.src='https://raw.githubusercontent.com/gykhamine/GCI/main/statics/3.png'">
-            <div class="nav-brand-name">GYKHAMINE<span class="nav-brand-sub">Concept Investigation</span></div>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Accueil</a></li>
-            <li class="nav-dropdown">
-                <a href="#" class="nav-drop-toggle">Système <span class="nav-arrow">▾</span></a>
-                <ul class="nav-submenu">
-                    <li><a href="installer.html">Installation</a></li>
-                    <li><a href="architecture.html">Architecture</a></li>
-                    <li><a href="avantage_architectural.html">Avantages Archi</a></li>
-                </ul>
-            </li>
-            <li class="nav-dropdown">
-                <a href="#" class="nav-drop-toggle">Capsules <span class="nav-arrow">▾</span></a>
-                <ul class="nav-submenu">
-                    <li><a href="capsules.html">Présentation</a></li>
-                    <li><a href="metier_capsule.html">Métier</a></li>
-                    <li><a href="entreprise_capsule.html">Entreprise</a></li>
-                    <li><a href="vendre_capsules.html">Vendre</a></li>
-                </ul>
-            </li>
-            <li class="nav-dropdown">
-                <a href="#" class="nav-drop-toggle">Ressources <span class="nav-arrow">▾</span></a>
-                <ul class="nav-submenu">
-                    <li><a href="business.html">Business</a></li>
-                    <li><a href="ia_et_concepteur.html">IA &amp; Code</a></li>
-                    <li><a href="manifeste.html">Manifeste</a></li>
-                </ul>
-            </li>
-            <li class="nav-dropdown">
-                <a href="#" class="nav-drop-toggle">Support <span class="nav-arrow">▾</span></a>
-                <ul class="nav-submenu">
-                    <li><a href="support_concepteur.html">Support Concepteur</a></li>
-                    <li><a href="support.html">Support</a></li>
-                </ul>
-            </li>
-            <li><a href="https://gykhamine.github.io/GCI/1.html" target="_blank" class="nav-gci">GCI</a></li>
-        </ul>
-        <button class="nav-burger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
- <header class="hero">
-    <h1>L'AVANTAGE ARCHITECTURAL</h1>
-</header>
+<div class="loader" id="loader"><div class="spinner"></div></div>
+<div class="space-bg"></div>
+<div class="stars" id="stars"></div>
 
-<section id="introduction">
-    <h2 class="section-title">📘 Introduction — Lire un système à travers ses listes</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>Trois fichiers. Une liste de packages système installés sur Gykhamine. Une liste de bibliothèques Python actives dans l'environnement. Une liste de commandes disponibles dans le système. Ces trois listes ne sont pas de la documentation — ce sont des radiographies. Elles montrent exactement ce que le système sait faire, avec quoi il le fait, et à quel niveau de profondeur il l'a intégré.</p>
-            <p>Ce document lit ces trois listes à travers le prisme architectural de Gykhamine. Il explique pourquoi les choix que ces listes révèlent ne sont pas accidentels, pourquoi ils forment un ensemble cohérent, et pourquoi cette cohérence est précisément ce qui donne au système Gykhamine son avantage structurel sur n'importe quelle collection d'outils assemblés sans doctrine.</p>
-            <p>Un système n'est pas fort parce qu'il a beaucoup d'outils. Il est fort parce que ses outils s'emboîtent avec précision, se renforcent mutuellement, et forment un tout dont chaque partie a une raison d'être claire. C'est ce que ces trois listes démontrent — à condition de savoir les lire.</p>
-        </div>
-    </div>
-</section>
+<!-- BARRE DE PROGRESSION -->
+<div class="progress-bar-track">
+    <div class="progress-bar-fill" id="progressFill"></div>
+</div>
 
-<section id="la-stack-centrale" style="border-top: 1px solid var(--sep);">
-    <h2 class="section-title">📘 La stack centrale — ce qui fait tourner les capsules</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>La liste Python révèle immédiatement le cœur du système. Pas besoin de chercher longtemps : Django 6.0.5, djangorestframework 3.17.1, gunicorn 26.0.0, psycopg2-binary 2.9.12, redis 7.4.0, celery 5.6.3, channels 4.3.2. Ce sont les sept piliers sur lesquels repose toute capsule Gykhamine. Chacun a un rôle précis, irremplaçable, et parfaitement délimité.</p>
+<nav class="nav-dots" id="navDots"></nav>
 
-            <h3 style="margin-top:20px; color:var(--text);">Django 6.0.5 — le cadre applicatif</h3>
-            <p>Django n'est pas seulement un framework web. C'est le langage dans lequel une capsule Gykhamine est écrite. Ses models définissent la structure des données. Son ORM traduit la logique métier en requêtes SQL sans que le concepteur ait à toucher du SQL brut. Son panneau d'administration génère automatiquement une interface de gestion complète à partir des models déclarés. Son système de migrations permet de faire évoluer la structure de la base de données de manière contrôlée et réversible. La version 6.0.5 est la version la plus récente disponible en 2026 — le système n'est pas en retard. Il est à jour.</p>
+<!-- BOUTONS DE NAVIGATION HUD -->
+<div class="hud-controls">
+    <button class="hud-btn" id="btnPrev" title="Section Précédente (↑)">▲</button>
+    <div class="hud-indicator" id="sectionIndicator">01 / 18</div>
+    <button class="hud-btn" id="btnNext" title="Section Suivante (↓)">▼</button>
+</div>
 
-            <h3 style="margin-top:20px; color:var(--text);">Gunicorn 26.0.0 — le serveur de production</h3>
-            <p>Gunicorn est le serveur WSGI qui met Django en production. Il gère les processus worker, la concurrence des requêtes, et l'interface avec NGINX. Sa présence signifie que les capsules ne tournent pas en mode développement — elles tournent en mode production dès le premier déploiement. Cette distinction est architecturalement importante : un serveur de développement Django n'est pas conçu pour tenir sous charge réelle. Gunicorn l'est.</p>
+<!-- CONTENEUR DE DÉFILEMENT INTERNE -->
+<div id="game-container">
+    <!-- HERO -->
+    <section class="hero" id="sec-0">
+        <svg class="logo-glow" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4aa3df"/><stop offset="100%" stop-color="#6bcfff"/>
+            </linearGradient></defs>
+            <circle cx="100" cy="100" r="85" fill="none" stroke="url(#g1)" stroke-width="3"/>
+            <path d="M65 100 L95 130 L145 70" fill="none" stroke="url(#g1)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="100" cy="100" r="4" fill="#6bcfff"/>
+        </svg>
+        <h1>Gykhamine Studio v3.3.1</h1>
+        <p>Le tableau de bord visuel ultime pour piloter vos projets Django, gérer votre infrastructure et coder sans friction. Développé pour le projet GCI — Brazzaville, Congo.</p>
+        <button class="cta-btn" onclick="navigateTo(1)">Commencer l'exploration</button>
+        <div class="scroll-hint">▼</div>
+    </section>
 
-            <h3 style="margin-top:20px; color:var(--text);">PostgreSQL via psycopg2-binary 2.9.12 — la base de données</h3>
-            <p>PostgreSQL est la base de données relationnelle la plus solide du monde open source. Sa présence via psycopg2 signifie que les données des capsules sont stockées dans un moteur qui gère nativement les transactions ACID, les index complexes, les jointures multi-tables, les types avancés (JSON, tableaux, géographiques), et les sauvegardes à chaud. Ce n'est pas SQLite. Ce n'est pas MySQL. C'est le moteur de données que les banques, les gouvernements et les infrastructures critiques utilisent pour leurs données les plus importantes.</p>
+    <!-- SECTIONS DYNAMIQUES -->
+    <div id="sectionsContainer"></div>
 
-            <h3 style="margin-top:20px; color:var(--text);">Redis 7.4.0 — le cache et la messagerie</h3>
-            <p>Redis joue deux rôles simultanés dans l'architecture Gykhamine. Comme cache, il garde en mémoire les données fréquemment consultées — résultats de requêtes, sessions utilisateurs, configurations — et accélère considérablement les réponses. Comme broker de messages, il est le canal par lequel Celery reçoit et distribue ses tâches asynchrones. Redis est la colle invisible qui rend le système réactif et non-bloquant.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Celery 5.6.3 — les tâches asynchrones</h3>
-            <p>Certaines opérations ne peuvent pas se faire en temps réel sans bloquer l'interface utilisateur : générer un rapport PDF de 200 pages, envoyer des emails en lot, recalculer des statistiques après une mise à jour massive, déclencher une sauvegarde. Celery prend en charge ces opérations en arrière-plan. L'utilisateur continue à travailler pendant que le système traite. Cette capacité asynchrone est ce qui sépare un système professionnel d'un système qui "freeze" sous charge.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Channels 4.3.2 — la communication en temps réel</h3>
-            <p>Django Channels étend Django au protocole WebSocket. Cela signifie que les capsules peuvent pousser des mises à jour en temps réel vers les navigateurs des utilisateurs sans que ces derniers aient besoin de recharger la page. Un tableau de bord qui se met à jour automatiquement quand une vente est enregistrée, une notification instantanée quand un stock atteint le seuil critique, un statut de tâche qui progresse visuellement — tout cela est rendu possible par Channels.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">django-celery-beat 2.9.0 — les tâches planifiées</h3>
-            <p>La planification des tâches récurrentes — sauvegardes quotidiennes, rapports hebdomadaires, vérifications de stocks à intervalles réguliers — est gérée par django-celery-beat. Cette bibliothèque stocke les plannings dans la base de données Django, ce qui les rend modifiables à chaud sans redémarrer le système. Un administrateur peut modifier l'heure d'une sauvegarde automatique depuis l'interface web, sans toucher à un fichier de configuration.</p>
-        </div>
-    </div>
-</section>
-
-<section id="securite" style="border-top: 1px solid var(--sep);">
-    <h2 class="section-title">📘 La couche sécurité — ce que le système protège par défaut</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>La sécurité d'un système n'est pas ce qu'on ajoute après. C'est ce qu'on trouve dans les listes depuis le début. Les packages et bibliothèques présents dans le système Gykhamine révèlent une architecture de sécurité en profondeur, à plusieurs niveaux simultanés.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">django-axes 8.3.1 — protection contre les attaques par force brute</h3>
-            <p>Django-axes surveille les tentatives de connexion et bloque automatiquement les adresses IP qui échouent trop souvent. Dans un contexte où les capsules sont accessibles via réseau local, cette protection est essentielle : elle empêche qu'un accès physique au réseau se transforme en accès aux données. La configuration est simple : nombre de tentatives maximum, délai de blocage, exclusions d'IP de confiance.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">django-ratelimit 4.1.0 — limitation du débit de requêtes</h3>
-            <p>La limitation du débit protège les API et les formulaires contre les abus automatisés. Un bot qui tente d'extraire des données en envoyant des milliers de requêtes par seconde se heurte à une limite de taux qui le ralentit jusqu'à l'inefficacité. Cette protection fonctionne sans configuration complexe et sans infrastructure externe.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">argon2-cffi 25.1.0 — hachage des mots de passe</h3>
-            <p>Argon2 est l'algorithme de hachage de mots de passe le plus résistant actuellement disponible. Il a remporté la compétition Password Hashing Competition en 2015 et est recommandé par les standards de sécurité modernes. Sa présence signifie que les mots de passe des utilisateurs des capsules sont stockés de manière irréversible avec le niveau de protection le plus élevé de l'état de l'art.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">cryptography 46.0.7 — chiffrement de bas niveau</h3>
-            <p>La bibliothèque cryptography fournit les primitives cryptographiques utilisées par de nombreux autres composants du système : TLS, génération de clés, chiffrement de données sensibles, signatures numériques. Sa version 46.0.7 intègre les algorithmes les plus récents et les corrections de sécurité les plus à jour.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">SELinux — contrôle d'accès obligatoire au niveau système</h3>
-            <p>Les packages SELinux présents dans la liste (selinux, sepolicy, setools, getenforce) révèlent que le système opère avec un contrôle d'accès obligatoire au niveau noyau. SELinux définit des politiques précises sur ce que chaque processus a le droit de faire — quels fichiers lire, quels ports ouvrir, quels appels système effectuer. Même si un composant applicatif est compromis, SELinux limite ce que l'attaquant peut faire à l'intérieur du système.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">firewall-cmd / firewalld — contrôle du réseau</h3>
-            <p>La présence de firewalld et firewall-cmd dans la liste des commandes confirme que le système gère activement ses règles de pare-feu. Les ports inutiles sont fermés par défaut. Seuls les ports nécessaires aux services de la capsule (HTTP, HTTPS, PostgreSQL sur le réseau local) sont ouverts, et uniquement pour les sources autorisées.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">django-allauth 65.16.1 — authentification avancée</h3>
-            <p>Django-allauth gère l'authentification avec un niveau de sophistication bien au-delà du système de base de Django : vérification d'email, authentification multi-facteurs, gestion des sessions multiples, contrôle des connexions simultanées. Dans des environnements où plusieurs utilisateurs accèdent au même système sur un réseau local, ces contrôles sont essentiels pour maintenir la traçabilité et la responsabilité de chaque action.</p>
-        </div>
-    </div>
-</section>
-
-<section id="persistance-resilience" style="border-top: 1px solid var(--sep);">
-    <h2 class="section-title">📘 La persistance et la résilience — ce qui ne se perd pas</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>L'une des propriétés les plus importantes d'un système de production est sa capacité à survivre aux accidents. Coupure électrique, panne matérielle, erreur humaine, mise à jour qui tourne mal — autant d'événements que le système Gykhamine traite architecturalement, pas comme des cas d'urgence.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">PostgreSQL et la cohérence transactionnelle ACID</h3>
-            <p>ACID — Atomicité, Cohérence, Isolation, Durabilité — est la garantie fondamentale d'une base de données relationnelle sérieuse. Atomicité signifie qu'une opération réussit entièrement ou échoue entièrement : on ne se retrouve jamais dans un état intermédiaire incohérent. Durabilité signifie que ce qui est confirmé comme écrit est écrit, même en cas de coupure électrique dans la seconde qui suit. Ces garanties ne sont pas optionnelles dans un système de gestion réel. Elles sont le minimum.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">systemd et la gestion des services</h3>
-            <p>La présence étendue de systemd dans les commandes disponibles (systemctl, systemd-analyze, systemd-cat, et vingt autres variantes) révèle que tous les services de la capsule — Django via Gunicorn, PostgreSQL, Redis, Celery, NGINX — sont gérés comme des services systemd. Cela signifie qu'ils démarrent automatiquement au démarrage de la machine, redémarrent automatiquement en cas de crash, et peuvent être monitorés, redémarrés ou arrêtés par un simple systemctl restart. Aucun processus ne meurt silencieusement sans que le système le sache.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Les outils de sauvegarde et d'archivage</h3>
-            <p>Les commandes tar, gzip, xz, zstd, bzip2, rsync présentes dans la liste des commandes constituent l'outillage complet d'une stratégie de sauvegarde sérieuse. Le script /1/gy.py peut orchestrer des dumps PostgreSQL compressés en zstd (le format le plus efficace disponible), archivés avec horodatage, et copiés sur un volume externe via rsync. Cette chaîne de sauvegarde est entièrement locale, ne dépend d'aucun service cloud, et peut être testée et vérifiée à tout moment.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Les systèmes de fichiers robustes</h3>
-            <p>La liste des commandes révèle la présence d'outils pour ext4 (e2fsck, e2label, tune2fs), btrfs (btrfs, btrfstune), xfs (xfs_repair, xfs_check), et f2fs. Cette diversité signifie que le système peut opérer sur n'importe quel système de fichiers courant, et que les outils de vérification et de réparation sont disponibles pour chacun. En cas de corruption du système de fichiers — événement rare mais possible lors de coupures électriques brutales — les outils de récupération sont présents et prêts.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">aiosqlite 0.22.1 et la persistance légère</h3>
-            <p>Pour les composants qui n'ont pas besoin de la puissance complète de PostgreSQL — logs temporaires, caches persistants, données de session — aiosqlite offre une alternative légère qui écrit directement sur le disque sans serveur supplémentaire. Cette flexibilité permet à une capsule d'optimiser sa stratégie de persistance en fonction de la nature de chaque type de données.</p>
-        </div>
-    </div>
-</section>
-
-<section id="traitement-donnees" style="border-top: 1px solid var(--sep);">
-    <h2 class="section-title">📘 La puissance de traitement — ce que le système peut calculer</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>Une capsule Gykhamine ne se contente pas de stocker des données. Elle les traite, les analyse, les transforme et les présente. La liste Python révèle une capacité de traitement de données d'une richesse qui dépasse largement ce que la plupart des systèmes de gestion locaux peuvent offrir.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">numpy 2.4.5, pandas 3.0.3, polars 1.40.1 — les trois moteurs de données tabulaires</h3>
-            <p>La présence simultanée de numpy, pandas et polars n'est pas redondante — c'est complémentaire. Numpy gère les calculs matriciels et les opérations numériques de bas niveau. Pandas est l'outil de référence pour la manipulation de données tabulaires : filtrage, agrégation, fusion de tables, réindexation. Polars est sa version moderne, optimisée pour la performance sur de grands volumes : il peut traiter des millions de lignes en quelques secondes là où pandas prend plusieurs minutes. Ensemble, ils donnent à une capsule la capacité d'analyser des données à un niveau que les tableurs ne peuvent pas atteindre.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">scikit-learn 1.8.0 et statsmodels 0.14.6 — l'intelligence analytique</h3>
-            <p>scikit-learn est la bibliothèque de référence mondiale pour le machine learning en Python : classification, régression, clustering, réduction de dimension, sélection de features. Sa présence ouvre une possibilité qui n'est accessible à aucun ERP classique de cette catégorie de prix : une capsule peut apprendre des patterns dans les données de l'organisation et produire des prédictions. Prédiction de rupture de stock, détection d'anomalies dans les paiements, recommandation de réapprovisionnement — ces fonctionnalités ne sont pas de la science-fiction. Elles sont dans la liste.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">matplotlib 3.10.9, seaborn 0.13.2, plotly 6.7.0 — la visualisation</h3>
-            <p>Trois niveaux de visualisation de données coexistent dans le système. Matplotlib produit des graphiques statiques de haute qualité exportables en PDF ou PNG. Seaborn simplifie la visualisation statistique avec des graphiques analytiques prêts à l'emploi. Plotly produit des visualisations interactives rendues dans le navigateur — graphiques zoomables, filtres dynamiques, tableaux de bord qui répondent aux clics. Une capsule peut générer automatiquement des rapports visuels d'activité sans logiciel tiers.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">reportlab 4.5.1 — la génération de documents PDF</h3>
-            <p>ReportLab génère des fichiers PDF de manière programmatique : mise en page, tableaux, graphiques, en-têtes, pieds de page, numérotation. Une capsule peut produire des factures, des bulletins scolaires, des rapports de stock, des attestations, des ordonnances — tous en PDF, avec la mise en forme exacte requise par le contexte du client. Ce n'est pas un export basique — c'est de la génération de documents professionnels.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">openpyxl 3.1.5 et xlsxwriter 3.2.9 — l'interopérabilité Excel</h3>
-            <p>Beaucoup de clients vivent encore dans Excel. Ils ont des fichiers de référence en xlsx, des partenaires qui demandent des exports en xlsx, des autorités de tutelle qui réclament des tableaux Excel. openpyxl lit et écrit des fichiers xlsx existants avec toute leur mise en forme. xlsxwriter génère des fichiers xlsx nouveaux avec des graphiques, des formules et des mises en forme conditionnelles. Une capsule peut importer les données historiques d'un client depuis ses vieux fichiers Excel et exporter ses rapports dans le format que ses comptables utilisent. La rupture avec l'ancien monde est douce, pas brutale.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">geopandas 1.1.3, shapely 2.1.2, pyproj 3.7.2 — la dimension géographique</h3>
-            <p>La présence de bibliothèques géospatiales dans le système est un signal fort. Une capsule peut associer des données à des coordonnées géographiques, calculer des zones de chalandise, visualiser la répartition géographique des clients ou des livraisons, et répondre à des questions comme "quels clients sont à moins de 5 km de cet entrepôt ?". Cette capacité est généralement réservée aux systèmes GIS spécialisés coûtant des dizaines de milliers de dollars. Elle est ici disponible comme une couche optionnelle de n'importe quelle capsule.</p>
-        </div>
-    </div>
-</section>
-
-<section id="media-communication" style="border-top: 1px solid var(--sep);">
-    <h2 class="section-title">📘 Média et communication — ce que le système produit et envoie</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>Une capsule ne vit pas isolée dans un serveur. Elle communique avec les utilisateurs, produit des documents, traite des images, envoie des notifications. La liste Python révèle une infrastructure de communication complète.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">django-anymail 15.0 — les emails transactionnels</h3>
-            <p>Django-anymail est une interface unifiée vers tous les grands services d'envoi d'email transactionnel : SendGrid, Mailgun, Amazon SES, Postmark, et une douzaine d'autres. Une capsule peut envoyer des notifications automatiques, des confirmations, des rappels, des alertes — par email, avec gestion des rebonds, du suivi d'ouverture et des désinscriptions. La configuration du fournisseur d'envoi peut changer sans modifier le code de la capsule.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">django-notifications-hq 1.8.3 — les notifications in-app</h3>
-            <p>Les utilisateurs de la capsule reçoivent des notifications directement dans l'interface web : "Un nouveau bon de commande vient d'être enregistré", "Le stock de paracétamol est en dessous du seuil", "Le rapport mensuel est prêt". Ces notifications sont persistantes, marquables comme lues, et filtrables par type. Elles éliminent le besoin d'appels ou de messages manuels entre les membres de l'organisation.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">pillow 11.3.0 et opencv-python 4.13.0 — le traitement d'images</h3>
-            <p>Pillow gère les opérations courantes sur les images : redimensionnement, recadrage, conversion de format, ajout de filigranes, génération de miniatures. opencv-python va bien plus loin : traitement vidéo en temps réel, détection d'objets, reconnaissance de formes, analyse de flux caméra. Ces capacités ouvrent des usages inattendus dans les capsules : lecture de QR codes sur des produits, vérification de documents par caméra, surveillance de zones via flux vidéo.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">qrcode 8.2 et pyzbar 0.1.9 — les codes QR et barres</h3>
-            <p>qrcode génère des codes QR. pyzbar lit les codes QR et codes-barres depuis des images ou un flux caméra. Ensemble, ils donnent à une capsule la capacité de créer et de lire des étiquettes produit, des badges, des bons de commande, des tickets. Un système d'inventaire avec scanner de codes-barres est entièrement réalisable sans matériel spécialisé — un simple smartphone suffit comme scanner.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">moviepy 2.2.1 et ffmpeg — le traitement vidéo</h3>
-            <p>La présence de moviepy et de la commande ffmpeg ouvre la possibilité de capsules qui traitent des contenus vidéo : une capsule de formation qui découpe automatiquement des vidéos en segments, une capsule de surveillance qui enregistre et compresse des flux caméra, une capsule éducative qui génère des résumés vidéo. Ces usages sont avancés, mais l'infrastructure pour les supporter est déjà là.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">channels_redis 4.3.0 — la messagerie temps réel à l'échelle</h3>
-            <p>Channels Redis connecte Django Channels à Redis pour gérer la messagerie WebSocket à grande échelle. Dans un déploiement multi-processus Gunicorn, les messages WebSocket doivent être routés entre les workers — Redis est le bus qui rend cela possible. Cette architecture supporte des dizaines ou des centaines d'utilisateurs connectés simultanément sans dégradation des performances.</p>
-        </div>
-    </div>
-</section>
-
-<section id="systeme-os" style="border-top: 1px solid var(--sep);">
-    <h2 class="section-title">📘 Ce que Gykhamine apporte que les autres systèmes n'ont pas</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>Le choix du système d'exploitation n'est pas anodin. La liste des packages révèle Gykhamine, et ce choix spécifique a des implications architecturales directes sur la stabilité, la sécurité et la modernité du système Gykhamine.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">La fraîcheur des versions — ce que signifie fc44</h3>
-            <p>Chaque package dans la liste porte le suffixe fc44, qui indique Fedora Core 44. Cela signifie que les packages sont compilés et optimisés spécifiquement pour cette version du système. NetworkManager 1.56.0, Django 6.0.5, Python avec ses bibliothèques les plus récentes — tout est à jour. Fedora est connue pour être en avance sur les autres distributions : ce qui est dans Fedora 44 aujourd'hui sera dans Ubuntu LTS dans 18 à 24 mois. Le système Gykhamine opère donc avec une avance technologique structurelle sur les déploiements concurrents basés sur des distributions plus conservatrices.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">SELinux activé par défaut</h3>
-            <p>Contrairement à Ubuntu ou Debian où SELinux est absent et où AppArmor offre une protection moindre, Gykhamine active SELinux en mode Enforcing par défaut. Chaque processus du système — Django, Gunicorn, PostgreSQL, Redis, NGINX — est confiné dans une politique SELinux qui limite précisément ce qu'il peut faire. Un composant compromis ne peut pas sortir de son enveloppe de sécurité pour attaquer d'autres composants ou accéder au système de fichiers hors de sa zone.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">systemd complet et mature</h3>
-            <p>La liste des commandes systemd présentes (plus de vingt variantes : systemd-analyze, systemd-cat, systemd-cgtop, systemd-detect-virt, etc.) révèle une intégration systemd complète et mature. Cela signifie que la gestion des services de la capsule bénéficie de toutes les fonctionnalités avancées de systemd : dépendances entre services, cgroups pour la limitation des ressources, journalisation centralisée avec journald, activation par socket, et redémarrage intelligent en cas de défaillance.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">dnf5 — la gestion de packages de nouvelle génération</h3>
-            <p>La présence de dnf, dnf4 et dnf5 dans les commandes révèle que le système dispose du gestionnaire de packages le plus récent de l'écosystème Gykhamine. dnf5 est plus rapide, plus fiable, et plus capable que ses prédécesseurs. La mise à jour des packages du système et des dépendances de la capsule peut être automatisée et planifiée via le script gy.py avec une granularité fine : mettre à jour uniquement les correctifs de sécurité, différer les mises à jour majeures, créer un snapshot avant toute mise à jour significative.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Les outils de diagnostic système</h3>
-            <p>La richesse des outils de diagnostic présents dans la liste des commandes — smartctl pour la santé des disques, ss pour les connexions réseau, strace pour le débogage système, tcpdump pour l'analyse réseau, perf pour le profilage de performance — signifie qu'un concepteur ou un administrateur peut diagnostiquer n'importe quel problème du système sans outils externes. Cette autonomie de diagnostic est une propriété architecturale : un système qu'on peut observer est un système qu'on peut maîtriser.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Podman et les conteneurs sans daemon root</h3>
-            <p>La présence de podman, skopeo et conmon dans la liste des commandes révèle que le système supporte les conteneurs OCI sans nécessiter de daemon root comme Docker. Podman permet de faire tourner des conteneurs avec les privilèges de l'utilisateur courant, ce qui est plus sécurisé et plus adapté aux environnements où la sécurité est une priorité. Les capsules peuvent donc être packagées et distribuées comme des images OCI si le contexte l'exige, tout en gardant la possibilité de fonctionner sans conteneur dans les déploiements standards.</p>
-        </div>
-    </div>
-</section>
-
-<section id="coherence-doctrine" style="border-top: 1px solid var(--sep);">
-    <h2 class="section-title">📘 La cohérence doctrinale — pourquoi l'ensemble vaut plus que les parties</h2>
-    <div class="concept-box">
-        <div class="concept-text">
-            <p>Ce qui distingue l'architecture Gykhamine d'une collection d'outils, ce n'est pas la présence de chaque outil. C'est la façon dont ils s'articulent selon une doctrine claire. Chaque couche a une responsabilité définie. Chaque service a un rôle qui ne chevauche pas celui des autres. Et les scripts gy.py sont le chef d'orchestre qui fait jouer cet ensemble de manière cohérente à chaque démarrage.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">La séparation des couches — /1, /2, /my_project</h3>
-            <p>La division en trois couches n'est pas une convention cosmétique. Elle reflète trois niveaux de responsabilité distincts. La couche /1 initialise l'environnement système : elle s'assure que les services de base (PostgreSQL, Redis) tournent, que les variables d'environnement sont chargées, que les volumes sont montés. La couche /2 prépare l'application : elle applique les migrations, charge les données initiales, démarre Gunicorn et Celery. La couche /my_project contient la logique métier propre à la capsule. Cette séparation permet de remplacer n'importe quelle couche indépendamment des autres — et c'est précisément ce qui rend les mises à jour prévisibles et les migrations entre versions gérables.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Le déterminisme — même résultat, toujours</h3>
-            <p>L'avantage architectural le plus précieux d'un système bien conçu est le déterminisme : les mêmes instructions produisent toujours le même résultat, quelle que soit la machine, quel que soit le moment. Le script gy.py qui installe et démarre une capsule sur un ordinateur à Brazzaville produit exactement le même système que sur un ordinateur à Kinshasa ou à Abidjan. Cette propriété est ce qui rend la distribution de capsules via GitHub viable : le client qui exécute le script obtient exactement ce que le concepteur a produit, sans surprise, sans interprétation.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">La pile complète sans dépendance externe</h3>
-            <p>La liste Python et la liste des packages révèlent ensemble une pile complète : du noyau système aux bibliothèques applicatives, en passant par les services de base de données, de cache, de messagerie et de serveur web. Cette complétude signifie qu'une capsule Gykhamine n'a besoin de rien qui ne soit pas déjà présent dans le système pour fonctionner. Pas de service cloud, pas de CDN, pas d'API externe dont la disponibilité dépend d'un abonnement. La capsule est un écosystème fermé et autonome.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">La lisibilité comme propriété architecturale</h3>
-            <p>Un script Python est lisible par n'importe qui ayant les compétences de base décrites dans la feuille de route du concepteur. Ce n'est pas le cas d'une infrastructure Terraform, d'un pipeline Kubernetes, ou d'un workflow GitHub Actions complexe. La lisibilité du code Gykhamine est une propriété délibérée, pas une limitation. Elle signifie que le concepteur peut toujours comprendre ce que son système fait, le modifier sans crainte, et l'expliquer à son client si nécessaire. Un système opaque est un système fragile.</p>
-
-            <h3 style="margin-top:20px; color:var(--text);">Ce que ces trois listes disent en conclusion</h3>
-            <p>Les trois listes — packages système, bibliothèques Python, commandes disponibles — ne décrivent pas un environnement de développement. Elles décrivent un environnement de production complet, sécurisé, capable de gérer des données critiques, de les analyser, de les présenter, de les protéger, et de fonctionner en continu sans surveillance permanente. Elles décrivent un système qui aurait coûté des dizaines de milliers de dollars à assembler et à maintenir il y a dix ans, et qui est aujourd'hui accessible à un concepteur de capsules travaillant seul, sur une machine ordinaire, dans n'importe quel endroit du monde où l'électricité est disponible.</p>
-            <p>C'est l'avantage architectural de Gykhamine. Non pas la complexité, mais la puissance rendue accessible par une doctrine claire qui sait utiliser ce que le monde open source a construit collectivement — et l'assembler en quelque chose qui fonctionne, vraiment, pour de vrais clients, dans de vraies conditions.</p>
-        </div>
-    </div>
-</section>
-
-    <footer>
-        <div class="footer-logo-row">
-            <div class="footer-brand">GYKHAMINE CONCEPT INVESTIGATION</div>
-        </div>
-        <div class="footer-links">
-            <a href="index.html">Accueil</a>
-            <a href="installer.html">Installation</a>
-            <a href="capsules.html">Capsules</a>
-            <a href="architecture.html">Architecture</a>
-            <a href="business.html">Business</a>
-            <a href="galerie.html">Galerie</a>
-            <a href="support.html">Support</a>
-            <a href="manifeste.html">Manifeste</a>
-        </div>
-        <span class="footer-gold-line"></span>
-        <p class="footer-copy">Gykhamine OS — L'avantage architectural : la puissance rendue accessible par la doctrine.</p>
+    <footer style="text-align:center;padding:60px 20px;background:rgba(10,10,10,0.9);border-top:1px solid rgba(74,163,223,0.2)">
+        <p style="color:var(--secondary);font-size:1.1rem">© 2026 Gykhamine Studio v3.3.1 — Développé à Brazzaville, Congo</p>
+        <p style="margin-top:8px;font-size:0.9rem;color:#888">Projet GCI — Gykhamine Concept Investigation</p>
     </footer>
-<script src="script.js"></script>
+</div>
+
+<script>
+// ==========================================
+// CONFIGURATION GLOBALE
+// ==========================================
+const IMG_BASE_PATH = "img/"; 
+
+const sectionsData = [
+    {
+        title: "Configuration Intelligente & IA Locale",
+        subtitle: "Paramètres avancés llama.cpp & Auto-mount GY",
+        description: "Configurez votre intelligence artificielle locale en quelques clics. Le Studio gère automatiquement les chemins, les ports, le montage UUID de la partition GY et les connexions. Tout est persisté dans SQLite.",
+        features: [
+            "Auto-détection et montage de la partition GY via UUID (.env)",
+            "Configuration automatique de llama-server + modèle .gguf",
+            "Détection intelligente des ports libres (plage configurable)",
+            "Persistance totale des paramètres dans gykhamine_studio.db",
+            "Lancement sudo sécurisé avec gestion des permissions"
+        ],
+        tags: ["IA Locale","Llama.cpp","Auto-mount","UUID","SQLite"],
+        img: `${IMG_BASE_PATH}img1.png`,
+        terminal: "✅ Partition GY montée | 🤖 llama-server prêt sur :8080"
+    },
+    {
+        title: "Compilation C/C++ Intégrée & Optimisation Eigen3",
+        subtitle: "Développement système natif depuis l'interface",
+        description: "Compilez du code C/C++ directement dans l'interface. Détection automatique du langage (gcc/g++), support multi-format (.out, .so, .ko) et optimisation IA du code numérique avec Eigen3.",
+        features: [
+            "Compilation multi-format : exécutable, shared lib, kernel module",
+            "Détection automatique C vs C++ (iostream, std::, namespace…)",
+            "Optimisation IA du code C++ via prompt Eigen3 personnalisé",
+            "Sortie compilation en temps réel avec coloration syntaxique",
+            "Gestion des flags -fPIC, -shared, -lm automatiques"
+        ],
+        tags: ["C/C++","GCC/G++","Eigen3","Kernel Module","Shared Lib"],
+        img: `${IMG_BASE_PATH}img2.png`,
+        terminal: "g++ -shared -fPIC main.cpp -o lib.so -lm ✓ Compilation réussie"
+    },
+    {
+        title: "Éditeur de Code Visuel par Blocs",
+        subtitle: "Programmation visuelle Python/Django/HTML/CSS/JS",
+        description: "Modifiez votre code sans toucher à la syntaxe brute. Chaque fonction, classe, template ou règle CSS est découpé en blocs visuels hiérarchiques numérotés (1.2.1) avec indentation récursive.",
+        features: [
+            "Parsing hiérarchique récursif : classes → fonctions → enfants",
+            "Numérotation automatique type 1.2.3 pour navigation rapide",
+            "Undo/Redo illimité avec snapshots mémoire",
+            "Coloration GtkSource avec thème Adwaita-dark/cobalt",
+            "Tolérance indentation HTML/CSS, stricte pour Python/logique"
+        ],
+        tags: ["Python","Django","No-code","Hiérarchique","GtkSource"],
+        img: `${IMG_BASE_PATH}img3.png`,
+        terminal: "models.py sauvegardé ✓ 10 blocs actifs | Backup: models.20260614.bak"
+    },
+    {
+        title: "Assistant IA Élaborateur & Cache Intelligent",
+        subtitle: "Rôles personnalisables + JSON strict + Auto-copy",
+        description: "Décrivez vos besoins en langage naturel. L'IA génère du code, des processus métier JSON ou des commandes shell. Résultats cachés en DB pour éviter les appels répétés. Rôles préconfigurés : Élaborateur, Prof, Expert Django, Traducteur, Linux, Astuces.",
+        features: [
+            "6 rôles IA préconfigurés + ajout de rôles personnalisés avec prompt header",
+            "Cache DB triple : ai_cmd_cache, ai_block_cache, ai_process_cache",
+            "Format JSON strict garanti (nettoyage ```json automatique)",
+            "Auto-Copy dans le presse-papiers après génération",
+            "Générateur de commandes shell avec détection mode processus (&& / ;)"
+        ],
+        tags: ["IA Générative","JSON Strict","Cache DB","Auto-Copy","Rôles"],
+        img: `${IMG_BASE_PATH}img4.png`,
+        terminal: "💾 Nouvelle réponse sauvegardée (Cache Processus) | 📋 Copié !"
+    },
+    {
+        title: "Tableau de Bord DevOps Complet",
+        subtitle: "PostgreSQL • Redis • Nginx • SSL • NFS • SSH • Venv",
+        description: "Gérez toute votre infrastructure sans ligne de commande. Démarrage/arrêt en 1 clic, configuration SSL auto-signée, partage NFS, connexion SSH TTY native, environnements virtuels Python.",
+        features: [
+            "PostgreSQL : Init, Create DB, Start/Stop avec chown/chmod sudo auto",
+            "Redis : Bind IP/port, persistance AOF, daemonize",
+            "SSL : Génération OpenSSL auto-signée → /etc/pki/nginx/",
+            "Nginx : Config visuelle (reverse proxy, load balancer, static/media)",
+            "SSH Client TTY natif + NFS Server/Client mount/unmount",
+            "Venv : Create, Install Pkg, Activate Shell TTY"
+        ],
+        tags: ["PostgreSQL","Redis","Nginx","SSL","NFS","SSH","Venv"],
+        img: `${IMG_BASE_PATH}img5.png`,
+        terminal: "✅ PostgreSQL démarré | 🔒 SSL généré | 🌐 Nginx restarted"
+    },
+    {
+        title: "Terminal Log & Analyseur IA",
+        subtitle: "Logs temps réel + Analyse IA + Générateur Cmd",
+        description: "Console intégrée avec logs horodatés persistés en fichier. Deux outils IA puissants : analyseur de logs (collez une erreur → solution JSON) et générateur de commandes (décrivez en français → commande Linux exacte).",
+        features: [
+            "Logs horodatés [HH:MM:SS] avec écriture fichier studio.log",
+            "Analyseur Logs IA : collez l'erreur → diagnostic JSON structuré",
+            "Générateur Cmd IA : description FR → commande shell précise",
+            "Mode processus détecté automatiquement (mots-clés : liste, puis, ensuite)",
+            "Auto-Run : exécution automatique après génération",
+            "TTY Native pour commandes interactives (top, nano, ssh)"
+        ],
+        tags: ["Terminal","Log Analysis","Cmd Generator","TTY Native","Auto-Run"],
+        img: `${IMG_BASE_PATH}img6.png`,
+        terminal: "[09:04:16] GET /notifications/count/ HTTP/1.1\" 200 12"
+    },
+    {
+        title: "Mini GitHub Desktop Intégré",
+        subtitle: "Clone • Status • Add • Commit & Push en GUI",
+        description: "Gérez vos dépôts Git sans quitter le Studio. Clonage intelligent avec vérification dossier non-vide, commit & push séquentiel, affichage des sorties Git en temps réel.",
+        features: [
+            "Clonage avec sécurité : refuse d'écraser un dossier non-vide",
+            "Séquence Add → Commit → Push automatisée",
+            "Dialog message de commit avec validation",
+            "Sortie Git affichée dans log-view colorée",
+            "Chemin local browseable + URL HTTPS/SSH"
+        ],
+        tags: ["Git","Clone","Commit","Push","GUI"],
+        img: `${IMG_BASE_PATH}img7.png`,
+        terminal: "✅ Séquence Commit & Push terminée avec succès 🎉"
+    },
+    {
+        title: "Architecture Capsule Gykhamine OS",
+        subtitle: "/1/gy.py (Root) • /2/gy.py (User) • my_project (Django)",
+        description: "Gykhamine inverse le paradigme OS classique : le système est immuable, la capsule définit l'identité fonctionnelle. Trois couches hiérarchiques séparées par privilèges pour une résilience maximale.",
+        features: [
+            "/1/gy.py (ROOT) : Orchestrateur système — PostgreSQL, Redis, Nginx, Firewall, Network",
+            "/2/gy.py (USER) : Expérience utilisateur — périphériques, macros, profils, automations locales",
+            "my_project (DJANGO) : Cœur métier — POS, Stocks, Facturation, Monitoring, API DRF",
+            "Cycle d'exécution déterministe : amorçage → détection → infra → user → métier",
+            "Reconstruction automatique après crash/redémarrage brutal",
+            "Portabilité contrôlée : déplacer /Gykhamine/ = reproduire le système"
+        ],
+        tags: ["Capsule","Immuable","Root/User Separation","Deterministic","Resilient"],
+        img: `${IMG_BASE_PATH}img8.png`,
+        terminal: "/Gykhamine/ détecté → /1/gy.py (sudo) → /2/gy.py → Django READY"
+    },
+    {
+        title: "Stack Technique & Avantage Architectural",
+        subtitle: "Fedora Core 44 • SELinux Enforcing • Stack Complète",
+        description: "Une radiographie complète de la puissance embarquée. Fedora 44 avec packages à jour, SELinux enforcing par défaut, stack Python complète pour data science, visualisation, traitement média et communication temps réel.",
+        features: [
+            "Django 6.0.5 + DRF 3.17.1 + Gunicorn 26.0.0 + Channels 4.3.2",
+            "PostgreSQL (psycopg2) + Redis 7.4.0 + Celery 5.6.3 + django-celery-beat",
+            "Data Science : numpy 2.4.5 + pandas 3.0.3 + polars 1.40.1 + scikit-learn 1.8.0",
+            "Visualisation : matplotlib + seaborn + plotly (interactive)",
+            "Média : Pillow + OpenCV + QRCode/pyzbar + moviepy/ffmpeg",
+            "Sécurité : django-axes + django-ratelimit + argon2-cffi + cryptography 46.0.7",
+            "SELinux Enforcing + firewalld + systemd complet + dnf5 + podman rootless"
+        ],
+        tags: ["Fedora44","SELinux","Django6","Celery","OpenCV","Plotly","Argon2"],
+        img: `${IMG_BASE_PATH}img9.png`,
+        terminal: "fc44 packages ✓ | SELinux Enforcing ✓ | Stack complète chargée"
+    },
+    {
+        title: "Écosystème Business & Cartouches",
+        subtitle: "3 Leviers de Monétisation • Souveraineté Numérique",
+        description: "Gykhamine OS sépare l'OS immuable (gratuit) du code applicatif (vos Cartouches). Architecture conçue pour monétiser vos compétences dans des environnements à connectivité instable.",
+        features: [
+            "Vente de Cartouches Clés en Main : POS, Gestion Scolaire, Clinique — clé USB prête à l'emploi",
+            "Abonnements Maintenance Pro : mises à jour code métier, scripts automation périphériques locaux",
+            "Intégration Matérielle Locative : reconditionnement + OS + Cartouche pré-configurée → revenus récurrents",
+            "100% Local : fonctionne sans Internet, données souveraines, zéro licence système",
+            "Déploiement éclair : changer d'activité = remplacer le dossier Gykhamine/ (2 min vs 3h)",
+            "Marché vierge : PME, commerces, écoles, cliniques cherchent solutions offline modernes"
+        ],
+        tags: ["Business Model","Cartouches","Local First","Souveraineté","Offline","ROI"],
+        img: `${IMG_BASE_PATH}img10.png`,
+        terminal: "💰 Modèle : Vente Cartouche + Maintenance + Location Hardware"
+    },
+    {
+        title: "Gestion Système Avancée",
+        subtitle: "Firewall UFW • Réseau DHCP/Statique • DNS/TOR/DNF/PIP",
+        description: "Panneau de gestion système complet avec onglets dédiés. Firewall UFW visuel, configuration réseau DHCP/statique, services systemd avec auto-start DB, DNS client + dnsmasq formulaire, TOR, DNF avec repo path custom, PIP venv-aware.",
+        features: [
+            "Firewall UFW : enable/disable, allow/deny port+proto, status live",
+            "Réseau : détection auto interface/IP, switch DHCP↔Statique, apply via sudo bash",
+            "Systemd : recherche/filtrage services, start/stop/toggle auto-start (persisté DB liveos_services)",
+            "DNS : resolv.conf lecture/écriture sudo, dnsmasq formulaire (upstream, hosts locaux, blocage)",
+            "TOR : install, fix permissions /run/tor, start/stop, vérification IP via curl SOCKS5",
+            "DNF : search/install/download avec résolution dépendances, chemin repos custom",
+            "PIP : système ou venv, install/download/uninstall, destination custom"
+        ],
+        tags: ["UFW","Network","Systemd","DNS","TOR","DNF","PIP"],
+        img: `${IMG_BASE_PATH}img11.png`,
+        terminal: "✅ UFW activé | 🌐 IP statique appliquée | 🔧 dnsmasq configuré"
+    },
+    {
+        title: "Documentation Master Django & Python",
+        subtitle: "37 Sections Exhaustives • Recherche • Neo4J Style",
+        description: "Documentation intégrée exhaustive couvrant 37 thèmes : bases multi-langages, architecture MVT, modèles Django, ORM, vues FBV/CBV, décorateurs, formulaires, templates, tags/filtres, sécurité, API DRF, Channels, Celery, déploiement production.",
+        features: [
+            "Navigation sidebar avec recherche instantanée (titre + mots-clés)",
+            "37 sections : Intro, MVT, Models, Fields, Views, Decorators, Forms, Templates, ORM, Security, API, Channels, Celery, Deploy...",
+            "Code snippets copiables pour chaque concept",
+            "Style Neo4J : sidebar sombre + contenu clair avec formatage Markdown-like",
+            "Contenu exhaustif : listes fields, options, filtres, réponses HTTP, lookups ORM",
+            "Accessible depuis le bouton 📚 Documentation Master Django dans le Control Panel"
+        ],
+        tags: ["Documentation","Django","Python","Search","Exhaustive","Neo4J"],
+        img: `${IMG_BASE_PATH}img12.png`,
+        terminal: "📚 37 sections chargées | 🔍 Recherche active..."
+    },
+    {
+        title: "Mode Présentation Immersif",
+        subtitle: "Fullscreen • URLs Accessibles • Logs Temps Réel",
+        description: "Présentez votre projet dans un environnement immersif plein écran. Navigation fluide entre les URLs accessibles, copie rapide des liens, monitoring des serveurs actifs.",
+        features: [
+            "Toggle fullscreen ⛶ depuis la header bar",
+            "Popup URLs Accessibles : liste serveurs actifs avec bouton Copier",
+            "Détection auto : Django Dev, Gunicorn, Llama.cpp",
+            "Logs temps réel visibles dans le terminal panel",
+            "Interface épurée professionnelle pour démonstrations clients"
+        ],
+        tags: ["Fullscreen","Presentation","URLs","Monitoring","Demo"],
+        img: `${IMG_BASE_PATH}img13.png`,
+        terminal: "http://127.0.0.1:8001 ✓ Copié dans le presse-papiers"
+    },
+    {
+        title: "Gestion Bases de Données Visuelle",
+        subtitle: "Visualisation Tables • Export CSV/Excel • Illimité",
+        description: "Explorez TOUTES les données de votre base Django sans limite. Tableau interactif avec clés primaires (🔑) et foreign keys (🔗) colorées. Export CSV et Excel (Pandas) en un clic.",
+        features: [
+            "Récupération ORM complète : toutes les tables, toutes les lignes (pas de LIMIT)",
+            "Affichage hiérarchique : PK en or, FK en bleu, colonnes normales en blanc",
+            "Export CSV natif avec encoding UTF-8",
+            "Export Excel via Pandas + openpyxl avec mise en forme",
+            "Fallback graceful si table trop volumineuse (timeout 60s)",
+            "Backup automatique .bak timestampé avant chaque sauvegarde fichier"
+        ],
+        tags: ["Database","ORM","CSV","Excel","Pandas","Visualization"],
+        img: `${IMG_BASE_PATH}img14.png`,
+        terminal: "✅ Export Excel réussi: rapport.xlsx (1247 lignes)"
+    },
+    {
+        title: "Archivage ZIP & Capsules Gykhamine",
+        subtitle: "Compress/Decompress • Run Capsules 1/2",
+        description: "Compressez votre projet entier en ZIP propre (exclusion __pycache__, .git, venv, node_modules). Décompressez des archives. Lancez les capsules Gykhamine /1/gy.py (sudo) et /2/gy.py directement depuis l'interface.",
+        features: [
+            "Compression ZIP avec exclusion intelligente des dossiers inutiles",
+            "Décompression avec choix du dossier cible",
+            "Run Capsule /1/gy.py avec sudo (infrastructure système)",
+            "Run Capsule /2/gy.py sans sudo (couche utilisateur)",
+            "Logs d'exécution capturés dans le terminal panel",
+            "Sauvegarde automatique .bak avant chaque modification fichier"
+        ],
+        tags: ["ZIP","Archive","Capsule","Run","Backup"],
+        img: `${IMG_BASE_PATH}img15.png`,
+        terminal: "🗜 Project compressed: Boutique_ERP.zip | ✅ Run /1/gy.py (sudo)"
+    },
+    {
+        title: "Sécurité & Permissions Système",
+        subtitle: "Sudo Sécurisé • Chown/Chmod Auto • Audit Logs",
+        description: "Gestion sécurisée des opérations privilégiées. Toutes les commandes sudo sont encapsulées avec capture d'erreur, logs d'audit complets, et fallback gracieux. Protection contre les erreurs de permission sur NTFS/exFAT.",
+        features: [
+            "Sudo via subprocess.run avec check=True et capture_output",
+            "Chown/chmod automatiques pour PostgreSQL data directory",
+            "Protection chmod ignorée sur systèmes non-Linux (NTFS/exFAT)",
+            "Audit log complet dans studio.log avec timestamps",
+            "Fallback gracieux quand root access insuffisant",
+            "Validation des chemins avant exécution sudo"
+        ],
+        tags: ["Security","Sudo","Audit","Permissions","Fallback"],
+        img: `${IMG_BASE_PATH}img16.png`,
+        terminal: "⚠️ chmod ignoré (support non-Linux) | ✅ sudo mkdir -p /var/lib/pgsql/data"
+    },
+    {
+        title: "Philosophie GCI & Résilience",
+        subtitle: "Technologie d'Émancipation • Offline First • Brazzaville",
+        description: "Gykhamine Studio n'est pas qu'un outil technique. C'est une philosophie : la technologie comme outil d'émancipation, pas comme barrière élitiste. Conçu à Brazzaville pour fonctionner dans des environnements instables.",
+        features: [
+            "Offline First : fonctionne sans Internet, données 100% locales",
+            "Résilience : reconstruction automatique après crash/coupure",
+            "Simplicité radicale : cliquer > taper, visible > abstrait",
+            "Souveraineté : vos données, votre machine, vos règles",
+            "Communauté ouverte : issues GitHub, support communautaire",
+            "Conçu pour l'Afrique : coupures électriques, connectivité instable, machines modestes"
+        ],
+        tags: ["GCI","Brazzaville","Offline","Resilience","Emancipation","Africa"],
+        img: `${IMG_BASE_PATH}img17.png`,
+        terminal: "🇨 GCI — Gykhamine Concept Investigation | Brazzaville, Congo"
+    }
+];
+
+// ==========================================
+// GÉNÉRATION DES ÉTOILES
+// ==========================================
+function createStars() {
+    const c = document.getElementById('stars');
+    for (let i = 0; i < 250; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        s.style.left = Math.random()*100+'%';
+        s.style.top = Math.random()*100+'%';
+        const size = Math.random()*2.5+0.5;
+        s.style.width = size+'px';
+        s.style.height = size+'px';
+        s.style.setProperty('--dur', (Math.random()*4+2)+'s');
+        s.style.setProperty('--op', Math.random()*0.7+0.3);
+        c.appendChild(s);
+    }
+}
+
+// ==========================================
+// GÉNÉRATION DES SECTIONS
+// ==========================================
+function generateSections() {
+    const container = document.getElementById('sectionsContainer');
+    const nav = document.getElementById('navDots');
+
+    sectionsData.forEach((sec, i) => {
+        // Section
+        const el = document.createElement('section');
+        el.id = 'sec-'+(i+1);
+        el.innerHTML = `
+            <div class="content-grid">
+                <div class="text-panel">
+                    <h2>${sec.title}</h2>
+                    <p class="subtitle">${sec.subtitle}</p>
+                    <p>${sec.description}</p>
+                    <ul class="feature-list">
+                        ${sec.features.map(f=>'<li>'+f+'</li>').join('')}
+                    </ul>
+                    <div class="tag-container">
+                        ${sec.tags.map(t=>'<span class="tag">'+t+'</span>').join('')}
+                    </div>
+                    <div class="terminal-block typing-effect">$ ${sec.terminal}</div>
+                </div>
+                <div class="image-panel">
+                    <img src="${sec.img}" alt="${sec.title}" class="screenshot" loading="lazy">
+                </div>
+            </div>`;
+        container.appendChild(el);
+
+        // Dot nav
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.onclick = () => navigateTo(i + 1);
+        nav.appendChild(dot);
+    });
+}
+
+// ==========================================
+// SYSTÈME DE NAVIGATION PAR BOUTONS
+// ==========================================
+let currentIndex = 0;
+const totalSections = sectionsData.length + 1; // +1 pour le hero
+
+function updateHUD() {
+    const indicator = document.getElementById('sectionIndicator');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    
+    // Mise à jour du compteur (Hero = 00, Sections = 01-17)
+    const displayIndex = currentIndex === 0 ? "00" : String(currentIndex).padStart(2, '0');
+    indicator.textContent = `${displayIndex} / ${String(totalSections - 1).padStart(2, '0')}`;
+    
+    // État des boutons
+    btnPrev.disabled = currentIndex === 0;
+    btnNext.disabled = currentIndex >= totalSections - 1;
+    
+    // Mise à jour des points
+    document.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('active', i + 1 === currentIndex);
+    });
+}
+
+function navigateTo(index) {
+    if (index < 0 || index >= totalSections) return;
+    currentIndex = index;
+    
+    const targetId = currentIndex === 0 ? 'sec-0' : `sec-${currentIndex}`;
+    const target = document.getElementById(targetId);
+    
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        updateHUD();
+    }
+}
+
+function setupNavigation() {
+    const gameContainer = document.getElementById('game-container');
+    const progressFill = document.getElementById('progressFill');
+    
+    // Boutons HUD
+    document.getElementById('btnPrev').addEventListener('click', () => navigateTo(currentIndex - 1));
+    document.getElementById('btnNext').addEventListener('click', () => navigateTo(currentIndex + 1));
+    
+    // Clavier
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            navigateTo(currentIndex - 1);
+        } else if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+            e.preventDefault();
+            navigateTo(currentIndex + 1);
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            navigateTo(0);
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            navigateTo(totalSections - 1);
+        }
+    });
+    
+    // Observer pour détecter la section active lors du scroll manuel
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                const id = entry.target.id;
+                if (id === 'sec-0') currentIndex = 0;
+                else {
+                    const num = parseInt(id.split('-')[1]);
+                    if (!isNaN(num)) currentIndex = num;
+                }
+                updateHUD();
+                
+                // Animation d'apparition
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.5, root: gameContainer });
+    
+    ['sec-0', ...sectionsData.map((_,i)=> 'sec-'+(i+1))].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+    });
+    
+    // Barre de progression
+    gameContainer.addEventListener('scroll', () => {
+        const scrollTop = gameContainer.scrollTop;
+        const scrollHeight = gameContainer.scrollHeight - gameContainer.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressFill.style.height = progress + '%';
+    });
+    
+    // Initialisation
+    updateHUD();
+}
+
+// ==========================================
+// PARALLAXE SOURIS
+// ==========================================
+document.addEventListener('mousemove', e => {
+    const mx = e.clientX/window.innerWidth - 0.5;
+    const my = e.clientY/window.innerHeight - 0.5;
+    document.querySelectorAll('.content-grid.visible').forEach(g => {
+        g.style.transform = `perspective(1200px) rotateY(${mx*1.5}deg) rotateX(${-my*1.5}deg)`;
+    });
+});
+
+// ==========================================
+// INIT
+// ==========================================
+window.addEventListener('load', () => {
+    createStars();
+    generateSections();
+    setupNavigation();
+    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 600);
+});
+</script>
 </body>
 </html>
