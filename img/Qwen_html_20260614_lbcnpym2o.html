@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gykhamine Studio v3.3.1 — Documentation Interactive</title>
+    <style>
+        :root {
+            --primary: #4aa3df;
+            --secondary: #6bcfff;
+            --accent: #007acc;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --card-bg: rgba(17, 17, 17, 0.85);
+            --text: #e0e0e0;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--darker);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* --- Background Spatial --- */
+        .space-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        .star {
+            position: absolute; background: white; border-radius: 50%;
+            animation: twinkle var(--dur) ease-in-out infinite alternate;
+            opacity: var(--op);
+        }
+        @keyframes twinkle { from { opacity: var(--op); transform: scale(1); } to { opacity: 0.2; transform: scale(0.8); } }
+
+        /* --- Navigation Flottante --- */
+        .nav-dots {
+            position: fixed; right: 30px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 12px; z-index: 100;
+        }
+        .dot {
+            width: 10px; height: 10px; border-radius: 50%; background: rgba(74,163,223,0.3);
+            cursor: pointer; transition: all 0.3s; border: 1px solid transparent;
+        }
+        .dot:hover, .dot.active { background: var(--primary); transform: scale(1.4); border-color: var(--secondary); box-shadow: 0 0 15px var(--primary); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; width: 300%; height: 300%;
+            background: radial-gradient(circle, rgba(74,163,223,0.08) 0%, transparent 60%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate { to { transform: rotate(360deg); } }
+
+        .logo-glow {
+            width: 180px; height: 180px; margin-bottom: 30px; filter: drop-shadow(0 0 40px rgba(74,163,223,0.6));
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px; text-transform: uppercase;
+            animation: glowText 3s ease-in-out infinite alternate;
+        }
+        @keyframes glowText { from { filter: drop-shadow(0 0 20px rgba(74,163,223,0.4)); } to { filter: drop-shadow(0 0 50px rgba(107,207,255,0.8)); } }
+
+        .hero p { font-size: 1.3rem; max-width: 800px; color: var(--secondary); margin-bottom: 40px; opacity: 0.9; }
+
+        .cta-btn {
+            padding: 18px 50px; font-size: 1.1rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;
+            background: linear-gradient(135deg, var(--accent), var(--primary)); border: none; border-radius: 50px;
+            color: white; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 40px rgba(74,163,223,0.4);
+        }
+        .cta-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 60px rgba(74,163,223,0.7); }
+
+        .scroll-hint { position: absolute; bottom: 40px; font-size: 2rem; color: var(--primary); animation: bounce 2s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+
+        /* --- Sections --- */
+        section { min-height: 100vh; padding: 100px 5%; display: flex; align-items: center; justify-content: center; position: relative; }
+        
+        .content-grid {
+            max-width: 1400px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        section:nth-child(even) .content-grid { direction: rtl; }
+        section:nth-child(even) .content-grid > * { direction: ltr; }
+
+        .text-panel {
+            background: var(--card-bg); backdrop-filter: blur(12px); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(74,163,223,0.2); box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transform: translateX(-60px); opacity: 0; transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .image-panel {
+            transform: translateX(60px); opacity: 0; transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+            position: relative;
+        }
+        .image-panel::before {
+            content: ''; position: absolute; inset: -15px; border-radius: 25px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            opacity: 0.25; z-index: -1; filter: blur(25px);
+        }
+        section.visible .text-panel, section.visible .image-panel { transform: translateX(0); opacity: 1; }
+
+        .screenshot { width: 100%; border-radius: 15px; border: 2px solid rgba(74,163,223,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.6); transition: transform 0.4s; }
+        .screenshot:hover { transform: scale(1.03) rotate(1deg); }
+
+        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle { color: var(--secondary); font-size: 1.1rem; margin-bottom: 20px; font-weight: 500; }
+        
+        .feature-list { list-style: none; margin-top: 20px; }
+        .feature-list li {
+            padding: 12px 0 12px 35px; position: relative; border-bottom: 1px solid rgba(74,163,223,0.1);
+            transition: all 0.3s;
+        }
+        .feature-list li:hover { padding-left: 45px; background: rgba(74,163,223,0.05); }
+        .feature-list li::before {
+            content: '▹'; position: absolute; left: 0; color: var(--secondary); font-size: 1.4rem; transition: 0.3s;
+        }
+        .feature-list li:hover::before { color: var(--primary); transform: translateX(8px); }
+
+        .tag-container { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            padding: 4px 14px; background: rgba(74,163,223,0.15); border: 1px solid var(--primary);
+            border-radius: 20px; font-size: 0.85rem; color: var(--secondary); transition: 0.3s;
+        }
+        .tag:hover { background: var(--primary); color: var(--dark); transform: translateY(-2px); }
+
+        .terminal-block {
+            margin-top: 20px; background: rgba(0,0,0,0.6); padding: 15px 20px; border-radius: 10px;
+            border-left: 3px solid var(--success); font-family: 'Courier New', monospace; font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        /* --- Loader --- */
+        .loader {
+            position: fixed; inset: 0; background: var(--darker); display: flex; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.6s;
+        }
+        .loader.hidden { opacity: 0; pointer-events: none; }
+        .spinner {
+            width: 70px; height: 70px; border: 4px solid rgba(74,163,223,0.1); border-top-color: var(--primary);
+            border-radius: 50%; animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- Responsive --- */
+        @media (max-width: 968px) {
+            .content-grid { grid-template-columns: 1fr; gap: 40px; }
+            section:nth-child(even) .content-grid { direction: ltr; }
+            .nav-dots { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="spinner"></div></div>
+<div class="space-bg"></div>
+<div class="stars" id="stars"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- HERO -->
+<section class="hero" id="sec-0">
+    <svg class="logo-glow" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4aa3df"/><stop offset="100%" stop-color="#6bcfff"/>
+        </linearGradient></defs>
+        <circle cx="100" cy="100" r="85" fill="none" stroke="url(#g1)" stroke-width="3"/>
+        <path d="M65 100 L95 130 L145 70" fill="none" stroke="url(#g1)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="100" cy="100" r="4" fill="#6bcfff"/>
+    </svg>
+    <h1>Gykhamine Studio v3.3.1</h1>
+    <p>Le tableau de bord visuel ultime pour piloter vos projets Django, gérer votre infrastructure et coder sans friction. Développé pour le projet GCI — Brazzaville, Congo.</p>
+    <button class="cta-btn" onclick="document.getElementById('sec-1').scrollIntoView({behavior:'smooth'})">Commencer l'exploration</button>
+    <div class="scroll-hint">↓</div>
+</section>
+
+<!-- SECTIONS DYNAMIQUES -->
+<div id="sectionsContainer"></div>
+
+<footer style="text-align:center;padding:60px 20px;background:rgba(10,10,10,0.9);border-top:1px solid rgba(74,163,223,0.2)">
+    <p style="color:var(--secondary);font-size:1.1rem">© 2026 Gykhamine Studio v3.3.1 — Développé à Brazzaville, Congo</p>
+    <p style="margin-top:8px;font-size:0.9rem;color:#888">Projet GCI — Gykhamine Concept Investigation</p>
+</footer>
+
+<script>
+// ==========================================
+// DONNÉES DES SECTIONS (Intégration complète)
+// ==========================================
+const sectionsData = [
+    {
+        title: "Configuration Intelligente & IA Locale",
+        subtitle: "Paramètres avancés llama.cpp & Auto-mount GY",
+        description: "Configurez votre intelligence artificielle locale en quelques clics. Le Studio gère automatiquement les chemins, les ports, le montage UUID de la partition GY et les connexions. Tout est persisté dans SQLite.",
+        features: [
+            "Auto-détection et montage de la partition GY via UUID (.env)",
+            "Configuration automatique de llama-server + modèle .gguf",
+            "Détection intelligente des ports libres (plage configurable)",
+            "Persistance totale des paramètres dans gykhamine_studio.db",
+            "Lancement sudo sécurisé avec gestion des permissions"
+        ],
+        tags: ["IA Locale","Llama.cpp","Auto-mount","UUID","SQLite"],
+        img: "img1.png",
+        terminal: "✅ Partition GY montée | 🤖 llama-server prêt sur :8080"
+    },
+    {
+        title: "Compilation C/C++ Intégrée & Optimisation Eigen3",
+        subtitle: "Développement système natif depuis l'interface",
+        description: "Compilez du code C/C++ directement dans l'interface. Détection automatique du langage (gcc/g++), support multi-format (.out, .so, .ko) et optimisation IA du code numérique avec Eigen3.",
+        features: [
+            "Compilation multi-format : exécutable, shared lib, kernel module",
+            "Détection automatique C vs C++ (iostream, std::, namespace…)",
+            "Optimisation IA du code C++ via prompt Eigen3 personnalisé",
+            "Sortie compilation en temps réel avec coloration syntaxique",
+            "Gestion des flags -fPIC, -shared, -lm automatiques"
+        ],
+        tags: ["C/C++","GCC/G++","Eigen3","Kernel Module","Shared Lib"],
+        img: "img2.png",
+        terminal: "g++ -shared -fPIC main.cpp -o lib.so -lm ✓ Compilation réussie"
+    },
+    {
+        title: "Éditeur de Code Visuel par Blocs",
+        subtitle: "Programmation visuelle Python/Django/HTML/CSS/JS",
+        description: "Modifiez votre code sans toucher à la syntaxe brute. Chaque fonction, classe, template ou règle CSS est découpé en blocs visuels hiérarchiques numérotés (1.2.1) avec indentation récursive.",
+        features: [
+            "Parsing hiérarchique récursif : classes → fonctions → enfants",
+            "Numérotation automatique type 1.2.3 pour navigation rapide",
+            "Undo/Redo illimité avec snapshots mémoire",
+            "Coloration GtkSource avec thème Adwaita-dark/cobalt",
+            "Tolérance indentation HTML/CSS, stricte pour Python/logique"
+        ],
+        tags: ["Python","Django","No-code","Hiérarchique","GtkSource"],
+        img: "img3.png",
+        terminal: "models.py sauvegardé ✓ 10 blocs actifs | Backup: models.20260614.bak"
+    },
+    {
+        title: "Assistant IA Élaborateur & Cache Intelligent",
+        subtitle: "Rôles personnalisables + JSON strict + Auto-copy",
+        description: "Décrivez vos besoins en langage naturel. L'IA génère du code, des processus métier JSON ou des commandes shell. Résultats cachés en DB pour éviter les appels répétés. Rôles préconfigurés : Élaborateur, Prof, Expert Django, Traducteur, Linux, Astuces.",
+        features: [
+            "6 rôles IA préconfigurés + ajout de rôles personnalisés avec prompt header",
+            "Cache DB triple : ai_cmd_cache, ai_block_cache, ai_process_cache",
+            "Format JSON strict garanti (nettoyage ```json automatique)",
+            "Auto-Copy dans le presse-papiers après génération",
+            "Générateur de commandes shell avec détection mode processus (&& / ;)"
+        ],
+        tags: ["IA Générative","JSON Strict","Cache DB","Auto-Copy","Rôles"],
+        img: "img4.png",
+        terminal: "💾 Nouvelle réponse sauvegardée (Cache Processus) | 📋 Copié !"
+    },
+    {
+        title: "Tableau de Bord DevOps Complet",
+        subtitle: "PostgreSQL • Redis • Nginx • SSL • NFS • SSH • Venv",
+        description: "Gérez toute votre infrastructure sans ligne de commande. Démarrage/arrêt en 1 clic, configuration SSL auto-signée, partage NFS, connexion SSH TTY native, environnements virtuels Python.",
+        features: [
+            "PostgreSQL : Init, Create DB, Start/Stop avec chown/chmod sudo auto",
+            "Redis : Bind IP/port, persistance AOF, daemonize",
+            "SSL : Génération OpenSSL auto-signée → /etc/pki/nginx/",
+            "Nginx : Config visuelle (reverse proxy, load balancer, static/media)",
+            "SSH Client TTY natif + NFS Server/Client mount/unmount",
+            "Venv : Create, Install Pkg, Activate Shell TTY"
+        ],
+        tags: ["PostgreSQL","Redis","Nginx","SSL","NFS","SSH","Venv"],
+        img: "img5.png",
+        terminal: "✅ PostgreSQL démarré | 🔒 SSL généré | 🌐 Nginx restarted"
+    },
+    {
+        title: "Terminal Log & Analyseur IA",
+        subtitle: "Logs temps réel + Analyse IA + Générateur Cmd",
+        description: "Console intégrée avec logs horodatés persistés en fichier. Deux outils IA puissants : analyseur de logs (collez une erreur → solution JSON) et générateur de commandes (décrivez en français → commande Linux exacte).",
+        features: [
+            "Logs horodatés [HH:MM:SS] avec écriture fichier studio.log",
+            "Analyseur Logs IA : collez l'erreur → diagnostic JSON structuré",
+            "Générateur Cmd IA : description FR → commande shell précise",
+            "Mode processus détecté automatiquement (mots-clés : liste, puis, ensuite)",
+            "Auto-Run : exécution automatique après génération",
+            "TTY Native pour commandes interactives (top, nano, ssh)"
+        ],
+        tags: ["Terminal","Log Analysis","Cmd Generator","TTY Native","Auto-Run"],
+        img: "img6.png",
+        terminal: "[09:04:16] GET /notifications/count/ HTTP/1.1\" 200 12"
+    },
+    {
+        title: "Mini GitHub Desktop Intégré",
+        subtitle: "Clone • Status • Add • Commit & Push en GUI",
+        description: "Gérez vos dépôts Git sans quitter le Studio. Clonage intelligent avec vérification dossier non-vide, commit & push séquentiel, affichage des sorties Git en temps réel.",
+        features: [
+            "Clonage avec sécurité : refuse d'écraser un dossier non-vide",
+            "Séquence Add → Commit → Push automatisée",
+            "Dialog message de commit avec validation",
+            "Sortie Git affichée dans log-view colorée",
+            "Chemin local browseable + URL HTTPS/SSH"
+        ],
+        tags: ["Git","Clone","Commit","Push","GUI"],
+        img: "img7.png",
+        terminal: "✅ Séquence Commit & Push terminée avec succès 🎉"
+    },
+    {
+        title: "Architecture Capsule Gykhamine OS",
+        subtitle: "/1/gy.py (Root) • /2/gy.py (User) • my_project (Django)",
+        description: "Gykhamine inverse le paradigme OS classique : le système est immuable, la capsule définit l'identité fonctionnelle. Trois couches hiérarchiques séparées par privilèges pour une résilience maximale.",
+        features: [
+            "/1/gy.py (ROOT) : Orchestrateur système — PostgreSQL, Redis, Nginx, Firewall, Network",
+            "/2/gy.py (USER) : Expérience utilisateur — périphériques, macros, profils, automations locales",
+            "my_project (DJANGO) : Cœur métier — POS, Stocks, Facturation, Monitoring, API DRF",
+            "Cycle d'exécution déterministe : amorçage → détection → infra → user → métier",
+            "Reconstruction automatique après crash/redémarrage brutal",
+            "Portabilité contrôlée : déplacer /Gykhamine/ = reproduire le système"
+        ],
+        tags: ["Capsule","Immuable","Root/User Separation","Deterministic","Resilient"],
+        img: "img8.png",
+        terminal: "/Gykhamine/ détecté → /1/gy.py (sudo) → /2/gy.py → Django READY"
+    },
+    {
+        title: "Stack Technique & Avantage Architectural",
+        subtitle: "Fedora Core 44 • SELinux Enforcing • Stack Complète",
+        description: "Une radiographie complète de la puissance embarquée. Fedora 44 avec packages à jour, SELinux enforcing par défaut, stack Python complète pour data science, visualisation, traitement média et communication temps réel.",
+        features: [
+            "Django 6.0.5 + DRF 3.17.1 + Gunicorn 26.0.0 + Channels 4.3.2",
+            "PostgreSQL (psycopg2) + Redis 7.4.0 + Celery 5.6.3 + django-celery-beat",
+            "Data Science : numpy 2.4.5 + pandas 3.0.3 + polars 1.40.1 + scikit-learn 1.8.0",
+            "Visualisation : matplotlib + seaborn + plotly (interactive)",
+            "Média : Pillow + OpenCV + QRCode/pyzbar + moviepy/ffmpeg",
+            "Sécurité : django-axes + django-ratelimit + argon2-cffi + cryptography 46.0.7",
+            "SELinux Enforcing + firewalld + systemd complet + dnf5 + podman rootless"
+        ],
+        tags: ["Fedora44","SELinux","Django6","Celery","OpenCV","Plotly","Argon2"],
+        img: "img9.png",
+        terminal: "fc44 packages ✓ | SELinux Enforcing ✓ | Stack complète chargée"
+    },
+    {
+        title: "Écosystème Business & Cartouches",
+        subtitle: "3 Leviers de Monétisation • Souveraineté Numérique",
+        description: "Gykhamine OS sépare l'OS immuable (gratuit) du code applicatif (vos Cartouches). Architecture conçue pour monétiser vos compétences dans des environnements à connectivité instable.",
+        features: [
+            "Vente de Cartouches Clés en Main : POS, Gestion Scolaire, Clinique — clé USB prête à l'emploi",
+            "Abonnements Maintenance Pro : mises à jour code métier, scripts automation périphériques locaux",
+            "Intégration Matérielle Locative : reconditionnement + OS + Cartouche pré-configurée → revenus récurrents",
+            "100% Local : fonctionne sans Internet, données souveraines, zéro licence système",
+            "Déploiement éclair : changer d'activité = remplacer le dossier Gykhamine/ (2 min vs 3h)",
+            "Marché vierge : PME, commerces, écoles, cliniques cherchent solutions offline modernes"
+        ],
+        tags: ["Business Model","Cartouches","Local First","Souveraineté","Offline","ROI"],
+        img: "img10.png",
+        terminal: "💰 Modèle : Vente Cartouche + Maintenance + Location Hardware"
+    },
+    {
+        title: "Gestion Système Avancée",
+        subtitle: "Firewall UFW • Réseau DHCP/Statique • DNS/TOR/DNF/PIP",
+        description: "Panneau de gestion système complet avec onglets dédiés. Firewall UFW visuel, configuration réseau DHCP/statique, services systemd avec auto-start DB, DNS client + dnsmasq formulaire, TOR, DNF avec repo path custom, PIP venv-aware.",
+        features: [
+            "Firewall UFW : enable/disable, allow/deny port+proto, status live",
+            "Réseau : détection auto interface/IP, switch DHCP↔Statique, apply via sudo bash",
+            "Systemd : recherche/filtrage services, start/stop/toggle auto-start (persisté DB liveos_services)",
+            "DNS : resolv.conf lecture/écriture sudo, dnsmasq formulaire (upstream, hosts locaux, blocage)",
+            "TOR : install, fix permissions /run/tor, start/stop, vérification IP via curl SOCKS5",
+            "DNF : search/install/download avec résolution dépendances, chemin repos custom",
+            "PIP : système ou venv, install/download/uninstall, destination custom"
+        ],
+        tags: ["UFW","Network","Systemd","DNS","TOR","DNF","PIP"],
+        img: "img11.png",
+        terminal: "✅ UFW activé | 🌐 IP statique appliquée | 🔧 dnsmasq configuré"
+    },
+    {
+        title: "Documentation Master Django & Python",
+        subtitle: "37 Sections Exhaustives • Recherche • Neo4J Style",
+        description: "Documentation intégrée exhaustive couvrant 37 thèmes : bases multi-langages, architecture MVT, modèles Django, ORM, vues FBV/CBV, décorateurs, formulaires, templates, tags/filtres, sécurité, API DRF, Channels, Celery, déploiement production.",
+        features: [
+            "Navigation sidebar avec recherche instantanée (titre + mots-clés)",
+            "37 sections : Intro, MVT, Models, Fields, Views, Decorators, Forms, Templates, ORM, Security, API, Channels, Celery, Deploy...",
+            "Code snippets copiables pour chaque concept",
+            "Style Neo4J : sidebar sombre + contenu clair avec formatage Markdown-like",
+            "Contenu exhaustif : listes fields, options, filtres, réponses HTTP, lookups ORM",
+            "Accessible depuis le bouton 📚 Documentation Master Django dans le Control Panel"
+        ],
+        tags: ["Documentation","Django","Python","Search","Exhaustive","Neo4J"],
+        img: "img12.png",
+        terminal: "📚 37 sections chargées | 🔍 Recherche active..."
+    },
+    {
+        title: "Mode Présentation Immersif",
+        subtitle: "Fullscreen • URLs Accessibles • Logs Temps Réel",
+        description: "Présentez votre projet dans un environnement immersif plein écran. Navigation fluide entre les URLs accessibles, copie rapide des liens, monitoring des serveurs actifs.",
+        features: [
+            "Toggle fullscreen ⛶ depuis la header bar",
+            "Popup URLs Accessibles : liste serveurs actifs avec bouton Copier",
+            "Détection auto : Django Dev, Gunicorn, Llama.cpp",
+            "Logs temps réel visibles dans le terminal panel",
+            "Interface épurée professionnelle pour démonstrations clients"
+        ],
+        tags: ["Fullscreen","Presentation","URLs","Monitoring","Demo"],
+        img: "img13.png",
+        terminal: "http://127.0.0.1:8001 ✓ Copié dans le presse-papiers"
+    },
+    {
+        title: "Gestion Bases de Données Visuelle",
+        subtitle: "Visualisation Tables • Export CSV/Excel • Illimité",
+        description: "Explorez TOUTES les données de votre base Django sans limite. Tableau interactif avec clés primaires (🔑) et foreign keys (🔗) colorées. Export CSV et Excel (Pandas) en un clic.",
+        features: [
+            "Récupération ORM complète : toutes les tables, toutes les lignes (pas de LIMIT)",
+            "Affichage hiérarchique : PK en or, FK en bleu, colonnes normales en blanc",
+            "Export CSV natif avec encoding UTF-8",
+            "Export Excel via Pandas + openpyxl avec mise en forme",
+            "Fallback graceful si table trop volumineuse (timeout 60s)",
+            "Backup automatique .bak timestampé avant chaque sauvegarde fichier"
+        ],
+        tags: ["Database","ORM","CSV","Excel","Pandas","Visualization"],
+        img: "img14.png",
+        terminal: "✅ Export Excel réussi: rapport.xlsx (1247 lignes)"
+    },
+    {
+        title: "Archivage ZIP & Capsules Gykhamine",
+        subtitle: "Compress/Decompress • Run Capsules 1/2",
+        description: "Compressez votre projet entier en ZIP propre (exclusion __pycache__, .git, venv, node_modules). Décompressez des archives. Lancez les capsules Gykhamine /1/gy.py (sudo) et /2/gy.py directement depuis l'interface.",
+        features: [
+            "Compression ZIP avec exclusion intelligente des dossiers inutiles",
+            "Décompression avec choix du dossier cible",
+            "Run Capsule /1/gy.py avec sudo (infrastructure système)",
+            "Run Capsule /2/gy.py sans sudo (couche utilisateur)",
+            "Logs d'exécution capturés dans le terminal panel",
+            "Sauvegarde automatique .bak avant chaque modification fichier"
+        ],
+        tags: ["ZIP","Archive","Capsule","Run","Backup"],
+        img: "img15.png",
+        terminal: "🗜 Project compressed: Boutique_ERP.zip | ✅ Run /1/gy.py (sudo)"
+    },
+    {
+        title: "Sécurité & Permissions Système",
+        subtitle: "Sudo Sécurisé • Chown/Chmod Auto • Audit Logs",
+        description: "Gestion sécurisée des opérations privilégiées. Toutes les commandes sudo sont encapsulées avec capture d'erreur, logs d'audit complets, et fallback gracieux. Protection contre les erreurs de permission sur NTFS/exFAT.",
+        features: [
+            "Sudo via subprocess.run avec check=True et capture_output",
+            "Chown/chmod automatiques pour PostgreSQL data directory",
+            "Protection chmod ignorée sur systèmes non-Linux (NTFS/exFAT)",
+            "Audit log complet dans studio.log avec timestamps",
+            "Fallback gracieux quand root access insuffisant",
+            "Validation des chemins avant exécution sudo"
+        ],
+        tags: ["Security","Sudo","Audit","Permissions","Fallback"],
+        img: "img16.png",
+        terminal: "⚠️ chmod ignoré (support non-Linux) | ✅ sudo mkdir -p /var/lib/pgsql/data"
+    },
+    {
+        title: "Philosophie GCI & Résilience",
+        subtitle: "Technologie d'Émancipation • Offline First • Brazzaville",
+        description: "Gykhamine Studio n'est pas qu'un outil technique. C'est une philosophie : la technologie comme outil d'émancipation, pas comme barrière élitiste. Conçu à Brazzaville pour fonctionner dans des environnements instables.",
+        features: [
+            "Offline First : fonctionne sans Internet, données 100% locales",
+            "Résilience : reconstruction automatique après crash/coupure",
+            "Simplicité radicale : cliquer > taper, visible > abstrait",
+            "Souveraineté : vos données, votre machine, vos règles",
+            "Communauté ouverte : issues GitHub, support communautaire",
+            "Conçu pour l'Afrique : coupures électriques, connectivité instable, machines modestes"
+        ],
+        tags: ["GCI","Brazzaville","Offline","Resilience","Emancipation","Africa"],
+        img: "img17.png",
+        terminal: "🇨🇬 GCI — Gykhamine Concept Investigation | Brazzaville, Congo"
+    }
+];
+
+// ==========================================
+// GÉNÉRATION DES ÉTOILES
+// ==========================================
+function createStars() {
+    const c = document.getElementById('stars');
+    for (let i = 0; i < 250; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        s.style.left = Math.random()*100+'%';
+        s.style.top = Math.random()*100+'%';
+        const size = Math.random()*2.5+0.5;
+        s.style.width = size+'px';
+        s.style.height = size+'px';
+        s.style.setProperty('--dur', (Math.random()*4+2)+'s');
+        s.style.setProperty('--op', Math.random()*0.7+0.3);
+        c.appendChild(s);
+    }
+}
+
+// ==========================================
+// GÉNÉRATION DES SECTIONS
+// ==========================================
+function generateSections() {
+    const container = document.getElementById('sectionsContainer');
+    const nav = document.getElementById('navDots');
+
+    sectionsData.forEach((sec, i) => {
+        // Section
+        const el = document.createElement('section');
+        el.id = 'sec-'+(i+1);
+        el.innerHTML = `
+            <div class="content-grid">
+                <div class="text-panel">
+                    <h2>${sec.title}</h2>
+                    <p class="subtitle">${sec.subtitle}</p>
+                    <p>${sec.description}</p>
+                    <ul class="feature-list">
+                        ${sec.features.map(f=>'<li>'+f+'</li>').join('')}
+                    </ul>
+                    <div class="tag-container">
+                        ${sec.tags.map(t=>'<span class="tag">'+t+'</span>').join('')}
+                    </div>
+                    <div class="terminal-block typing-effect">$ ${sec.terminal}</div>
+                </div>
+                <div class="image-panel">
+                    <img src="${sec.img}" alt="${sec.title}" class="screenshot" loading="lazy">
+                </div>
+            </div>`;
+        container.appendChild(el);
+
+        // Dot nav
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.onclick = () => el.scrollIntoView({behavior:'smooth'});
+        nav.appendChild(dot);
+    });
+}
+
+// ==========================================
+// OBSERVER VISIBILITÉ & NAV ACTIVE
+// ==========================================
+function setupObserver() {
+    const sections = ['sec-0', ...sectionsData.map((_,i)=> 'sec-'+(i+1))];
+    const dots = document.querySelectorAll('.dot');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                const idx = sections.indexOf(entry.target.id);
+                dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+            }
+        });
+    }, { threshold: 0.15 });
+
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+    });
+}
+
+// ==========================================
+// PARALLAXE SOURIS
+// ==========================================
+document.addEventListener('mousemove', e => {
+    const mx = e.clientX/window.innerWidth - 0.5;
+    const my = e.clientY/window.innerHeight - 0.5;
+    document.querySelectorAll('.content-grid.visible').forEach(g => {
+        g.style.transform = `perspective(1200px) rotateY(${mx*1.5}deg) rotateX(${-my*1.5}deg)`;
+    });
+});
+
+// ==========================================
+// INIT
+// ==========================================
+window.addEventListener('load', () => {
+    createStars();
+    generateSections();
+    setupObserver();
+    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 600);
+});
+</script>
+</body>
+</html>
