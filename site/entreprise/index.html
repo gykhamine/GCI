@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GYKHAMINE - Une solution intelligente dans une clé USB</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css"/>
+<style>
+:root{
+    --gold:#f5c14b;
+    --bg:#05070c;
+    --panel:#0e1522;
+    --panel2:#111827;
+    --text-dim:#aaa;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+body{background:var(--bg);color:#fff;overflow-x:hidden;}
+a{color:inherit;}
+
+/* ===== HERO ===== */
+.hero{
+    min-height:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:50px 40px 40px;
+    background:radial-gradient(circle at top,#0d3b66,#05070c 70%);
+    position:relative;
+}
+.eyebrow{
+    color:var(--gold);
+    letter-spacing:2px;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+.container{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:40px;
+    max-width:1100px;
+    width:100%;
+}
+.left h1{font-size:42px;color:var(--gold);line-height:1.05;margin-bottom:12px;}
+.left h2{font-size:24px;font-weight:700;margin-bottom:16px;}
+.left h2 span{color:var(--gold);}
+.tagline{color:var(--text-dim);font-size:14px;margin-bottom:24px;line-height:1.55;}
+.features{display:grid;gap:10px;}
+.feature{
+    background:var(--panel);
+    padding:12px 14px;
+    border-left:4px solid var(--gold);
+    border-radius:10px;
+    transition:.25s;
+}
+.feature:hover{transform:translateX(3px);background:#121b2c;}
+.feature h3{color:var(--gold);margin-bottom:4px;font-size:13px;}
+.feature p{color:#ccc;font-size:12px;line-height:1.45;}
+.cta-row{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;}
+.button{
+    display:inline-block;
+    padding:12px 26px;
+    background:var(--gold);
+    color:#000;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:700;
+    font-size:13px;
+    transition:.3s;
+}
+.button:hover{transform:scale(1.05);}
+.button.outline{
+    background:transparent;
+    border:2px solid var(--gold);
+    color:var(--gold);
+}
+
+.right{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px;}
+.usb-wrap{position:relative;width:100%;max-width:300px;}
+.usb-wrap img{width:100%;filter:drop-shadow(0 0 30px #00c8ff55);}
+.brand-badge{
+    background:var(--panel2);
+    padding:12px 18px;
+    border-radius:12px;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.brand-badge img{width:38px;height:38px;object-fit:contain;border-radius:8px;background:#fff;padding:4px;}
+.brand-badge p{color:#ccc;font-size:11px;text-align:left;}
+.brand-badge p strong{color:var(--gold);}
+
+/* ===== STATS BAR ===== */
+.stats{
+    background:var(--panel2);
+    padding:30px 40px;
+    display:flex;
+    justify-content:center;
+    gap:36px;
+    flex-wrap:wrap;
+    text-align:center;
+    border-top:1px solid #1f2937;
+    border-bottom:1px solid #1f2937;
+}
+.stat .num{font-size:28px;font-weight:800;color:var(--gold);}
+.stat .label{color:var(--text-dim);font-size:11px;margin-top:4px;}
+
+/* ===== PROBLEME / AVANTAGES ===== */
+.section{padding:56px 40px;max-width:1000px;margin:auto;}
+.section h2.title{
+    font-size:23px;
+    text-align:center;
+    margin-bottom:10px;
+}
+.section h2.title span{color:var(--gold);}
+.section .sub{
+    text-align:center;
+    color:var(--text-dim);
+    max-width:560px;
+    margin:0 auto 32px;
+    font-size:13px;
+    line-height:1.55;
+}
+.grid5{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+.card{
+    background:var(--panel);
+    padding:18px 12px;
+    border-radius:12px;
+    text-align:center;
+    border:1px solid #1f2937;
+}
+.card .icon{font-size:22px;margin-bottom:8px;}
+.card h4{color:var(--gold);font-size:12px;margin-bottom:6px;}
+.card p{color:#bbb;font-size:11px;line-height:1.45;}
+
+.enjeu-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+.enjeu-item{
+    background:var(--panel);
+    border:1px solid #1f2937;
+    border-radius:12px;
+    padding:18px;
+}
+.enjeu-item h4{color:var(--gold);font-size:13px;margin-bottom:8px;line-height:1.35;}
+.enjeu-item p{color:#bbb;font-size:11.5px;line-height:1.55;}
+
+/* ===== CTA FINAL ===== */
+.cta-final{
+    background:radial-gradient(circle at center,#0d3b66,#05070c 75%);
+    padding:56px 40px;
+    text-align:center;
+}
+.cta-final h2{font-size:21px;color:var(--gold);margin-bottom:10px;}
+.cta-final p{color:#ccc;max-width:560px;margin:0 auto 24px;line-height:1.6;font-size:13px;}
+
+footer{
+    background:#0d1117;
+    padding:26px 40px;
+    text-align:center;
+    color:#777;
+    font-size:11px;
+    border-top:1px solid #1f2937;
+}
+footer strong{color:var(--gold);}
+
+@media(max-width:1000px){
+    .container{grid-template-columns:1fr;}
+    .grid5{grid-template-columns:repeat(2,1fr);}
+    .enjeu-grid{grid-template-columns:1fr;}
+    .stats{gap:24px;padding:26px 16px;}
+}
+@media(max-width:600px){
+    .hero{padding:36px 18px;}
+    .left h1{font-size:30px;}
+    .left h2{font-size:19px;}
+    .section{padding:36px 18px;}
+    .grid5{grid-template-columns:1fr;}
+    .brand-badge{flex-direction:column;text-align:center;}
+    .brand-badge p{text-align:center;}
+}
+
+@view-transition {
+  navigation: auto;
+}
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: .32s;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://gykhamine.github.io/GCI">
+    <img class="nav-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+    <span><span class="nav-brand-name">GCI</span></span>
+  </a>
+  <a href="../menu/index.html" class="nav-cta">Menu</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+
+    <div class="left">
+        <div class="eyebrow">VOTRE ENTREPRISE • VOTRE MAÎTRISE • VOTRE PERFORMANCE</div>
+        <h1>GYKHAMINE</h1>
+        <h2>Une solution <span>intelligente</span> dans une clé USB</h2>
+        <p class="tagline">
+            Toute votre gestion professionnelle dans une seule clé USB.
+            Branchez. Démarrez. Travaillez. Sans connexion internet, sans installation complexe.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🧠 Intelligence Artificielle</h3>
+                <p>Agent Gy analyse, automatise et assiste votre activité en temps réel.</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Déploiement immédiat</h3>
+                <p>Aucune installation complexe. Il suffit de brancher la clé USB.</p>
+            </div>
+            <div class="feature">
+                <h3>🔒 Sécurité</h3>
+                <p>Vos données restent sous votre contrôle, chez vous, sans dépendre du cloud.</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Gestion complète</h3>
+                <p>Commerce, école, clinique, entreprise, administration, stock, ventes, comptabilité et bien plus.</p>
+            </div>
+            <div class="feature">
+                <h3>🚀 Productivité</h3>
+                <p>Automatisez les tâches répétitives et prenez de meilleures décisions grâce à l'IA.</p>
+            </div>
+        </div>
+
+        <div class="cta-row">
+            <a class="button" href="../index.html">Découvrir GYKHAMINE</a>
+            <a class="button outline" href="#contact">Procurez-vous la clé</a>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="usb-wrap">
+            <img src="../assets/statics/usb.png" alt="Clé USB GYKHAMINE">
+        </div>
+        <div class="brand-badge">
+            <img src="../assets/statics/3.png" alt="Logo GCI - GYKHAMINE">
+            <p>Un produit du projet <strong>GCI</strong></p>
+        </div>
+    </div>
+
+</div>
+</section>
+
+
+<!-- POURQUOI CHOISIR -->
+<section class="section">
+    <h2 class="title">Pourquoi choisir <span>GYKHAMINE</span> ?</h2>
+    <p class="sub">Une plateforme pensée pour les réalités du terrain : autonome, sécurisée, et accessible même sans connexion internet fiable.</p>
+
+    <div class="grid5">
+        <div class="card"><div class="icon">⚡</div><h4>COMPLET & AUTONOME</h4><p>Tout ce dont vous avez besoin dans une seule clé USB.</p></div>
+        <div class="card"><div class="icon">🛡️</div><h4>SÉCURISÉ & CONFIDENTIEL</h4><p>Vos données restent chez vous, protégées et souveraines.</p></div>
+        <div class="card"><div class="icon">🚀</div><h4>RAPIDE À DÉPLOYER</h4><p>Aucune installation complexe. Branchez, démarrez, gérez.</p></div>
+        <div class="card"><div class="icon">⚙️</div><h4>POLYVALENT</h4><p>Idéal pour le commerce, les écoles, les entreprises, les services.</p></div>
+        <div class="card"><div class="icon">🧠</div><h4>INTELLIGENCE ARTIFICIELLE</h4><p>Agent Gy + algorithmes IA pour décider, prédire et assister.</p></div>
+    </div>
+</section>
+
+<!-- PROBLEME -->
+<section class="section" style="background:var(--panel2);border-radius:24px;">
+    <h2 class="title">Débordé par vos activités ?</h2>
+    <p class="sub">Si votre charge de travail vous dépasse, si vous perdez du temps dans la gestion, si vous manquez de visibilité ou d'outils efficaces… alors il est temps de passer à la vitesse supérieure avec <strong style="color:var(--gold)">GYKHAMINE</strong>.</p>
+
+    <div class="grid5">
+        <div class="card"><div class="icon">⏱️</div><h4>GAIN DE TEMPS</h4><p>Automatisez, planifiez, et concentrez-vous sur l'essentiel.</p></div>
+        <div class="card"><div class="icon">📈</div><h4>MEILLEURE PRODUCTIVITÉ</h4><p>Des outils puissants pour des résultats concrets.</p></div>
+        <div class="card"><div class="icon">🎯</div><h4>DÉCISION INTELLIGENTE</h4><p>Des analyses précises pour des choix gagnants.</p></div>
+        <div class="card"><div class="icon">💰</div><h4>ÉCONOMIES & PERFORMANCE</h4><p>Réduisez les coûts, augmentez vos profits.</p></div>
+        <div class="card"><div class="icon">👍</div><h4>SIMPLICITÉ & MOBILITÉ</h4><p>Emportez votre système partout avec vous.</p></div>
+    </div>
+</section>
+
+<!-- POURQUOI C'EST IMPORTANT POUR VOTRE ACTIVITÉ -->
+<section class="section" id="enjeu">
+    <h2 class="title">Ce que GYKHAMINE change <span>concrètement</span> pour vous</h2>
+    <p class="sub">Une clé USB n'est pas qu'un objet : c'est le moyen le plus simple de reprendre le contrôle de votre activité, sans dépendre d'internet, d'un serveur, ou d'un prestataire externe.</p>
+
+    <div class="enjeu-grid">
+        <div class="enjeu-item">
+            <h4>Sans connexion internet, votre activité continue</h4>
+            <p>À Brazzaville comme ailleurs, l'accès internet n'est pas toujours fiable. GYKHAMINE fonctionne localement : vos ventes, votre stock, votre comptabilité ne s'arrêtent jamais à cause d'une coupure réseau.</p>
+        </div>
+        <div class="enjeu-item">
+            <h4>Vos données vous appartiennent, pas à un cloud étranger</h4>
+            <p>Aucune dépendance à un serveur distant. Vos informations clients, vos chiffres et votre savoir-faire restent physiquement entre vos mains, sur votre clé.</p>
+        </div>
+        <div class="enjeu-item">
+            <h4>Un investissement, pas une dépense récurrente</h4>
+            <p>Pas d'abonnement mensuel obligatoire ni de frais cachés liés à un logiciel cloud. Vous achetez la clé, vous l'utilisez, elle vous appartient.</p>
+        </div>
+        <div class="enjeu-item">
+            <h4>Une seule clé pour tout votre système</h4>
+            <p>Plus besoin de jongler entre plusieurs logiciels ou cahiers. Commerce, école, clinique, stock, ventes : tout est centralisé et accessible en quelques secondes.</p>
+        </div>
+        <div class="enjeu-item">
+            <h4>Une IA qui travaille pour vous, pas à votre place</h4>
+            <p>Agent Gy observe votre activité et vous aide à anticiper les ruptures de stock, identifier les tendances de vente et prendre de meilleures décisions, sans expertise technique requise.</p>
+        </div>
+        <div class="enjeu-item">
+            <h4>Mobile comme votre entreprise</h4>
+            <p>Vous changez de poste, de boutique ou de bureau ? Votre système complet voyage avec vous, dans votre poche.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contact">
+    <h2>Procurez-vous GYKHAMINE dès maintenant</h2>
+    <p>Ne laissez plus la gestion ralentir votre entreprise. GYKHAMINE transforme une simple clé USB en une plateforme intelligente capable de centraliser vos applications métiers, d'automatiser vos tâches, de sécuriser vos données et d'assister vos décisions grâce à l'intelligence artificielle.</p>
+    <a class="button" href="../index.html">Commander ma clé GYKHAMINE</a>
+</section>
+
+<footer>
+  <div class="footer-logo-row">
+    <img class="footer-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+  </div>
+</footer>
+
+</body>
+</html>
