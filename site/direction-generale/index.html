@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Direction Générale — GCI</title>
+  <meta name="description" content="La Direction Générale de GCI (Gykhamine Concept Investigation)."/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="icon" href="../assets/statics/3.png"/>
+  <style>
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px;max-width:1100px;margin:0 auto;}
+    .team-card{background:var(--card);border:1px solid var(--sep);border-radius:var(--radius);overflow:hidden;text-align:center;box-shadow:var(--shadow);transition:transform .25s,border-color .25s,box-shadow .25s;}
+    .team-card:hover{transform:translateY(-5px);border-color:rgba(74,163,223,.35);box-shadow:var(--shadow-h);}
+    .team-photo{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,var(--bg1),var(--card-alt));display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--sep);position:relative;overflow:hidden;}
+    .team-photo img{width:100%;height:100%;object-fit:cover;}
+    .team-photo .avatar-fallback{width:76px;height:76px;border-radius:50%;background:var(--bg-navy);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:1.5rem;color:var(--gold3);}
+    .team-info{padding:20px 18px 26px;}
+    .team-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.5px;color:#fff;margin-bottom:4px;}
+    .team-role{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+    .team-bio{font-size:.85rem;color:var(--text2);line-height:1.6;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://gykhamine.github.io/GCI">
+    <img class="nav-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+    <span><span class="nav-brand-name">GCI</span></span>
+  </a>
+  <a href="../menu/index.html" class="nav-cta">Menu</a>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="../index.html">Accueil</a> › Direction Générale</div>
+  <h1>Direction Générale</h1>
+  <p>L'équipe qui porte la vision et la gouvernance de GCI (Gykhamine Concept Investigation).</p>
+</div>
+
+<section>
+  <div class="section-header">
+    <span class="section-tag">Gouvernance</span>
+    <h2 class="section-title">La Direction</h2>
+  </div>
+
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo">
+        <!-- Remplacer par une vraie photo : <img src="../assets/statics/nom-fichier.jpg" alt="Nom Prénom"/> -->
+        <span class="avatar-fallback">DG</span>
+      </div>
+      <div class="team-info">
+        <h3>Nom Prénom</h3>
+        <span class="team-role">Directeur Général</span>
+        <p class="team-bio">Fondateur de GCI, en charge de la stratégie globale du groupe et de la supervision de l'ensemble des activités.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <span class="avatar-fallback">DT</span>
+      </div>
+      <div class="team-info">
+        <h3>Nom Prénom</h3>
+        <span class="team-role">Directeur Technique</span>
+        <p class="team-bio">Responsable de l'architecture logicielle et du développement des produits Gykhamine (Studio, OS, Plateforme).</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <span class="avatar-fallback">DA</span>
+      </div>
+      <div class="team-info">
+        <h3>Nom Prénom</h3>
+        <span class="team-role">Directrice Administrative &amp; Financière</span>
+        <p class="team-bio">Pilote la gestion administrative, financière et les relations avec les partenaires du groupe.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <span class="avatar-fallback">RC</span>
+      </div>
+      <div class="team-info">
+        <h3>Nom Prénom</h3>
+        <span class="team-role">Responsable Commercial</span>
+        <p class="team-bio">Développe les partenariats commerciaux et accompagne les clients dans l'adoption des solutions GCI.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-row">
+    <img class="footer-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+  </div>
+</footer>
+
+</body>
+</html>

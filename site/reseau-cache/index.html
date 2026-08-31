@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gykhamine Hidden Network — GCI | Congo Brazzaville</title>
+  <meta name="description" content="Accédez à Gykhamine Hidden Network, le miroir .onion de GCI accessible via le réseau Tor."/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="icon" href="../assets/statics/3.png"/>
+  <style>
+    .onion-section{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px;background:var(--bg-navy);}
+    .onion-box{max-width:640px;width:100%;}
+    .onion-tag{display:inline-block;color:var(--gold);letter-spacing:2px;font-size:.78rem;font-weight:700;text-transform:uppercase;margin-bottom:18px;}
+    .onion-box h1{font-family:'Cinzel',serif;font-size:2.1rem;color:#fff;margin-bottom:14px;}
+    .onion-box p.desc{color:var(--text2);max-width:520px;margin:0 auto 34px;font-size:.98rem;line-height:1.7;}
+    .onion-address{font-family:'Barlow Condensed',monospace,sans-serif;font-size:1.05rem;word-break:break-all;background:var(--card-alt);border:1px solid var(--sep);border-radius:8px;padding:18px 22px;color:var(--gold3);margin-bottom:28px;}
+    .onion-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .onion-actions button{font-family:'Barlow Condensed',sans-serif;background:none;}
+    .copy-feedback{display:block;margin-top:16px;font-size:.85rem;color:var(--gold3);opacity:0;transition:opacity .25s;}
+    .copy-feedback.show{opacity:1;}
+    .onion-note{margin-top:36px;font-size:.8rem;color:var(--sep);color:rgba(74,163,223,.5);}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://gykhamine.github.io/GCI">
+    <img class="nav-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+    <span class="nav-brand-name">GCI</span>
+  </a>
+  <a href="../menu/index.html" class="nav-cta">Menu</a>
+</nav>
+
+<section class="onion-section">
+  <div class="onion-box">
+    <span class="onion-tag">Réseau Tor</span>
+    <h1>Gykhamine Hidden Network</h1>
+    <p class="desc">
+      Accédez à GCI via son service caché Tor. Nécessite le navigateur Tor.
+    </p>
+    <div class="onion-address" id="onionAddress">http://gykhaminecgi7qxk3p4z9wq8rr5v2m6t1n0j8ldxvm4y6a2e3f5h7c.onion</div>
+    <div class="onion-actions">
+      <a class="btn-primary" id="btnOuvrir" href="http://gykhaminecgi7qxk3p4z9wq8rr5v2m6t1n0j8ldxvm4y6a2e3f5h7c.onion">Ouvrir</a>
+      <button class="btn-outline" id="btnCopier" type="button">Copier</button>
+    </div>
+    <span class="copy-feedback" id="copyFeedback">Adresse copiée ✓</span>
+    <p class="onion-note">Cette adresse .onion n'est accessible que via le navigateur Tor.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-row">
+    <img class="footer-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+  </div>
+</footer>
+
+<script>
+document.getElementById('btnCopier').addEventListener('click', function(){
+  var address = document.getElementById('onionAddress').textContent.trim();
+  navigator.clipboard.writeText(address).then(function(){
+    var fb = document.getElementById('copyFeedback');
+    fb.classList.add('show');
+    setTimeout(function(){ fb.classList.remove('show'); }, 2000);
+  });
+});
+</script>
+
+</body>
+</html>

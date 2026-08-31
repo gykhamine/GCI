@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Menu — GCI</title>
+  <meta name="description" content="Plan du site GCI (Gykhamine Concept Investigation) — tous les liens vers les pages du groupe."/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="icon" href="../assets/statics/3.png"/>
+  <style>
+    .menu-subnav{
+      position:sticky; top:62px; z-index:90;
+      display:flex; gap:8px; overflow-x:auto;
+      padding:14px 24px; background:rgba(0,0,0,.97);
+      backdrop-filter:blur(14px); border-bottom:1px solid var(--sep);
+      -ms-overflow-style:none; scrollbar-width:none;
+    }
+    .menu-subnav::-webkit-scrollbar{display:none;}
+    .menu-subnav a{
+      flex:0 0 auto; font-family:'Barlow Condensed',sans-serif;
+      font-size:.82rem; font-weight:600; letter-spacing:1px; text-transform:uppercase;
+      color:var(--text2); padding:8px 16px; border-radius:20px;
+      border:1.5px solid rgba(74,163,223,.25); white-space:nowrap;
+      transition:border-color .2s, color .2s, background .2s;
+    }
+    .menu-subnav a:hover{ color:var(--gold3); border-color:var(--gold); }
+    .menu-subnav a.active{ background:var(--gold); border-color:var(--gold); color:#fff; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="https://gykhamine.github.io/GCI">
+    <img class="nav-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+    <span><span class="nav-brand-name">GCI</span></span>
+  </a>
+  <a href="../index.html" class="nav-cta">Accueil</a>
+</nav>
+
+<nav class="menu-subnav" id="menuSubnav">
+  <a href="#general">Général</a>
+  <a href="#services">Services</a>
+  <a href="#formation">Formation</a>
+  <a href="#os">Gykhamine OS</a>
+  <a href="#studio">Gykhamine Studio</a>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="../index.html">Accueil</a> › Menu</div>
+  <h1>Menu</h1>
+  <p>Toutes les pages du groupe GCI, au même endroit.</p>
+</div>
+
+<section id="general" style="scroll-margin-top:130px;">
+  <div class="section-header">
+    <span class="section-tag">GCI</span>
+    <h2 class="section-title">Général</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Accueil</h3>
+      <p>La page principale de GCI.</p>
+      <a href="../index.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>À propos</h3>
+      <p>Qui sommes-nous.</p>
+      <a href="../a-propos/index.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Direction Générale</h3>
+      <p>L'équipe de gouvernance de GCI.</p>
+      <a href="../direction-generale/index.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Produits</h3>
+      <p>Les solutions du groupe GCI.</p>
+      <a href="../produits/index.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>GYKHAMINE — clé USB</h3>
+      <p>Une solution intelligente dans une clé USB.</p>
+      <a href="../produits/gykhamine-usb.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Gykhamine Plateforme</h3>
+      <p>Hébergez vos propres services depuis votre PC via le réseau Tor.</p>
+      <a href="../produits/gykhamine-plateforme.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Contact</h3>
+      <p>Nous écrire ou nous appeler.</p>
+      <a href="../contact/index.html" class="card-link">Ouvrir</a>
+    </div>
+  </div>
+</section>
+
+<section class="situation-section" id="services" style="scroll-margin-top:130px;">
+  <div class="section-header">
+    <span class="section-tag">Interventions &amp; Écosystème</span>
+    <h2 class="section-title">Services</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Analyse &amp; aide à la décision</h3>
+      <a href="../services/analyse-decision.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Rapports &amp; tableaux de bord automatiques</h3>
+      <a href="../services/rapports-automatiques.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Solutions sur mesure</h3>
+      <a href="../services/solutions-sur-mesure.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Présence en ligne professionnelle</h3>
+      <a href="../services/presence-en-ligne.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Gykhamine Services — Accueil</h3>
+      <a href="../gsc/index.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Gykhamine Services — À propos</h3>
+      <a href="../gsc/about.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Gykhamine Services — Services</h3>
+      <a href="../gsc/services.html" class="card-link">Ouvrir</a>
+    </div>
+  </div>
+</section>
+
+<section id="formation" style="scroll-margin-top:130px;">
+  <div class="section-header">
+    <span class="section-tag">Apprentissage</span>
+    <h2 class="section-title">Formation</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Formations</h3>
+      <p>Apprends la programmation avec la Gykhamine.</p>
+      <a href="../formations/index.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>GCI Academy</h3>
+      <p>Table des matières de toutes nos ressources de cours.</p>
+      <a href="../formations/academy.html" class="card-link">Ouvrir</a>
+    </div>
+  </div>
+</section>
+
+<section class="situation-section" id="os" style="scroll-margin-top:130px;">
+  <div class="section-header">
+    <span class="section-tag">Écosystème</span>
+    <h2 class="section-title">Gykhamine OS</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><h3>Accueil</h3><a href="../os/index.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Installation</h3><a href="../os/installer.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Architecture</h3><a href="../os/architecture.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Avantages Archi</h3><a href="../os/avantage_architectural.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Capsules — Présentation</h3><a href="../os/capsules.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Capsules — Métier</h3><a href="../os/metier_capsule.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Capsules — Entreprise</h3><a href="../os/entreprise_capsule.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Capsules — Vendre</h3><a href="../os/vendre_capsules.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Business</h3><a href="../os/business.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>IA &amp; Code</h3><a href="../os/ia_et_concepteur.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Manifeste</h3><a href="../os/manifeste.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Support Concepteur</h3><a href="../os/support_concepteur.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Support</h3><a href="../os/support.html" class="card-link">Ouvrir</a></div>
+    <div class="service-card"><h3>Galerie</h3><a href="../os/galerie.html" class="card-link">Ouvrir</a></div>
+  </div>
+</section>
+
+<section id="studio" style="scroll-margin-top:130px;">
+  <div class="section-header">
+    <span class="section-tag">Documentation</span>
+    <h2 class="section-title">Gykhamine Studio</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Documentation interactive</h3>
+      <a href="../gykhamine-studio/documentation.html" class="card-link">Ouvrir</a>
+    </div>
+    <div class="service-card">
+      <h3>Fonctionnement &amp; Roadmap Tor</h3>
+      <a href="../gykhamine-studio/roadmap-tor.html" class="card-link">Ouvrir</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-row">
+    <img class="footer-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('#menuSubnav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function setActive(){
+    var pos = window.scrollY + 140;
+    var current = sections[0];
+    sections.forEach(function(sec){ if (sec && sec.offsetTop <= pos) current = sec; });
+    links.forEach(function(a){
+      a.classList.toggle('active', sections[links.indexOf(a)] === current);
+    });
+  }
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+})();
+</script>
+</body>
+</html>

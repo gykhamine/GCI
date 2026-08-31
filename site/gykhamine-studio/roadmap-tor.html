@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gykhamine Studio — Fonctionnement &amp; Roadmap Tor</title>
+<style>
+:root{
+    --primary:#4aa3df;
+    --secondary:#6bcfff;
+    --accent:#007acc;
+    --dark:#0a0a0a;
+    --darker:#050505;
+    --card-bg:rgba(17,17,17,.85);
+    --text:#e0e0e0;
+    --success:#2ecc71;
+    --warning:#f39c12;
+    --danger:#e74c3c;
+    --tor:#9b59b6;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Segoe UI',system-ui,sans-serif;
+    background:radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    color:var(--text);
+    min-height:100vh;
+    padding-bottom:80px;
+}
+a{color:var(--secondary);}
+code, .mono{font-family:'Fira Code','Consolas',monospace;font-size:.92em;}
+code{background:#111;border:1px solid rgba(74,163,223,.2);border-radius:4px;padding:1px 6px;color:var(--secondary);}
+
+.top-nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 24px;
+    background:rgba(5,5,5,.75);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(74,163,223,.15);
+}
+.top-nav a{font-size:13px;text-decoration:none;color:var(--secondary);opacity:.85;}
+.top-nav a:hover{opacity:1;}
+.top-nav .brand{font-weight:800;letter-spacing:2px;color:#e8f4ff;text-transform:uppercase;font-size:13px;display:flex;align-items:center;gap:10px;text-decoration:none;opacity:1;}
+.top-nav .brand-logo{width:26px;height:26px;object-fit:contain;border-radius:6px;}
+.top-nav .links{display:flex;align-items:center;gap:18px;}
+
+header.hero{
+    padding:70px 24px 50px;
+    text-align:center;
+}
+header.hero .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--secondary);opacity:.8;}
+header.hero h1{
+    font-size:clamp(28px,4.5vw,46px);
+    margin:12px 0 14px;
+    font-weight:800;letter-spacing:2px;text-transform:uppercase;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+header.hero p{max-width:680px;margin:0 auto;color:var(--secondary);opacity:.9;}
+
+main{max-width:940px;margin:0 auto;padding:0 22px;}
+section{margin-top:50px;}
+section h2{
+    font-size:1.5rem;color:var(--primary);text-transform:uppercase;letter-spacing:1.5px;
+    border-bottom:1px solid rgba(74,163,223,.15);padding-bottom:10px;margin-bottom:18px;
+}
+section h3{font-size:1rem;color:var(--secondary);margin:22px 0 8px;}
+p{margin-bottom:12px;}
+ul{margin:0 0 14px 22px;}
+ul li{margin-bottom:6px;}
+
+.panel{
+    background:var(--card-bg);backdrop-filter:blur(12px);
+    border:1px solid rgba(74,163,223,.2);border-radius:16px;
+    padding:18px 20px;margin:14px 0;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+.panel h4{color:var(--secondary);font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;}
+th,td{border:1px solid rgba(74,163,223,.15);padding:7px 10px;text-align:left;}
+th{background:rgba(74,163,223,.08);color:var(--secondary);}
+
+.roadmap{counter-reset:step;}
+.step{
+    position:relative;padding:18px 18px 18px 64px;
+    background:var(--card-bg);backdrop-filter:blur(12px);
+    border:1px solid rgba(74,163,223,.2);
+    border-left:3px solid var(--primary);
+    border-radius:14px;margin-bottom:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.step::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;left:16px;top:16px;width:32px;height:32px;border-radius:50%;
+    border:1px solid var(--primary);display:flex;align-items:center;justify-content:center;
+    font-family:'Fira Code',monospace;font-weight:bold;color:var(--primary);background:#000;
+}
+.step.tor-step{border-left-color:var(--tor);}
+.step.tor-step::before{border-color:var(--tor);color:#c07ee0;box-shadow:0 0 12px rgba(155,89,182,.5);}
+.step h3{margin:0 0 6px;color:#e8f4ff;font-size:15px;}
+.step .where{font-size:11px;color:var(--secondary);opacity:.7;margin-bottom:8px;}
+
+.callout{border:1px solid var(--danger);background:rgba(231,76,60,.08);border-radius:14px;padding:16px 18px;margin:18px 0;}
+.callout.security{border-color:var(--tor);background:rgba(155,89,182,.08);}
+.callout h4{color:var(--danger);font-size:13px;margin-bottom:6px;}
+.callout.security h4{color:#c07ee0;}
+
+.badge{display:inline-block;font-size:10px;font-weight:bold;border:1px solid rgba(74,163,223,.3);border-radius:4px;padding:1px 6px;background:#111;color:var(--text);margin-right:4px;}
+.badge.tor{border-color:var(--tor);color:#c07ee0;}
+
+footer{max-width:940px;margin:60px auto 0;padding:20px;border-top:1px solid rgba(74,163,223,.15);font-size:12px;color:var(--text);opacity:.55;text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+    <a class="brand" href="https://gykhamine.github.io/GCI">
+        <img class="brand-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+        Gykhamine Studio
+    </a>
+    <span class="links">
+        <a href="documentation.html">← Retour à la documentation interactive</a>
+    </span>
+</div>
+
+<header class="hero">
+    <div class="eyebrow">Documentation complémentaire</div>
+    <h1>Fonctionnement &amp; Roadmap Tor</h1>
+    <p>Comment fonctionne l'application, et comment l'utiliser pour développer un site Django puis l'exposer sous forme de service caché Tor (.onion) — de bout en bout, sans quitter l'app.</p>
+</header>
+
+<main>
+
+<section id="vue-ensemble">
+    <h2>Vue d'ensemble</h2>
+    <p>Gykhamine Studio réunit dans une seule application GTK4/Adwaita l'édition de code par blocs assistée par IA, le tableau de bord de projet, la gestion des services système et l'exposition réseau — y compris via Tor.</p>
+    <div class="panel">
+        <h4>En un coup d'œil</h4>
+        <ul>
+            <li><strong>Éditeur</strong> — le code est découpé en blocs logiques (imports, classes, fonctions, templates, styles…) navigables et éditables individuellement.</li>
+            <li><strong>IA intégrée</strong> — modification de blocs, analyse de logs, génération de commandes, gestion Git.</li>
+            <li><strong>Panneau de contrôle</strong> — démarre/arrête Dev Server, Gunicorn, PostgreSQL, Redis, Nginx, SSH, et le démon Tor.</li>
+            <li><strong>Exposition Tor</strong> — un service local (Dev Server ou Gunicorn) peut être publié en service caché .onion en un clic.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="architecture">
+    <h2>Architecture</h2>
+    <table>
+        <tr><th>Module</th><th>Rôle</th></tr>
+        <tr><td><code>app.py</code></td><td>Point d'entrée. Thème CSS global, dossier de travail au démarrage, fenêtre principale.</td></tr>
+        <tr><td><code>ai_engine.py</code></td><td>Moteur IA : modification de blocs, analyse de logs, commandes, Git.</td></tr>
+        <tr><td><code>parser.py</code></td><td>Découpe chaque fichier source en blocs logiques pour l'éditeur.</td></tr>
+        <tr><td><code>widgets/control_panel.py</code></td><td>Démarre/arrête tous les services système du projet ouvert.</td></tr>
+        <tr><td><code>widgets/project_dashboard.py</code></td><td>Statistiques du projet, graphe de liaison apps/modèles/vues/urls.</td></tr>
+        <tr><td><code>widgets/django_settings_dialog.py</code></td><td>Éditeur visuel de <code>settings.py</code> (DB, cache, sécurité…).</td></tr>
+        <tr><td><code>widgets/tor_hidden_service_dialog.py</code></td><td>Création et gestion des services cachés Tor (.onion).</td></tr>
+    </table>
+</section>
+
+<section id="panneau">
+    <h2>Panneau de contrôle &amp; services</h2>
+    <p>Chaque projet ouvert dispose de son propre Panneau de contrôle, une ligne par service, avec un bouton ▶ et un voyant d'état.</p>
+    <div class="grid2">
+        <div class="panel"><h4>Dev Server</h4><code>manage.py runserver</code> sur un port libre — développement et tests locaux.</div>
+        <div class="panel"><h4>Gunicorn</h4>Serveur WSGI proche production, HTTP ou HTTPS selon le certificat configuré.</div>
+        <div class="panel"><h4>PostgreSQL / Redis</h4>Identifiants réutilisés automatiquement dans <code>settings.py</code>.</div>
+        <div class="panel"><h4>Démon Tor <span class="badge tor">réseau</span></h4>Requis pour toute exposition en service caché.</div>
+    </div>
+    <p>Deux boutons « tout-en-un » démarrent Gunicorn (ou le Dev Server) <em>et</em> l'exposent aussitôt sur Tor.</p>
+</section>
+
+<section id="roadmap">
+    <h2>Roadmap : du projet vide au service .onion</h2>
+    <div class="roadmap">
+        <div class="step">
+            <div class="where">Premier lancement</div>
+            <h3>Choisir le dossier de travail</h3>
+            <p>Accueille la base locale, les logs, les modèles et les langues — indépendant des projets Django eux-mêmes.</p>
+        </div>
+        <div class="step">
+            <div class="where">Explorateur de fichiers</div>
+            <h3>Ouvrir ou créer le projet Django</h3>
+            <p>Détection automatique de <code>manage.py</code> / <code>settings.py</code> pour activer les outils Django.</p>
+        </div>
+        <div class="step">
+            <div class="where">Éditeur de blocs</div>
+            <h3>Développer vues, modèles et templates</h3>
+            <p>Navigation par blocs, assistée par l'IA pour générer ou modifier un bloc précis sans tout réécrire.</p>
+        </div>
+        <div class="step">
+            <div class="where">Éditeur visuel de settings.py</div>
+            <h3>Configurer base de données, cache, sécurité</h3>
+            <p>Blocs marqués et idempotents écrits dans <code>settings.py</code>, avec sauvegarde <code>.bak</code> automatique.</p>
+        </div>
+        <div class="step">
+            <div class="where">Panneau de contrôle</div>
+            <h3>Démarrer PostgreSQL / Redis si besoin</h3>
+            <p>Identifiants de connexion repris automatiquement, sans ressaisie.</p>
+        </div>
+        <div class="step">
+            <div class="where">Panneau de contrôle</div>
+            <h3>Tester en local avec le Dev Server</h3>
+            <p>Itérer via le Tableau de bord du projet (statistiques, graphe de liaison apps/modèles/vues/urls).</p>
+        </div>
+        <div class="step">
+            <div class="where">Avant toute exposition</div>
+            <h3>Passer en configuration « prête pour l'extérieur »</h3>
+            <p><code>DEBUG=False</code>, <code>ALLOWED_HOSTS</code> renseigné, fichiers statiques collectés — étape de sécurité, non facultative.</p>
+        </div>
+        <div class="step">
+            <div class="where">Panneau de contrôle</div>
+            <h3>Démarrer Gunicorn</h3>
+            <p>Bascule du serveur de développement vers un serveur WSGI adapté à une exposition.</p>
+        </div>
+        <div class="step tor-step">
+            <div class="where">Démon Tor</div>
+            <h3>Démarrer le démon Tor</h3>
+            <p>Section réseau dédiée du Panneau de contrôle — voyant violet distinct des services de projet.</p>
+        </div>
+        <div class="step tor-step">
+            <div class="where">Gestionnaire de services cachés</div>
+            <h3>Exposer le service sur Tor</h3>
+            <p>Bloc dédié dans <code>/etc/tor/torrc</code> (marqueurs <code>GSCODE_HS_BEGIN</code>/<code>END</code>), permissions du dossier de clés, redémarrage de Tor.</p>
+        </div>
+        <div class="step tor-step">
+            <div class="where">Gestionnaire de services cachés</div>
+            <h3>Récupérer l'adresse .onion</h3>
+            <p>Lecture automatique du fichier <code>hostname</code> généré par Tor après redémarrage.</p>
+        </div>
+        <div class="step">
+            <div class="where">Après mise en ligne</div>
+            <h3>Durcir et surveiller</h3>
+            <p><code>iptables</code>, politique sudoers/Polkit, Analyseur de logs IA pour repérer une activité anormale.</p>
+        </div>
+    </div>
+</section>
+
+<section id="securite">
+    <h2>Notes de sécurité</h2>
+    <div class="callout security">
+        <h4>Ce que l'automatisation Tor fait — et ne fait pas</h4>
+        <p>Le gestionnaire de services cachés automatise uniquement la configuration standard de Tor (<code>HiddenServiceDir</code> / <code>HiddenServicePort</code>). Il n'ajoute <strong>aucune authentification ni chiffrement supplémentaire</strong> : à vous de préparer le service exposé (Django/Gunicorn) pour une exposition publique.</p>
+    </div>
+    <div class="callout">
+        <h4>Un service caché reste un service réseau exposé</h4>
+        <p>Publier une adresse .onion protège l'emplacement réseau du serveur, pas les failles applicatives : <code>DEBUG=False</code>, <code>ALLOWED_HOSTS</code> corrects, dépendances à jour et permissions système restent nécessaires.</p>
+    </div>
+</section>
+
+</main>
+
+<footer style="display:flex;justify-content:center;padding:30px 20px;background:rgba(10,10,10,0.9);border-top:1px solid rgba(74,163,223,0.2)">
+    <img src="../assets/statics/3.png" alt="Logo GCI" style="width:32px;height:32px;object-fit:contain"/>
+</footer>
+
+</body>
+</html>
