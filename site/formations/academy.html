@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>GCI Academy </title>
+  <meta name="description" content="Accédez à l'ensemble des modules, chapitres et ressources textuelles de la formation GCI. Un parcours souverain et pratique."/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="icon" href="../assets/statics/3.png"/>
+  <style>
+    /* Ajustements mineurs pour le mode "Livre Virtuel" sans casser la compatibilité avec 1.css */
+    .academy-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .module-section {
+      margin-bottom: 60px;
+    }
+    .course-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0 0;
+    }
+    .course-list li {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--sep);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .course-list li:last-child {
+      border-bottom: none !important;
+    }
+    .course-link {
+      color: var(--teal3);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .course-link:hover {
+      opacity: 0.7; /* Effet de survol discret */
+    }
+    .btn-back {
+      color: var(--text2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 30px;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+    .btn-back:hover {
+      opacity: 1;
+    }
+
+    /* Barre de recherche des cours */
+    .course-search-wrap {
+      max-width: 640px;
+      margin: 0 auto 48px;
+    }
+    .course-search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card-alt);
+      border: 1.5px solid var(--sep);
+      border-radius: 30px;
+      padding: 12px 20px;
+      transition: border-color .2s;
+    }
+    .course-search-box:focus-within {
+      border-color: var(--gold);
+    }
+    .course-search-icon {
+      font-size: .95rem;
+      opacity: .7;
+    }
+    #courseSearch {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: 'Barlow', sans-serif;
+      font-size: .95rem;
+    }
+    #courseSearch::placeholder {
+      color: var(--text3);
+      opacity: .6;
+    }
+    #courseSearchClear {
+      background: none;
+      border: none;
+      color: var(--text3);
+      cursor: pointer;
+      font-size: .85rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+    }
+    #courseSearchClear.show {
+      opacity: .7;
+      pointer-events: auto;
+    }
+    #courseSearchClear:hover {
+      opacity: 1;
+      color: var(--gold3);
+    }
+    .course-search-count {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--text3);
+      margin-top: 12px;
+      opacity: .8;
+    }
+    .course-list li.is-hidden {
+      display: none !important;
+    }
+    .service-card.is-hidden,
+    .module-section.is-hidden {
+      display: none !important;
+    }
+    .course-link mark {
+      background: rgba(74,163,223,.35);
+      color: var(--gold3);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://gykhamine.github.io/GCI">
+    <img class="nav-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+    <span><span class="nav-brand-name">GCI</span></span>
+  </a>
+  <a href="../menu/index.html" class="nav-cta">Menu</a>
+</nav>
+
+<div class="academy-container">
+
+  <header style="text-align: center; margin-bottom: 60px; position: relative;">
+    <a href="../index.html" class="btn-back" style="position: absolute; left: 0; top: 0;">← Retour au site</a>
+    <img class="hero-logo" src="../assets/statics/3.png" alt="Logo GCI" style="max-width: 80px; margin-bottom: 16px;"/>
+    <span class="section-tag">GCI Academy</span>
+    <h1 class="section-title" style="font-size: 2.5rem; margin-top: 10px;">Table des Matières</h1>
+    <span class="gold-rule" style="margin: 20px auto;"></span>
+  </header>
+
+  <div class="course-search-wrap">
+    <div class="course-search-box">
+      <span class="course-search-icon">🔎</span>
+      <input type="text" id="courseSearch" placeholder="Rechercher un cours (titre, mot-clé)…" autocomplete="off"/>
+      <button type="button" id="courseSearchClear" aria-label="Effacer">✕</button>
+    </div>
+    <p id="courseSearchCount" class="course-search-count"></p>
+  </div>
+
+  <section class="module-section">
+    <div class="section-header" style="text-align: left;">
+      <span class="section-tag">Module Fondateur</span>
+      <h2 class="section-title" style="font-size: 1.8rem;">Gykhamine Concept Investigation (GCI)</h2>
+    </div>
+    <div class="services-grid" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="service-card" style="text-align: left;">
+        <div class="service-card-icon">🧠</div>
+        <h3>Cours Théoriques &amp; Vision Stratégique</h3>
+        <p>Compréhension de la donnée comme matière première de puissance, fondamentaux de l'automatisation et de l'architecture souveraine.</p>
+        
+        <ul class="course-list">
+          <li><a class="course-link" href="ressources/GCI.pdf">📄 Note d'introduction Générale (GCI.txt)</a> <span class="section-tag">Intro</span></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_Donnee_MatierePremiere_et_Pouvoir.pdf">📄 Donnée, Matière Première et Pouvoir</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Art_Automatisation_DataScience.pdf">📄 L'Art de l'Automatisation en DataScience</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_SaaS_Souverain_Palantir.pdf">📄 SaaS Souverain &amp; Modèle Palantir</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_Palantir_Influence_PersonalBranding.pdf">📄 Influence, Palantir &amp; Personal Branding</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_DataScience_PsychoSociale_Foules.pdf">📄 DataScience Psychosociale des Foules</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Maths_Appliquees_DataScience.pdf">📄 Mathématiques Appliquées à la DataScience</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_MachineLearning_DeepLearning_Exhaustif.pdf">📄 Machine Learning &amp; Deep Learning (Exhaustif)</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_DataScience_Exhaustif-1.pdf">📄 Cours DataScience Exhaustif - Partie 1</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_DataScience_Exhaustif-1%20%281%29.pdf">📄 Cours DataScience Exhaustif - Partie 1 (Alternative)</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_DataScience_IA_Datasets.pdf">📄 Intelligence Artificielle &amp; Datasets</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_SGBD_SQL_NoSQL_Exhaustif.pdf">📄 Systèmes de Gestion de Bases de Données (SQL &amp; NoSQL)</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_WebScraping_Python_Complet.pdf">📄 Web Scraping avec Python (Complet)</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_Image_Video_Son.pdf">📄 Traitement Numérique : Image, Vidéo et Son</a></li>
+          <li><a class="course-link" href="ressources/GCI/GCI_Cours_Administration_Souveraine_Linux_Fedora41.pdf">📄 Administration Souveraine sous Linux Fedora 41</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="section-header" style="text-align: left;">
+      <span class="section-tag">Infrastructure</span>
+      <h2 class="section-title" style="font-size: 1.8rem;">Commandes Linux &amp; Administration Système</h2>
+    </div>
+    <div class="services-grid" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="service-card" style="text-align: left;">
+        <div class="service-card-icon">💻</div>
+        <h3>Maîtrise du Terminal &amp; Environnement Unix</h3>
+        <p>Devenez maître de votre infrastructure et de la gestion de votre OS de manière autonome.</p>
+        
+        <ul class="course-list">
+          <li><a class="course-link" href="ressources/Commandes_linux/01_navigation_fichiers.pdf">📄 Chapitre 01 : Navigation et Gestion des Fichiers</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/02_manipulation_texte.pdf">📄 Chapitre 02 : Manipulation de Textes et Flux</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/03_gestion_processus.pdf">📄 Chapitre 03 : Gestion des Processus et Système</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/04_reseau_communications-2.pdf">📄 Chapitre 04 : Réseau et Communications</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/07_paquets_build-1.pdf">📄 Chapitre 07 : Gestion des Paquets et Compilation (Build)</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/08_compression_archivage-1.pdf">📄 Chapitre 08 : Compression et Archivage</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/09_securite_controle_acces.pdf">📄 Chapitre 09 : Sécurité et Contrôle d'Accès</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/10.pdf">📄 Chapitre 10 : Fichier Général</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/11_audit_journaux_rapports.pdf">📄 Chapitre 11 : Audit, Journaux et Rapports Systèmes</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/13_audio_video_multimedia.pdf">📄 Chapitre 13 : Flux Audio, Vidéo et Multimédia</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/14_diagnostic_depannage.pdf">📄 Chapitre 14 : Diagnostic et Dépannage Système</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/15_developpement_compilation.pdf">📄 Chapitre 15 : Environnement de Développement et Outils de Compilation</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/16_bluetooth_telephonie_mobile.pdf">📄 Chapitre 16 : Protocoles Bluetooth et Téléphonie Mobile</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/17_accessibilite.pdf">📄 Chapitre 17 : Outils et Configurations d'Accessibilité</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/20_smartcards_auth_materielle.pdf">📄 Chapitre 20 : Cartes à Puce et Authentification Matérielle</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/21_forensique_recuperation.pdf">📄 Chapitre 21 : Analyse Forensique et Récupération de Données</a></li>
+          <li><a class="course-link" href="ressources/Commandes_linux/22_anonymat_vpn-1.pdf">📄 Chapitre 22 : Sécurisation, Anonymat et Routage VPN</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="section-header" style="text-align: left;">
+      <span class="section-tag">Métier &amp; Business</span>
+      <h2 class="section-title" style="font-size: 1.8rem;">Data Science, Business Intelligence &amp; Freelancing</h2>
+    </div>
+    <div class="services-grid" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="service-card" style="text-align: left;">
+        <div class="service-card-icon">📈</div>
+        <h3>Analyse Pratique, ETL et Vente de Solutions</h3>
+        <p>Apprenez à concevoir des pipelines de données, à calculer des KPI pertinents et à valoriser vos compétences auprès des décideurs.</p>
+        
+        <ul class="course-list">
+          <li><a class="course-link" href="ressources/Datascience_base/08_kpi-1.pdf">📄 Indicateurs Clés de Performance (KPI)</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/09_pipeline_analyse_donnees-1.pdf">📄 Pipeline d'Analyse de Données</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/09b_python_bi_complet.pdf">📄 Python pour la Business Intelligence (Complet)</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/10_insights.pdf">📄 Extraction d'Insights et Interprétation</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/11_trouver_probleme_vendre_solution.pdf">📄 Trouver le Problème et Vendre la Solution</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/12_convaincre_numeriser.pdf">📄 Convaincre les Entreprises de se Numériser</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/13_se_rendre_indispensable.pdf">📄 Stratégies d'Inbound : Se Rendre Indispensable</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/14_modelisation_erp_securite.pdf">📄 Modélisation ERP et Architecture de Sécurité</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/15_comprehension_metier.pdf">📄 Immersion et Compréhension Métier</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/16_assistant_technique_decision.pdf">📄 Devenir un Assistant Technique à la Décision</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/17_pousser_client_a_parler.pdf">📄 Techniques d'Entretien : Pousser le Client à Parler</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/18_detecter_bon_prospect.pdf">📄 Qualification Commerciale : Détecter le Bon Prospect</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/19_clients_marches_cibles.pdf">📄 Cartographie des Clients et Marchés Cibles</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/20_mindset_principes_realites.pdf">📄 Mindset de l'Ingénieur Data : Principes et Réalités</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/21_business_intelligence.pdf">📄 Fondations de la Business Intelligence moderne</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/22_secteur_militaire.pdf">📄 Spécificités des Données du Secteur Militaire</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/23_guide_pratique_carriere.pdf">📄 Guide Pratique de Gestion de Carrière</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/24_guide_complet_etl.pdf">📄 Guide Complet des Processus ETL (Extract, Transform, Load)</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/26_nettoyage_guide_methode-1.pdf">📄 Méthodologie Rigoureuse de Nettoyage de Données</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/41_art_recolte_donnees.pdf">📄 L'Art de la Récolte Légale et Structurée de Données</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/arsenal-arguments-freelance.pdf">📄 L'Arsenal d'Arguments du Freelance Data</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/audit-base-freelance.pdf">📄 Cadre Méthodologique d'un Audit Data Freelance</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/cadre-etl-freelance.pdf">📄 Canevas Technique ETL pour les Projets Indépendants</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/cadre-python-automatisation.pdf">📄 Framework Interne Python pour l'Automatisation Régulière</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/codex-freelance-1.pdf">📄 Le Codex du Consultant Freelance (V1)</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/Document%20de%20Gykhamine">📄 Le Document d'Orientation Spécial de Gykhamine</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/guide-automatisation-analyse-donnees.pdf">📄 Guide d'Industrialisation de l'Analyse</a></li>
+          <li><a class="course-link" href="ressources/Datascience_base/pipeline-detection-resolution-vente.pdf">📄 Pipeline Intégré : Détection, Résolution et Vente</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="section-header" style="text-align: left;">
+      <span class="section-tag">Architecture Logique</span>
+      <h2 class="section-title" style="font-size: 1.8rem;">Gykhamine Studio — Développement &amp; Architecture Django</h2>
+    </div>
+    <div class="services-grid" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="service-card" style="text-align: left;">
+        <div class="service-card-icon">⚙️</div>
+        <h3>Architecture "Capsule" et Développement Modulaire</h3>
+        <p>Suivez la documentation technique pas-à-pas pour assembler, styliser et déployer des applications métiers robustes.</p>
+        
+        <ul class="course-list">
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_01_philosophie_capsule.pdf">📄 Chapitre 01 : La Philosophie du Système par Capsule</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_02_tables_modeles.pdf">📄 Chapitre 02 : Conception des Tables et des Modèles ORM</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_03_vues_logique_metier.pdf">📄 Chapitre 03 : Vues Django et Traitement de la Logique Métier</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_04_templates_et_apparence.pdf">📄 Chapitre 04 : Conception des Templates HTML et UI Dynamique</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_05_analyse_datascience.pdf">📄 Chapitre 05 : Intégration des Modules d'Analyse Data Science</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_06_bet_datascience.pdf">📄 Chapitre 06 : Outils Avancés de Data Science Appliquée</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_07_ontologie_modeles_conceptuels.pdf">📄 Chapitre 07 : Ontologie et Cartographie des Modèles Conceptuels</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_08_adapter_capsule_nouveau_domaine.pdf">📄 Chapitre 08 : Guide Polymorphique — Adapter une Capsule à un Nouveau Domaine</a></li>
+          <li><a class="course-link" href="ressources/Gykhamine_studio/chapitre_09_deploiement_et_evolution.pdf">📄 Chapitre 09 : Stratégies de Déploiement Local Securisé et Évolutions</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="section-header" style="text-align: left;">
+      <span class="section-tag">Sciences Dures</span>
+      <h2 class="section-title" style="font-size: 1.8rem;">Mathématiques Fondamentales &amp; Sciences Appliquées</h2>
+    </div>
+    <div class="services-grid" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="service-card" style="text-align: left;">
+        <div class="service-card-icon">🔬</div>
+        <h3>Outils Analytiques &amp; Modèles Déterministes</h3>
+        <p>Le socle théorique indispensable pour comprendre les algorithmes sous-jacents aux modèles de prévision.</p>
+        
+        <ul class="course-list">
+          <li><a class="course-link" href="ressources/Math%C3%A9matiques/bases_raisonnement_mathematique%20%281%29.pdf">📄 Fondations et Bases du Raisonnement Mathématique</a></li>
+          <li><a class="course-link" href="ressources/Math%C3%A9matiques/dictionnaire_symboles_mathematiques%20%281%29.pdf">📄 Le Dictionnaire Complet des Symboles Mathématiques</a></li>
+          <li><a class="course-link" href="ressources/Mathématiques/probabilites_et_statistiques.pdf">📄 Cours Magistral : Probabilités et Statistiques Inférentielles</a></li>
+          <li><a class="course-link" href="ressources/Mathématiques/guide_pratique_lois_probabilite.pdf">📄 Guide Pratique d'Utilisation des Lois de Probabilité</a></li>
+          <li><a class="course-link" href="ressources/Mathématiques/cours_mathematiques_avances.pdf">📄 Cours d'Algèbre Linéaire et d'Analyse Avancée</a></li>
+          <li><a class="course-link" href="ressources/Mathématiques/geometrie_plan_espace.txt.pdf">📕 Géométrie Fondamentale du Plan et de l'Espace (PDF)</a></li>
+          <li><a class="course-link" href="ressources/Mathématiques/cours_chimie_biologie.pdf">📄 Sciences Connexes : Principes Modélisés de Chimie et Biologie</a></li>
+          <li><a class="course-link" href="ressources/Mathématiques/physique_toutes_branches.txt.pdf">📕 Physique : Recueil de Modélisation toutes branches (PDF)</a></li>
+          <li><a class="course-link" href="ressources/Mathématiques/chapitre_final_top25.pdf">📄 Chapitre Final : Les 25 Théorèmes Cruciaux</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="section-header" style="text-align: left;">
+      <span class="section-tag">Programmation expert</span>
+      <h2 class="section-title" style="font-size: 1.8rem;">La Suite Éco-Système Python — Les Bibles Exhaustives</h2>
+    </div>
+    <div class="services-grid" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="service-card" style="text-align: left;">
+        <div class="service-card-icon">🐍</div>
+        <h3>Encyclopédie Technique des Librairies Standard et Tierces</h3>
+        <p>Documentation autonome sans connexion internet pour coder de l'acquisition de données à la cryptographie matérielle.</p>
+        
+        <ul class="course-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; padding: 0;">
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_builtins.pdf">📄 Python Builtins Standard</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_os_exhaustive.pdf">📄 Module standard 'os' &amp; Système</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_math_cmath.pdf">📄 Math &amp; Cmath Numérique</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_decimal_fractions.pdf">📄 Précision Arithmétique : Decimal &amp; Fractions</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_asyncio_exhaustive.pdf">📄 Programmation Asynchrone AsyncIO</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_csv_json_xml_lxml_exhaustive.pdf">📄 Parsing Structuré (CSV, JSON, XML, LXML)</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_pandas.pdf">📄 Pandas Fondations</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_pandas_exhaustive.pdf">📄 Pandas Manipulation de Données (Avancé)</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_numpy.pdf">📄 Calcul Matriciel NumPy</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_matplotlib.pdf">📄 Visualisation Statistique Matplotlib</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_openpyxl_exhaustive.pdf">📄 Manipulation de classeurs Excel OpenPyXL</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_bs4_exhaustive.pdf">📄 Scraping de pages Web BeautifulSoup 4</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_mysql_psycopg2_pymysql_exhaustive.pdf">📄 Connecteurs SQL (PostgreSQL, MySQL)</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_cv2_opencv_exhaustive.pdf">📄 Vision par Ordinateur OpenCV (cv2)</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_moviepy_exhaustive.pdf">📄 Montage et Rendu Vidéo Automatique MoviePy</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_pyaudio_exhaustive.pdf">📄 Captation et Traitement de Flux Audio PyAudio</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_fitz_pymupdf_exhaustive.pdf">📄 Extraction de Documents Fitz / PyMuPDF</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_fitz_generation_pdf_exhaustive.pdf">📄 Génération de Comptes Rendus PDF via Fitz</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_cryptography_exhaustive.pdf">📄 Chiffrement de Données Cryptography</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_hashlib_exhaustive.pdf">📄 Empreintes Cryptographiques Hashlib</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_pycryptodome_argon2_exhaustive.pdf">📄 Hachage de Mots de Passe Avancé (Argon2, PyCryptodome)</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_openssl_secrets_exhaustive.pdf">📄 Génération d'Entropie et Secrets OpenSSL</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_emails_ftp_exhaustive.pdf">📄 Automatisation de Courriels SMTPlib &amp; Transferts FTP</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_psutil_exhaustive.pdf">📄 Monitoring Système de Ressources PSUtil</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_psutil_pynput.pdf">📄 Interception d'Événements Clavier/Souris Pynput &amp; Psutil</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_gsmmodem_gsmtermlib_exhaustive.pdf">📄 Pilotage de Clés SMS Réseau via GsmModem Lib</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_africastalking_exhaustive.pdf">📄 Intégration de passerelles SMS/USSD Africa's Talking</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_esp32s3_exhaustive.pdf">📄 IoT &amp; MicroPython : Écosystème Hardware ESP32-S3</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_pycups_exhaustive.pdf">📄 Gestion d'Impression Physique en Python PyCUPS</a></li>
+          <li style="border: none; padding: 4px 0;"><a class="course-link" href="ressources/Python/bible_fail2ban_exhaustive.pdf">📄 Automatisation de Règles Défensives Actives Fail2Ban</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section" style="margin-bottom: 0;">
+    <div class="section-header" style="text-align: left;">
+      <span class="section-tag">Validation</span>
+      <h2 class="section-title" style="font-size: 1.8rem;">Feuilles de Route &amp; Travaux Pratiques</h2>
+    </div>
+    <div class="services-grid" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="service-card" style="text-align: left;">
+        <div class="service-card-icon">🎓</div>
+        <h3>Mise en Application Réelle sur le Terrain</h3>
+        <p>Roadmaps thématiques calquées sur des infrastructures locales pour valider vos compétences d'ingénierie.</p>
+        
+        <ul class="course-list">
+          <li><a class="course-link" href="ressources/traveaux_pratique/roadmap_ecole.pdf">📄 Projet Alpha : Système d'Information pour Établissement Scolaire</a></li>
+          <li><a class="course-link" href="ressources/traveaux_pratique/roadmap_eglise.pdf">📄 Projet Bêta : Plateforme d'Organisation et Base CRM Église</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<footer>
+  <div class="footer-logo-row">
+    <img class="footer-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('courseSearch');
+  var clearBtn = document.getElementById('courseSearchClear');
+  var countEl = document.getElementById('courseSearchCount');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.course-list li'));
+  var total = items.length;
+
+  function normalize(s){
+    return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function applyFilter(){
+    var raw = input.value.trim();
+    var query = normalize(raw);
+    clearBtn.classList.toggle('show', raw.length > 0);
+    var visibleCount = 0;
+
+    items.forEach(function(li){
+      var text = normalize(li.textContent);
+      var match = !query || text.indexOf(query) !== -1;
+      li.classList.toggle('is-hidden', !match);
+      if (match) visibleCount++;
+    });
+
+    document.querySelectorAll('.service-card').forEach(function(card){
+      var list = card.querySelector('.course-list');
+      if (!list) return;
+      var anyVisible = Array.prototype.some.call(list.querySelectorAll('li'), function(li){
+        return !li.classList.contains('is-hidden');
+      });
+      card.classList.toggle('is-hidden', !anyVisible);
+    });
+
+    document.querySelectorAll('.module-section').forEach(function(section){
+      var anyVisibleCard = Array.prototype.some.call(section.querySelectorAll('.service-card'), function(card){
+        return !card.classList.contains('is-hidden');
+      });
+      section.classList.toggle('is-hidden', !anyVisibleCard);
+    });
+
+    countEl.textContent = query
+      ? visibleCount + ' cours trouvé' + (visibleCount > 1 ? 's' : '') + ' sur ' + total
+      : '';
+  }
+
+  input.addEventListener('input', applyFilter);
+  clearBtn.addEventListener('click', function(){
+    input.value = '';
+    applyFilter();
+    input.focus();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formations — GCI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="icon" href="../assets/statics/3.png"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Barlow', sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    /* HEADER LOGO */
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 90px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .brand {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: var(--gold);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.3em;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--gold3);
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--card-alt);
+      border: 1px solid var(--sep);
+      padding: 25px;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: var(--gold3);
+      margin-top: 0;
+    }
+
+    .price-box {
+      display: grid;
+      gap: 10px;
+    }
+
+    .price {
+      background: rgba(74,163,223,0.08);
+      border: 1px solid var(--sep);
+      padding: 12px;
+      border-radius: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      padding: 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      transition: transform .15s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .drive { background: var(--gold); color: #fff; }
+    .drive:hover { background: var(--gold2); color: #fff; }
+    .contact { background: transparent; color: var(--text2); border: 1.5px solid rgba(74,163,223,.35); }
+    .contact:hover { border-color: var(--gold); color: var(--gold3); }
+    .home { background: transparent; color: var(--text3); border: 1.5px solid var(--sep); }
+    .home:hover { border-color: var(--gold); color: var(--gold3); }
+
+    .highlight {
+      color: var(--gold3);
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://gykhamine.github.io/GCI">
+    <img class="nav-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+    <span><span class="nav-brand-name">GCI</span></span>
+  </a>
+  <a href="../menu/index.html" class="nav-cta">Menu</a>
+</nav>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="../assets/statics/3.png" alt="Logo officiel" class="logo">
+    <div class="brand">Gykhamine Concept Investigation</div>
+  </div>
+
+  <h1>Apprends la Programmation avec la Gykhamine</h1>
+  <div class="subtitle">Python • Django • Linux • Data • IA</div>
+
+  <!-- INTRO -->
+  <div class="card">
+    <h2>🎯 Pourquoi cette formation ?</h2>
+    <p>
+      En 2026, les compétences numériques sont devenues essentielles.
+      Les entreprises recherchent des profils capables de comprendre :
+      <span class="highlight">le web, les données, l’intelligence artificielle et les systèmes Linux.</span>
+    </p>
+
+    <p>
+      Cette formation te donne une approche complète :
+      tu apprends à <strong>comprendre, construire et administrer des systèmes réels</strong>.
+    </p>
+  </div>
+
+  <!-- IMPORTANCE -->
+  <div class="card">
+    <h2>🚀 Pourquoi apprendre ces compétences aujourd’hui ?</h2>
+
+    <p>✔ Le développement web est la base de presque toutes les entreprises modernes.</p>
+    <p>✔ L’intelligence artificielle transforme tous les secteurs.</p>
+    <p>✔ La data science permet de prendre des décisions intelligentes.</p>
+    <p>✔ Linux est utilisé sur la majorité des serveurs dans le monde.</p>
+
+    <p>
+      Sans ces compétences, il devient difficile d’accéder aux métiers du numérique moderne.
+    </p>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="card">
+    <h2>💻 Ce que tu vas apprendre</h2>
+
+    <p>• Python (bases + avancé)</p>
+    <p>• Django (développement web)</p>
+    <p>• Administration Linux serveur</p>
+    <p>• PostgreSQL</p>
+    <p>• Redis</p>
+    <p>• Introduction Data & IA</p>
+  </div>
+
+  <!-- PRIX -->
+  <div class="card">
+    <h2>💰 Tarification</h2>
+
+    <div class="price-box">
+
+      <div class="price">
+        <strong>Inscription :</strong> 5 000 FCFA
+      </div>
+
+      <div class="price">
+        <strong>Frais mensuels :</strong> 15 000 FCFA / mois  
+        <br>→ accompagnement + assistance + suivi
+      </div>
+
+      <div class="price">
+        <strong>Kit USB complet :</strong> 15 000 FCFA  
+        <br>→ Linux + Python + Django + PostgreSQL + Redis préconfigurés
+      </div>
+
+    </div>
+
+    <p style="margin-top:15px;">
+      🔧 Le support est actif uniquement pour les membres payants.
+    </p>
+
+    <p>
+      🧠 L’accompagnement continue jusqu’à autonomie complète.
+    </p>
+  </div>
+<!-- BLOC CONTEXTE LOCAL + MOTIVATION -->
+<div class="card">
+  <h2>🌍 Pourquoi c’est important au Congo (Brazzaville)</h2>
+
+  <p>
+    Dans le contexte actuel, beaucoup de jeunes à Brazzaville ont des idées,
+    mais manquent d’outils techniques pour les transformer en projets réels.
+  </p>
+
+  <p>
+    Aujourd’hui, les entreprises numériques ne dépendent plus uniquement des grandes structures.
+    Une seule personne peut créer une <strong>plateforme, une application ou une entreprise digitale</strong>
+    avec les bonnes compétences.
+  </p>
+
+  <p>
+    Cette formation te donne les bases pour devenir autonome et construire tes propres systèmes :
+  </p>
+
+  <p>✔ Créer tes propres applications web avec Django</p>
+  <p>✔ Héberger tes projets sur ton propre serveur Linux</p>
+  <p>✔ Configurer une architecture complète (backend + base de données + cache)</p>
+  <p>✔ Déployer des solutions accessibles via Internet pour tes clients</p>
+
+  <p>
+    Tu n’es plus limité à utiliser des outils externes :
+    tu apprends à <span class="highlight">construire et contrôler ton propre environnement numérique</span>.
+  </p>
+
+  <p>
+    Cela signifie que tu peux :
+    <br>• Lancer ton entreprise digitale
+    <br>• Créer des plateformes pour des clients locaux ou internationaux
+    <br>• Gérer tes propres serveurs et services web
+  </p>
+</div>
+
+<!-- BLOC MÉTHODE / APPROCHE TECHNIQUE -->
+<div class="card">
+  <h2>🧠 Comment tu vas apprendre concrètement</h2>
+
+  <p>
+    La formation ne se limite pas à la théorie.
+    Tu vas travailler dans un environnement réel de développement.
+  </p>
+
+  <p>🔧 Installation et utilisation d’un serveur Linux</p>
+  <p>💻 Développement d’applications avec Python et Django</p>
+  <p>🗄️ Gestion de bases de données PostgreSQL</p>
+  <p>⚡ Optimisation avec Redis (performance et cache)</p>
+  <p>🌐 Déploiement d’applications accessibles en ligne</p>
+
+  <p>
+    Chaque étape te rapproche d’un objectif simple :
+    <strong>savoir créer et gérer une infrastructure complète comme un développeur professionnel</strong>.
+  </p>
+  </div>
+  <!-- ACTION -->
+  <div class="card">
+
+    <h2>📦 Accès à la formation</h2>
+
+    <div class="buttons">
+
+      <a class="btn drive" href="academy.html">
+        📚 Accéder aux bases gratuitement (Théorie)
+      </a>
+
+      <a class="btn contact" href="../contact/index.html">
+        📩 Nous contacter pour la pratique/acheter le Kit pratique
+      </a>
+
+      <a class="btn home" href="../index.html">
+        🏠 Accueil GCI
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer>
+  <div class="footer-logo-row">
+    <img class="footer-logo" src="../assets/statics/3.png" alt="Logo GCI"/>
+  </div>
+</footer>
+</body>
+</html>
