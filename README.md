@@ -24,22 +24,10 @@
   <a href="site/formations/index.html" style="text-decoration: none; color: #ffffff; border: 1px solid #333; padding: 10px 20px; border-radius: 4px; transition: all 0.3s; width: 250px; display: block;" onmouseover="this.style.borderColor='#ffffff';this.style.boxShadow='0 0 10px rgba(255,255,255,0.2)';" onmouseout="this.style.borderColor='#333';this.style.boxShadow='none';">
     Formation
   </a>
-
-  <a href="site/produits/index.html" style="text-decoration: none; color: #ffffff; border: 1px solid #333; padding: 10px 20px; border-radius: 4px; transition: all 0.3s; width: 250px; display: block;" onmouseover="this.style.borderColor='#ffffff';this.style.boxShadow='0 0 10px rgba(255,255,255,0.2)';" onmouseout="this.style.borderColor='#333';this.style.boxShadow='none';">
-    Produits
-  </a>
-
-  <a href="site/blog/index.html" style="text-decoration: none; color: #ffffff; border: 1px solid #333; padding: 10px 20px; border-radius: 4px; transition: all 0.3s; width: 250px; display: block;" onmouseover="this.style.borderColor='#ffffff';this.style.boxShadow='0 0 10px rgba(255,255,255,0.2)';" onmouseout="this.style.borderColor='#333';this.style.boxShadow='none';">
-    Blog
-  </a>
-  
-  <a href="site/entreprise/index.html" style="text-decoration: none; color: #ffffff; border: 1px solid #333; padding: 10px 20px; border-radius: 4px; transition: all 0.3s; width: 250px; display: block;" onmouseover="this.style.borderColor='#ffffff';this.style.boxShadow='0 0 10px rgba(255,255,255,0.2)';" onmouseout="this.style.borderColor='#333';this.style.boxShadow='none';">
-    Enterprise
-  </a>
-
-  <a href="site/gsc/index.html" style="text-decoration: none; color: #ffffff; border: 1px solid #333; padding: 10px 20px; border-radius: 4px; transition: all 0.3s; width: 250px; display: block;" onmouseover="this.style.borderColor='#ffffff';this.style.boxShadow='0 0 10px rgba(255,255,255,0.2)';" onmouseout="this.style.borderColor='#333';this.style.boxShadow='none';">
-    Services
-  </a>
 </div>
+
+<p style="color:#888888; font-size:0.9rem; margin-top:40px;">
+  Gykhamine OS : tout part de <code>Gykhamine/gy/gy.py</code>.
+</p>
 
 </div>
